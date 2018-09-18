@@ -1,0 +1,29 @@
+Notepad++
+https://notepad-plus-plus.org/download/v7.5.8.html
+
+
+Git
+https://git-scm.com/downloads
+
+
+
+
+Git Setup
+
+git config --global user.email "[YOUR EMAIL ID HERE : pratanu.mandal@gmail.com]"
+
+git config --global user.name "[YOUR FULL NAME HERE : Pratanu Mandal]"
+
+git remote add ars https://github.com/prat-man/AirlinesReservationSystem
+
+git pull ars master
+
+git branch [YOUR FIRST NAME (ALL lower case) HERE : pratanu]
+
+git checkout [YOUR FIRST NAME (ALL lower case) HERE : pratanu]
+
+git add *
+
+git commit
+
+git push --set-upstream ars [YOUR FIRST NAME (ALL lower case) HERE : pratanu]
