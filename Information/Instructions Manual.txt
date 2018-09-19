@@ -96,7 +96,11 @@ git pull ars master
 // Make whatever changes you want to your program (this is a comment)
 // I will elaborate on this later
 
+// If you are adding files
 git add *
+
+// If you are removing files
+git rm "[FILE NAME WITH RELATIVE PATH HERE]"
 
 git commit
 OR
