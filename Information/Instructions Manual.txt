@@ -97,7 +97,7 @@ git pull ars master
 // I will elaborate on this later
 
 // If you are adding files
-git add .
+git add *
 
 // If you are removing files
 git rm "[FILE NAME WITH RELATIVE PATH HERE]"
