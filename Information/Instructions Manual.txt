@@ -99,5 +99,9 @@ git pull ars master
 git add *
 
 git commit
+OR
+git commit -m "[MESSAGE]"
 
+git push --set-upstream ars [YOUR FIRST NAME (ALL lower case) HERE : pratanu]
+OR
 git push ars
