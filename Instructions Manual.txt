@@ -75,6 +75,7 @@ git pull ars master
 
 git branch [YOUR FIRST NAME (ALL lower case) HERE : pratanu]
 
+git checkout [YOUR FIRST NAME (ALL lower case) HERE : pratanu]
 
 
 
