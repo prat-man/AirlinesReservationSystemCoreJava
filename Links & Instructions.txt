@@ -30,4 +30,4 @@ git add *
 
 git commit
 
-git push --set-upstream ars [YOUR FIRST NAME (ALL lower case) HERE : pratanu]
+git push ars
