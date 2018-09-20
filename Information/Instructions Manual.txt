@@ -43,11 +43,11 @@ This is the project set-up process
 You have to do this only once on your laptop/PC
 
 
-Create a folder in D drive with name Mini Project
+Create the path in D:/Eclipse Workspace/AirlinesReservationSystem
 
-Open the folder D:/Mini Project
+Open the folder D:/Eclipse Workspace/AirlinesReservationSystem
 
-Open Git Bash inside D:/Mini Project
+Open Git Bash inside D:/Eclipse Workspace/AirlinesReservationSystem
 
 
 
