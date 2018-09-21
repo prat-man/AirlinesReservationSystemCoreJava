@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                      http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+  version="2.0">
+    <persistence-unit name="JPA-PU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G" />
+            <property name="javax.persistence.jdbc.user" value="lab1btrg30" />
+            <property name="javax.persistence.jdbc.password" value="lab1boracle" />
+            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+        </properties>
+    </persistence-unit>
+</persistence>
