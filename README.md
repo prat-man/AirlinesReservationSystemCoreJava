@@ -12,4 +12,4 @@ Project Members
 :---------------------------------------------------:|:----------------------------------:|:-----------------------------------:|
 Pratanu Mandal<br>(Team Leader)                         |Bhavin Mohan                        |Gurveen Kaur                         |
 ![Sajal Bain](./images/sajal.jpg)|![Sanjay Deb](./images/sanjay.jpg)|![Subhojita Saha](./images/subhojita.jpg)|
-Sajal Bain                       |Sanjay Deb                        |Subhojita Saha                           |
+Sajal Bain<br>                   |Sanjay Deb                        |Subhojita Saha                           |
