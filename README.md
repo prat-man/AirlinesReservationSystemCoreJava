@@ -7,10 +7,10 @@ Mini Project using Spring, Hibernate, JPA, & MVC.
 -->
 Project Members
 -----------
-
-<table>
-   <tr>
-      <td><img src="./images/pratanu.jpg" alt="Pratanu Mandal (Team Leader)" style="border-radius: 50%;"></td>
+![Pratanu Mandal (Team Leader)](./images/pratanu.jpg)|
+:---------------------------------------------------:|
+Pratanu Mandal (Team Leader)                         |
+<!--
       <td>Bhavin Mohan</td>
       <td>Gurveen Kaur</td>
    </tr>
@@ -29,5 +29,5 @@ Project Members
       <td>Sanjay Deb</td>
       <td>Subhojita Saha</td>
    </tr>
-</table>
+</table>-->
 <br/>
