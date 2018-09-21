@@ -3,27 +3,35 @@ package com.cg.ars.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 import com.cg.ars.dto.Airport;
+import com.cg.ars.util.JPAUtil;
 
-public class AirportDaoImpl implements AirportDao {
-
+public class AirportDaoImpl implements AirportDao
+{
 	private EntityManager entityManager;
 
-	public AirportDaoImpl() {
-		//entityManager = JPAUtil.getEntityManager();
+	public AirportDaoImpl()
+	{
+		entityManager = JPAUtil.getEntityManager();
 	}
 
-	public void addAirport(Airport airport) {
+	public void addAirport(Airport airport)
+	{
 		entityManager.getTransaction().begin();
+		
 		entityManager.persist(airport);
+		
 		entityManager.getTransaction().commit();
 	}
 
-	public List<Airport> getAllAirport() {
-		String jplq="SELECT a FROM Airport a";
-		TypedQuery<Airport> query=entityManager.createQuery(jplq,Airport.class);
-		return query.getResultList();
+	public List<Airport> getAllAirport()
+	{
+		Query query = entityManager.createNamedQuery("getAllAirports");
+		
+		@SuppressWarnings("unchecked")
+		List<Airport> airports = query.getResultList();
+		
+		return airports;
 	}
-	
 }

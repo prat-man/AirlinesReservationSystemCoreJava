@@ -6,10 +6,18 @@ import java.sql.Time;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="FLIGHTINFORMATION")
+
+@NamedQueries({
+	@NamedQuery(name="getFlights", query="SELECT f FROM Flight f WHERE f.depDate = :depDate AND f.depCity = :depCity AND f.arrCity = :arrCity"),
+	@NamedQuery(name="getAllFlights", query="SELECT a FROM Airport a")
+})
+
 public class Flight 
 {
 	@Id
