@@ -7,7 +7,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USERS")
-public class User {
+public class User 
+{
 
 	@Id
 	@Column(name="USERNAME")
@@ -27,7 +28,6 @@ public class User {
 	 */
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/*

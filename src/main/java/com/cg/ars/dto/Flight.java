@@ -1,7 +1,5 @@
 package com.cg.ars.dto;
 
-
-
 import java.sql.Date;
 import java.sql.Time;
 
@@ -12,7 +10,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="FLIGHTINFORMATION")
-public class Flight {
+public class Flight 
+{
 
 	@Id
 	@Column(name="FLIGHTNO")
@@ -168,5 +167,4 @@ public class Flight {
 				+ ", depTime=" + depTime + ", arrTime=" + arrTime + ", firstSeats=" + firstSeats + ", firstSeatsFare="
 				+ firstSeatsFare + ", bussSeats=" + bussSeats + ", bussSeatsFare=" + bussSeatsFare + "]";
 	}
-
 }

@@ -7,7 +7,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="BOOKINGINFORMATION")
-public class Booking {
+public class Booking 
+{
 
 	@Id
 	@Column(name="BOOKINGID")
@@ -42,7 +43,6 @@ public class Booking {
 	 */
 	public Booking() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/*
@@ -130,7 +130,4 @@ public class Booking {
 				+ ", classType=" + classType + ", totalFare=" + totalFare + ", seatNumber=" + seatNumber
 				+ ", CreditCardInfo=" + CreditCardInfo + ", srcCity=" + srcCity + ", destCity=" + destCity + "]";
 	}
-	
-	
-
 }
