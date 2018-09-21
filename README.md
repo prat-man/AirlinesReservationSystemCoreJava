@@ -10,7 +10,7 @@ Project Members
 
 <table>
    <tr>
-      <td>![Pratanu Mandal (Team Leader)](./images/pratanu.jpg)</td>
+      <td><img src="./images/pratanu.jpg" alt="Pratanu Mandal (Team Leader)" style="border-radius: 50%;"></td>
       <td>Bhavin Mohan</td>
       <td>Gurveen Kaur</td>
    </tr>
