@@ -10,8 +10,7 @@ public class UserServiceImpl implements UserService
 	
 	public UserServiceImpl() 
 	{
-		super();
-		udao=new UserDaoImpl();
+		udao = new UserDaoImpl();
 	}
 
 	public void addUser(User user) 
