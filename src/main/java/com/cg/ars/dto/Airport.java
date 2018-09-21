@@ -3,10 +3,17 @@ package com.cg.ars.dto;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="AIRPORT")
+
+@NamedQueries({
+	@NamedQuery(name="getAllAirports", query="SELECT a FROM Airport a")
+})
+
 public class Airport
 {
 	@Column(name="AIRPORTNAME")
