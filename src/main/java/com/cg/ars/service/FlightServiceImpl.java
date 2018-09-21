@@ -5,47 +5,39 @@ import java.util.List;
 
 import com.cg.ars.dao.FlightDao;
 import com.cg.ars.dao.FlightDaoImpl;
-import com.cg.ars.dto.Airport;
 import com.cg.ars.dto.Flight;
 
 public class FlightServiceImpl implements FlightService 
 {
-	FlightDao fdao;
-	
+	private FlightDao fdao;
 	
 	public FlightServiceImpl() 
 	{
-		super();
-		fdao=new FlightDaoImpl();
+		fdao = new FlightDaoImpl();
 	}
 
 	public void addFlight(Flight flight) 
 	{
 		fdao.addFlight(flight);
-		
 	}
 
 	public Flight modifyFlight(Flight flight) 
 	{
-		fdao.modifyFlight(flight);
-		return null;
+		return fdao.modifyFlight(flight);
 	}
 
 	public void deleteFlight(Flight flight) 
 	{
 		fdao.deleteFlight(flight);
-		
 	}
 
 	public List<Flight> getAllFlights() 
 	{
-		List<Flight> fList=fdao.getAllFlights();
-		return fList;
+		return fdao.getAllFlights();
 	}
 
-	public List<Flight> getFlights(Date date, String destination) 
+	public List<Flight> getFlights(Date date, String depCity, String arrCity)
 	{
-		List<Flight> fList=fdao.getFlights(date, destination);
-		return fList;
+		return fdao.getFlights(date, depCity, arrCity);
 	}
 }

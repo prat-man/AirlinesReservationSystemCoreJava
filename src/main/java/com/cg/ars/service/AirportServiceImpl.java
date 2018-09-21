@@ -8,12 +8,11 @@ import com.cg.ars.dto.Airport;
 
 public class AirportServiceImpl implements AirportService 
 {
-	AirportDao adao;
+	private AirportDao adao;
 	
 	public AirportServiceImpl() 
 	{
-		super();
-		adao=new AirportDaoImpl();
+		adao = new AirportDaoImpl();
 	}
 
 	public void addAirport(Airport airport) 
@@ -23,7 +22,6 @@ public class AirportServiceImpl implements AirportService
 
 	public List<Airport> getAllAirport() 
 	{
-		List<Airport> aList=adao.getAllAirport();
-		return aList;
+		return adao.getAllAirport();
 	}	
 }

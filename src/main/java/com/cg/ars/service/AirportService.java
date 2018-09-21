@@ -7,5 +7,6 @@ import com.cg.ars.dto.Airport;
 public interface AirportService 
 {
 	public void addAirport(Airport airport);
-    public List<Airport> getAllAirport();
+	
+	public List<Airport> getAllAirport();
 }

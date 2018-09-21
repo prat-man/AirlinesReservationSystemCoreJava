@@ -6,12 +6,11 @@ import com.cg.ars.dto.Booking;
 
 public class BookingServiceImpl implements BookingService 
 {
-	BookingDao bdao;
+	private BookingDao bdao;
 	
 	public BookingServiceImpl() 
 	{
-		super();
-		bdao=new BookingDaoImpl();
+		bdao = new BookingDaoImpl();
 	}
 
 	public void bookTicket(Booking booking) 
@@ -21,14 +20,12 @@ public class BookingServiceImpl implements BookingService
 
 	public Booking viewBookDetails(String bookingId) 
 	{
-		Booking booking=bdao.viewBookDetails(bookingId);
-		return booking;
+		return bdao.viewBookDetails(bookingId);
 	}
 
 	public Booking updateBookingDetails(Booking booking) 
 	{
-		Booking updatebooking=bdao.updateBookingDetails(booking);
-		return updatebooking;
+		return bdao.updateBookingDetails(booking);
 	}
 
 	public void cancelBooking(Booking booking) 

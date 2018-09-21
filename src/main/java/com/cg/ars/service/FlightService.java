@@ -8,8 +8,12 @@ import com.cg.ars.dto.Flight;
 public interface FlightService 
 {
 	public void addFlight(Flight flight);
+	
 	public Flight modifyFlight(Flight flight);
+	
 	public void deleteFlight(Flight flight);
+	
 	public List<Flight> getAllFlights();
-	public List<Flight> getFlights(Date date,String destination);
+	
+	public List<Flight> getFlights(Date date, String depCity, String arrCity);
 }

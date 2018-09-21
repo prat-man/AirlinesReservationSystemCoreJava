@@ -6,7 +6,7 @@ import com.cg.ars.dto.User;
 
 public class UserServiceImpl implements UserService 
 {
-	UserDao udao;
+	private UserDao udao;
 	
 	public UserServiceImpl() 
 	{
