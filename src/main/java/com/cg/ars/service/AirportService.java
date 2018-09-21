@@ -1,5 +1,11 @@
 package com.cg.ars.service;
 
-public interface AirportService {
+import java.util.List;
 
+import com.cg.ars.dto.Airport;
+
+public interface AirportService 
+{
+	public void addAirport(Airport airport);
+    public List<Airport> getAllAirport();
 }
