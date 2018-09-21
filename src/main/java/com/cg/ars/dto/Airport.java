@@ -9,10 +9,10 @@ import javax.persistence.Table;
 @Table(name="AIRPORT")
 public class Airport
 {
-	@Id
 	@Column(name="AIRPORTNAME")
 	private String airportName;
 	
+	@Id
 	@Column(name="ABBREVIATION")
 	private String abbreviation;
 	
