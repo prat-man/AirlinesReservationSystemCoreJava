@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Table(name="FLIGHTINFORMATION")
 public class Flight 
 {
-
 	@Id
 	@Column(name="FLIGHTNO")
 	private String flightNo;
@@ -55,7 +54,6 @@ public class Flight
 	 */
 	public Flight() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/*

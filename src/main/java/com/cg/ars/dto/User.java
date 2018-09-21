@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Table(name="USERS")
 public class User 
 {
-
 	@Id
 	@Column(name="USERNAME")
 	private String username;

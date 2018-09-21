@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Table(name="BOOKINGINFORMATION")
 public class Booking 
 {
-
 	@Id
 	@Column(name="BOOKINGID")
 	private String bookingId;
