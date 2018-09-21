@@ -7,7 +7,7 @@ Mini Project using Spring, Hibernate, JPA, & MVC.
 -->
 Project Members
 -----------
-![Pratanu Mandal (Team Leader)](./images/pratanu.jpg)|![Bhavin Mohan](./images/bhavin.jpg)|![Gurveen Kaur](./images/gurveen.jpg)|
+![Pratanu Mandal<br>(Team Leader)](./images/pratanu.jpg)|![Bhavin Mohan](./images/bhavin.jpg)|![Gurveen Kaur](./images/gurveen.jpg)|
 :---------------------------------------------------:|:----------------------------------:|:-----------------------------------:|
 Pratanu Mandal (Team Leader)                         |Bhavin Mohan                        |Gurveen Kaur                         |
 
