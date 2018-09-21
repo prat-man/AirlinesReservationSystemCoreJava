@@ -10,21 +10,23 @@ Project Members
 
 <table>
    <tr>
-      <td>Pratanu Mandal (Team Leader)</td>
-   </tr>
-   <tr>
+      <td>![Pratanu Mandal (Team Leader)](./images/pratanu.jpg)</td>
       <td>Bhavin Mohan</td>
+      <td>Gurveen Kaur</td>
    </tr>
    <tr>
+      <td>Pratanu Mandal (Team Leader)</td>
+      <td>Bhavin Mohan</td>
       <td>Gurveen Kaur</td>
    </tr>
    <tr>
       <td>Sajal Bain</td>
-   </tr>
-   <tr>
       <td>Sanjay Deb</td>
+      <td>Subhojita Saha</td>
    </tr>
    <tr>
+      <td>Sajal Bain</td>
+      <td>Sanjay Deb</td>
       <td>Subhojita Saha</td>
    </tr>
 </table>
