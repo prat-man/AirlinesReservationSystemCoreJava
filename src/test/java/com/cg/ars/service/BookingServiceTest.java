@@ -60,7 +60,7 @@ public class BookingServiceTest
 	public void updateBookingDetailsTest2()
 	{
 		Booking booking = new Booking(null,"test@capgemini.com",1,"First",5000.00,2,"4565767878980987","Pune","Mumbai");
-		Booking bookingRet = bser.updateBookingDetails(booking);
+		bser.updateBookingDetails(booking);
 	}
 
 	//EmailValidate Test Cases
