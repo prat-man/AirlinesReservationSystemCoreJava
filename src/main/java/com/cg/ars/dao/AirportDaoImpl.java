@@ -25,7 +25,7 @@ public class AirportDaoImpl implements AirportDao
 		entityManager.getTransaction().commit();
 	}
 
-	public List<Airport> getAllAirport()
+	public List<Airport> getAllAirports()
 	{
 		Query query = entityManager.createNamedQuery("getAllAirports");
 		

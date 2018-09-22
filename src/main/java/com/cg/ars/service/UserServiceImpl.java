@@ -28,4 +28,24 @@ public class UserServiceImpl implements UserService
 		udao.verifyUser(user);
 		return user;
 	}
+
+	public boolean validateUsername(String username) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validatePassword(String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateRole(String role) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateMobileNo(String mobileNo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

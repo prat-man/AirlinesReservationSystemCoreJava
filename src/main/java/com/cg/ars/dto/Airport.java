@@ -33,6 +33,19 @@ public class Airport
 		super();
 	}
 	
+	/**
+	 * Parameterized Constructor
+	 * @param airportName
+	 * @param abbreviation
+	 * @param location
+	 */
+	public Airport(String airportName, String abbreviation, String location) {
+		super();
+		this.airportName = airportName;
+		this.abbreviation = abbreviation;
+		this.location = location;
+	}
+
 	/*
 	 * Getters and Setters
 	 */

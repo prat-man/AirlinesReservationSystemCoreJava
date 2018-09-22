@@ -29,6 +29,21 @@ public class User
 		super();
 	}
 
+	/**
+	 * Parameterized Constructor
+	 * @param username
+	 * @param password
+	 * @param role
+	 * @param mobileNo
+	 */
+	public User(String username, String password, String role, String mobileNo) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.mobileNo = mobileNo;
+	}
+
 	/*
 	 * Getters and Setters
 	 */

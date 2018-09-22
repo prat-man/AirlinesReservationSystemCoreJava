@@ -63,6 +63,39 @@ public class Flight
 	public Flight() {
 		super();
 	}
+	
+	/**
+	 * Parameterized Constructor
+	 * @param flightNo
+	 * @param airline
+	 * @param depCity
+	 * @param arrCity
+	 * @param depDate
+	 * @param arrDate
+	 * @param depTime
+	 * @param arrTime
+	 * @param firstSeats
+	 * @param firstSeatsFare
+	 * @param bussSeats
+	 * @param bussSeatsFare
+	 */
+	public Flight(String flightNo, String airline, String depCity, String arrCity, Date depDate, Date arrDate,
+			Time depTime, Time arrTime, Integer firstSeats, Double firstSeatsFare, Integer bussSeats,
+			Double bussSeatsFare) {
+		super();
+		this.flightNo = flightNo;
+		this.airline = airline;
+		this.depCity = depCity;
+		this.arrCity = arrCity;
+		this.depDate = depDate;
+		this.arrDate = arrDate;
+		this.depTime = depTime;
+		this.arrTime = arrTime;
+		this.firstSeats = firstSeats;
+		this.firstSeatsFare = firstSeatsFare;
+		this.bussSeats = bussSeats;
+		this.bussSeatsFare = bussSeatsFare;
+	}
 
 	/*
 	 * Getters and Setters

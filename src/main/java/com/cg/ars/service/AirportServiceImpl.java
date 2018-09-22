@@ -20,8 +20,23 @@ public class AirportServiceImpl implements AirportService
 		adao.addAirport(airport);
 	}
 
-	public List<Airport> getAllAirport() 
+	public List<Airport> getAllAirports() 
 	{
-		return adao.getAllAirport();
+		return adao.getAllAirports();
+	}
+
+	public boolean validateName(String name) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateAbbreviation(String abbreviation) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateLocation(String location) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

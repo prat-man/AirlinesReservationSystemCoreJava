@@ -32,4 +32,39 @@ public class BookingServiceImpl implements BookingService
 	{
 		bdao.cancelBooking(booking);
 	}
+
+	public boolean validateBookingId(String bookingId) {
+		
+		return false;
+	}
+
+	public boolean validateEmail(String email) {
+		
+		return false;
+	}
+
+	public boolean validateNoOfPassengers(Integer passengers) {
+		
+		return false;
+	}
+
+	public boolean validateClassType(String classType) {
+		
+		return false;
+	}
+
+	public boolean validateCreditCardInfo(String creditCardInfo) {
+		
+		return false;
+	}
+
+	public boolean validateSrcCity(String srcCity) {
+		
+		return false;
+	}
+
+	public boolean validateDestCity(String destCity) {
+		
+		return false;
+	}
 }
