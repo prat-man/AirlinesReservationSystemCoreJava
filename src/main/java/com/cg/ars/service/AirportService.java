@@ -9,7 +9,7 @@ public interface AirportService
 {
 	public void addAirport(Airport airport);
 	
-	public List<Airport> getAllAirport();
+	public List<Airport> getAllAirports();
 	
 	public boolean validateName(String name) throws AirportException;
 	
