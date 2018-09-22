@@ -40,4 +40,44 @@ public class FlightServiceImpl implements FlightService
 	{
 		return fdao.getFlights(date, depCity, arrCity);
 	}
+
+	public boolean validateFlightNo(String flightNo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateAirline(String airline) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateDepCity(String depCity) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateArrCity(String arrCity) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateDepDate(Date depDate) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateArrDate(Date arrDate) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateFirstSeats(Integer firstSeats) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateBussSeats(Integer bussSeats) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
