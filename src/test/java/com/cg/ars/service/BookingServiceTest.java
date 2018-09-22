@@ -1,6 +1,5 @@
 package com.cg.ars.service;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.cg.ars.dto.Booking;
@@ -33,7 +32,6 @@ public class BookingServiceTest
 	
 	//viewBookDetailsValidate Test Cases
 	@Test
-	@Ignore
 	public void viewBookDetailsTest1()
 	{
 		Booking booking = bser.viewBookDetails("KOL12345");
