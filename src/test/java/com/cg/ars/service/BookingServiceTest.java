@@ -1,6 +1,5 @@
 package com.cg.ars.service;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.cg.ars.dto.Booking;
@@ -33,7 +32,6 @@ public class BookingServiceTest
 	
 	//viewBookDetailsValidate Test Cases
 	@Test
-	@Ignore
 	public void viewBookDetailsTest1()
 	{
 		Booking booking = bser.viewBookDetails("KOL12345");
@@ -60,7 +58,7 @@ public class BookingServiceTest
 	public void updateBookingDetailsTest2()
 	{
 		Booking booking = new Booking(null,"test@capgemini.com",1,"First",5000.00,2,"4565767878980987","Pune","Mumbai");
-		Booking bookingRet = bser.updateBookingDetails(booking);
+		bser.updateBookingDetails(booking);
 	}
 
 	//EmailValidate Test Cases
