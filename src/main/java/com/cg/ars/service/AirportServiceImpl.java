@@ -22,7 +22,7 @@ public class AirportServiceImpl implements AirportService
 		adao.addAirport(airport);
 	}
 
-	public List<Airport> getAllAirport() 
+	public List<Airport> getAllAirports() 
 	{
 		return adao.getAllAirport();
 	}
