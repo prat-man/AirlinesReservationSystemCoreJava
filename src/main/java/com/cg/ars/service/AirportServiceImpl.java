@@ -23,5 +23,5 @@ public class AirportServiceImpl implements AirportService
 	public List<Airport> getAllAirport() 
 	{
 		return adao.getAllAirport();
-	}	
+	}
 }

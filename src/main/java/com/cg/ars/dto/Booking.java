@@ -29,7 +29,7 @@ public class Booking
 	private Integer seatNumber;
 	
 	@Column(name="CREDITCARD_INFO")
-	private String CreditCardInfo;
+	private String creditCardInfo;
 	
 	@Column(name="SRC_CITY")
 	private String srcCity;
@@ -96,11 +96,11 @@ public class Booking
 	}
 
 	public String getCreditCardInfo() {
-		return CreditCardInfo;
+		return creditCardInfo;
 	}
 
 	public void setCreditCardInfo(String creditCardInfo) {
-		CreditCardInfo = creditCardInfo;
+		this.creditCardInfo = creditCardInfo;
 	}
 
 	public String getSrcCity() {
@@ -127,6 +127,6 @@ public class Booking
 	public String toString() {
 		return "Booking [bookingId=" + bookingId + ", custEmail=" + custEmail + ", noOfPassengers=" + noOfPassengers
 				+ ", classType=" + classType + ", totalFare=" + totalFare + ", seatNumber=" + seatNumber
-				+ ", CreditCardInfo=" + CreditCardInfo + ", srcCity=" + srcCity + ", destCity=" + destCity + "]";
+				+ ", creditCardInfo=" + creditCardInfo + ", srcCity=" + srcCity + ", destCity=" + destCity + "]";
 	}
 }
