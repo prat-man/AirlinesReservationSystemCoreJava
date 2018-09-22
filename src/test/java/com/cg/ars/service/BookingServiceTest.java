@@ -51,7 +51,6 @@ public class BookingServiceTest {
 		
 		//viewBookDetailsValidate Test Cases
 		@Test
-		@Ignore
 		public void updateBookingDetailsTest1()
 		{
 			Booking booking = new Booking("PUNE12345","test@capgemini.com",1,"First",5000.00,2,"4565767878980987","Pune","Mumbai");
