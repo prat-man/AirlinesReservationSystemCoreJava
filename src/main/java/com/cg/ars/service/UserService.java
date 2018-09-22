@@ -9,4 +9,12 @@ public interface UserService
 	public void changePassword(User user);
 	
 	public User verifyUser(User user);
+	
+	public boolean validateUsername(String username);
+	
+	public boolean validatePassword(String password);
+	
+	public boolean validateRole(String role);
+	
+	public boolean validateMobileNo(String mobileNo);
 }
