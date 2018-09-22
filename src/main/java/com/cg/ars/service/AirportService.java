@@ -3,6 +3,7 @@ package com.cg.ars.service;
 import java.util.List;
 
 import com.cg.ars.dto.Airport;
+import com.cg.ars.exception.AirportException;
 
 public interface AirportService 
 {
@@ -10,9 +11,9 @@ public interface AirportService
 	
 	public List<Airport> getAllAirport();
 	
-	public boolean validateName(String name);
+	public boolean validateName(String name) throws AirportException;
 	
-	public boolean validateAbbreviation(String abbreviation);
+	public boolean validateAbbreviation(String abbreviation) throws AirportException;
 	
-	public boolean validateLocation(String location);
+	public boolean validateLocation(String location) throws AirportException;
 }
