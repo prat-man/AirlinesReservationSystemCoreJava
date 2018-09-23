@@ -49,13 +49,13 @@ public class AirportServiceTest
 	@Test
 	public void validateAbbreviationTest1() throws AirportException 
 	{
-		Assert.assertEquals(true, aser.validateName("KOL"));
+		Assert.assertEquals(true, aser.validateAbbreviation("KOL"));
 	}
 	
 	@Test(expected=AirportException.class)
 	public void validateAbbreviationTest2() throws AirportException 
 	{
-		Assert.assertEquals(false, aser.validateName("kolkata"));
+		Assert.assertEquals(false, aser.validateAbbreviation("kolkata"));
 	}
 	
 	
@@ -64,13 +64,13 @@ public class AirportServiceTest
 	@Test
 	public void validateLocationTest1() throws AirportException
 	{
-		Assert.assertEquals(true, aser.validateName("Pune"));
+		Assert.assertEquals(true, aser.validateLocation("Pune"));
 	}
 	
 	@Test(expected=AirportException.class)
 	public void validateLocationTest2() throws AirportException
 	{
-		Assert.assertEquals(false, aser.validateName("pune"));
+		Assert.assertEquals(false, aser.validateLocation("pune"));
 	}
 	
 	
