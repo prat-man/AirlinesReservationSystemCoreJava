@@ -1,11 +1,10 @@
 package com.cg.ars.service;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.cg.ars.dto.Booking;
 import com.cg.ars.exception.BookingException;
-
-import junit.framework.Assert;
 
 public class BookingServiceTest
 {

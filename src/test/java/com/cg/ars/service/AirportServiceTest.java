@@ -2,11 +2,10 @@ package com.cg.ars.service;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.cg.ars.exception.AirportException;
-
-import junit.framework.Assert;
 
 public class AirportServiceTest
 {
