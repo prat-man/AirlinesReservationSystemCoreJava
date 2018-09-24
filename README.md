@@ -1,6 +1,6 @@
 # AirlinesReservationSystem
 
-Mini Project using Spring, Hibernate, JPA, & MVC.
+Mini Project in Java using JPA with Hibernate, and MVC.
 <!--
 ![Screenshot 1](./screenshots/screenshot1.png)
 <br/><br/><br/><br/>
