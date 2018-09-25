@@ -24,7 +24,7 @@ public interface FlightService
 	
 	public boolean validateCity(String city) throws FlightException;
 	
-	public boolean validateDate(Date date);
+	public boolean validateDate(Date date) throws FlightException;
 		
 	public boolean validateSeats(Integer seats) throws FlightException;
 }
