@@ -79,7 +79,7 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 	
-	public boolean validateDate(Date date) 
+	public boolean validateDate(Date date) throws FlightException
 	{
 		// TODO: Pratanu Mandal
 		return false;
@@ -87,7 +87,7 @@ public class FlightServiceImpl implements FlightService
 
 	public boolean validateSeats(Integer seats) throws FlightException 
 	{
-		if (seats>0) {
+		if (seats > 0) {
 			return true;
 		}
 		else {
