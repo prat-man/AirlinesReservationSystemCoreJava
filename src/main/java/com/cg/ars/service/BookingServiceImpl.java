@@ -18,26 +18,31 @@ public class BookingServiceImpl implements BookingService
 		bdao = new BookingDaoImpl();
 	}
 
+	@Override
 	public void bookTicket(Booking booking) 
 	{
 		bdao.bookTicket(booking);
 	}
 
+	@Override
 	public Booking viewBookDetails(String bookingId) 
 	{
 		return bdao.viewBookDetails(bookingId);
 	}
 
+	@Override
 	public Booking updateBookingDetails(Booking booking) 
 	{
 		return bdao.updateBookingDetails(booking);
 	}
 
+	@Override
 	public void cancelBooking(Booking booking) 
 	{
 		bdao.cancelBooking(booking);
 	}
 
+	@Override
 	public boolean validateBookingId(String bookingId) throws BookingException 
 	{
 		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
@@ -50,6 +55,7 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	@Override
 	public boolean validateEmail(String email) throws BookingException 
 	{
 		String pattern = "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)";
@@ -62,6 +68,7 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	@Override
 	public boolean validateNoOfPassengers(Flight flight, String classType, Integer passengers) throws BookingException 
 	{
 		int availableSeats;
@@ -91,6 +98,7 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	@Override
 	public boolean validateClassType(String classType) throws BookingException 
 	{
 		String[] classes = {"First", "Business"};
@@ -103,6 +111,7 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	@Override
 	public boolean validateCreditCardInfo(String creditCardInfo) throws BookingException 
 	{
 		String pattern = "[0-9]{16}";
@@ -115,6 +124,7 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	@Override
 	public boolean validateCity(String city) throws BookingException 
 	{
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";

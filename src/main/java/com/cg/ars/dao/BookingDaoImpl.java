@@ -14,6 +14,7 @@ public class BookingDaoImpl implements BookingDao
 		entityManager = JPAUtil.getEntityManager();
 	}
 	
+	@Override
 	public Booking viewBookDetails(String bookingId)
 	{
 		Booking booking = entityManager.find(Booking.class, bookingId);
@@ -21,6 +22,7 @@ public class BookingDaoImpl implements BookingDao
 		return booking;
 	}
 
+	@Override
 	public Booking updateBookingDetails(Booking booking)
 	{
 		entityManager.getTransaction().begin();
@@ -32,6 +34,7 @@ public class BookingDaoImpl implements BookingDao
 		return book;
 	}
 
+	@Override
 	public void bookTicket(Booking booking)
 	{
 		entityManager.getTransaction().begin();
@@ -41,6 +44,7 @@ public class BookingDaoImpl implements BookingDao
 		entityManager.getTransaction().commit();
 	}
 
+	@Override
 	public void cancelBooking(Booking booking)
 	{
 		entityManager.getTransaction().begin();

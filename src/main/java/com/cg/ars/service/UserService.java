@@ -5,15 +5,15 @@ import com.cg.ars.exception.UserException;
 
 public interface UserService 
 {
-	public void addUser(User user);
+	public void addUser(User user) throws UserException;
 	
-	public void changePassword(User user);
+	public boolean changePassword(String username, String oldPass, String newPass) throws UserException;
 	
-	public User verifyUser(User user);
+	public boolean verifyUser(String username, String password) throws UserException;
 	
 	public boolean validateUsername(String username) throws UserException;
 	
-	public boolean validatePassword(String password);
+	public boolean validatePassword(String password) throws UserException;
 	
 	public boolean validateRole(String role) throws UserException;
 	
