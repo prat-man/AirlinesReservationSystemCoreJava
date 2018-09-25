@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService
 
 	public boolean validateMobileNo(String mobileNo) throws UserException
 	{
-		String pattern = "[\\+[0-9]{1,}[(-\\s){1}[0-9]{1,}]*(-\\s){1}]*(([0-9]{5}(-\\s){0,1}[0-9]{5}))";
+		String pattern = "[\\+(0-9)+[(\\-\\s){1}(0-9)+]*(\\-\\s){1}]*(([0-9]{5}(-\\s){0,1}[0-9]{5}))";
 		
 		if (Pattern.matches(pattern, mobileNo)) {
 			return true;
