@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 import com.cg.ars.dao.FlightDao;
 import com.cg.ars.dao.FlightDaoImpl;
 import com.cg.ars.dto.Flight;
-import com.cg.ars.exception.BookingException;
 import com.cg.ars.exception.FlightException;
 
 public class FlightServiceImpl implements FlightService 
