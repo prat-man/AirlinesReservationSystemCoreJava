@@ -1,5 +1,6 @@
 package com.cg.ars.service;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 import com.cg.ars.dao.UserDao;
@@ -46,14 +47,22 @@ public class UserServiceImpl implements UserService
 		}
 	}
 
-	public boolean validatePassword(String password) {
+	public boolean validatePassword(String password) 
+	{
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean validateRole(String role) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean validateRole(String role) throws UserException 
+	{
+		String[] roles = {"Admin", "Exect", "User"};
+		
+		if (Arrays.asList(roles).contains(role)) {
+			return true;
+		}
+		else {
+			throw new UserException("Invalid Role");
+		}
 	}
 
 	public boolean validateMobileNo(String mobileNo) throws UserException

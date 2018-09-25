@@ -15,7 +15,7 @@ public interface UserService
 	
 	public boolean validatePassword(String password);
 	
-	public boolean validateRole(String role);
+	public boolean validateRole(String role) throws UserException;
 	
 	public boolean validateMobileNo(String mobileNo) throws UserException;
 }

@@ -86,9 +86,13 @@ public class FlightServiceImpl implements FlightService
 		return false;
 	}
 
-	public boolean validateSeats(Integer seats) 
+	public boolean validateSeats(Integer seats) throws FlightException 
 	{
-		
-		return false;
+		if (seats>0) {
+			return true;
+		}
+		else {
+			throw new FlightException("Seats should be greater than zero");
+		}
 	}
 }
