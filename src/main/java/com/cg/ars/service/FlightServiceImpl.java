@@ -2,10 +2,13 @@ package com.cg.ars.service;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import com.cg.ars.dao.FlightDao;
 import com.cg.ars.dao.FlightDaoImpl;
 import com.cg.ars.dto.Flight;
+import com.cg.ars.exception.BookingException;
+import com.cg.ars.exception.FlightException;
 
 public class FlightServiceImpl implements FlightService 
 {
@@ -41,43 +44,51 @@ public class FlightServiceImpl implements FlightService
 		return fdao.getFlights(date, depCity, arrCity);
 	}
 
-	public boolean validateFlightNo(String flightNo) {
-		// TODO Auto-generated method stub
+	public boolean validateFlightNo(String flightNo) throws FlightException
+	{
+		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
+		
+		if (Pattern.matches(pattern, flightNo)) {
+			return true;
+		}
+		else {
+			throw new FlightException("Invalid Flight No");
+		}
+	}
+
+	public boolean validateAirline(String airline) throws FlightException
+	{
+		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
+		
+		if (Pattern.matches(pattern, airline)) {
+			return true;
+		}
+		else {
+			throw new FlightException("Invalid Airline Name");
+		}
+	}
+
+	public boolean validateCity(String city) throws FlightException 
+	{
+		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
+	
+		if (Pattern.matches(pattern, city)) {
+			return true;
+		}
+		else {
+			throw new FlightException("Invalid City");
+		}
+	}
+	
+	public boolean validateDate(Date date) 
+	{
+		// TODO: Pratanu Mandal
 		return false;
 	}
 
-	public boolean validateAirline(String airline) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean validateDepCity(String depCity) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean validateArrCity(String arrCity) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean validateDepDate(Date depDate) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean validateArrDate(Date arrDate) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean validateFirstSeats(Integer firstSeats) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean validateBussSeats(Integer bussSeats) {
-		// TODO Auto-generated method stub
+	public boolean validateSeats(Integer seats) 
+	{
+		
 		return false;
 	}
 }

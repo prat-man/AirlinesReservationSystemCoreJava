@@ -1,6 +1,7 @@
 package com.cg.ars.service;
 
 import com.cg.ars.dto.User;
+import com.cg.ars.exception.UserException;
 
 public interface UserService 
 {
@@ -10,11 +11,11 @@ public interface UserService
 	
 	public User verifyUser(User user);
 	
-	public boolean validateUsername(String username);
+	public boolean validateUsername(String username) throws UserException;
 	
 	public boolean validatePassword(String password);
 	
 	public boolean validateRole(String role);
 	
-	public boolean validateMobileNo(String mobileNo);
+	public boolean validateMobileNo(String mobileNo) throws UserException;
 }
