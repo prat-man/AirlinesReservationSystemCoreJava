@@ -16,6 +16,7 @@ public class AirportDaoImpl implements AirportDao
 		entityManager = JPAUtil.getEntityManager();
 	}
 
+	@Override
 	public void addAirport(Airport airport)
 	{
 		entityManager.getTransaction().begin();
@@ -25,7 +26,8 @@ public class AirportDaoImpl implements AirportDao
 		entityManager.getTransaction().commit();
 	}
 
-	public List<Airport> getAllAirport()
+	@Override
+	public List<Airport> getAllAirports()
 	{
 		Query query = entityManager.createNamedQuery("getAllAirports");
 		

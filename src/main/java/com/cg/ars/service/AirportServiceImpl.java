@@ -17,16 +17,19 @@ public class AirportServiceImpl implements AirportService
 		adao = new AirportDaoImpl();
 	}
 
+	@Override
 	public void addAirport(Airport airport) 
 	{
 		adao.addAirport(airport);
 	}
 
+	@Override
 	public List<Airport> getAllAirports() 
 	{
-		return adao.getAllAirport();
+		return adao.getAllAirports();
 	}
 
+	@Override
 	public boolean validateName(String name) throws AirportException 
 	{
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
@@ -39,6 +42,7 @@ public class AirportServiceImpl implements AirportService
 		}
 	}
 
+	@Override
 	public boolean validateAbbreviation(String abbreviation) throws AirportException 
 	{
 		String pattern = "[A-Z]{3,4}";
@@ -51,6 +55,7 @@ public class AirportServiceImpl implements AirportService
 		}
 	}
 
+	@Override
 	public boolean validateLocation(String location) throws AirportException 
 	{
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";

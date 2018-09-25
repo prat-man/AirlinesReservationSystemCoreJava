@@ -18,31 +18,37 @@ public class FlightServiceImpl implements FlightService
 		fdao = new FlightDaoImpl();
 	}
 
+	@Override
 	public void addFlight(Flight flight) 
 	{
 		fdao.addFlight(flight);
 	}
 
+	@Override
 	public Flight modifyFlight(Flight flight) 
 	{
 		return fdao.modifyFlight(flight);
 	}
 
+	@Override
 	public void deleteFlight(Flight flight) 
 	{
 		fdao.deleteFlight(flight);
 	}
 
+	@Override
 	public List<Flight> getAllFlights() 
 	{
 		return fdao.getAllFlights();
 	}
 
+	@Override
 	public List<Flight> getFlights(Date date, String depCity, String arrCity)
 	{
 		return fdao.getFlights(date, depCity, arrCity);
 	}
 
+	@Override
 	public boolean validateFlightNo(String flightNo) throws FlightException
 	{
 		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
@@ -55,6 +61,7 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 
+	@Override
 	public boolean validateAirline(String airline) throws FlightException
 	{
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
@@ -66,7 +73,8 @@ public class FlightServiceImpl implements FlightService
 			throw new FlightException("Invalid Airline Name");
 		}
 	}
-
+	
+	@Override
 	public boolean validateCity(String city) throws FlightException 
 	{
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
@@ -79,12 +87,14 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 	
+	@Override
 	public boolean validateDate(Date date) throws FlightException
 	{
 		// TODO: Pratanu Mandal
 		return false;
 	}
 
+	@Override
 	public boolean validateSeats(Integer seats) throws FlightException 
 	{
 		if (seats > 0) {

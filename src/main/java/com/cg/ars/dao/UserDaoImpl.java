@@ -13,6 +13,7 @@ public class UserDaoImpl implements UserDao
 		entityManager = JPAUtil.getEntityManager();
 	}
 	
+	@Override
 	public void addUser(User user)
 	{
 		entityManager.getTransaction().begin();
@@ -22,7 +23,8 @@ public class UserDaoImpl implements UserDao
 		entityManager.getTransaction().commit();
 	}
 
-	public void changePassword(User user)
+	@Override
+	public void updateUser(User user)
 	{
 		entityManager.getTransaction().begin();
 		
@@ -31,10 +33,9 @@ public class UserDaoImpl implements UserDao
 		entityManager.getTransaction().commit();
 	}
 
-	public User verifyUser(User user)
+	@Override
+	public User getUser(String username)
 	{
-		User retUser = entityManager.find(User.class, user);
-		
-		return retUser;
+		return entityManager.find(User.class, username);
 	}
 }

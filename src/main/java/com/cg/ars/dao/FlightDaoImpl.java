@@ -18,6 +18,7 @@ public class FlightDaoImpl implements FlightDao
 		entityManager = JPAUtil.getEntityManager();
 	}
 	
+	@Override
 	public void addFlight(Flight flight)
 	{
 		entityManager.getTransaction().begin();
@@ -27,6 +28,7 @@ public class FlightDaoImpl implements FlightDao
 		entityManager.getTransaction().commit();
 	}
 
+	@Override
 	public Flight modifyFlight(Flight flight)
 	{
 		entityManager.getTransaction().begin();
@@ -38,6 +40,7 @@ public class FlightDaoImpl implements FlightDao
 		return retFlight;
 	}
 
+	@Override
 	public void deleteFlight(Flight flight)
 	{
 		entityManager.getTransaction().begin();
@@ -47,6 +50,7 @@ public class FlightDaoImpl implements FlightDao
 		entityManager.getTransaction().begin();
 	}
 
+	@Override
 	public List<Flight> getAllFlights()
 	{
 		Query query = entityManager.createNamedQuery("getAllFlights");
@@ -57,6 +61,7 @@ public class FlightDaoImpl implements FlightDao
 		return flights;
 	}
 
+	@Override
 	public List<Flight> getFlights(Date date, String depCity, String arrCity)
 	{
 		Query query = entityManager.createNamedQuery("getFlights")

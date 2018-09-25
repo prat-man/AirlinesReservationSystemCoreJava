@@ -73,4 +73,34 @@ public class UserServiceTest
 	{
 		user.validateMobileNo("");
 	}
+	
+	@Test
+	public void testValidatePassword1() throws UserException
+	{
+		Assert.assertEquals(true, user.validatePassword("iR5^3Df%"));
+	}
+	
+	@Test
+	public void testValidatePassword2() throws UserException
+	{
+		user.validatePassword("gG%8#F!D$c&*\\/-_(g");
+	}
+	
+	@Test(expected=UserException.class)
+	public void testValidatePassword3() throws UserException
+	{
+		user.validatePassword("gG%5");
+	}
+	
+	@Test(expected=UserException.class)
+	public void testValidatePassword4() throws UserException
+	{
+		user.validatePassword("gG$gG$gG$");
+	}
+	
+	@Test(expected=UserException.class)
+	public void testValidatePassword5() throws UserException
+	{
+		user.validatePassword("password");
+	}
 }

@@ -39,6 +39,11 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.2.8.Final</version>
 		</dependency>
+		<dependency>
+		    <groupId>de.mkammerer</groupId>
+		    <artifactId>argon2-jvm</artifactId>
+		    <version>2.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>

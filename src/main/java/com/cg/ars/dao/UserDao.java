@@ -6,7 +6,7 @@ public interface UserDao
 {
 	public void addUser(User user);
 	
-	public void changePassword(User user);
+	public void updateUser(User user);
 	
-	public User verifyUser(User user);
+	public User getUser(String username);
 }
