@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.cg.ars.dto.Flight;
+import com.cg.ars.exception.FlightException;
 
 public interface FlightService 
 {
@@ -17,19 +18,13 @@ public interface FlightService
 	
 	public List<Flight> getFlights(Date date, String depCity, String arrCity);
 	
-	public boolean validateFlightNo(String flightNo);
+	public boolean validateFlightNo(String flightNo) throws FlightException;
 	
-	public boolean validateAirline(String airline);
+	public boolean validateAirline(String airline) throws FlightException;
 	
-	public boolean validateDepCity(String depCity);
+	public boolean validateCity(String city) throws FlightException;
 	
-	public boolean validateArrCity(String arrCity);
-	
-	public boolean validateDepDate(Date depDate);
-	
-	public boolean validateArrDate(Date arrDate);
-	
-	public boolean validateFirstSeats(Integer firstSeats);
-	
-	public boolean validateBussSeats(Integer bussSeats);
+	public boolean validateDate(Date date);
+		
+	public boolean validateSeats(Integer seats);
 }

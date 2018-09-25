@@ -40,7 +40,9 @@ public class BookingServiceImpl implements BookingService
 
 	public boolean validateBookingId(String bookingId) throws BookingException 
 	{
-		if (Pattern.matches("[A-Z]{3,4}[0-9]{4,6}", bookingId)) {
+		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
+		
+		if (Pattern.matches(pattern, bookingId)) {
 			return true;
 		}
 		else {
