@@ -5,8 +5,6 @@ import java.util.regex.Pattern;
 import com.cg.ars.dao.UserDao;
 import com.cg.ars.dao.UserDaoImpl;
 import com.cg.ars.dto.User;
-import com.cg.ars.exception.BookingException;
-import com.cg.ars.exception.FlightException;
 import com.cg.ars.exception.UserException;
 
 public class UserServiceImpl implements UserService 
@@ -58,7 +56,7 @@ public class UserServiceImpl implements UserService
 
 	public boolean validateMobileNo(String mobileNo) throws UserException
 	{
-		String pattern = "[\\+(0-9)+[(\\-\\s){1}(0-9)+]*(\\-\\s){1}]*(([0-9]{5}(-\\s){0,1}[0-9]{5}))";
+		String pattern = "(\\+[0-9]+([\\-\\s]?[0-9]+)*[\\-\\s]?)?(([0-9]{5}[\\-\\s]?[0-9]{5})|([0-9]{3}[\\-\\s]?[0-9]{3}[\\-\\s]?[0-9]{4}))";
 		
 		if (Pattern.matches(pattern, mobileNo)) {
 			return true;
