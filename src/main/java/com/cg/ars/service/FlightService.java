@@ -26,5 +26,5 @@ public interface FlightService
 	
 	public boolean validateDate(Date date);
 		
-	public boolean validateSeats(Integer seats);
+	public boolean validateSeats(Integer seats) throws FlightException;
 }
