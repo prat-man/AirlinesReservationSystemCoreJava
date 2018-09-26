@@ -46,6 +46,28 @@ public class ARSClient
 				}
 				else
 				{
+					System.out.println("*******Welcome User!!Choose your option*******");
+					System.out.println("1:Book a Ticket\n2:View Booking Details\n3:Update Booking Details\n4:Cancel Booking");
+					System.out.println("Enter option:");
+					int choice=Integer.parseInt(BR.readLine());
+					switch(choice)
+					{
+						case 1: bookTicket(); 
+								break;
+								
+						case 2: viewBooking();
+								break;
+								
+						case 3: updateBooking();
+								break;
+								
+						case 4: cancelBooking();
+								break;
+								
+						default: System.out.println("*****THANK YOU*****");
+								
+						return;
+					}
 					
 				}
 			}
@@ -57,6 +79,25 @@ public class ARSClient
 			e.printStackTrace();
 		}
 		
-		
+	}
+
+	private static void bookTicket() 
+	{
+		// TODO: Implement book ticket functionality in client
+	}
+
+	private static void viewBooking() 
+	{
+		// TODO: Implement view booking functionality in client
+	}
+
+	private static void updateBooking() 
+	{
+		// TODO: Implement update booking functionality in client
+	}
+
+	private static void cancelBooking() 
+	{
+		// TODO: Implement cancel booking functionality in client
 	}
 }
