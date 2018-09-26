@@ -12,7 +12,7 @@ public interface BookingService
 	
 	public Booking updateBookingDetails(Booking booking);
 	
-	public void cancelBooking(Booking booking);
+	public void cancelBooking(String bookingId);
 	
 	public boolean validateBookingId(String bookingId) throws BookingException;
 	

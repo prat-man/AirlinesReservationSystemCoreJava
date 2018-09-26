@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.cg.ars.dto.Airport;
 import com.cg.ars.exception.AirportException;
 
 public class AirportServiceTest
@@ -15,8 +16,17 @@ public class AirportServiceTest
 		aser = new AirportServiceImpl();
 	}
 	
+
+	@Test
+	public void addAirportTest()
+	{
+		Airport airport = new Airport();
+		airport.setAbbreviation("KOL");
+		airport.setAirportName("Indira Gandhi International Airport");
+		airport.setLocation("Kolkata");
+		aser.addAirport(airport);
+	}
 	
-	//AddAirport Test case goes here
 	
 	@Test
 	public void getAllAirportsTest()

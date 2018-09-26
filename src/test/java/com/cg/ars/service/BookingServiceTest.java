@@ -43,7 +43,7 @@ public class BookingServiceTest
 		Assert.assertEquals(null,bser.viewBookDetails("fsdgfs"));
 	}
 	
-	//viewBookDetailsValidate Test Cases
+	//updateBookingDetailsValidate Test Cases
 	@Test
 	public void updateBookingDetailsTest1()
 	{
@@ -60,6 +60,42 @@ public class BookingServiceTest
 		bser.updateBookingDetails(booking);
 	}
 
+	//cancelBooking Test Cases
+	@Test(expected=BookingException.class)
+	public void cancelBookingTest1()
+	{
+		Booking booking = new Booking();
+		
+		booking.setBookingId("DEL12345");
+		booking.setCustEmail("sts@capgemini.com");
+		booking.setNoOfPassengers(3);
+		booking.setClassType("First");
+		booking.setTotalFare(6464.90);
+		booking.setSeatNumber(6);
+		booking.setCreditCardInfo("4242698912093456");
+		booking.setSrcCity("Kolkata");
+		booking.setDestCity("Delhi");
+		
+		bser.bookTicket(booking);
+		
+		bser.cancelBooking("DEL12345");
+		
+		Assert.assertEquals(null, bser.viewBookDetails("DEL12345"));
+	}
+		
+	//validateBookingId Test Cases
+	@Test
+	public void validateBookingIdTest1() throws BookingException
+	{
+		Assert.assertEquals(true, bser.validateBookingId("KOL12345"));
+	}
+		
+    @Test(expected=BookingException.class)
+	public void validateBookingIdTest2() throws BookingException
+	{
+		Assert.assertEquals(false, bser.validateBookingId("kol124"));
+	}
+		
 	//EmailValidate Test Cases
 	@Test
 	public void validateEmailTest1() throws BookingException

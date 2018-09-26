@@ -15,7 +15,7 @@ public class BookingDaoImpl implements BookingDao
 	}
 	
 	@Override
-	public Booking viewBookDetails(String bookingId)
+	public Booking getBooking(String bookingId)
 	{
 		Booking booking = entityManager.find(Booking.class, bookingId);
 		
@@ -23,7 +23,7 @@ public class BookingDaoImpl implements BookingDao
 	}
 
 	@Override
-	public Booking updateBookingDetails(Booking booking)
+	public Booking updateBooking(Booking booking)
 	{
 		entityManager.getTransaction().begin();
 		
@@ -45,9 +45,11 @@ public class BookingDaoImpl implements BookingDao
 	}
 
 	@Override
-	public void cancelBooking(Booking booking)
+	public void cancelBooking(String bookingId)
 	{
 		entityManager.getTransaction().begin();
+		
+		Booking booking = this.getBooking(bookingId);
 		
 		entityManager.remove(booking);
 		
