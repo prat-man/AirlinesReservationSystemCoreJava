@@ -6,13 +6,13 @@ import com.cg.ars.exception.BookingException;
 
 public interface BookingService 
 {
-	public void bookTicket(Booking booking);
+	public void bookTicket(Booking booking) throws BookingException;
 	
-	public Booking viewBookDetails(String bookingId);
+	public Booking viewBookDetails(String bookingId) throws BookingException;
 	
-	public Booking updateBookingDetails(Booking booking);
+	public Booking updateBookingDetails(Booking booking) throws BookingException;
 	
-	public void cancelBooking(String bookingId);
+	public void cancelBooking(String bookingId) throws BookingException;
 	
 	public boolean validateBookingId(String bookingId) throws BookingException;
 	

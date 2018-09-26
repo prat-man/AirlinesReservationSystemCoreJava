@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Booking 
 {
 	@Id
-	@Column(name="BOOKINGID")
+	@Column(name="BOOKING_ID")
 	private String bookingId;
 	
 	@Column(name="CUST_EMAIL")

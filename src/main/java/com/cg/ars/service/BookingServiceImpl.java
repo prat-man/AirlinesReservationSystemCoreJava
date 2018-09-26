@@ -19,27 +19,54 @@ public class BookingServiceImpl implements BookingService
 	}
 
 	@Override
-	public void bookTicket(Booking booking) 
+	public void bookTicket(Booking booking) throws BookingException 
 	{
-		bdao.bookTicket(booking);
+		try {
+			bdao.bookTicket(booking);
+		}
+		catch (Exception exc) {
+			throw new BookingException(exc.getMessage());
+		}
 	}
 
 	@Override
-	public Booking viewBookDetails(String bookingId) 
+	public Booking viewBookDetails(String bookingId) throws BookingException 
 	{
-		return bdao.getBooking(bookingId);
+		try {
+			Booking booking = bdao.getBooking(bookingId);
+			
+			if (booking == null) {
+				throw new NullPointerException("Booking Record with Booking ID=" + bookingId + " not found");
+			}
+			else {
+				return booking;
+			}
+		}
+		catch (Exception exc) {
+			throw new BookingException(exc.getMessage());
+		}
 	}
 
 	@Override
-	public Booking updateBookingDetails(Booking booking) 
+	public Booking updateBookingDetails(Booking booking) throws BookingException 
 	{
-		return bdao.updateBooking(booking);
+		try {
+			return bdao.updateBooking(booking);
+		}
+		catch (Exception exc) {
+			throw new BookingException(exc.getMessage());
+		}
 	}
 
 	@Override
-	public void cancelBooking(String bookingId) 
+	public void cancelBooking(String bookingId) throws BookingException 
 	{
-		bdao.cancelBooking(bookingId);
+		try {
+			bdao.cancelBooking(bookingId);
+		}
+		catch (Exception exc) {
+			throw new BookingException(exc.getMessage());
+		}
 	}
 
 	@Override
