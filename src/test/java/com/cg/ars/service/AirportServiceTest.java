@@ -27,7 +27,6 @@ public class AirportServiceTest
 		aser.addAirport(airport);
 	}
 	
-	
 	@Test
 	public void getAllAirportsTest()
 	{
