@@ -10,7 +10,7 @@ import com.cg.ars.exception.UserException;
 import com.cg.ars.util.PasswordManager;
 import com.cg.ars.util.PasswordManagerImpl;
 
-public class UserServiceImpl implements UserService 
+public class UserServiceImpl implements UserService
 {
 	private UserDao udao;
 	private PasswordManager pman;
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService
 		
 		// Check if user exists
 		// Check if old password is correct
-		if (user != null && pman.hashPassword(oldPass).equals(user.getPassword())) {
+		if (user != null && pman.verifyPassword(user.getPassword(), oldPass)) {
 			// try to validate new password
 			this.validatePassword(newPass);
 			
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService
 		
 		// Check if user exists
 		// Check if password is correct
-		if (user != null && pman.hashPassword(password).equals(user.getPassword())) {
+		if (user != null && pman.verifyPassword(user.getPassword(), password)) {
 			// success
 			return true;
 		}
