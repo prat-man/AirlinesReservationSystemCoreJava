@@ -7,9 +7,13 @@ import com.cg.ars.exception.AirportException;
 
 public interface AirportService 
 {
-	public void addAirport(Airport airport);
+	public void addAirport(Airport airport) throws AirportException;
+	
+	public Airport getAirport(String airportId) throws AirportException;
 	
 	public List<Airport> getAllAirports();
+	
+	public void deleteAirport(String airportId) throws AirportException;
 	
 	public boolean validateName(String name) throws AirportException;
 	

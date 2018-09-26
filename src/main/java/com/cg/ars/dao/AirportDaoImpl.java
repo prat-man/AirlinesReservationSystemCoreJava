@@ -19,11 +19,17 @@ public class AirportDaoImpl implements AirportDao
 	@Override
 	public void addAirport(Airport airport)
 	{
-		entityManager.getTransaction().begin();
-		
 		entityManager.persist(airport);
+	}
+	
+	@Override
+	public Airport getAirport(String airportId)
+	{
+		Airport airport = entityManager.find(Airport.class, airportId);
 		
-		entityManager.getTransaction().commit();
+		entityManager.remove(airport);
+		
+		return airport;
 	}
 
 	@Override
@@ -35,5 +41,13 @@ public class AirportDaoImpl implements AirportDao
 		List<Airport> airports = query.getResultList();
 		
 		return airports;
+	}
+	
+	@Override
+	public void deleteAirport(String airportId)
+	{
+		Airport airport = this.getAirport(airportId);
+		
+		entityManager.remove(airport);
 	}
 }
