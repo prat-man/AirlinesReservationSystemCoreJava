@@ -11,7 +11,7 @@ public class PasswordManagerImpl implements PasswordManager
 
 	@Override
 	public boolean verifyPassword(String hash, String password) {
-		// TODO Auto-generated method stub
+		// TODO: Implement password verification; Currently always returns false
 		return false;
 	}
 }
