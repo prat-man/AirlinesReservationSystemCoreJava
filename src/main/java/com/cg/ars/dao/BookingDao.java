@@ -6,9 +6,9 @@ public interface BookingDao
 {
 	public void bookTicket(Booking booking);
 	
-	public Booking viewBookDetails(String bookingId);
+	public Booking getBooking(String bookingId);
 	
-	public Booking updateBookingDetails(Booking booking);
+	public Booking updateBooking(Booking booking);
 	
-	public void cancelBooking(Booking booking);
+	public void cancelBooking(String bookingId);
 }

@@ -27,19 +27,19 @@ public class BookingServiceImpl implements BookingService
 	@Override
 	public Booking viewBookDetails(String bookingId) 
 	{
-		return bdao.viewBookDetails(bookingId);
+		return bdao.getBooking(bookingId);
 	}
 
 	@Override
 	public Booking updateBookingDetails(Booking booking) 
 	{
-		return bdao.updateBookingDetails(booking);
+		return bdao.updateBooking(booking);
 	}
 
 	@Override
-	public void cancelBooking(Booking booking) 
+	public void cancelBooking(String bookingId) 
 	{
-		bdao.cancelBooking(booking);
+		bdao.cancelBooking(bookingId);
 	}
 
 	@Override
