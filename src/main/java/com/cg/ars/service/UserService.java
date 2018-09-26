@@ -7,6 +7,8 @@ public interface UserService
 {
 	public void addUser(User user) throws UserException;
 	
+	public User getUser(String username) throws UserException;
+	
 	public boolean changePassword(String username, String oldPass, String newPass) throws UserException;
 	
 	public boolean verifyUser(String username, String password) throws UserException;

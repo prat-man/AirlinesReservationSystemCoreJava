@@ -9,5 +9,7 @@ public class ARSClient
 		
 		LogoAnimation la = new LogoAnimation();
 		la.startAnimation();
+		
+		
 	}
 }
