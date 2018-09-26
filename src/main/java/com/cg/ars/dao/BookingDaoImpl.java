@@ -24,12 +24,8 @@ public class BookingDaoImpl implements BookingDao
 
 	@Override
 	public Booking updateBooking(Booking booking)
-	{
-		entityManager.getTransaction().begin();
-		
+	{	
 		Booking book = entityManager.merge(booking);
-		
-		entityManager.getTransaction().commit();
 		
 		return book;
 	}
@@ -37,22 +33,14 @@ public class BookingDaoImpl implements BookingDao
 	@Override
 	public void bookTicket(Booking booking)
 	{
-		entityManager.getTransaction().begin();
-		
 		entityManager.persist(booking);
-		
-		entityManager.getTransaction().commit();
 	}
 
 	@Override
 	public void cancelBooking(String bookingId)
 	{
-		entityManager.getTransaction().begin();
-		
 		Booking booking = this.getBooking(bookingId);
 		
 		entityManager.remove(booking);
-		
-		entityManager.getTransaction().begin();
 	}
 }
