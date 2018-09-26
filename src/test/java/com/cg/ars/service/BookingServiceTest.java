@@ -13,13 +13,12 @@ public class BookingServiceTest
 	public BookingServiceTest() {
 		bser = new BookingServiceImpl();
 	}
-
 	
 	//bookTicketValidate Test Cases
 	@Test
 	public void bookTicketTest1() throws BookingException
 	{
-		Booking booking = new Booking("KOL12345","test@capgemini.com",1,"First",5000.00,2,"4565767878980987","Kolkata","Pune");
+		Booking booking = new Booking("KOL12345", "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Kolkata", "Pune");
 		bser.bookTicket(booking);
 	}
 	
@@ -125,7 +124,6 @@ public class BookingServiceTest
 	{
 		Assert.assertEquals(false, bser.validateEmail("ars.@@gmail..com"));
 	}
-	
 	
 	//CreditCardInfoValidate Test Cases
 	@Test
