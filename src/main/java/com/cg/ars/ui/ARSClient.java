@@ -42,7 +42,26 @@ public class ARSClient
 				}
 				else if(role.equals("Executive"))
 				{
+					System.out.println("=========================Welcome Executive===========================");
+					System.out.println("1. Login");
+					System.out.println("2. View Flight Occupancy Details");
+					System.out.println("3. Exit");
+					System.out.print("Enter Your Choice: ");
 					
+					int choice=Integer.parseInt(BR.readLine());
+					switch(choice)
+					{
+					case 1:
+						loginExecutive();
+						break;
+						
+					case 2:
+						viewFlightOccupancyDetails();
+						break;
+						
+					default:
+						return;
+					}
 				}
 				else
 				{
@@ -56,6 +75,18 @@ public class ARSClient
 			
 			e.printStackTrace();
 		}
+		
+		
+	}
+
+	private static void loginExecutive() 
+	{
+		
+		
+	}
+
+	private static void viewFlightOccupancyDetails() 
+	{
 		
 		
 	}
