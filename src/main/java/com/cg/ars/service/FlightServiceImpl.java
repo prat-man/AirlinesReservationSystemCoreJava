@@ -1,6 +1,7 @@
 package com.cg.ars.service;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -57,7 +58,7 @@ public class FlightServiceImpl implements FlightService
 			return true;
 		}
 		else {
-			throw new FlightException("Invalid Flight No");
+			throw new FlightException("Invalid Flight Number");
 		}
 	}
 
@@ -90,7 +91,15 @@ public class FlightServiceImpl implements FlightService
 	@Override
 	public boolean validateDate(Date date) throws FlightException
 	{
+		LocalDate today = LocalDate.now();
+		LocalDate other = date.toLocalDate();
 		
+		if (today.compareTo(other) > 0) {
+			return true;
+		}
+		else {
+			throw new FlightException("Invalid Date. You must book at least ONE day before");
+		}
 	}
 
 	@Override
@@ -100,7 +109,7 @@ public class FlightServiceImpl implements FlightService
 			return true;
 		}
 		else {
-			throw new FlightException("Seats should be greater than zero");
+			throw new FlightException("Invalid Number of Seats. Must be greater than ZERO");
 		}
 	}
 }
