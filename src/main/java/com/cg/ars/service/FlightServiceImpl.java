@@ -90,8 +90,7 @@ public class FlightServiceImpl implements FlightService
 	@Override
 	public boolean validateDate(Date date) throws FlightException
 	{
-		// TODO: Implement Date Validation
-		return false;
+		
 	}
 
 	@Override
