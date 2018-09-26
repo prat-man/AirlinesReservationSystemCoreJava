@@ -33,6 +33,12 @@ public class UserServiceImpl implements UserService
 		
 		udao.addUser(user);
 	}
+	
+	@Override
+	public User getUser(String username) throws UserException
+	{
+		return udao.getUser(username);
+	}
 
 	@Override
 	public boolean changePassword(String username, String oldPass, String newPass) throws UserException
