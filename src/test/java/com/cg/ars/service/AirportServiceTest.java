@@ -16,15 +16,60 @@ public class AirportServiceTest
 		aser = new AirportServiceImpl();
 	}
 	
-
 	@Test
-	public void addAirportTest()
+	public void addAirportTest1() throws AirportException
 	{
 		Airport airport = new Airport();
-		airport.setAbbreviation("KOL");
-		airport.setAirportName("Indira Gandhi International Airport");
-		airport.setLocation("Kolkata");
+		
+		airport.setAbbreviation("ZZZ");
+		airport.setAirportName("Zinda Hai Toh");
+		airport.setLocation("Duniya");
+		
 		aser.addAirport(airport);
+		
+		aser.deleteAirport("ZZZ");
+	}
+	
+	@Test(expected=AirportException.class)
+	public void addAirportTest2() throws AirportException
+	{
+		Airport airport = new Airport();
+		
+		airport.setAbbreviation("zZZ");
+		airport.setAirportName("Zinda Hai Toh");
+		airport.setLocation("Duniya");
+		
+		aser.addAirport(airport);
+		
+		aser.deleteAirport("zZZ");
+	}
+	
+	@Test(expected=AirportException.class)
+	public void addAirportTest3() throws AirportException
+	{
+		Airport airport = new Airport();
+		
+		airport.setAbbreviation("ZZZ");
+		airport.setAirportName("Zinda hai Toh");
+		airport.setLocation("Duniya");
+		
+		aser.addAirport(airport);
+		
+		aser.deleteAirport("ZZZ");
+	}
+	
+	@Test(expected=AirportException.class)
+	public void addAirportTest4() throws AirportException
+	{
+		Airport airport = new Airport();
+		
+		airport.setAbbreviation("ZZZ");
+		airport.setAirportName("Zinda Hai Toh");
+		airport.setLocation("duniya");
+		
+		aser.addAirport(airport);
+		
+		aser.deleteAirport("ZZZ");
 	}
 	
 	@Test
@@ -81,7 +126,4 @@ public class AirportServiceTest
 	{
 		Assert.assertEquals(false, aser.validateLocation("pune"));
 	}
-	
-	
-	
 }

@@ -18,15 +18,47 @@ public class AirportServiceImpl implements AirportService
 	}
 
 	@Override
-	public void addAirport(Airport airport) 
+	public void addAirport(Airport airport) throws AirportException 
 	{
+		this.validateAbbreviation(airport.getAbbreviation());
+		this.validateName(airport.getAirportName());
+		this.validateLocation(airport.getLocation());
+		
 		adao.addAirport(airport);
+	}
+	
+	@Override
+	public Airport getAirport(String airportId) throws AirportException 
+	{
+		try {
+			Airport airport = adao.getAirport(airportId);
+			
+			if (airport == null) {
+				throw new NullPointerException("Airport Record with Airport ID=" + airportId + " not found");
+			}
+			else {
+				return airport;
+			}
+		}
+		catch (Exception exc) {
+			throw new AirportException(exc.getMessage());
+		}
 	}
 
 	@Override
 	public List<Airport> getAllAirports() 
 	{
 		return adao.getAllAirports();
+	}
+	
+	public void deleteAirport(String airportId) throws AirportException 
+	{
+		try {
+			adao.deleteAirport(airportId);
+		}
+		catch (Exception exc) {
+			throw new AirportException(exc.getMessage());
+		}
 	}
 
 	@Override

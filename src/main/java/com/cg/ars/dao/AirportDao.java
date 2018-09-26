@@ -8,5 +8,9 @@ public interface AirportDao
 {
 	public void addAirport(Airport airport);
 	
+	public Airport getAirport(String airportId);
+	
 	public List<Airport> getAllAirports();
+	
+	public void deleteAirport(String airportId);
 }
