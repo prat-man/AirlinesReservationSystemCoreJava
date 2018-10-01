@@ -153,7 +153,6 @@ public class ARSClient
 			} 
 		
 		catch (ParseException | IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println("enter the correct date according to the format dd-mm-yyyy");
 		}
 		
@@ -184,11 +183,27 @@ public class ARSClient
 		// TODO Auto-generated method stub
 		List<Flight> flightsByRegion;
 		
-	      
-		flightsByDate = F_SER.getOccupancy(depCity, arrCity)
+	      System.out.println("Enter the Departure city");
+	      String depCity = null;
+	      String arrCity = null;
+		try {
+			
+			depCity = BR.readLine();
+			System.out.println("Enter the Arrival city");
+	      	
+			arrCity = BR.readLine();
+		} 
+		catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		flightsByRegion = F_SER.getOccupancy(depCity, arrCity);
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
 		
 		System.out.println("Flight Details are : ");
-		for(Flight f: flightsByDate)
+		for(Flight f: flightsByRegion)
 		{
 			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
 								f.getFlightNo(),
