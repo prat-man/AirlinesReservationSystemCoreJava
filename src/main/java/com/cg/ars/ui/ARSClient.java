@@ -25,7 +25,7 @@ import com.cg.ars.service.UserServiceImpl;
 public class ARSClient
 {
 	static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
-	
+
 	public static final UserService U_SER = new UserServiceImpl();
 	
 	public static final FlightService F_SER = new FlightServiceImpl();
@@ -41,7 +41,7 @@ public class ARSClient
 		
 		LogoAnimation la = new LogoAnimation();
 		la.startAnimation();
-		
+    
 		try 
 		{
 			System.out.println("======================== Welcome to Airline Reservation System =========================");
@@ -69,6 +69,7 @@ public class ARSClient
 					System.out.println("========================= Welcome Executive ===========================");
 					System.out.println("1. View Flight Occupancy Details");
 					System.out.println("2. Exit");
+          
 					System.out.print("Enter Your Choice: ");
 					
 					int choice=Integer.parseInt(BR.readLine());
@@ -87,14 +88,13 @@ public class ARSClient
 							return;
 					}
 				}
-				else
-				{
+				else {
 					System.out.println("*******Welcome User!!Choose your option*******");
 					System.out.println("1:Book a Ticket\n2:View Booking Details\n3:Update Booking Details\n4:Cancel Booking");
 					System.out.println("Enter option:");
 					int choice=Integer.parseInt(BR.readLine());
-					switch(choice)
-					{
+					
+					switch(choice) {
 						case 1: bookTicket(); 
 								break;
 								
@@ -122,6 +122,119 @@ public class ARSClient
 			e.printStackTrace();
 		}
 		
+	}
+
+	private static void viewDetailsBasedOnDate() 
+	{
+		List<Flight> flightsByDate;
+		String flightNo = null;
+		System.out.println("=====================================================================");
+		System.out.println("Enter the flight number for which the details have to be entered");
+		
+		try {
+			flightNo = BR.readLine();
+		} catch (IOException e)
+		{
+			System.out.println("Invalid Flight Number");
+		}
+		System.out.println("=====================================================================");
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+		
+	    Date startDate = null;
+	    Date endDate = null;
+	    
+		try {
+			System.out.println("Enter the start date of the flight");
+			startDate = new Date(dateFormat.parse(BR.readLine()).getTime());
+			
+			System.out.println("Enter the end date of the flight");
+			endDate = new Date(timeFormat.parse(BR.readLine()).getTime());
+			} 
+		
+		catch (ParseException | IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("enter the correct date according to the format dd-mm-yyyy");
+		}
+		
+	      
+		flightsByDate = F_SER.getOccupancy(flightNo, startDate, endDate);
+		
+		System.out.println("Flight Details are : ");
+		for(Flight f: flightsByDate)
+		{
+			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+								f.getFlightNo(),
+								f.getAirline(),
+								f.getArrCity(),
+								f.getDepCity(),
+								timeFormat.format(f.getArrTime()),
+								timeFormat.format(f.getDepTime()),
+								dateFormat.format(f.getArrDate()),
+								dateFormat.format(f.getDepDate()),
+								f.getFirstSeats(),
+								f.getFirstSeatsFare(),
+								f.getBussSeats(),
+								f.getBussSeatsFare());
+		}
+		
+	}
+
+	private static void viewDetailsBasedOnRegion() {
+		// TODO Auto-generated method stub
+		List<Flight> flightsByRegion;
+		String flightNo = null;
+		System.out.println("=====================================================================");
+		System.out.println("Enter the flight number for which the details have to be entered");
+		
+		try {
+			flightNo = BR.readLine();
+		} catch (IOException e)
+		{
+			System.out.println("Invalid Flight Number");
+		}
+		System.out.println("=====================================================================");
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+		
+	    Date startDate = null;
+	    Date endDate = null;
+	    
+		try {
+			System.out.println("Enter the start date of the flight");
+			startDate = new Date(dateFormat.parse(BR.readLine()).getTime());
+			
+			System.out.println("Enter the end date of the flight");
+			endDate = new Date(timeFormat.parse(BR.readLine()).getTime());
+			} 
+		
+		catch (ParseException | IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("enter the correct date according to the format dd-mm-yyyy");
+		}
+		
+	      
+		flightsByDate = F_SER.getOccupancy(flightNo, startDate, endDate);
+		
+		System.out.println("Flight Details are : ");
+		for(Flight f: flightsByDate)
+		{
+			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+								f.getFlightNo(),
+								f.getAirline(),
+								f.getArrCity(),
+								f.getDepCity(),
+								timeFormat.format(f.getArrTime()),
+								timeFormat.format(f.getDepTime()),
+								dateFormat.format(f.getArrDate()),
+								dateFormat.format(f.getDepDate()),
+								f.getFirstSeats(),
+								f.getFirstSeatsFare(),
+								f.getBussSeats(),
+								f.getBussSeatsFare());
+		}
 	}
 
 	private static void bookTicket() 
@@ -182,15 +295,5 @@ public class ARSClient
 		
 	}
 
-	private static void loginExecutive() 
-	{
-		
-		
-	}
-
-	private static void viewFlightOccupancyDetails() 
-	{
-		
-		
-	}
+	
 }
