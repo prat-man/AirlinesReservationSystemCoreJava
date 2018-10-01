@@ -12,6 +12,7 @@ import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.dto.User;
 import com.cg.ars.exception.BookingException;
+import com.cg.ars.exception.FlightException;
 import com.cg.ars.exception.UserException;
 import com.cg.ars.service.AirportService;
 import com.cg.ars.service.AirportServiceImpl;
@@ -222,27 +223,33 @@ public class ARSClient
 
 	private static void bookTicket() 
 	{
+		String depCity = null;
+		String arrCity = null;
+		
 		try 
 		{
 			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 			
 			System.out.print("Travel Date (dd-MM-yyyy): ");
 			Date date = new Date(format.parse(BR.readLine()).getTime());
-			
-			System.out.println("City From: ");
-			String depCity = BR.readLine();
-			
-			System.out.println("City To: ");
-			String arrCity = BR.readLine();
-					
-			List<Flight> flightList = F_SER.getFlights(date, depCity, arrCity);
-			
+        
+			if (F_SER.validateDate(date) == true) 
+			{
+				System.out.println("City From: ");
+				depCity = BR.readLine();
+        
+				System.out.println("City To: ");
+				arrCity = BR.readLine();
+			}
+      
+			List<Flight> flightList=F_SER.getFlights(date, depCity, arrCity);
+      
 			for(Flight flight : flightList) 
 			{
 				System.out.println(flight);
 			}
 		}
-		catch(IOException | ParseException e) 
+		catch(IOException | ParseException | FlightException e) 
 		{
 			e.printStackTrace();
 		}
