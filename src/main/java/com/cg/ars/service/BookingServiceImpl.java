@@ -76,7 +76,7 @@ public class BookingServiceImpl implements BookingService
 	@Override
 	public String generateBookingId(String flightNo) throws BookingException
 	{
-		Flight flight = fdao.getFlightByNumber(flightNo);
+		Flight flight = fdao.getFlight(flightNo);
 		String sub = flight.getAirline().substring(0,3);
 		return sub+bdao.getBookingId();
 	}
