@@ -1,6 +1,7 @@
 package com.cg.ars.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.cg.ars.dto.Booking;
 import com.cg.ars.exception.BookingException;
@@ -46,9 +47,9 @@ public class BookingDaoImpl implements BookingDao
 	}
 	
 	@Override
-	public String getBookingId(String flightNo) throws BookingException
+	public int getBookingId() throws BookingException
 	{
-		// TODO: Implement method to get booking ID
-		return null;
+		Query query = entityManager.createNativeQuery("SELECT BOOKING_SEQUENCE.NEXTVAL FROM DUAL");
+		return (int) query.getSingleResult();
 	}
 }

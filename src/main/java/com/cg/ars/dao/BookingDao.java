@@ -13,5 +13,5 @@ public interface BookingDao
 	
 	public void cancelBooking(String bookingId);
 	
-	public String getBookingId(String flightNo) throws BookingException;
+	public int getBookingId() throws BookingException;
 }

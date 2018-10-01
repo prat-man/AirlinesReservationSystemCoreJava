@@ -31,4 +31,8 @@ public interface FlightService
 	public boolean validateDate(Date date) throws FlightException;
 		
 	public boolean validateSeats(Integer seats) throws FlightException;
+	
+	public Flight getFlight(String flightNo) throws FlightException;
+	
+	public Double getFare(String flightNo, String classType) throws FlightException;
 }

@@ -74,4 +74,33 @@ public class FlightDaoImpl implements FlightDao
 		
 		return flights;
 	}
+
+	@Override
+	public Flight getFlight(String flightNo)
+	{
+		Flight flight = entityManager.find(Flight.class, flightNo);
+		return flight;
+	}
+
+	@Override
+	public Double getFare(Flight flight, String classType)
+	{
+		double fare;
+		
+		switch (classType) {
+			case "First":
+				fare = flight.getFirstSeatsFare();
+				break;
+			
+			case "Business":
+				fare = flight.getBussSeatsFare();
+				break;
+				
+			default:
+				fare = -1;
+				break;
+		}
+		
+		return fare;
+	}
 }

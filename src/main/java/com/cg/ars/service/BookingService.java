@@ -14,7 +14,7 @@ public interface BookingService
 	
 	public void cancelBooking(String bookingId) throws BookingException;
 	
-	public String getBookingId(String flightNo) throws BookingException;
+	public String generateBookingId(String flightNo) throws BookingException;
 	
 	public boolean validateBookingId(String bookingId) throws BookingException;
 	
@@ -27,4 +27,5 @@ public interface BookingService
 	public boolean validateCreditCardInfo(String creditCardInfo) throws BookingException;
 	
 	public boolean validateCity(String city) throws BookingException;
+	
 }
