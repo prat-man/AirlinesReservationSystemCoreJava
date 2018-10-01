@@ -90,7 +90,7 @@ public class ARSClient
 						case 7:	viewAirports();
 							break;
 							
-						case 8: viewBookingDetails();
+						case 8: viewBooking();
 							break;
 							
 						default: System.out.println("*****THANK YOU*****");
@@ -156,9 +156,29 @@ public class ARSClient
 		
 	}
 
-	private static void viewFlights() {
-		F_SER.getAllFlights();
+	private static void viewFlights()
+	{
+		List<Flight> flightList = F_SER.getAllFlights();
 		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+		
+		for (Flight f : flightList)
+		{
+			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+					f.getFlightNo(),
+					f.getAirline(),
+					f.getArrCity(),
+					f.getDepCity(),
+					timeFormat.format(f.getArrTime()),
+					timeFormat.format(f.getDepTime()),
+					dateFormat.format(f.getArrDate()),
+					dateFormat.format(f.getDepDate()),
+					f.getFirstSeats(),
+					f.getFirstSeatsFare(),
+					f.getBussSeats(),
+					f.getBussSeatsFare());
+		}
 	}
 
 	private static void addFlight() {
@@ -261,7 +281,7 @@ public class ARSClient
 		F_SER.deleteFlight();
 	}
 
-	private static void viewFlightByDate() {
+	private static void viewFlightsByDate() {
 		
 		System.out.println("Date");
 		F_SER.getFlights(date, depCity, arrCity);
