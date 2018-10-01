@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 
 import com.cg.ars.dao.BookingDao;
 import com.cg.ars.dao.BookingDaoImpl;
+import com.cg.ars.dao.FlightDao;
+import com.cg.ars.dao.FlightDaoImpl;
 import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.BookingException;
@@ -12,10 +14,12 @@ import com.cg.ars.exception.BookingException;
 public class BookingServiceImpl implements BookingService 
 {
 	private BookingDao bdao;
+	private FlightDao fdao;
 	
 	public BookingServiceImpl() 
 	{
 		bdao = new BookingDaoImpl();
+		fdao = new FlightDaoImpl();
 	}
 
 	@Override
@@ -70,10 +74,11 @@ public class BookingServiceImpl implements BookingService
 	}
 	
 	@Override
-	public String getBookingId(String flightNo) throws BookingException
+	public String generateBookingId(String flightNo) throws BookingException
 	{
-		// TODO: Implement method to get booking ID
-		return null;
+		Flight flight = fdao.getFlightByNumber(flightNo);
+		String sub = flight.getAirline().substring(0,3);
+		return sub+bdao.getBookingId();
 	}
 
 	@Override

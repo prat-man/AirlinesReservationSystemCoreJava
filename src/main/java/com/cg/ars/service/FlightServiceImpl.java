@@ -112,4 +112,46 @@ public class FlightServiceImpl implements FlightService
 			throw new FlightException("Invalid Number of Seats. Must be greater than ZERO");
 		}
 	}
+
+	@Override
+	public List<Flight> getOccupancy(String flightNo, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Flight> getOccupancy(String depCity, String arrCity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Flight getFlight(String flightNo) throws FlightException
+	{
+		Flight flight = fdao.getFlight(flightNo);
+		
+		if(flight==null) {
+			throw new FlightException("Flight not found with ID="+flightNo);
+		}
+		
+		return flight;
+	}
+
+	@Override
+	public Double getFare(String flightNo, String classType) throws FlightException
+	{
+		Flight flight = fdao.getFlight(flightNo);
+		
+		if (flight == null) {
+			throw new FlightException("Flight Not Found with ID=" + flightNo);
+		}
+
+		double fare = fdao.getFare(flight, classType);
+		
+		if (fare < 0) {
+			throw new FlightException("Invalid Class Type " + classType);
+		}
+		
+		return fare;
+	}
 }

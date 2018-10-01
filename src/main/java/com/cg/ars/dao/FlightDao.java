@@ -16,4 +16,8 @@ public interface FlightDao
 	public List<Flight> getAllFlights();
 	
 	public List<Flight> getFlights(Date date, String depCity, String arrCity);
+	
+	public Flight getFlight(String flightNo);
+	
+	public Double getFare(Flight flight, String classType);
 }
