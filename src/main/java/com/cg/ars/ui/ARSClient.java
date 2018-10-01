@@ -3,15 +3,36 @@ package com.cg.ars.ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
+import com.cg.ars.dto.Booking;
+import com.cg.ars.dto.Flight;
 import com.cg.ars.dto.User;
+import com.cg.ars.exception.BookingException;
 import com.cg.ars.exception.UserException;
+import com.cg.ars.service.AirportService;
+import com.cg.ars.service.AirportServiceImpl;
+import com.cg.ars.service.BookingService;
+import com.cg.ars.service.BookingServiceImpl;
+import com.cg.ars.service.FlightService;
+import com.cg.ars.service.FlightServiceImpl;
 import com.cg.ars.service.UserService;
 import com.cg.ars.service.UserServiceImpl;
 
 public class ARSClient
 {
 	static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
+	
+	public static final UserService U_SER = new UserServiceImpl();
+	
+	public static final FlightService F_SER = new FlightServiceImpl();
+	
+	public static final BookingService B_SER = new BookingServiceImpl();
+	
+	public static final AirportService A_SER = new AirportServiceImpl();
 	
 	public static void main(String[] args)
 	{
@@ -21,7 +42,6 @@ public class ARSClient
 		LogoAnimation la = new LogoAnimation();
 		la.startAnimation();
 		
-		UserService userService=new UserServiceImpl();
 		try 
 		{
 			System.out.println("========================Welcome to Airline Reservation System=========================");
@@ -31,10 +51,10 @@ public class ARSClient
 			String username=BR.readLine();
 			System.out.println("Password:");
 			String password=BR.readLine();
-			boolean flag=userService.verifyUser(username, password);
+			boolean flag = U_SER.verifyUser(username, password);
 			if(flag==true) 
 			{
-				User user=userService.getUser(username);
+				User user = U_SER.getUser(username);
 				String role=user.getRole();
 				if(role.equals("Admin")) 
 				{
@@ -102,22 +122,60 @@ public class ARSClient
 
 	private static void bookTicket() 
 	{
-		// TODO: Implement book ticket functionality in client
+		try 
+		{
+			Booking booking=new Booking();
+			
+			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+			
+			System.out.print("Travel Date (dd-MM-yyyy): ");
+			Date date = new Date(format.parse(BR.readLine()).getTime());
+			
+			System.out.println("City From: ");
+			String depCity=BR.readLine();
+			System.out.println("City To: ");
+			String arrCity=BR.readLine();
+					
+			List<Flight> flightList=F_SER.getFlights(date, depCity, arrCity);
+				for(Flight flight : flightList) 
+				{
+					System.out.println(flight);
+				}
+		}
+		catch(IOException | ParseException e) 
+		{
+			e.printStackTrace();
+		}
+		
 	}
 
 	private static void viewBooking() 
 	{
-		// TODO: Implement view booking functionality in client
+		
 	}
 
 	private static void updateBooking() 
 	{
-		// TODO: Implement update booking functionality in client
+		
 	}
 
 	private static void cancelBooking() 
 	{
-		// TODO: Implement cancel booking functionality in client
+		System.out.println("Booking Id:");
+		try
+		{
+			String bookingId = BR.readLine();
+			if(B_SER.validateBookingId(bookingId) == true) 
+			{
+				B_SER.cancelBooking(bookingId);
+				System.out.println("Booking with Id "+bookingId+" cancelled successfully");
+			}
+		} 
+		catch (IOException | BookingException e) 
+		{
+			e.printStackTrace();
+		}
+		
 	}
 
 	private static void loginExecutive() 
