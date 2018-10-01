@@ -184,39 +184,9 @@ public class ARSClient
 	private static void viewDetailsBasedOnRegion() {
 		// TODO Auto-generated method stub
 		List<Flight> flightsByRegion;
-		String flightNo = null;
-		System.out.println("=====================================================================");
-		System.out.println("Enter the flight number for which the details have to be entered");
-		
-		try {
-			flightNo = BR.readLine();
-		} catch (IOException e)
-		{
-			System.out.println("Invalid Flight Number");
-		}
-		System.out.println("=====================================================================");
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
-		
-	    Date startDate = null;
-	    Date endDate = null;
-	    
-		try {
-			System.out.println("Enter the start date of the flight");
-			startDate = new Date(dateFormat.parse(BR.readLine()).getTime());
-			
-			System.out.println("Enter the end date of the flight");
-			endDate = new Date(timeFormat.parse(BR.readLine()).getTime());
-			} 
-		
-		catch (ParseException | IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("enter the correct date according to the format dd-mm-yyyy");
-		}
 		
 	      
-		flightsByDate = F_SER.getOccupancy(flightNo, startDate, endDate);
+		flightsByDate = F_SER.getOccupancy(depCity, arrCity)
 		
 		System.out.println("Flight Details are : ");
 		for(Flight f: flightsByDate)
