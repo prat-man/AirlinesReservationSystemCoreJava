@@ -26,7 +26,7 @@ import com.cg.ars.service.UserServiceImpl;
 public class ARSClient
 {
 	static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
-	
+
 	public static final UserService U_SER = new UserServiceImpl();
 	
 	public static final FlightService F_SER = new FlightServiceImpl();
@@ -42,21 +42,25 @@ public class ARSClient
 		
 		LogoAnimation la = new LogoAnimation();
 		la.startAnimation();
-		
+    
 		try 
 		{
-			System.out.println("========================Welcome to Airline Reservation System=========================");
-			System.out.println("========================Login User=====================");
+			System.out.println("======================== Welcome to Airline Reservation System =========================");
+			System.out.println("======================== Login =====================");
 			System.out.println();
+			
 			System.out.println("Username:");
-			String username=BR.readLine();
+			String username = BR.readLine();
+			
 			System.out.println("Password:");
-			String password=BR.readLine();
-			boolean flag = U_SER.verifyUser(username, password);
-			if(flag==true) 
+			String password = BR.readLine();
+			
+			if(U_SER.verifyUser(username, password)) 
 			{
 				User user = U_SER.getUser(username);
-				String role=user.getRole();
+				
+				String role = user.getRole();
+				
 				if(role.equals("Admin")) 
 				{
 					
@@ -64,8 +68,8 @@ public class ARSClient
 				else if(role.equals("Executive"))
 				{
 					System.out.println("=========================Welcome Executive===========================");
-					System.out.println("1. Login");
-					System.out.println("2. View Flight Occupancy Details");
+					System.out.println("1. View Flight Details for a particular period");
+					System.out.println("2. View Flight Occupancy Details from one region to another region");
 					System.out.println("3. Exit");
 					System.out.print("Enter Your Choice: ");
 					
@@ -73,25 +77,24 @@ public class ARSClient
 					switch(choice)
 					{
 					case 1:
-						loginExecutive();
+						viewDetailsBasedOnDate();
 						break;
 						
 					case 2:
-						viewFlightOccupancyDetails();
+						viewDetailsBasedOnRegion();
 						break;
 						
 					default:
 						return;
 					}
 				}
-				else
-				{
+				else {
 					System.out.println("*******Welcome User!!Choose your option*******");
 					System.out.println("1:Book a Ticket\n2:View Booking Details\n3:Update Booking Details\n4:Cancel Booking");
 					System.out.println("Enter option:");
 					int choice=Integer.parseInt(BR.readLine());
-					switch(choice)
-					{
+					
+					switch(choice) {
 						case 1: bookTicket(); 
 								break;
 								
@@ -121,6 +124,103 @@ public class ARSClient
 		
 	}
 
+	private static void viewDetailsBasedOnDate() 
+	{
+		List<Flight> flightsByDate;
+		String flightNo = null;
+		System.out.println("=====================================================================");
+		System.out.println("Enter the flight number for which the details have to be entered");
+		
+		try {
+			flightNo = BR.readLine();
+		} catch (IOException e)
+		{
+			System.out.println("Invalid Flight Number");
+		}
+		System.out.println("=====================================================================");
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+		
+	    Date startDate = null;
+	    Date endDate = null;
+	    
+		try {
+			System.out.println("Enter the start date of the flight");
+			startDate = new Date(dateFormat.parse(BR.readLine()).getTime());
+			
+			System.out.println("Enter the end date of the flight");
+			endDate = new Date(timeFormat.parse(BR.readLine()).getTime());
+		} 
+		catch (ParseException | IOException e) {
+			System.out.println("enter the correct date according to the format dd-mm-yyyy");
+		}
+		
+		flightsByDate = F_SER.getOccupancy(flightNo, startDate, endDate);
+		
+		System.out.println("Flight Details are : ");
+		for(Flight f: flightsByDate)
+		{
+			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+								f.getFlightNo(),
+								f.getAirline(),
+								f.getArrCity(),
+								f.getDepCity(),
+								timeFormat.format(f.getArrTime()),
+								timeFormat.format(f.getDepTime()),
+								dateFormat.format(f.getArrDate()),
+								dateFormat.format(f.getDepDate()),
+								f.getFirstSeats(),
+								f.getFirstSeatsFare(),
+								f.getBussSeats(),
+								f.getBussSeatsFare());
+		}
+		
+	}
+
+	private static void viewDetailsBasedOnRegion()
+	{
+		List<Flight> flightsByRegion;
+
+		String depCity = null;
+		String arrCity = null;
+	      
+		try {
+			System.out.println("Enter the Departure city");
+			depCity = BR.readLine();
+			
+			System.out.println("Enter the Arrival city");
+			arrCity = BR.readLine();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+		
+		flightsByRegion = F_SER.getOccupancy(depCity, arrCity);
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+		
+		System.out.println("Flight Details are : ");
+		for(Flight f: flightsByRegion)
+		{
+			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+								f.getFlightNo(),
+								f.getAirline(),
+								f.getArrCity(),
+								f.getDepCity(),
+								timeFormat.format(f.getArrTime()),
+								timeFormat.format(f.getDepTime()),
+								dateFormat.format(f.getArrDate()),
+								dateFormat.format(f.getDepDate()),
+								f.getFirstSeats(),
+								f.getFirstSeatsFare(),
+								f.getBussSeats(),
+								f.getBussSeatsFare());
+		}
+	}
+
 	private static void bookTicket() 
 	{
 		String depCity = null;
@@ -128,31 +228,31 @@ public class ARSClient
 		
 		try 
 		{
-			Booking booking=new Booking();
-			
 			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 			
 			System.out.print("Travel Date (dd-MM-yyyy): ");
 			Date date = new Date(format.parse(BR.readLine()).getTime());
-			if(F_SER.validateDate(date) == true) 
+        
+			if (F_SER.validateDate(date) == true) 
 			{
 				System.out.println("City From: ");
-				depCity=BR.readLine();
+				depCity = BR.readLine();
+        
 				System.out.println("City To: ");
-				arrCity=BR.readLine();	
-			}		
+				arrCity = BR.readLine();
+			}
+      
 			List<Flight> flightList=F_SER.getFlights(date, depCity, arrCity);
+      
 			for(Flight flight : flightList) 
 			{
 				System.out.println(flight);
 			}
-			
 		}
 		catch(IOException | ParseException | FlightException e) 
 		{
 			e.printStackTrace();
 		}
-		
 	}
 
 	private static void viewBooking() 
@@ -181,18 +281,5 @@ public class ARSClient
 		{
 			e.printStackTrace();
 		}
-		
-	}
-
-	private static void loginExecutive() 
-	{
-		
-		
-	}
-
-	private static void viewFlightOccupancyDetails() 
-	{
-		
-		
 	}
 }
