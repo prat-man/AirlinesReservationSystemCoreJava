@@ -499,30 +499,72 @@ public class ARSClient
 		
 		try 
 		{
-			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
 			
 			System.out.print("Travel Date (dd-MM-yyyy): ");
-			Date date = new Date(format.parse(BR.readLine()).getTime());
+			Date date = new Date(dateFormat.parse(BR.readLine()).getTime());
         
-			if (F_SER.validateDate(date) == true) 
-			{
-				System.out.println("City From: ");
-				depCity = BR.readLine();
+			System.out.print("City From: ");
+			depCity = BR.readLine();
         
-				System.out.println("City To: ");
-				arrCity = BR.readLine();
-			}
+			System.out.print("City To: ");
+			arrCity = BR.readLine();
+		
       
-			List<Flight> flightList=F_SER.getFlights(date, depCity, arrCity);
+			List<Flight> flightList = F_SER.getFlights(date, depCity, arrCity);
       
 			for(Flight flight : flightList) 
 			{
-				System.out.println(flight);
+				System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+						flight.getFlightNo(),
+						flight.getAirline(),
+						flight.getArrCity(),
+						flight.getDepCity(),
+						timeFormat.format(flight.getArrTime()),
+						timeFormat.format(flight.getDepTime()),
+						dateFormat.format(flight.getArrDate()),
+						dateFormat.format(flight.getDepDate()),
+						flight.getFirstSeats(),
+						flight.getFirstSeatsFare(),
+						flight.getBussSeats(),
+						flight.getBussSeatsFare());
 			}
+			
+			Booking booking = new Booking();
+			
+			System.out.print("Flight Number:");
+			String flightId=BR.readLine();
+			booking.setFlightId(flightId);
+			
+			Flight flight = F_SER.getFlight(flightId);
+			
+			System.out.print("Email Id: ");
+			booking.setCustEmail(BR.readLine());
+			
+			System.out.print("Number of Seats Required: ");
+			int seats=Integer.parseInt(BR.readLine());
+			
+			System.out.print("Class Type:");
+			String classType = BR.readLine();
+			booking.setClassType(classType);
+			
+			double totalFare = seats * F_SER.getFare(flightId, classType);
+			booking.setTotalFare(totalFare);
+			
+			System.out.print("Credit Card Number: ");
+			booking.setCreditCardInfo(BR.readLine());
+			
+			System.out.print("City From: ");
+			booking.setSrcCity(BR.readLine());
+			
+			System.out.print("City To: ");
+			booking.setDestCity(BR.readLine());
+			
 		}
 		catch(IOException | ParseException | FlightException e) 
 		{
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 	}
 
