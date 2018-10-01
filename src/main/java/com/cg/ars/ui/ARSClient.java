@@ -150,13 +150,11 @@ public class ARSClient
 			
 			System.out.println("Enter the end date of the flight");
 			endDate = new Date(timeFormat.parse(BR.readLine()).getTime());
-			} 
-		
+		} 
 		catch (ParseException | IOException e) {
 			System.out.println("enter the correct date according to the format dd-mm-yyyy");
 		}
 		
-	      
 		flightsByDate = F_SER.getOccupancy(flightNo, startDate, endDate);
 		
 		System.out.println("Flight Details are : ");
@@ -179,24 +177,25 @@ public class ARSClient
 		
 	}
 
-	private static void viewDetailsBasedOnRegion() {
-		// TODO Auto-generated method stub
+	private static void viewDetailsBasedOnRegion()
+	{
 		List<Flight> flightsByRegion;
-		
-	      System.out.println("Enter the Departure city");
-	      String depCity = null;
-	      String arrCity = null;
+
+		String depCity = null;
+		String arrCity = null;
+	      
 		try {
-			
+			System.out.println("Enter the Departure city");
 			depCity = BR.readLine();
+			
 			System.out.println("Enter the Arrival city");
-	      	
 			arrCity = BR.readLine();
 		} 
 		catch (IOException e) {
-			
 			e.printStackTrace();
+			return;
 		}
+		
 		flightsByRegion = F_SER.getOccupancy(depCity, arrCity);
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -225,29 +224,28 @@ public class ARSClient
 	{
 		try 
 		{
-			Booking booking=new Booking();
-			
 			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 			
 			System.out.print("Travel Date (dd-MM-yyyy): ");
 			Date date = new Date(format.parse(BR.readLine()).getTime());
 			
 			System.out.println("City From: ");
-			String depCity=BR.readLine();
+			String depCity = BR.readLine();
+			
 			System.out.println("City To: ");
-			String arrCity=BR.readLine();
+			String arrCity = BR.readLine();
 					
-			List<Flight> flightList=F_SER.getFlights(date, depCity, arrCity);
-				for(Flight flight : flightList) 
-				{
-					System.out.println(flight);
-				}
+			List<Flight> flightList = F_SER.getFlights(date, depCity, arrCity);
+			
+			for(Flight flight : flightList) 
+			{
+				System.out.println(flight);
+			}
 		}
 		catch(IOException | ParseException e) 
 		{
 			e.printStackTrace();
 		}
-		
 	}
 
 	private static void viewBooking() 
@@ -276,8 +274,5 @@ public class ARSClient
 		{
 			e.printStackTrace();
 		}
-		
 	}
-
-	
 }
