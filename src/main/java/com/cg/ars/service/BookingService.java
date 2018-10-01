@@ -14,6 +14,8 @@ public interface BookingService
 	
 	public void cancelBooking(String bookingId) throws BookingException;
 	
+	public String getBookingId(String flightNo) throws BookingException;
+	
 	public boolean validateBookingId(String bookingId) throws BookingException;
 	
 	public boolean validateEmail(String email) throws BookingException;

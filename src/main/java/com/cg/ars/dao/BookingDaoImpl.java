@@ -3,6 +3,7 @@ package com.cg.ars.dao;
 import javax.persistence.EntityManager;
 
 import com.cg.ars.dto.Booking;
+import com.cg.ars.exception.BookingException;
 import com.cg.ars.util.JPAUtil;
 
 public class BookingDaoImpl implements BookingDao
@@ -42,5 +43,12 @@ public class BookingDaoImpl implements BookingDao
 		Booking booking = this.getBooking(bookingId);
 		
 		entityManager.remove(booking);
+	}
+	
+	@Override
+	public String getBookingId(String flightNo) throws BookingException
+	{
+		// TODO: Implement method to get booking ID
+		return null;
 	}
 }
