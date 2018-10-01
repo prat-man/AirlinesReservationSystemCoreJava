@@ -114,13 +114,13 @@ public class FlightServiceImpl implements FlightService
 	}
 
 	@Override
-	public List<Flight> getOccupancy(String flightNo, Date startDate, Date endDate) {
+	public Double getOccupancyChange(String flightNo, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Flight> getOccupancy(String depCity, String arrCity) {
+	public Double getOccupancy(String depCity, String arrCity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
