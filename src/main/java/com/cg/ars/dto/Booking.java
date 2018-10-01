@@ -84,6 +84,14 @@ public class Booking
 		this.bookingId = bookingId;
 	}
 
+	public String getFlightId() {
+		return flightId;
+	}
+
+	public void setFlightId(String flightId) {
+		this.flightId = flightId;
+	}
+
 	public String getCustEmail() {
 		return custEmail;
 	}
