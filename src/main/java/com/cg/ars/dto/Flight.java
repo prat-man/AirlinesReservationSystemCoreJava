@@ -18,7 +18,7 @@ import javax.persistence.Table;
 	@NamedQuery(name="getAllFlights", query="SELECT a FROM Airport a")
 })
 
-public class Flight 
+public class Flight
 {
 	@Id
 	@Column(name="FLIGHTNO")

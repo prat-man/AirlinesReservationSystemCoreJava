@@ -1,6 +1,7 @@
 package com.cg.ars.dao;
 
 import com.cg.ars.dto.Booking;
+import com.cg.ars.exception.BookingException;
 
 public interface BookingDao
 {
@@ -11,4 +12,6 @@ public interface BookingDao
 	public Booking updateBooking(Booking booking);
 	
 	public void cancelBooking(String bookingId);
+	
+	public String getBookingId(String flightNo) throws BookingException;
 }

@@ -13,6 +13,9 @@ public class Booking
 	@Column(name="BOOKING_ID")
 	private String bookingId;
 	
+	@Column(name="FLIGHT_ID")
+	private String flightId;
+	
 	@Column(name="CUST_EMAIL")
 	private String custEmail;
 	
