@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.hibernate.metamodel.source.binder.SimpleIdentifierSource;
 
+import com.cg.ars.dto.Airport;
 import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.dto.User;
@@ -232,11 +233,29 @@ public class ARSClient
 	private static void modifyFlight() {
 	try {
 		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+		
 		System.out.println("Flight ID: ");
-		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-		
+		Flight f = F_SER.getFlight(BR.readLine());
 		Flight flight = new Flight();
+		flight=f;
+		System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+							f.getFlightNo(),
+							f.getAirline(),
+							f.getArrCity(),
+							f.getDepCity(),
+							timeFormat.format(f.getArrTime()),
+							timeFormat.format(f.getDepTime()),
+							dateFormat.format(f.getArrDate()),
+							dateFormat.format(f.getDepDate()),
+							f.getFirstSeats(),
+							f.getFirstSeatsFare(),
+							f.getBussSeats(),
+							f.getBussSeatsFare());
 		
+		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+	
 		System.out.print("Flight Number: ");
 		flight.setFlightNo(BR.readLine());
 		
@@ -277,22 +296,103 @@ public class ARSClient
 	}
 	}
 
-	private static void deleteFlight() {
-		F_SER.deleteFlight();
+	private static void deleteFlight() 
+	{
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+			System.out.print("Flight Number: ");
+			Flight flight =  F_SER.getFlight(BR.readLine());
+			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+					flight.getFlightNo(),
+					flight.getAirline(),
+					flight.getArrCity(),
+					flight.getDepCity(),
+					timeFormat.format(flight.getArrTime()),
+					timeFormat.format(flight.getDepTime()),
+					dateFormat.format(flight.getArrDate()),
+					dateFormat.format(flight.getDepDate()),
+					flight.getFirstSeats(),
+					flight.getFirstSeatsFare(),
+					flight.getBussSeats(),
+					flight.getBussSeatsFare());
+			F_SER.deleteFlight(flight);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
-	private static void viewFlightsByDate() {
+	private static void viewFlightsByDate() 
+	{
+		try 
+		{
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+			System.out.print("Travel Date (dd-MM-yyyy): ");
+			Date date = new Date(dateFormat.parse(BR.readLine()).getTime());
+			
+			System.out.println("Departure City: ");
+			String depCity=BR.readLine();
+			
+			System.out.println("Arrival City: ");
+			String arrCity=BR.readLine();
+			
+			List<Flight> flights = F_SER.getFlights(date, depCity, arrCity);
+			for (Flight f : flights)
+			{
+				System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+						f.getFlightNo(),
+						f.getAirline(),
+						f.getArrCity(),
+						f.getDepCity(),
+						timeFormat.format(f.getArrTime()),
+						timeFormat.format(f.getDepTime()),
+						dateFormat.format(f.getArrDate()),
+						dateFormat.format(f.getDepDate()),
+						f.getFirstSeats(),
+						f.getFirstSeatsFare(),
+						f.getBussSeats(),
+						f.getBussSeatsFare());
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		
-		System.out.println("Date");
-		F_SER.getFlights(date, depCity, arrCity);
 	}
 
-	private static void addAirport() {
-		A_SER.addAirport(airport);
+	private static void addAirport() 
+	{
+		try 
+		{
+			Airport airPort = new Airport();
+			System.out.print("Airport Name: ");
+			airPort.setAirportName(BR.readLine());
+			System.out.print("Abbreviation: ");
+			airPort.setAbbreviation(BR.readLine());
+			System.out.print("Location: ");
+			airPort.setLocation(BR.readLine());
+			A_SER.addAirport(airPort);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
-	private static void viewAirports() {
-		A_SER.getAllAirports();
+	private static void viewAirports() 
+	{
+		List<Airport> Airports =  A_SER.getAllAirports();
+		for (Airport a : Airports)
+		{
+			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+					a.getAirportName(),
+					a.getAbbreviation(),
+					a.getLocation());
+		}
 	}
   
 	private static void viewDetailsBasedOnDate() 
@@ -428,7 +528,23 @@ public class ARSClient
 
 	private static void viewBooking() 
 	{
-		
+		try {
+		System.out.print("Booking ID:");
+		Booking booking = B_SER.viewBookDetails(BR.readLine());
+		System.out.printf("%s%s%s%s%s%d%d%lf",
+				booking.getBookingId(),
+				booking.getSrcCity(),
+				booking.getDestCity(),
+				booking.getClass(),
+				booking.getClassType(),
+				booking.getNoOfPassengers(),
+				booking.getSeatNumber(),
+				booking.getTotalFare());
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	private static void updateBooking() 
