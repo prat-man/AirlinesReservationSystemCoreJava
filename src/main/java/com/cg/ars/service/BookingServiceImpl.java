@@ -68,6 +68,13 @@ public class BookingServiceImpl implements BookingService
 			throw new BookingException(exc.getMessage());
 		}
 	}
+	
+	@Override
+	public String getBookingId(String flightNo) throws BookingException
+	{
+		// TODO: Implement method to get booking ID
+		return null;
+	}
 
 	@Override
 	public boolean validateBookingId(String bookingId) throws BookingException 

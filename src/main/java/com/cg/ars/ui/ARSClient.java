@@ -44,48 +44,48 @@ public class ARSClient
     
 		try 
 		{
-			System.out.println("========================Welcome to Airline Reservation System=========================");
-			System.out.println("========================Login User=====================");
+			System.out.println("======================== Welcome to Airline Reservation System =========================");
+			System.out.println("======================== Login =====================");
 			System.out.println();
-      
-			System.out.println("Username:");
-      
-			String username=BR.readLine();
-      
-			System.out.println("Password:");
-      
-			String password=BR.readLine();
-      
-			boolean flag = U_SER.verifyUser(username, password);
 			
-			if(flag==true) {
+			System.out.println("Username:");
+			String username = BR.readLine();
+			
+			System.out.println("Password:");
+			String password = BR.readLine();
+			
+			if(U_SER.verifyUser(username, password)) 
+			{
 				User user = U_SER.getUser(username);
-        
-				String role=user.getRole();
 				
-				if(role.equals("Admin")) {
+				String role = user.getRole();
+				
+				if(role.equals("Admin")) 
+				{
 					
 				}
-				else if(role.equals("Executive")) {
-					System.out.println("=========================Welcome Executive===========================");
-					System.out.println("1. View Flight Details for a particular period");
-					System.out.println("2. View Flight Occupancy Details from one region to another region");
-					System.out.println("3. Exit");
+				else if(role.equals("Executive"))
+				{
+					System.out.println("========================= Welcome Executive ===========================");
+					System.out.println("1. View Flight Occupancy Details");
+					System.out.println("2. Exit");
+          
 					System.out.print("Enter Your Choice: ");
 					
 					int choice=Integer.parseInt(BR.readLine());
+					
 					switch(choice)
 					{
-					case 1:
-						viewDetailsBasedOnDate();
-						break;
-						
-					case 2:
-						viewDetailsBasedOnRegion();
-						break;
-						
-					default:
-						return;
+						case 1:
+							loginExecutive();
+							break;
+							
+						case 2:
+							viewFlightOccupancyDetails();
+							break;
+							
+						default:
+							return;
 					}
 				}
 				else {

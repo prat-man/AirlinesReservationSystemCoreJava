@@ -44,10 +44,11 @@ public class BookingDaoImpl implements BookingDao
 		
 		entityManager.remove(booking);
 	}
-
+	
 	@Override
-	public String getBookingId(String flightNo) throws BookingException {
-		
+	public String getBookingId(String flightNo) throws BookingException
+	{
+		// TODO: Implement method to get booking ID
 		return null;
 	}
 }
