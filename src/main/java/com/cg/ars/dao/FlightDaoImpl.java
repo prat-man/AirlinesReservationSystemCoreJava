@@ -103,4 +103,10 @@ public class FlightDaoImpl implements FlightDao
 		
 		return fare;
 	}
+
+	@Override
+	public Double getOccupancy(String depCity, String arrCity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
