@@ -3,10 +3,16 @@ package com.cg.ars.dto;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="BOOKINGS")
+
+@NamedQueries({
+	@NamedQuery(name="getSumOfPassengers", query="SELECT SUM(b.noOfPassengers) FROM Booking b WHERE b.srcCity=:depCity AND b.destCity=:arrCity")
+})
 public class Booking 
 {
 	@Id

@@ -15,7 +15,8 @@ import javax.persistence.Table;
 
 @NamedQueries({
 	@NamedQuery(name="getFlights", query="SELECT f FROM Flight f WHERE f.depDate = :depDate AND f.depCity = :depCity AND f.arrCity = :arrCity"),
-	@NamedQuery(name="getAllFlights", query="SELECT a FROM Airport a")
+	@NamedQuery(name="getAllFlights", query="SELECT a FROM Airport a"),
+	@NamedQuery(name="getSeatCount", query="SELECT SUM(f.firstSeats + f.bussSeats) FROM Flight f WHERE f.depCity = :depCity AND f.arrCity = :arrCity")
 })
 
 public class Flight
