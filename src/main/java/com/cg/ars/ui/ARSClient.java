@@ -78,36 +78,45 @@ public class ARSClient
 					
 					int choice = Integer.parseInt(BR.readLine());
 					
-					switch(choice)
+					switch (choice)
 					{
-						case 1:	addFlight();
-							break;
+						case 1:
+								addFlight();
+								break;
 							
-						case 2: modifyFlight();
-							break;
+						case 2:
+								modifyFlight();
+								break;
 						
-						case 3: deleteFlight();
-							break;
+						case 3:
+								deleteFlight();
+								break;
 							
-						case 4: viewFlights();
-							break;
+						case 4:
+								viewFlights();
+								break;
 							
-						case 5:	viewFlightsByDate();
-							break;
+						case 5:
+								viewFlightsByDate();
+								break;
 							
-						case 6:	addAirport();
-							break;
+						case 6:
+								addAirport();
+								break;
 						
-						case 7:	viewAirports();
-							break;
+						case 7:
+								viewAirports();
+								break;
 							
-						case 8: viewBooking();
-							break;
+						case 8:
+								viewBooking();
+								break;
 						
 						case 9:
-						default: System.out.println("*****THANK YOU*****");
-							return;
-						}
+						default:
+								System.out.println("=========================== Thank You ========================");
+								return;
+					}
 				}
 				else if(role.equals("Executive"))
 				{
@@ -117,21 +126,22 @@ public class ARSClient
 					System.out.println("3. Exit");
 					System.out.print("Enter Your Choice: ");
 					
-					int choice=Integer.parseInt(BR.readLine());
+					int choice = Integer.parseInt(BR.readLine());
 					
-					switch(choice)
+					switch (choice)
 					{
 						case 1:
-							viewFlightOccupancy();
-							break;
+								viewFlightOccupancy();
+								break;
 							
 						case 2:
-							viewFlightOccupancyByRoute();
-							break;
+								viewFlightOccupancyByRoute();
+								break;
 						
 						case 3:
 						default:
-							return;
+								System.out.println("=========================== Thank You ========================");
+								return;
 					}
 				}
 				else {
@@ -145,35 +155,35 @@ public class ARSClient
 					
 					int choice = Integer.parseInt(BR.readLine());
 					
-					switch(choice) {
-						case 1: bookTicket(); 
+					switch (choice)
+					{
+						case 1:
+								bookTicket(); 
 								break;
 								
-						case 2: viewBooking();
+						case 2:
+								viewBooking();
 								break;
 								
-						case 3: updateBooking();
+						case 3:
+								updateBooking();
 								break;
 								
-						case 4: cancelBooking();
+						case 4:
+								cancelBooking();
 								break;
 							
 						case 5:
-						default: System.out.println("*****THANK YOU*****");
-								
-						return;
+						default:
+								System.out.println("=========================== Thank You ========================");
+								return;
 					}
-					
 				}
 			}
-		
 		}
-		
 		catch (IOException | UserException e) {
-			
 			e.printStackTrace();
 		}
-		
 	}
 
 	private static void viewFlights()
