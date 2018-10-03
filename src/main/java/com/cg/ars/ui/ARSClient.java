@@ -50,10 +50,10 @@ public class ARSClient
 			System.out.println("======================== Login =====================");
 			System.out.println();
 			
-			System.out.println("Username:");
+			System.out.print("Username: ");
 			String username = BR.readLine();
 			
-			System.out.println("Password:");
+			System.out.print("Password: ");
 			String password = BR.readLine();
 			
 			if(U_SER.verifyUser(username, password)) 
