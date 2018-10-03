@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.util.JPAUtil;
 
@@ -106,10 +107,18 @@ public class FlightDaoImpl implements FlightDao
 
 	@Override
 	public Double getOccupancy(String depCity, String arrCity) {
-		Query query1 = entityManager.createQuery("SELECT COUNT(b.noOfPassengers) FROM Booking b WHERE b.srcCity = :depCity AND b.destCity = :arrCity");
-		Query query2 = entityManager.createQuery("SELECT COUNT(b.noOfPassengers) FROM Booking b WHERE b.srcCity = :depCity AND b.destCity = :arrCity");
-		
-		return null;
+		Double sumOfPassengers = entityManager.createNamedQuery("Booking.getSumOfPassengers", Double.class)
+												.setParameter("depCity", depCity)
+												.setParameter("arrCity", arrCity)
+												.getSingleResult();
+
+
+		Double seatCount = entityManager.createNamedQuery("Flight.getSeatCount", Double.class)
+												.setParameter("depCity", depCity)
+												.setParameter("arrCity", arrCity)
+												.getSingleResult();
+												
+		return sumOfPassengers / seatCount;
 	}
 
 	@Override
