@@ -12,7 +12,7 @@ public interface FlightService
 	
 	public Flight modifyFlight(Flight flight);
 	
-	public void deleteFlight(Flight flight);
+	public void deleteFlight(String flightNo) throws FlightException;
 	
 	public List<Flight> getAllFlights();
 	

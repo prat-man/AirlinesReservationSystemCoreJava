@@ -11,7 +11,7 @@ public interface FlightDao
 	
 	public Flight modifyFlight(Flight flight);
 	
-	public void deleteFlight(Flight flight);
+	public void deleteFlight(String flightNo);
 	
 	public List<Flight> getAllFlights();
 	

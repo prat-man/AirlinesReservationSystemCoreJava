@@ -53,34 +53,6 @@ public class Booking
 	public Booking() {
 		super();
 	}
-	
-	/**
-	 * Parameterized Constructor
-	 * @param bookingId
-	 * @param flightNo
-	 * @param custEmail
-	 * @param noOfPassengers
-	 * @param classType
-	 * @param totalFare
-	 * @param seatNumber
-	 * @param creditCardInfo
-	 * @param srcCity
-	 * @param destCity
-	 */
-	public Booking(String bookingId, String flightNo, String custEmail, Integer noOfPassengers, String classType, Double totalFare,
-			Integer seatNumber, String creditCardInfo, String srcCity, String destCity) {
-		super();
-		this.bookingId = bookingId;
-		this.flightNo = flightNo;
-		this.custEmail = custEmail;
-		this.noOfPassengers = noOfPassengers;
-		this.classType = classType;
-		this.totalFare = totalFare;
-		this.seatNumber = seatNumber;
-		this.creditCardInfo = creditCardInfo;
-		this.srcCity = srcCity;
-		this.destCity = destCity;
-	}
 
 	/*
 	 * Getters and Setters
