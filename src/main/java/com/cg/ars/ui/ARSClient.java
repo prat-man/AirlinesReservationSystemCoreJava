@@ -26,7 +26,7 @@ import com.cg.ars.service.UserServiceImpl;
 
 public class ARSClient
 {
-	static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
+	public static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
 
 	public static final UserService    U_SER = new UserServiceImpl();
 	public static final FlightService  F_SER = new FlightServiceImpl();
