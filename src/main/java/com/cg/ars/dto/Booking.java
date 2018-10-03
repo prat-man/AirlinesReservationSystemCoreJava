@@ -97,7 +97,7 @@ public class Booking
 		return flightNo;
 	}
 
-	public void setFlightId(String flightNo) {
+	public void setFlightNo(String flightNo) {
 		this.flightNo = flightNo;
 	}
 

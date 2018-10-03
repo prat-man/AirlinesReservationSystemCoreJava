@@ -35,6 +35,7 @@ public class BookingServiceTest
 		Booking booking = new Booking();
 		
 		booking.setBookingId("DEL12345");
+		booking.setFlightNo("AS1001");
 		booking.setCustEmail("sts@capgemini.com");
 		booking.setNoOfPassengers(3);
 		booking.setClassType("First");
