@@ -159,7 +159,7 @@ public class BookingServiceTest
 		booking.setSrcCity("Kolkata");
 		booking.setDestCity("Delhi");
 		
-		bser.bookTicket(booking);
+		//bser.bookTicket(booking);
 		
 		booking.setCreditCardInfo("4242698912193456");
 		
