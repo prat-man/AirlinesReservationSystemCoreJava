@@ -1,6 +1,7 @@
 package com.cg.ars.ui;
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Date;
@@ -51,31 +52,28 @@ public class ARSClient
 			System.out.println("1. Login");
 			System.out.println("2. Register");
 			System.out.println("3. Exit");
+			System.out.print("Enter Your Choice: ");
 			
 			int menu = Integer.parseInt(BR.readLine());
+			
+			if (menu == 2) {
+				System.out.println("======================== Register =====================");
+				System.out.println();
+				
+				registerUser();
+			}
+			else if (menu != 1) {
+				System.exit(0);
+			}
 			
 			System.out.println("======================== Login =====================");
 			System.out.println();
 			
-			String username = null;
-			String password = null;
+			System.out.print("Username: ");
+			String username = BR.readLine();
 			
-			if (menu == 1) {
-				System.out.print("Username: ");
-				username = BR.readLine();
-				
-				System.out.print("Password: ");
-				password = BR.readLine();
-			}
-			else if (menu == 2) {
-				User user = registerUser();
-				
-				username = user.getUsername();
-				password = user.getPassword();
-			}
-			else {
-				System.exit(0);
-			}
+			System.out.print("Password: ");
+			String password = getPassword();
 			
 			if(U_SER.verifyUser(username, password)) 
 			{
@@ -212,18 +210,21 @@ public class ARSClient
 		}
 	}
 
-	private static User registerUser() 
+	private static void registerUser() 
 	{
 		User user = new User();
 		
 		user.setRole(User.USER);
 		
 		try {
-			System.out.println("Username: ");
+			System.out.print("Username: ");
 			user.setUsername(BR.readLine());
 			
-			System.out.println("Password: ");
-			user.setPassword(BR.readLine());
+			System.out.print("Password: ");
+			user.setPassword(getPassword());
+			
+			System.out.print("Mobile No.: ");
+			user.setMobileNo(BR.readLine());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -233,8 +234,6 @@ public class ARSClient
 		} catch (UserException e) {
 			e.printStackTrace();
 		}
-		
-		return user;
 	}
 
 	private static void addUser()
@@ -272,11 +271,14 @@ public class ARSClient
 		}
 		
 		try {
-			System.out.println("Username: ");
+			System.out.print("Username: ");
 			user.setUsername(BR.readLine());
 			
-			System.out.println("Password: ");
-			user.setPassword(BR.readLine());
+			System.out.print("Password: ");
+			user.setPassword(getPassword());
+			
+			System.out.print("Mobile No.: ");
+			user.setMobileNo(BR.readLine());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -668,5 +670,25 @@ public class ARSClient
 		catch (IOException | BookingException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private static String getPassword()
+	{
+		String password = null;
+		
+		Console console = System.console();
+		
+		if (console != null) {
+			password = String.valueOf(console.readPassword());
+		}
+		else {
+			try {
+				password = BR.readLine();
+			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
+		}
+		
+		return password;
 	}
 }

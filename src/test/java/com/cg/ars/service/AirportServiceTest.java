@@ -26,8 +26,6 @@ public class AirportServiceTest
 		airport.setLocation("Duniya");
 		
 		aser.addAirport(airport);
-		
-		aser.deleteAirport("ZZZ");
 	}
 	
 	@Test(expected=AirportException.class)
@@ -40,8 +38,6 @@ public class AirportServiceTest
 		airport.setLocation("Duniya");
 		
 		aser.addAirport(airport);
-		
-		aser.deleteAirport("zZZ");
 	}
 	
 	@Test(expected=AirportException.class)
@@ -54,8 +50,6 @@ public class AirportServiceTest
 		airport.setLocation("Duniya");
 		
 		aser.addAirport(airport);
-		
-		aser.deleteAirport("ZZZ");
 	}
 	
 	@Test(expected=AirportException.class)
@@ -68,8 +62,30 @@ public class AirportServiceTest
 		airport.setLocation("duniya");
 		
 		aser.addAirport(airport);
+	}
+	
+	@Test
+	public void getAirportTest1() throws AirportException
+	{
+		Airport airport = new Airport();
 		
-		aser.deleteAirport("ZZZ");
+		airport.setAbbreviation("YYY");
+		airport.setAirportName("Zinda Hai Toh");
+		airport.setLocation("Duniya");
+		
+		aser.addAirport(airport);
+		
+		Object object = aser.getAirport("ZZZ");
+		
+		Assert.assertTrue(object instanceof Airport);
+	}
+	
+	@Test(expected=AirportException.class)
+	public void getAirportTest2() throws AirportException
+	{
+		Object object = aser.getAirport("ZZZ");
+		
+		Assert.assertTrue(object instanceof Airport);
 	}
 	
 	@Test
@@ -78,7 +94,7 @@ public class AirportServiceTest
 		Object obj = aser.getAllAirports();
 		
 		if (obj == null) {
-			Assert.assertEquals(null, obj);
+			Assert.assertNull(obj);
 		}
 		else {
 			Assert.assertTrue(obj instanceof List);
