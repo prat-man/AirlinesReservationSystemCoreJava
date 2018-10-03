@@ -66,9 +66,21 @@ public class ARSClient
 				
 				if(role.equals("Admin")) 
 				{
-					System.out.println("1.Add Flight\n2.Modify Flight\n3.Delete Flight\n4.View Flights\n5.View Flights by Date\n6.Add Airport\n7.View Airports\n8.View Booking Details");
-					int ch=BR.read();
-					switch(ch)
+					System.out.println("========================= Welcome Admin ===========================");
+					System.out.println("1. Add Flight");
+					System.out.println("2. Modify Flight");
+					System.out.println("3. Delete Flight");
+					System.out.println("4. View Flights");
+					System.out.println("5. View Flights by Date");
+					System.out.println("6. Add Airport");
+					System.out.println("7. View Airports");
+					System.out.println("8. View Booking Details");
+					System.out.println("9. Exit");
+					System.out.print("Enter Your Choice: ");
+					
+					int choice = Integer.parseInt(BR.readLine());
+					
+					switch(choice)
 					{
 						case 1:	addFlight();
 							break;
@@ -93,39 +105,47 @@ public class ARSClient
 							
 						case 8: viewBooking();
 							break;
-							
+						
+						case 9:
 						default: System.out.println("*****THANK YOU*****");
 							return;
 						}
 				}
 				else if(role.equals("Executive"))
 				{
-					System.out.println("=========================Welcome Executive===========================");
-					System.out.println("1. View Flight Details for a particular period");
-					System.out.println("2. View Flight Occupancy Details from one region to another region");
+					System.out.println("========================= Welcome Executive ===========================");
+					System.out.println("1. View flight occupancy by flight");
+					System.out.println("2. View flight occupancy by route");
 					System.out.println("3. Exit");
 					System.out.print("Enter Your Choice: ");
 					
 					int choice=Integer.parseInt(BR.readLine());
+					
 					switch(choice)
 					{
-					case 1:
-						viewDetailsBasedOnDate();
-						break;
+						case 1:
+							viewFlightOccupancy();
+							break;
+							
+						case 2:
+							viewFlightOccupancyByRoute();
+							break;
 						
-					case 2:
-						viewDetailsBasedOnRegion();
-						break;
-						
-					default:
-						return;
+						case 3:
+						default:
+							return;
 					}
 				}
 				else {
-					System.out.println("*******Welcome User!!Choose your option*******");
-					System.out.println("1:Book a Ticket\n2:View Booking Details\n3:Update Booking Details\n4:Cancel Booking");
-					System.out.println("Enter option:");
-					int choice=Integer.parseInt(BR.readLine());
+					System.out.println("========================= Welcome User ===========================");
+					System.out.println("1. Book a Ticket");
+					System.out.println("2. View Booking Details");
+					System.out.println("3. Update Booking Details");
+					System.out.println("4. Cancel Booking");
+					System.out.println("5. Exit");
+					System.out.print("Enter Your Choice: ");
+					
+					int choice = Integer.parseInt(BR.readLine());
 					
 					switch(choice) {
 						case 1: bookTicket(); 
@@ -139,7 +159,8 @@ public class ARSClient
 								
 						case 4: cancelBooking();
 								break;
-								
+							
+						case 5:
 						default: System.out.println("*****THANK YOU*****");
 								
 						return;
@@ -395,101 +416,60 @@ public class ARSClient
 		}
 	}
   
-	private static void viewDetailsBasedOnDate() 
+	private static void viewFlightOccupancy() 
 	{
-		List<Flight> flightsByDate;
+		System.out.print("Flight number: ");
+		
 		String flightNo = null;
-		System.out.println("=====================================================================");
-		System.out.println("Enter the flight number for which the details have to be entered");
 		
 		try {
 			flightNo = BR.readLine();
-		} catch (IOException e)
-		{
-			System.out.println("Invalid Flight Number");
 		}
-		System.out.println("=====================================================================");
+		catch (IOException e) {
+			System.err.println("Invalid Flight Number");
+		}
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
 		
 	    Date startDate = null;
 	    Date endDate = null;
 	    
 		try {
-			System.out.println("Enter the start date of the flight");
+			System.out.print("Start Date: ");
 			startDate = new Date(dateFormat.parse(BR.readLine()).getTime());
 			
-			System.out.println("Enter the end date of the flight");
-			endDate = new Date(timeFormat.parse(BR.readLine()).getTime());
+			System.out.print("End Date: ");
+			endDate = new Date(dateFormat.parse(BR.readLine()).getTime());
 		} 
 		catch (ParseException | IOException e) {
-			System.out.println("enter the correct date according to the format dd-mm-yyyy");
+			System.out.println("Invalid Date. Use format dd-MM-yyyy");
 		}
 		
-		flightsByDate = F_SER.getOccupancy(flightNo, startDate, endDate);
+		double occupancy = F_SER.getOccupancy(flightNo, startDate, endDate);
 		
-		System.out.println("Flight Details are : ");
-		for(Flight f: flightsByDate)
-		{
-			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
-								f.getFlightNo(),
-								f.getAirline(),
-								f.getArrCity(),
-								f.getDepCity(),
-								timeFormat.format(f.getArrTime()),
-								timeFormat.format(f.getDepTime()),
-								dateFormat.format(f.getArrDate()),
-								dateFormat.format(f.getDepDate()),
-								f.getFirstSeats(),
-								f.getFirstSeatsFare(),
-								f.getBussSeats(),
-								f.getBussSeatsFare());
-		}
-		
+		System.out.println("\nFlight Occupancy: " + occupancy);
 	}
 
-	private static void viewDetailsBasedOnRegion()
+	private static void viewFlightOccupancyByRoute()
 	{
-		List<Flight> flightsByRegion;
-
 		String depCity = null;
 		String arrCity = null;
 	      
 		try {
-			System.out.println("Enter the Departure city");
+			System.out.print("Departure City: ");
 			depCity = BR.readLine();
 			
-			System.out.println("Enter the Arrival city");
+			System.out.print("Arrival City: ");
 			arrCity = BR.readLine();
 		} 
 		catch (IOException e) {
-			e.printStackTrace();
+			System.err.println("Invalid City Name");
 			return;
 		}
 		
-		flightsByRegion = F_SER.getOccupancy(depCity, arrCity);
+		double occupancy = F_SER.getOccupancy(depCity, arrCity);
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
-		
-		System.out.println("Flight Details are : ");
-		for(Flight f: flightsByRegion)
-		{
-			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
-								f.getFlightNo(),
-								f.getAirline(),
-								f.getArrCity(),
-								f.getDepCity(),
-								timeFormat.format(f.getArrTime()),
-								timeFormat.format(f.getDepTime()),
-								dateFormat.format(f.getArrDate()),
-								dateFormat.format(f.getDepDate()),
-								f.getFirstSeats(),
-								f.getFirstSeatsFare(),
-								f.getBussSeats(),
-								f.getBussSeatsFare());
-		}
+		System.out.println("\nFlight Occupancy: " + occupancy);
 	}
 
 	private static void bookTicket() 
