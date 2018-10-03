@@ -589,13 +589,13 @@ public class ARSClient
 			Booking booking = new Booking();
 			
 			System.out.print("Flight Number:");
-			String flightId = BR.readLine();
-			booking.setFlightId(flightId);
+			String flightNo = BR.readLine();
+			booking.setFlightNo(flightNo);
 			
-			Flight flight = F_SER.getFlight(flightId);
+			Flight flight = F_SER.getFlight(flightNo);
 			
 			if (flight == null) {
-				System.err.println("Invalid Flight ID [flightId=" + flightId + "]");
+				System.err.println("Invalid Flight Number [flightNo=" + flightNo + "]");
 			}
 			
 			System.out.print("Email Id: ");
@@ -609,7 +609,7 @@ public class ARSClient
 			String classType = BR.readLine();
 			booking.setClassType(classType);
 			
-			double totalFare = seats * F_SER.getFare(flightId, classType);
+			double totalFare = seats * F_SER.getFare(flightNo, classType);
 			booking.setTotalFare(totalFare);
 			
 			System.out.print("Credit Card Number: ");
