@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AIRPORT")
+@Table(name="AIRPORTS")
 
 @NamedQueries({
 	@NamedQuery(name="getAllAirports", query="SELECT a FROM Airport a")

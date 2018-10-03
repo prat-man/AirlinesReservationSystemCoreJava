@@ -11,7 +11,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FLIGHTINFORMATION")
+@Table(name="FLIGHTS")
 
 @NamedQueries({
 	@NamedQuery(name="getFlights", query="SELECT f FROM Flight f WHERE f.depDate = :depDate AND f.depCity = :depCity AND f.arrCity = :arrCity"),
@@ -21,7 +21,7 @@ import javax.persistence.Table;
 public class Flight
 {
 	@Id
-	@Column(name="FLIGHTNO")
+	@Column(name="FLIGHT_NO")
 	private String flightNo;
 	
 	@Column(name="AIRLINE")
