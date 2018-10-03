@@ -212,11 +212,29 @@ public class ARSClient
 		}
 	}
 
-	private static User registerUser() {
-		// TODO: Implement user addition
-		// Ask for username, password, and mobileno
-		// store with role as admin
-		return null;
+	private static User registerUser() 
+	{
+		User user = new User();
+		
+		user.setRole(User.USER);
+		
+		try {
+			System.out.println("Username: ");
+			user.setUsername(BR.readLine());
+			
+			System.out.println("Password: ");
+			user.setPassword(BR.readLine());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			U_SER.addUser(user);
+		} catch (UserException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
 	}
 
 	private static void addUser()
