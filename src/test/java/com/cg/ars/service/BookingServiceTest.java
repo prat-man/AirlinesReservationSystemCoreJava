@@ -159,9 +159,13 @@ public class BookingServiceTest
 		booking.setSrcCity("Kolkata");
 		booking.setDestCity("Delhi");
 		
+		bser.bookTicket(booking);
+		
+		booking.setCreditCardInfo("4242698912193456");
+		
 		Booking bookingRet = bser.updateBookingDetails(booking);
 		
-		Assert.assertNotNull(bookingRet);
+		Assert.assertEquals("4242698912193456", bookingRet.getCreditCardInfo());
 		
 		bser.cancelBooking("ZZZ12345");
 	}
