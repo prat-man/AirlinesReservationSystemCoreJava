@@ -26,7 +26,25 @@ public class BookingServiceImpl implements BookingService
 	public void bookTicket(Booking booking) throws BookingException 
 	{
 		try {
+			Flight flight = fdao.getFlight(booking.getFlightNo());
+			
+			this.validateNoOfPassengers(flight, booking.getClassType(), booking.getNoOfPassengers());
+			
 			bdao.bookTicket(booking);
+			
+			switch (booking.getClassType())
+			{
+				case "First":
+					flight.setFirstSeats(flight.getFirstSeats() - booking.getNoOfPassengers());
+					break;
+				
+				case "Business":
+					flight.setBussSeats(flight.getBussSeats() - booking.getNoOfPassengers());
+					break;
+					
+				default:
+					throw new BookingException("Invalid Class Type [classType=" + booking.getClassType() + "]");						
+			}
 		}
 		catch (Exception exc) {
 			throw new BookingException(exc.getMessage());
