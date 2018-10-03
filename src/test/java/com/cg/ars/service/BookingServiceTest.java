@@ -207,8 +207,7 @@ public class BookingServiceTest
 		
 		bser.viewBookDetails("ZZZ12345");
 	}
-		
-	//validateBookingId Test Cases
+	
 	@Test
 	public void validateBookingIdTest1() throws BookingException
 	{
@@ -220,8 +219,7 @@ public class BookingServiceTest
 	{
 		Assert.assertEquals(false, bser.validateBookingId("kol124"));
 	}
-		
-	//EmailValidate Test Cases
+    
 	@Test
 	public void validateEmailTest1() throws BookingException
 	{
@@ -233,8 +231,8 @@ public class BookingServiceTest
 	{
 		Assert.assertEquals(false, bser.validateEmail("ars.@@gmail..com"));
 	}
+
 	
-	//CreditCardInfoValidate Test Cases
 	@Test
 	public void validateCreditCardInfoTest1() throws BookingException
 	{
@@ -247,7 +245,6 @@ public class BookingServiceTest
 		Assert.assertEquals(false, bser.validateCreditCardInfo("acgd4563667677"));
 	}
 	
-	//SourceCityValidate Test Cases
 	@Test
 	public void validateSrcCityTest1() throws BookingException
 	{
@@ -260,7 +257,6 @@ public class BookingServiceTest
 		Assert.assertEquals(false, bser.validateCity("kolkata"));
 	}
 	
-	//DestinationCityValidate Test Cases
 	@Test
 	public void validateDestCityTest1() throws BookingException
 	{

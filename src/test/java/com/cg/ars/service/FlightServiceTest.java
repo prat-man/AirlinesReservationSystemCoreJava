@@ -1,5 +1,6 @@
 package com.cg.ars.service;
 
-public class FlightServiceTest {
-
+public class FlightServiceTest
+{
+	
 }
