@@ -110,7 +110,7 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validateRole(String role) throws UserException
 	{
-		String[] roles = {"Admin", "Exect", "User"};
+		String[] roles = User.getRoles();
 		
 		if (Arrays.asList(roles).contains(role)) {
 			return true;

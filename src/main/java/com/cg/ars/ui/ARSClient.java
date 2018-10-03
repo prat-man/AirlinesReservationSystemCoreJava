@@ -47,14 +47,35 @@ public class ARSClient
 		try
 		{
 			System.out.println("======================== Welcome to Airline Reservation System =========================");
+			
+			System.out.println("1. Login");
+			System.out.println("2. Register");
+			System.out.println("3. Exit");
+			
+			int menu = Integer.parseInt(BR.readLine());
+			
 			System.out.println("======================== Login =====================");
 			System.out.println();
 			
-			System.out.print("Username: ");
-			String username = BR.readLine();
+			String username = null;
+			String password = null;
 			
-			System.out.print("Password: ");
-			String password = BR.readLine();
+			if (menu == 1) {
+				System.out.print("Username: ");
+				username = BR.readLine();
+				
+				System.out.print("Password: ");
+				password = BR.readLine();
+			}
+			else if (menu == 2) {
+				User user = registerUser();
+				
+				username = user.getUsername();
+				password = user.getPassword();
+			}
+			else {
+				System.exit(0);
+			}
 			
 			if(U_SER.verifyUser(username, password)) 
 			{
@@ -65,15 +86,16 @@ public class ARSClient
 				if(role.equals("Admin")) 
 				{
 					System.out.println("========================= Welcome Admin ===========================");
-					System.out.println("1. Add Flight");
-					System.out.println("2. Modify Flight");
-					System.out.println("3. Delete Flight");
-					System.out.println("4. View Flights");
-					System.out.println("5. View Flights by Date");
-					System.out.println("6. Add Airport");
-					System.out.println("7. View Airports");
-					System.out.println("8. View Booking Details");
-					System.out.println("9. Exit");
+					System.out.println("1. Add User");
+					System.out.println("2. Add Flight");
+					System.out.println("3. Modify Flight");
+					System.out.println("4. Delete Flight");
+					System.out.println("5. View Flights");
+					System.out.println("6. View Flights by Date");
+					System.out.println("7. Add Airport");
+					System.out.println("8. View Airports");
+					System.out.println("9. View Booking Details");
+					System.out.println("10. Exit");
 					System.out.print("Enter Your Choice: ");
 					
 					int choice = Integer.parseInt(BR.readLine());
@@ -81,41 +103,45 @@ public class ARSClient
 					switch (choice)
 					{
 						case 1:
+								addUser();
+								break;
+								
+						case 2:
 								addFlight();
 								break;
 							
-						case 2:
+						case 3:
 								modifyFlight();
 								break;
 						
-						case 3:
+						case 4:
 								deleteFlight();
 								break;
 							
-						case 4:
+						case 5:
 								viewFlights();
 								break;
 							
-						case 5:
+						case 6:
 								viewFlightsByDate();
 								break;
 							
-						case 6:
+						case 7:
 								addAirport();
 								break;
 						
-						case 7:
+						case 8:
 								viewAirports();
 								break;
 							
-						case 8:
+						case 9:
 								viewBooking();
 								break;
 						
-						case 9:
+						case 10:
 						default:
 								System.out.println("=========================== Thank You ========================");
-								return;
+								System.exit(0);
 					}
 				}
 				else if(role.equals("Executive"))
@@ -141,7 +167,7 @@ public class ARSClient
 						case 3:
 						default:
 								System.out.println("=========================== Thank You ========================");
-								return;
+								System.exit(0);
 					}
 				}
 				else {
@@ -176,12 +202,70 @@ public class ARSClient
 						case 5:
 						default:
 								System.out.println("=========================== Thank You ========================");
-								return;
+								System.exit(0);
 					}
 				}
 			}
 		}
 		catch (IOException | UserException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static User registerUser() {
+		// TODO: Implement user addition
+		// Ask for username, password, and mobileno
+		// store with role as admin
+		return null;
+	}
+
+	private static void addUser()
+	{
+		System.out.println("User Type");
+		System.out.println("1. Admin");
+		System.out.println("2. Executive");
+		System.out.println("3. Exit");
+		System.out.print("Enter Your Choice: ");
+		
+		int choice = 0;
+		
+		try {
+			choice = Integer.parseInt(BR.readLine());
+		} catch (NumberFormatException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		User user = new User();
+		
+		switch (choice)
+		{
+			case 1:
+					user.setRole(User.ADMIN);			
+					break;
+					
+			case 2:
+					user.setRole(User.EXECUTIVE);
+					break;
+					
+			case 3:
+			default:
+					System.out.println("=========================== Thank You ========================");
+					System.exit(0);
+		}
+		
+		try {
+			System.out.println("Username: ");
+			user.setUsername(BR.readLine());
+			
+			System.out.println("Password: ");
+			user.setPassword(BR.readLine());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			U_SER.addUser(user);
+		} catch (UserException e) {
 			e.printStackTrace();
 		}
 	}
@@ -454,7 +538,7 @@ public class ARSClient
 		} 
 		catch (IOException e) {
 			System.err.println("Invalid City Name");
-			return;
+			System.exit(0);
 		}
 		
 		double occupancy = F_SER.getOccupancy(depCity, arrCity);

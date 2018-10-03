@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="USERS")
@@ -21,6 +22,15 @@ public class User
 	
 	@Column(name="MOBILE_NO")
 	private String mobileNo;
+	
+	@Transient
+	public static final String USER = "User";
+	
+	@Transient
+	public static final String ADMIN = "Admin";
+	
+	@Transient
+	public static final String EXECUTIVE = "Executive";
 
 	/**
 	 * Default No-Argument Constructor
@@ -72,5 +82,10 @@ public class User
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", role=" + role + ", mobileNo=" + mobileNo
 				+ "]";
+	}
+	
+	public static String[] getRoles()
+	{
+		return new String[] {USER, ADMIN, EXECUTIVE};
 	}
 }
