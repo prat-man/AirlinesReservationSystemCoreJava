@@ -9,37 +9,51 @@ DATABASE PASSWORD: lab1boracle
 ORACLE QUERIES
 --------------
 
-Users Table:
-CREATE TABLE users
+Users Table: 
+CREATE TABLE USERS
 (
-	username varchar2(20), password varchar2(20),
-	role varchar2(10),mobileno number(10),
-	PRIMARY KEY (username)
+	USERNAME  VARCHAR2(20) PRIMARY KEY,
+	PASSWORD  VARCHAR2(20),
+	ROLE      VARCHAR2(10),
+	MOBILE_NO NUMBER(10)
 );
 
-AirPort Table:
-CREATE TABLE airport
+Airports Table:
+CREATE TABLE AIRPORTS
 (
-	airportname varchar2(20),abbreviation varchar2(5),
-	location varchar2(40), PRIMARY KEY(abbreviation)
+	AIRPORTNAME  VARCHAR2(20) PRIMARY KEY,
+	ABBREVIATION VARCHAR2(5),
+	LOCATION     VARCHAR2(40)
 );
 
-Flight Information Table:
-CREATE TABLE flightinformation
+Flights Information Table:
+CREATE TABLE FLIGHTS
 (
-	flightno varchar2(5),airline varchar2(10),depcity varchar2(10),
-	arrcity varchar2(10),depdate date,arrdate date,deptime number(8),
-	arrtime number(8),firstseats number(6),firstseatfare number(8,2),
-	bussseats number(6),bussseatsfare number(6,2),
-	primary key(flightno)
+	FLIGHT_NO     VARCHAR2(5) PRIMARY KEY,
+	AIRLINE       VARCHAR2(10),
+	DEPCITY       VARCHAR2(10),
+	ARRCITY       VARCHAR2(10),
+	DEPDATE       DATE,
+	ARRDATE       DATE,
+	DEPTIME       NUMBER(8),
+	ARRTIME       NUMBER(8),
+	FIRSTSEATS    NUMBER(6),
+	FIRSTSEATFARE NUMBER(8,2),
+	BUSSSEATS     NUMBER(6),
+	BUSSSEATSFARE NUMBER(6,2)
 );
 
-Booking Information Table:
-CREATE TABLE bookinginformation 
+Bookings Table:
+CREATE TABLE BOOKINGS
 (
-	booking_id varchar2(5),cust_email varchar2(30),
-	no_of_passengers number(3),class_type varchar2(10),
-	total_fare number(6,2),seat_number number(3),
-	creditcard_info varchar2(16),src_city varchar2(10),
-	dest_city varchar2(10),primary key(booking_id)
+	BOOKING_ID       VARCHAR2(5) PRIMARY KEY,
+	FLIGHT_NO        REFERENCES FLIGHTS.FLIGHT_NO,
+	CUST_EMAIL       VARCHAR2(30),
+	NO_OF_PASSENGERS NUMBER(3),
+	CLASS_TYPE       VARCHAR2(10),
+	TOTAL_FARE       NUMBER(6,2),
+	SEAT_NUMBER      NUMBER(3),
+	CREDITCARD_INFO  VARCHAR2(16),
+	SRC_CITY         VARCHAR2(10),
+	DEST_CITY        VARCHAR2(10)
 );
