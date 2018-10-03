@@ -432,7 +432,7 @@ public class ARSClient
 					flight.getBussSeats(),
 					flight.getBussSeatsFare());
 			
-			F_SER.deleteFlight(flight);
+			F_SER.deleteFlight(flight.getFlightNo());
 		}
 		catch (Exception e) {
 			e.printStackTrace();

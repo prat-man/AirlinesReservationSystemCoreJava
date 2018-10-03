@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.util.JPAUtil;
 
@@ -22,33 +21,23 @@ public class FlightDaoImpl implements FlightDao
 	@Override
 	public void addFlight(Flight flight)
 	{
-		entityManager.getTransaction().begin();
-		
 		entityManager.persist(flight);
-		
-		entityManager.getTransaction().commit();
 	}
 
 	@Override
 	public Flight modifyFlight(Flight flight)
 	{
-		entityManager.getTransaction().begin();
-		
 		Flight retFlight = entityManager.merge(flight);
-		
-		entityManager.getTransaction().commit();
 		
 		return retFlight;
 	}
 
 	@Override
-	public void deleteFlight(Flight flight)
+	public void deleteFlight(String flightNo)
 	{
-		entityManager.getTransaction().begin();
+		Flight flight = this.getFlight(flightNo);
 		
 		entityManager.remove(flight);
-		
-		entityManager.getTransaction().begin();
 	}
 
 	@Override

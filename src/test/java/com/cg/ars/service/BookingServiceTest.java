@@ -1,25 +1,108 @@
 package com.cg.ars.service;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.cg.ars.dto.Booking;
+import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.BookingException;
+import com.cg.ars.exception.FlightException;
 
 public class BookingServiceTest
 {
-	private BookingService bser;
-
-	public BookingServiceTest() {
-		bser = new BookingServiceImpl();
+	private static BookingService bser = new BookingServiceImpl();
+	private static FlightService fser = new FlightServiceImpl();
+	
+	@BeforeClass
+	public static void init()
+	{
+		try {
+			fser.deleteFlight("ZZZ1001");
+		} catch (FlightException e) {
+			// Do nothing
+		}
+		
+		Flight flight = new Flight();
+		
+		flight.setFlightNo("ZZZ1001");
+		flight.setAirline("Zzz Airlines");
+		flight.setArrCity("Kolkata");
+		flight.setArrDate(Date.valueOf(LocalDate.now()));
+		flight.setArrTime(Time.valueOf(LocalTime.now()));
+		flight.setBussSeats(30);
+		flight.setBussSeatsFare(3200.0);
+		flight.setDepCity("Kolkata");
+		flight.setDepDate(Date.valueOf(LocalDate.now()));
+		flight.setDepTime(Time.valueOf(LocalTime.now()));
+		flight.setFirstSeats(40);
+		flight.setFirstSeatsFare(2500.0);
+		
+		fser.addFlight(flight);
 	}
 	
-	//bookTicketValidate Test Cases
-	@Test
-	public void bookTicketTest1() throws BookingException
+	@AfterClass
+	public static void destroy()
 	{
-		Booking booking = new Booking("KOL12345", null, "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Kolkata", "Pune");
+		try {
+			fser.deleteFlight("ZZZ1001");
+		} catch (FlightException e) {
+			e.printStackTrace();
+		}
+		
+		Flight flight = new Flight();
+		
+		flight.setFlightNo("ZZZ1001");
+		flight.setAirline("Zzz Airlines");
+		flight.setArrCity("Kolkata");
+		flight.setArrDate(Date.valueOf(LocalDate.now()));
+		flight.setArrTime(Time.valueOf(LocalTime.now()));
+		flight.setBussSeats(30);
+		flight.setBussSeatsFare(3200.0);
+		flight.setDepCity("Kolkata");
+		flight.setDepDate(Date.valueOf(LocalDate.now()));
+		flight.setDepTime(Time.valueOf(LocalTime.now()));
+		flight.setFirstSeats(40);
+		flight.setFirstSeatsFare(2500.0);
+		
+		fser.addFlight(flight);
+		
+		try {
+			fser.deleteFlight("ZZZ1001");
+		} catch (FlightException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void bookTicketTest1() throws BookingException, FlightException
+	{
+		Booking booking = new Booking();
+		
+		booking.setBookingId("ZZZ12345");
+		booking.setFlightNo("ZZZ1001");
+		booking.setCustEmail("sts@capgemini.com");
+		booking.setNoOfPassengers(3);
+		booking.setClassType("First");
+		booking.setTotalFare(6464.90);
+		booking.setSeatNumber(6);
+		booking.setCreditCardInfo("4242698912093456");
+		booking.setSrcCity("Kolkata");
+		booking.setDestCity("Delhi");
+
 		bser.bookTicket(booking);
+		
+		Booking bookingRet = bser.viewBookDetails("ZZZ12345");
+		
+		Assert.assertNotNull(bookingRet);
+		
+		bser.cancelBooking("ZZZ12345");
 	}
 	
 	@Test(expected=BookingException.class)
@@ -28,14 +111,13 @@ public class BookingServiceTest
 		bser.bookTicket(null);
 	}
 	
-	//viewBookDetailsValidate Test Cases
 	@Test
-	public void viewBookDetailsTest1() throws BookingException
+	public void viewBookDetailsTest1() throws BookingException, FlightException
 	{
 		Booking booking = new Booking();
 		
-		booking.setBookingId("DEL12345");
-		booking.setFlightNo("AS1001");
+		booking.setBookingId("ZZZ12345");
+		booking.setFlightNo("ZZZ1001");
 		booking.setCustEmail("sts@capgemini.com");
 		booking.setNoOfPassengers(3);
 		booking.setClassType("First");
@@ -47,11 +129,11 @@ public class BookingServiceTest
 		
 		bser.bookTicket(booking);
 		
-		Booking booking1 = bser.viewBookDetails("DEL12345");
+		Booking bookingRet = bser.viewBookDetails("ZZZ12345");
 		
-		Assert.assertNotNull(booking1);
+		Assert.assertNotNull(bookingRet);
 		
-		bser.cancelBooking("DEL12345");
+		bser.cancelBooking("ZZZ12345");
 	}
 			
 	@Test(expected=BookingException.class)
@@ -62,28 +144,54 @@ public class BookingServiceTest
 	
 	//updateBookingDetailsValidate Test Cases
 	@Test
-	public void updateBookingDetailsTest1() throws BookingException
+	public void updateBookingDetailsTest1() throws BookingException, FlightException
 	{
-		Booking booking = new Booking("PUNE12345", null, "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Pune", "Mumbai");
+		Booking booking = new Booking();
+		
+		booking.setBookingId("ZZZ12345");
+		booking.setFlightNo("ZZZ1001");
+		booking.setCustEmail("sts@capgemini.com");
+		booking.setNoOfPassengers(3);
+		booking.setClassType("First");
+		booking.setTotalFare(6464.90);
+		booking.setSeatNumber(6);
+		booking.setCreditCardInfo("4242698912093456");
+		booking.setSrcCity("Kolkata");
+		booking.setDestCity("Delhi");
+		
 		Booking bookingRet = bser.updateBookingDetails(booking);
 		
 		Assert.assertNotNull(bookingRet);
+		
+		bser.cancelBooking("ZZZ12345");
 	}
 	
 	@Test(expected=BookingException.class)
 	public void updateBookingDetailsTest2() throws BookingException
 	{
-		Booking booking = new Booking(null, null, "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Pune", "Mumbai");
+		Booking booking = new Booking();
+		
+		booking.setBookingId(null);
+		booking.setFlightNo(null);
+		booking.setCustEmail("sts@capgemini.com");
+		booking.setNoOfPassengers(3);
+		booking.setClassType("First");
+		booking.setTotalFare(6464.90);
+		booking.setSeatNumber(6);
+		booking.setCreditCardInfo("4242698912093456");
+		booking.setSrcCity("Kolkata");
+		booking.setDestCity("Delhi");
+		
 		bser.updateBookingDetails(booking);
 	}
-
-	//cancelBooking Test Cases
+	
 	@Test(expected=BookingException.class)
-	public void cancelBookingTest1() throws BookingException
+	public void cancelBookingTest1() throws BookingException, FlightException
 	{
 		Booking booking = new Booking();
 		
-		booking.setBookingId("DEL12345");
+		booking.setBookingId("ZZZ12345");
+		booking.setFlightNo("ZZZ1001");
 		booking.setCustEmail("sts@capgemini.com");
 		booking.setNoOfPassengers(3);
 		booking.setClassType("First");
@@ -95,9 +203,9 @@ public class BookingServiceTest
 		
 		bser.bookTicket(booking);
 		
-		bser.cancelBooking("DEL12345");
+		bser.cancelBooking("ZZZ12345");
 		
-		bser.viewBookDetails("DEL12345");
+		bser.viewBookDetails("ZZZ12345");
 	}
 		
 	//validateBookingId Test Cases

@@ -32,9 +32,14 @@ public class FlightServiceImpl implements FlightService
 	}
 
 	@Override
-	public void deleteFlight(Flight flight) 
+	public void deleteFlight(String flightNo) throws FlightException 
 	{
-		fdao.deleteFlight(flight);
+		try {
+			fdao.deleteFlight(flightNo);
+		}
+		catch (Exception exc) {
+			throw new FlightException(exc.getMessage());
+		}
 	}
 
 	@Override
