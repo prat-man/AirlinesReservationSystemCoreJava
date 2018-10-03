@@ -115,14 +115,12 @@ public class FlightServiceImpl implements FlightService
 
 	@Override
 	public Double getOccupancy(String flightNo, Date startDate, Date endDate) {
-		// TODO Auto-generated method stub
-		return null;
+		return fdao.getOccupancy(flightNo, startDate, endDate);
 	}
 
 	@Override
 	public Double getOccupancy(String depCity, String arrCity) {
-		fdao.getOccupancy(depCity, arrCity);
-		return null;
+		return fdao.getOccupancy(depCity, arrCity);
 	}
 
 	@Override
