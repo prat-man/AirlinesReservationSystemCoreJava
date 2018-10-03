@@ -43,8 +43,8 @@ public class ARSClient
 		
 		LogoAnimation la = new LogoAnimation();
 		la.startAnimation();
-    
-		try 
+		
+		try
 		{
 			System.out.println("======================== Welcome to Airline Reservation System =========================");
 			System.out.println("======================== Login =====================");
@@ -362,7 +362,6 @@ public class ARSClient
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	private static void addAirport() 
@@ -532,20 +531,21 @@ public class ARSClient
 	private static void viewBooking() 
 	{
 		try {
-		System.out.print("Booking ID:");
-		Booking booking = B_SER.viewBookDetails(BR.readLine());
-		System.out.printf("%s%s%s%s%s%d%d%lf",
-				booking.getBookingId(),
-				booking.getSrcCity(),
-				booking.getDestCity(),
-				booking.getClass(),
-				booking.getClassType(),
-				booking.getNoOfPassengers(),
-				booking.getSeatNumber(),
-				booking.getTotalFare());
+			System.out.print("Booking ID:");
+			
+			Booking booking = B_SER.viewBookDetails(BR.readLine());
+			
+			System.out.printf("%s%s%s%s%s%d%d%lf",
+					booking.getBookingId(),
+					booking.getSrcCity(),
+					booking.getDestCity(),
+					booking.getClass(),
+					booking.getClassType(),
+					booking.getNoOfPassengers(),
+					booking.getSeatNumber(),
+					booking.getTotalFare());
 		}
-		catch(Exception e)
-		{
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -557,18 +557,17 @@ public class ARSClient
 
 	private static void cancelBooking() 
 	{
-		System.out.println("Booking Id:");
 		try
 		{
+			System.out.print("Booking Id: ");
 			String bookingId = BR.readLine();
-			if(B_SER.validateBookingId(bookingId) == true) 
-			{
+			
+			if (B_SER.validateBookingId(bookingId)) {
 				B_SER.cancelBooking(bookingId);
 				System.out.println("Booking with Id "+bookingId+" cancelled successfully");
 			}
 		} 
-		catch (IOException | BookingException e) 
-		{
+		catch (IOException | BookingException e) {
 			e.printStackTrace();
 		}
 	}
