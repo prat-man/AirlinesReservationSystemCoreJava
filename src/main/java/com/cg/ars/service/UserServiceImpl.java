@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validateUsername(String username) throws UserException
 	{
-		String pattern = "[A-Za-z][A-Za-z0-9\\.\\-\\_]{8,40}";
+		String pattern = "[A-Za-z][A-Za-z0-9\\.\\-\\_]{7,39}";
 		
 		if (Pattern.matches(pattern, username)) {
 			return true;
