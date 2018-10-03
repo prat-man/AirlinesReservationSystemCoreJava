@@ -8,8 +8,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import org.hibernate.metamodel.source.binder.SimpleIdentifierSource;
-
 import com.cg.ars.dto.Airport;
 import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
@@ -30,13 +28,13 @@ public class ARSClient
 {
 	static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
 
-	public static final UserService U_SER = new UserServiceImpl();
-	
-	public static final FlightService F_SER = new FlightServiceImpl();
-	
+	public static final UserService    U_SER = new UserServiceImpl();
+	public static final FlightService  F_SER = new FlightServiceImpl();
 	public static final BookingService B_SER = new BookingServiceImpl();
-	
 	public static final AirportService A_SER = new AirportServiceImpl();
+	
+	public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+	public static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm");
 	
 	public static void main(String[] args)
 	{
@@ -182,9 +180,6 @@ public class ARSClient
 	{
 		List<Flight> flightList = F_SER.getAllFlights();
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
-		
 		for (Flight f : flightList)
 		{
 			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
@@ -192,10 +187,10 @@ public class ARSClient
 					f.getAirline(),
 					f.getArrCity(),
 					f.getDepCity(),
-					timeFormat.format(f.getArrTime()),
-					timeFormat.format(f.getDepTime()),
-					dateFormat.format(f.getArrDate()),
-					dateFormat.format(f.getDepDate()),
+					TIME_FORMAT.format(f.getArrTime()),
+					TIME_FORMAT.format(f.getDepTime()),
+					DATE_FORMAT.format(f.getArrDate()),
+					DATE_FORMAT.format(f.getDepDate()),
 					f.getFirstSeats(),
 					f.getFirstSeatsFare(),
 					f.getBussSeats(),
@@ -203,144 +198,131 @@ public class ARSClient
 		}
 	}
 
-	private static void addFlight() {
-	
-	try {
-		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-		
-		Flight flight = new Flight();
-		
-		System.out.print("Flight Number: ");
-		flight.setFlightNo(BR.readLine());
-		
-		System.out.print("Airline Name: ");
-		flight.setAirline(BR.readLine());
-		
-		System.out.print("Departure City: ");
-		flight.setDepCity(BR.readLine());
-		
-		System.out.print("Arrival City: ");
-		flight.setArrCity(BR.readLine());
-		
-		System.out.print("Departure Date: ");
-		Date dateDep = new Date(format.parse(BR.readLine()).getTime());
-		flight.setDepDate(dateDep);
-		
-		System.out.print("Arrival Date: ");
-		Date dateArr = new Date(format.parse(BR.readLine()).getTime());
-		flight.setArrDate(dateArr);
-		
-		System.out.print("First Seats: ");
-		flight.setFirstSeats(Integer.parseInt(BR.readLine()));
-		
-		System.out.print("First Seats Fare: ");
-		flight.setFirstSeatsFare(Double.parseDouble(BR.readLine()));
-		
-		System.out.print("Business Seats: ");
-		flight.setBussSeats(Integer.parseInt(BR.readLine()));
-		
-		System.out.print("Business Seats Fare: ");
-		flight.setBussSeatsFare(Double.parseDouble(BR.readLine()));
-		
-		F_SER.addFlight(flight);
-	}
-	catch(Exception e)
+	private static void addFlight()
 	{
-		e.printStackTrace();
-	}
-		
+		try {
+			Flight flight = new Flight();
+			
+			System.out.print("Flight Number: ");
+			flight.setFlightNo(BR.readLine());
+			
+			System.out.print("Airline Name: ");
+			flight.setAirline(BR.readLine());
+			
+			System.out.print("Departure City: ");
+			flight.setDepCity(BR.readLine());
+			
+			System.out.print("Arrival City: ");
+			flight.setArrCity(BR.readLine());
+			
+			System.out.print("Departure Date: ");
+			Date dateDep = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
+			flight.setDepDate(dateDep);
+			
+			System.out.print("Arrival Date: ");
+			Date dateArr = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
+			flight.setArrDate(dateArr);
+			
+			System.out.print("First Seats: ");
+			flight.setFirstSeats(Integer.parseInt(BR.readLine()));
+			
+			System.out.print("First Seats Fare: ");
+			flight.setFirstSeatsFare(Double.parseDouble(BR.readLine()));
+			
+			System.out.print("Business Seats: ");
+			flight.setBussSeats(Integer.parseInt(BR.readLine()));
+			
+			System.out.print("Business Seats Fare: ");
+			flight.setBussSeatsFare(Double.parseDouble(BR.readLine()));
+			
+			F_SER.addFlight(flight);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	private static void modifyFlight() {
-	try {
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
-		
-		System.out.println("Flight ID: ");
-		Flight f = F_SER.getFlight(BR.readLine());
-		Flight flight = new Flight();
-		flight=f;
-		System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
-							f.getFlightNo(),
-							f.getAirline(),
-							f.getArrCity(),
-							f.getDepCity(),
-							timeFormat.format(f.getArrTime()),
-							timeFormat.format(f.getDepTime()),
-							dateFormat.format(f.getArrDate()),
-							dateFormat.format(f.getDepDate()),
-							f.getFirstSeats(),
-							f.getFirstSeatsFare(),
-							f.getBussSeats(),
-							f.getBussSeatsFare());
-		
-		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-	
-		System.out.print("Flight Number: ");
-		flight.setFlightNo(BR.readLine());
-		
-		System.out.print("Airline Name: ");
-		flight.setAirline(BR.readLine());
-		
-		System.out.print("Departure City: ");
-		flight.setDepCity(BR.readLine());
-		
-		System.out.print("Arrival City: ");
-		flight.setArrCity(BR.readLine());
-		
-		System.out.print("Departure Date: ");
-		Date dateDep = new Date(format.parse(BR.readLine()).getTime());
-		flight.setDepDate(dateDep);
-		
-		System.out.print("Arrival Date: ");
-		Date dateArr = new Date(format.parse(BR.readLine()).getTime());
-		flight.setArrDate(dateArr);
-		
-		System.out.print("First Seats: ");
-		flight.setFirstSeats(Integer.parseInt(BR.readLine()));
-		
-		System.out.print("First Seats Fare: ");
-		flight.setFirstSeatsFare(Double.parseDouble(BR.readLine()));
-		
-		System.out.print("Business Seats: ");
-		flight.setBussSeats(Integer.parseInt(BR.readLine()));
-		
-		System.out.print("Business Seats Fare: ");
-		flight.setBussSeatsFare(Double.parseDouble(BR.readLine()));
-		
-		F_SER.modifyFlight(flight);
-	}
-	catch(Exception e)
+	private static void modifyFlight()
 	{
-		e.printStackTrace();
-	}
+		try {
+			System.out.println("Flight Number: ");
+			
+			Flight flight = F_SER.getFlight(BR.readLine());
+			
+			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+								flight.getFlightNo(),
+								flight.getAirline(),
+								flight.getArrCity(),
+								flight.getDepCity(),
+								TIME_FORMAT.format(flight.getArrTime()),
+								TIME_FORMAT.format(flight.getDepTime()),
+								DATE_FORMAT.format(flight.getArrDate()),
+								DATE_FORMAT.format(flight.getDepDate()),
+								flight.getFirstSeats(),
+								flight.getFirstSeatsFare(),
+								flight.getBussSeats(),
+								flight.getBussSeatsFare());
+			
+			System.out.print("Airline Name: ");
+			flight.setAirline(BR.readLine());
+			
+			System.out.print("Departure City: ");
+			flight.setDepCity(BR.readLine());
+			
+			System.out.print("Arrival City: ");
+			flight.setArrCity(BR.readLine());
+			
+			System.out.print("Departure Date: ");
+			Date dateDep = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
+			flight.setDepDate(dateDep);
+			
+			System.out.print("Arrival Date: ");
+			Date dateArr = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
+			flight.setArrDate(dateArr);
+			
+			System.out.print("First Seats: ");
+			flight.setFirstSeats(Integer.parseInt(BR.readLine()));
+			
+			System.out.print("First Seats Fare: ");
+			flight.setFirstSeatsFare(Double.parseDouble(BR.readLine()));
+			
+			System.out.print("Business Seats: ");
+			flight.setBussSeats(Integer.parseInt(BR.readLine()));
+			
+			System.out.print("Business Seats Fare: ");
+			flight.setBussSeatsFare(Double.parseDouble(BR.readLine()));
+			
+			F_SER.modifyFlight(flight);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static void deleteFlight() 
 	{
 		try {
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
 			System.out.print("Flight Number: ");
+			
 			Flight flight =  F_SER.getFlight(BR.readLine());
+			
 			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
 					flight.getFlightNo(),
 					flight.getAirline(),
 					flight.getArrCity(),
 					flight.getDepCity(),
-					timeFormat.format(flight.getArrTime()),
-					timeFormat.format(flight.getDepTime()),
-					dateFormat.format(flight.getArrDate()),
-					dateFormat.format(flight.getDepDate()),
+					TIME_FORMAT.format(flight.getArrTime()),
+					TIME_FORMAT.format(flight.getDepTime()),
+					DATE_FORMAT.format(flight.getArrDate()),
+					DATE_FORMAT.format(flight.getDepDate()),
 					flight.getFirstSeats(),
 					flight.getFirstSeatsFare(),
 					flight.getBussSeats(),
 					flight.getBussSeatsFare());
+			
 			F_SER.deleteFlight(flight);
 		}
-		catch(Exception e)
-		{
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -349,18 +331,17 @@ public class ARSClient
 	{
 		try 
 		{
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
 			System.out.print("Travel Date (dd-MM-yyyy): ");
-			Date date = new Date(dateFormat.parse(BR.readLine()).getTime());
+			Date date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
 			
 			System.out.println("Departure City: ");
-			String depCity=BR.readLine();
+			String depCity = BR.readLine();
 			
 			System.out.println("Arrival City: ");
-			String arrCity=BR.readLine();
+			String arrCity = BR.readLine();
 			
 			List<Flight> flights = F_SER.getFlights(date, depCity, arrCity);
+			
 			for (Flight f : flights)
 			{
 				System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
@@ -368,18 +349,17 @@ public class ARSClient
 						f.getAirline(),
 						f.getArrCity(),
 						f.getDepCity(),
-						timeFormat.format(f.getArrTime()),
-						timeFormat.format(f.getDepTime()),
-						dateFormat.format(f.getArrDate()),
-						dateFormat.format(f.getDepDate()),
+						TIME_FORMAT.format(f.getArrTime()),
+						TIME_FORMAT.format(f.getDepTime()),
+						DATE_FORMAT.format(f.getArrDate()),
+						DATE_FORMAT.format(f.getDepDate()),
 						f.getFirstSeats(),
 						f.getFirstSeatsFare(),
 						f.getBussSeats(),
 						f.getBussSeatsFare());
 			}
 		}
-		catch(Exception e)
-		{
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -389,17 +369,20 @@ public class ARSClient
 	{
 		try 
 		{
-			Airport airPort = new Airport();
+			Airport airport = new Airport();
+			
 			System.out.print("Airport Name: ");
-			airPort.setAirportName(BR.readLine());
+			airport.setAirportName(BR.readLine());
+			
 			System.out.print("Abbreviation: ");
-			airPort.setAbbreviation(BR.readLine());
+			airport.setAbbreviation(BR.readLine());
+			
 			System.out.print("Location: ");
-			airPort.setLocation(BR.readLine());
-			A_SER.addAirport(airPort);
+			airport.setLocation(BR.readLine());
+			
+			A_SER.addAirport(airport);
 		}
-		catch(Exception e)
-		{
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -429,17 +412,15 @@ public class ARSClient
 			System.err.println("Invalid Flight Number");
 		}
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		
 	    Date startDate = null;
 	    Date endDate = null;
 	    
 		try {
 			System.out.print("Start Date: ");
-			startDate = new Date(dateFormat.parse(BR.readLine()).getTime());
+			startDate = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
 			
 			System.out.print("End Date: ");
-			endDate = new Date(dateFormat.parse(BR.readLine()).getTime());
+			endDate = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
 		} 
 		catch (ParseException | IOException e) {
 			System.out.println("Invalid Date. Use format dd-MM-yyyy");
@@ -479,11 +460,8 @@ public class ARSClient
 		
 		try 
 		{
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
-			
 			System.out.print("Travel Date (dd-MM-yyyy): ");
-			Date date = new Date(dateFormat.parse(BR.readLine()).getTime());
+			Date date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
         
 			System.out.print("City From: ");
 			depCity = BR.readLine();
@@ -501,10 +479,10 @@ public class ARSClient
 						flight.getAirline(),
 						flight.getArrCity(),
 						flight.getDepCity(),
-						timeFormat.format(flight.getArrTime()),
-						timeFormat.format(flight.getDepTime()),
-						dateFormat.format(flight.getArrDate()),
-						dateFormat.format(flight.getDepDate()),
+						TIME_FORMAT.format(flight.getArrTime()),
+						TIME_FORMAT.format(flight.getDepTime()),
+						DATE_FORMAT.format(flight.getArrDate()),
+						DATE_FORMAT.format(flight.getDepDate()),
 						flight.getFirstSeats(),
 						flight.getFirstSeatsFare(),
 						flight.getBussSeats(),
@@ -514,16 +492,21 @@ public class ARSClient
 			Booking booking = new Booking();
 			
 			System.out.print("Flight Number:");
-			String flightId=BR.readLine();
+			String flightId = BR.readLine();
 			booking.setFlightId(flightId);
 			
 			Flight flight = F_SER.getFlight(flightId);
+			
+			if (flight == null) {
+				System.err.println("Invalid Flight ID [flightId=" + flightId + "]");
+			}
 			
 			System.out.print("Email Id: ");
 			booking.setCustEmail(BR.readLine());
 			
 			System.out.print("Number of Seats Required: ");
-			int seats=Integer.parseInt(BR.readLine());
+			int seats = Integer.parseInt(BR.readLine());
+			booking.setSeatNumber(seats);
 			
 			System.out.print("Class Type:");
 			String classType = BR.readLine();
@@ -540,10 +523,8 @@ public class ARSClient
 			
 			System.out.print("City To: ");
 			booking.setDestCity(BR.readLine());
-			
 		}
-		catch(IOException | ParseException | FlightException e) 
-		{
+		catch(IOException | ParseException | FlightException e) {
 			System.err.println(e.getMessage());
 		}
 	}
