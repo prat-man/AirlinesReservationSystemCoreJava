@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @Table(name="BOOKINGS")
 
 @NamedQueries({
-	@NamedQuery(name="getSumOfPassengers", query="SELECT SUM(b.noOfPassengers) FROM Booking b WHERE b.srcCity=:depCity AND b.destCity=:arrCity")
+	@NamedQuery(name="getSumOfPassengersByFlightNo", query="SELECT SUM(b.noOfPassengers) FROM Booking b WHERE b.flightNo=:flightNo"),
+	@NamedQuery(name="getSumOfPassengersByRoute", query="SELECT SUM(b.noOfPassengers) FROM Booking b WHERE b.srcCity=:depCity AND b.destCity=:arrCity")
 })
 public class Booking 
 {
