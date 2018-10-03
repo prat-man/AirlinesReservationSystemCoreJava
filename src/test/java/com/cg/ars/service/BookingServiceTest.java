@@ -146,6 +146,13 @@ public class BookingServiceTest
 	@Test
 	public void updateBookingDetailsTest1() throws BookingException, FlightException
 	{
+		try {
+			bser.cancelBooking("ZZZ12345");
+		}
+		catch (Exception e) {
+			// Do nothing
+		}
+		
 		Booking booking = new Booking();
 		
 		booking.setBookingId("ZZZ12345");
