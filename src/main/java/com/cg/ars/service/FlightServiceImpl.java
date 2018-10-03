@@ -114,8 +114,8 @@ public class FlightServiceImpl implements FlightService
 	}
 
 	@Override
-	public Double getOccupancy(String flightNo, Date startDate, Date endDate) {
-		return fdao.getOccupancy(flightNo, startDate, endDate);
+	public Double getOccupancy(String flightNo) {
+		return fdao.getOccupancy(flightNo);
 	}
 
 	@Override

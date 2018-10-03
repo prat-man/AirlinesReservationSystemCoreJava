@@ -104,10 +104,25 @@ public class FlightDaoImpl implements FlightDao
 		
 		return fare;
 	}
+	
+	@Override
+	public Double getOccupancy(String flightNo)
+	{
+		Double sumOfPassengers = entityManager.createNamedQuery("Booking.getSumOfPassengersByFlightNo", Double.class)
+												.setParameter("flightNo", flightNo)
+												.getSingleResult();
+		
+		Flight flight = this.getFlight(flightNo);
+		
+		Double seatCount = flight.getFirstSeatsFare() + flight.getBussSeats();
+						
+		return sumOfPassengers / seatCount;
+	}
 
 	@Override
-	public Double getOccupancy(String depCity, String arrCity) {
-		Double sumOfPassengers = entityManager.createNamedQuery("Booking.getSumOfPassengers", Double.class)
+	public Double getOccupancy(String depCity, String arrCity)
+	{
+		Double sumOfPassengers = entityManager.createNamedQuery("Booking.getSumOfPassengersByRoute", Double.class)
 												.setParameter("depCity", depCity)
 												.setParameter("arrCity", arrCity)
 												.getSingleResult();
@@ -119,11 +134,5 @@ public class FlightDaoImpl implements FlightDao
 												.getSingleResult();
 												
 		return sumOfPassengers / seatCount;
-	}
-
-	@Override
-	public Double getOccupancy(String flightNo, Date startDate, Date endDate) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

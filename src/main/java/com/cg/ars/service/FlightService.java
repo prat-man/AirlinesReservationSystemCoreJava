@@ -18,7 +18,7 @@ public interface FlightService
 	
 	public List<Flight> getFlights(Date date, String depCity, String arrCity);
 	
-	public Double getOccupancy(String flightNo, Date startDate, Date endDate);
+	public Double getOccupancy(String flightNo);
 	
 	public Double getOccupancy(String depCity, String arrCity);
 	
