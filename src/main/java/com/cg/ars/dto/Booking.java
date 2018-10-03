@@ -13,8 +13,8 @@ public class Booking
 	@Column(name="BOOKING_ID")
 	private String bookingId;
 	
-	@Column(name="FLIGHT_ID")
-	private String flightId;
+	@Column(name="FLIGHT_NO")
+	private String flightNo;
 	
 	@Column(name="CUST_EMAIL")
 	private String custEmail;
@@ -50,6 +50,7 @@ public class Booking
 	/**
 	 * Parameterized Constructor
 	 * @param bookingId
+	 * @param flightNo
 	 * @param custEmail
 	 * @param noOfPassengers
 	 * @param classType
@@ -59,10 +60,11 @@ public class Booking
 	 * @param srcCity
 	 * @param destCity
 	 */
-	public Booking(String bookingId, String custEmail, Integer noOfPassengers, String classType, Double totalFare,
+	public Booking(String bookingId, String flightNo, String custEmail, Integer noOfPassengers, String classType, Double totalFare,
 			Integer seatNumber, String creditCardInfo, String srcCity, String destCity) {
 		super();
 		this.bookingId = bookingId;
+		this.flightNo = flightNo;
 		this.custEmail = custEmail;
 		this.noOfPassengers = noOfPassengers;
 		this.classType = classType;
@@ -84,12 +86,12 @@ public class Booking
 		this.bookingId = bookingId;
 	}
 
-	public String getFlightId() {
-		return flightId;
+	public String getFlightNo() {
+		return flightNo;
 	}
 
-	public void setFlightId(String flightId) {
-		this.flightId = flightId;
+	public void setFlightId(String flightNo) {
+		this.flightNo = flightNo;
 	}
 
 	public String getCustEmail() {
