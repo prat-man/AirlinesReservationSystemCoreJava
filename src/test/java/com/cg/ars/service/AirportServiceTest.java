@@ -85,7 +85,6 @@ public class AirportServiceTest
 		}
 	}
 	
-	//NameValidate Test Cases
 	@Test
 	public void validateNameTest1() throws AirportException
 	{
@@ -98,8 +97,6 @@ public class AirportServiceTest
 		Assert.assertEquals(false, aser.validateName("pune"));
 	}
 	
-	
-	//Abbreviation Test Cases
 	@Test
 	public void validateAbbreviationTest1() throws AirportException 
 	{
@@ -112,9 +109,6 @@ public class AirportServiceTest
 		Assert.assertEquals(false, aser.validateAbbreviation("kolkata"));
 	}
 	
-	
-
-	//AirportLocation Test Cases
 	@Test
 	public void validateLocationTest1() throws AirportException
 	{
