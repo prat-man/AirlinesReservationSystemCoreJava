@@ -121,7 +121,7 @@ public class FlightServiceImpl implements FlightService
 
 	@Override
 	public Double getOccupancy(String depCity, String arrCity) {
-		// TODO Auto-generated method stub
+		fdao.getOccupancy(depCity, arrCity);
 		return null;
 	}
 
