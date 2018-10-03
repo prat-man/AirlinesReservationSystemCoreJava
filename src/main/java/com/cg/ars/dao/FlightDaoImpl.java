@@ -106,6 +106,14 @@ public class FlightDaoImpl implements FlightDao
 
 	@Override
 	public Double getOccupancy(String depCity, String arrCity) {
+		Query query1 = entityManager.createQuery("SELECT COUNT(b.noOfPassengers) FROM Booking b WHERE b.srcCity = :depCity AND b.destCity = :arrCity");
+		Query query2 = entityManager.createQuery("SELECT COUNT(b.noOfPassengers) FROM Booking b WHERE b.srcCity = :depCity AND b.destCity = :arrCity");
+		
+		return null;
+	}
+
+	@Override
+	public Double getOccupancy(String flightNo, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
