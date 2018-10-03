@@ -23,13 +23,13 @@ public class BookingServiceTest
 	@BeforeClass
 	public static void init()
 	{
-		try {
+		/*try {
 			fser.deleteFlight("ZZZ1001");
 		} catch (FlightException e) {
 			// Do nothing
-		}
+		}*/
 		
-		Flight flight = new Flight();
+		/*Flight flight = new Flight();
 		
 		flight.setFlightNo("ZZZ1001");
 		flight.setAirline("Zzz Airlines");
@@ -44,16 +44,16 @@ public class BookingServiceTest
 		flight.setFirstSeats(40);
 		flight.setFirstSeatsFare(2500.0);
 		
-		fser.addFlight(flight);
+		fser.addFlight(flight);*/
 	}
 	
 	@AfterClass
 	public static void destroy()
 	{
-		try {
+		/*try {
 			fser.deleteFlight("ZZZ1001");
 		} catch (FlightException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		
 		Flight flight = new Flight();
@@ -77,7 +77,7 @@ public class BookingServiceTest
 			fser.deleteFlight("ZZZ1001");
 		} catch (FlightException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	@Test
@@ -146,16 +146,9 @@ public class BookingServiceTest
 	@Test
 	public void updateBookingDetailsTest1() throws BookingException, FlightException
 	{
-		try {
-			bser.cancelBooking("ZZZ12345");
-		}
-		catch (Exception e) {
-			// Do nothing
-		}
-		
 		Booking booking = new Booking();
 		
-		booking.setBookingId("ZZZ12345");
+		booking.setBookingId("ZZN12345");
 		booking.setFlightNo("ZZZ1001");
 		booking.setCustEmail("sts@capgemini.com");
 		booking.setNoOfPassengers(3);
@@ -166,7 +159,7 @@ public class BookingServiceTest
 		booking.setSrcCity("Kolkata");
 		booking.setDestCity("Delhi");
 		
-		//bser.bookTicket(booking);
+		bser.bookTicket(booking);
 		
 		booking.setCreditCardInfo("4242698912193456");
 		
@@ -174,7 +167,11 @@ public class BookingServiceTest
 		
 		Assert.assertEquals("4242698912193456", bookingRet.getCreditCardInfo());
 		
-		bser.cancelBooking("ZZZ12345");
+		try {
+			bser.cancelBooking("ZZN12345");
+		} catch (Exception e) {
+			// Do nothing
+		}
 	}
 	
 	@Test(expected=BookingException.class)
