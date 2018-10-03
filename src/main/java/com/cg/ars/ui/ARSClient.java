@@ -523,21 +523,7 @@ public class ARSClient
 			System.err.println("Invalid Flight Number");
 		}
 		
-	    Date startDate = null;
-	    Date endDate = null;
-	    
-		try {
-			System.out.print("Start Date: ");
-			startDate = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
-			
-			System.out.print("End Date: ");
-			endDate = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
-		} 
-		catch (ParseException | IOException e) {
-			System.out.println("Invalid Date. Use format dd-MM-yyyy");
-		}
-		
-		double occupancy = F_SER.getOccupancy(flightNo, startDate, endDate);
+		double occupancy = F_SER.getOccupancy(flightNo);
 		
 		System.out.println("\nFlight Occupancy: " + occupancy);
 	}

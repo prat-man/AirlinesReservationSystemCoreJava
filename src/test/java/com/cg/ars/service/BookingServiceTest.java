@@ -18,7 +18,7 @@ public class BookingServiceTest
 	@Test
 	public void bookTicketTest1() throws BookingException
 	{
-		Booking booking = new Booking("KOL12345", "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Kolkata", "Pune");
+		Booking booking = new Booking("KOL12345", null, "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Kolkata", "Pune");
 		bser.bookTicket(booking);
 	}
 	
@@ -63,16 +63,16 @@ public class BookingServiceTest
 	@Test
 	public void updateBookingDetailsTest1() throws BookingException
 	{
-		Booking booking = new Booking("PUNE12345", "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Pune", "Mumbai");
+		Booking booking = new Booking("PUNE12345", null, "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Pune", "Mumbai");
 		Booking bookingRet = bser.updateBookingDetails(booking);
 		
 		Assert.assertNotNull(bookingRet);
 	}
-					
+	
 	@Test(expected=BookingException.class)
 	public void updateBookingDetailsTest2() throws BookingException
 	{
-		Booking booking = new Booking(null, "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Pune", "Mumbai");
+		Booking booking = new Booking(null, null, "test@capgemini.com", 1, "First", 5000.00, 2, "4565767878980987", "Pune", "Mumbai");
 		bser.updateBookingDetails(booking);
 	}
 
