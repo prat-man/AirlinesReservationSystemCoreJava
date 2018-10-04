@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 import com.cg.ars.dao.AirportDao;
 import com.cg.ars.dao.AirportDaoImpl;
