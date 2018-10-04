@@ -44,6 +44,7 @@ public class BookingServiceTest
 	@Test
 	public void viewBookDetailsTest1() throws BookingException
 	{
+		try {
 		Booking booking = new Booking();
 		
 		booking.setBookingId("ZZZ12345");
@@ -64,6 +65,9 @@ public class BookingServiceTest
 		Assert.assertNotNull(bookingRet);
 		
 		bser.cancelBooking("ZZZ12345");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 			
 	@Test(expected=BookingException.class)
