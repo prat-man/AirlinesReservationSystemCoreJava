@@ -357,7 +357,7 @@ public class ARSClient
 		try {
 			List<Flight> flightList = F_SER.getAllFlights();
 			
-			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s\n",
+			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-10s %-10s\n",
 								"Flight No",
 								"Airline",
 								"Departure City",
@@ -369,11 +369,13 @@ public class ARSClient
 								"First Seats",
 								"First Fare",
 								"Business Seats",
-								"Business Fare");
+								"Business Fare",
+								"Dep Airport",
+								"Arr Airport");
 								
 			for (Flight f : flightList)
 			{
-				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f\n",
+				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-10s %-10s\n",
 						f.getFlightNo(),
 						f.getAirline(),
 						f.getDepCity(),
@@ -385,7 +387,10 @@ public class ARSClient
 						f.getFirstSeats(),
 						f.getFirstSeatsFare(),
 						f.getBussSeats(),
-						f.getBussSeatsFare());
+						f.getBussSeatsFare(),
+						f.getDepAirport(),
+						f.getArrAirport());
+				
 			}
 		}
 		catch (FlightException e) {
@@ -452,21 +457,21 @@ public class ARSClient
 			
 			Flight flight = F_SER.getFlight(BR.readLine());
 			
-			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
-								flight.getFlightNo(),
-								flight.getAirline(),
-								flight.getArrCity(),
-								flight.getDepCity(),
-								TIME_FORMAT.format(flight.getArrTime()),
-								TIME_FORMAT.format(flight.getDepTime()),
-								DATE_FORMAT.format(flight.getArrDate()),
-								DATE_FORMAT.format(flight.getDepDate()),
-								flight.getFirstSeats(),
-								flight.getFirstSeatsFare(),
-								flight.getBussSeats(),
-								flight.getBussSeatsFare(),
-								flight.getBussSeatsFare());
-			
+			System.out.println("Flight No.: " + flight.getFlightNo());
+			System.out.println("Airline: " + flight.getAirline());
+			System.out.println("Departure City: " + flight.getDepCity());
+			System.out.println("Arrival City: " + flight.getArrCity());
+			System.out.println("Departure Date: " +  DATE_FORMAT.format(flight.getDepDate()));
+			System.out.println("Departure Time: " + TIME_FORMAT.format(flight.getDepTime()));
+			System.out.println("Arrival Date: " + DATE_FORMAT.format(flight.getArrDate()));
+			System.out.println("Arrival Time: " + TIME_FORMAT.format(flight.getArrTime()));
+			System.out.println("First Seats: " + flight.getFirstSeats());
+			System.out.println("First Seats Fare: " + flight.getFirstSeatsFare());
+			System.out.println("Business Seats: " + flight.getBussSeats());
+			System.out.println("Business Fare: " + flight.getBussSeatsFare());
+			System.out.println("Departure Airport: " + flight.getDepAirport());
+			System.out.println("Arrival Airport: " + flight.getArrAirport());
+		
 			System.out.print("Flight Number: ");
 			flight.setFlightNo(BR.readLine());
 			
@@ -521,24 +526,36 @@ public class ARSClient
 			
 			Flight flight =  F_SER.getFlight(BR.readLine());
 			
-			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
-					flight.getFlightNo(),
-					flight.getAirline(),
-					flight.getArrCity(),
-					flight.getDepCity(),
-					TIME_FORMAT.format(flight.getArrTime()),
-					TIME_FORMAT.format(flight.getDepTime()),
-					DATE_FORMAT.format(flight.getArrDate()),
-					DATE_FORMAT.format(flight.getDepDate()),
-					flight.getFirstSeats(),
-					flight.getFirstSeatsFare(),
-					flight.getBussSeats(),
-					flight.getBussSeatsFare());
+			System.out.println("Flight No.: " + flight.getFlightNo());
+			System.out.println("Airline: " + flight.getAirline());
+			System.out.println("Departure City: " + flight.getDepCity());
+			System.out.println("Arrival City: " + flight.getArrCity());
+			System.out.println("Departure Date: " +  DATE_FORMAT.format(flight.getDepDate()));
+			System.out.println("Departure Time: " + TIME_FORMAT.format(flight.getDepTime()));
+			System.out.println("Arrival Date: " + DATE_FORMAT.format(flight.getArrDate()));
+			System.out.println("Arrival Time: " + TIME_FORMAT.format(flight.getArrTime()));
+			System.out.println("First Seats: " + flight.getFirstSeats());
+			System.out.println("First Seats Fare: " + flight.getFirstSeatsFare());
+			System.out.println("Business Seats: " + flight.getBussSeats());
+			System.out.println("Business Fare: " + flight.getBussSeatsFare());
+			System.out.println("Departure Airport: " + flight.getDepAirport());
+			System.out.println("Arrival Airport: " + flight.getArrAirport());
 			
-			F_SER.deleteFlight(flight.getFlightNo());
+			System.out.print("\nAre you sure (Y/N)? ");
+			char ch = Character.toUpperCase(BR.readLine().charAt(0));
+			
+			if (ch == 'Y') {
+				F_SER.deleteFlight(flight.getFlightNo());
+				
+				System.out.println("\nFlight Deleted Successfully");
+			}
+			else {
+				System.out.println("\nUser Cancelled Operation");
+			}
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("\nCould not delete flight");
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -557,7 +574,7 @@ public class ARSClient
 			
 			List<Flight> flights = F_SER.getFlights(date, depCity, arrCity);
 			
-			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s\n",
+			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-10s %-10s\n",
 					"Flight No",
 					"Airline",
 					"Departure City",
@@ -570,11 +587,12 @@ public class ARSClient
 					"First Fare",
 					"Business Seats",
 					"Business Fare",
-					"Airport");
+					"Dep Airport",
+					"Arr Airport");
 			
 			for (Flight f : flights)
 			{
-				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f\n",
+				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-10s %-10s\n",
 						f.getFlightNo(),
 						f.getAirline(),
 						f.getDepCity(),
@@ -586,7 +604,9 @@ public class ARSClient
 						f.getFirstSeats(),
 						f.getFirstSeatsFare(),
 						f.getBussSeats(),
-						f.getBussSeatsFare());
+						f.getBussSeatsFare(),
+						f.getDepAirport(),
+						f.getArrAirport());
 			}
 		}
 		catch (Exception e) {
