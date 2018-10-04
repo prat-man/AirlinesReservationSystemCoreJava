@@ -32,7 +32,7 @@ public class AirportServiceImpl implements AirportService
 		this.validateAbbreviation(airport.getAbbreviation());
 		this.validateName(airport.getAirportName());
 		this.validateLocation(airport.getLocation());
-		
+		logger.info("Airport Information Added");
 		adao.addAirport(airport);
 	}
 	
@@ -46,26 +46,31 @@ public class AirportServiceImpl implements AirportService
 				throw new NullPointerException("Airport Record with Airport ID=" + airportId + " not found");
 			}
 			else {
+				logger.info("Airport Information Retrieved");
 				return airport;
 			}
 		}
 		catch (Exception exc) {
+			logger.error(exc.getMessage());
 			throw new AirportException(exc.getMessage());
 		}
 	}
 
 	@Override
 	public List<Airport> getAllAirports() 
-	{
+	{	
+		logger.info("Information for all Airports Retrieved.");
 		return adao.getAllAirports();
 	}
 	
 	public void deleteAirport(String airportId) throws AirportException 
 	{
 		try {
+			logger.info("Airport Information Deleted");
 			adao.deleteAirport(airportId);
 		}
 		catch (Exception exc) {
+			logger.error(exc.getMessage());
 			throw new AirportException(exc.getMessage());
 		}
 	}
@@ -79,6 +84,7 @@ public class AirportServiceImpl implements AirportService
 			return true;
 		}
 		else {
+			logger.error("Invalid Airport Name");
 			throw new AirportException("Invalid Airport Name");
 		}
 	}
@@ -92,6 +98,7 @@ public class AirportServiceImpl implements AirportService
 			return true;
 		}
 		else {
+			logger.error("Invalid Airport Abbreviation");
 			throw new AirportException("Invalid Airport Abbreviation");
 		}
 	}
@@ -105,6 +112,7 @@ public class AirportServiceImpl implements AirportService
 			return true;
 		}
 		else {
+			logger.error("Invalid Airport Location");
 			throw new AirportException("Invalid Airport Location");
 		}
 	}
