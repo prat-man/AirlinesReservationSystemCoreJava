@@ -11,7 +11,6 @@ import com.cg.ars.dao.AirportDao;
 import com.cg.ars.dao.AirportDaoImpl;
 import com.cg.ars.dao.FlightDao;
 import com.cg.ars.dao.FlightDaoImpl;
-import com.cg.ars.dto.Airport;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.FlightException;
 
@@ -37,22 +36,27 @@ public class FlightServiceImpl implements FlightService
 	@Override
 	public void addFlight(Flight flight) throws FlightException 
 	{
-		flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
-		
-		flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
-		
-		this.validateAirline(flight.getAirline());
-		this.validateCity(flight.getArrCity());
-		this.validateCity(flight.getDepCity());
-		this.validateDate(flight.getArrDate());
-		this.validateDate(flight.getDepDate());
-		this.validateFlightNo(flight.getFlightNo());
-		this.validateSeats(flight.getFirstSeats());
-		this.validateSeats(flight.getBussSeats());
-		
-		fdao.addFlight(flight);
-      
-		logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
+		try {
+			flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
+			
+			flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
+			
+			this.validateAirline(flight.getAirline());
+			this.validateCity(flight.getArrCity());
+			this.validateCity(flight.getDepCity());
+			this.validateDate(flight.getArrDate());
+			this.validateDate(flight.getDepDate());
+			this.validateFlightNo(flight.getFlightNo());
+			this.validateSeats(flight.getFirstSeats());
+			this.validateSeats(flight.getBussSeats());
+			
+			fdao.addFlight(flight);
+	      
+			logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
+		}
+		catch (Exception exc) {
+			throw new FlightException(exc.getMessage());
+		}
 	}
 
 	/**
@@ -61,24 +65,29 @@ public class FlightServiceImpl implements FlightService
 	@Override
 	public Flight modifyFlight(Flight flight) throws FlightException
 	{
-		flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
-		
-		flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
-		
-		this.validateCity(flight.getArrCity());
-		this.validateAirline(flight.getAirline());
-		this.validateCity(flight.getDepCity());
-		this.validateDate(flight.getArrDate());
-		this.validateDate(flight.getDepDate());
-		this.validateFlightNo(flight.getFlightNo());
-		this.validateSeats(flight.getFirstSeats());
-		this.validateSeats(flight.getBussSeats());
-
-		flight = fdao.modifyFlight(flight);
-
-		logger.info("Flight Record Modified [flightNo=" + flight.getFlightNo() + "]");
-
-		return flight;
+		try {
+			flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
+			
+			flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
+			
+			this.validateCity(flight.getArrCity());
+			this.validateAirline(flight.getAirline());
+			this.validateCity(flight.getDepCity());
+			this.validateDate(flight.getArrDate());
+			this.validateDate(flight.getDepDate());
+			this.validateFlightNo(flight.getFlightNo());
+			this.validateSeats(flight.getFirstSeats());
+			this.validateSeats(flight.getBussSeats());
+	
+			flight = fdao.modifyFlight(flight);
+	
+			logger.info("Flight Record Modified [flightNo=" + flight.getFlightNo() + "]");
+	
+			return flight;
+		}
+		catch (Exception exc) {
+			throw new FlightException(exc.getMessage());
+		}
 	}
 
 	/**
@@ -204,7 +213,7 @@ public class FlightServiceImpl implements FlightService
 		LocalDate today = LocalDate.now();
 		LocalDate other = date.toLocalDate();
 		
-		if (today.compareTo(other) > 0) {
+		if (today.compareTo(other) < 0) {
 			return true;
 		}
 		else {
