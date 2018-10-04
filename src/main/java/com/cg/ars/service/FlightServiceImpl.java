@@ -7,14 +7,18 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
+import com.cg.ars.dao.AirportDao;
+import com.cg.ars.dao.AirportDaoImpl;
 import com.cg.ars.dao.FlightDao;
 import com.cg.ars.dao.FlightDaoImpl;
+import com.cg.ars.dto.Airport;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.FlightException;
 
 public class FlightServiceImpl implements FlightService 
 {
 	private FlightDao fdao;
+	private AirportDao adao;
 	
 	private Logger logger;
 	
@@ -22,43 +26,53 @@ public class FlightServiceImpl implements FlightService
 	{
 		fdao = new FlightDaoImpl();
 		
+		adao = new AirportDaoImpl();
+		
 		logger = Logger.getLogger(this.getClass());
 	}
 
 	@Override
-	public void addFlight(Flight flight) 
+	public void addFlight(Flight flight) throws FlightException 
 	{
-			this.validateAirline(flight.getAirline());
-			this.validateCity(flight.getArrCity());
-			this.validateCity(flight.getDepCity());
-			this.validateDate(flight.getArrDate());
-			this.validateDate(flight.getDepDate());
-			this.validateFlightNo(flight.getFlightNo());
-			this.validateSeats(flight.getFirstSeats());
-			this.validateSeats(flight.getBussSeats());
-			
-			fdao.addFlight(flight);
+		flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
+		
+		flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
+		
+		this.validateAirline(flight.getAirline());
+		this.validateCity(flight.getArrCity());
+		this.validateCity(flight.getDepCity());
+		this.validateDate(flight.getArrDate());
+		this.validateDate(flight.getDepDate());
+		this.validateFlightNo(flight.getFlightNo());
+		this.validateSeats(flight.getFirstSeats());
+		this.validateSeats(flight.getBussSeats());
+		
+		fdao.addFlight(flight);
       
-      logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
+		logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
 	}
 
 	@Override
-	public Flight modifyFlight(Flight flight) 
-	{	
-			this.validateCity(flight.getArrCity());
-			this.validateAirline(flight.getAirline());
-			this.validateCity(flight.getDepCity());
-			this.validateDate(flight.getArrDate());
-			this.validateDate(flight.getDepDate());
-			this.validateFlightNo(flight.getFlightNo());
-			this.validateSeats(flight.getFirstSeats());
-			this.validateSeats(flight.getBussSeats());
-      
-      flight = fdao.modifyFlight(flight);
-      
-			logger.info("Flight Record Modified [flightNo=" + flight.getFlightNo() + "]");
-      
-      return flight;
+	public Flight modifyFlight(Flight flight) throws FlightException
+	{
+		flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
+		
+		flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
+		
+		this.validateCity(flight.getArrCity());
+		this.validateAirline(flight.getAirline());
+		this.validateCity(flight.getDepCity());
+		this.validateDate(flight.getArrDate());
+		this.validateDate(flight.getDepDate());
+		this.validateFlightNo(flight.getFlightNo());
+		this.validateSeats(flight.getFirstSeats());
+		this.validateSeats(flight.getBussSeats());
+
+		flight = fdao.modifyFlight(flight);
+
+		logger.info("Flight Record Modified [flightNo=" + flight.getFlightNo() + "]");
+
+		return flight;
 	}
 
 	@Override
@@ -66,9 +80,10 @@ public class FlightServiceImpl implements FlightService
 	{
 		try {
 			this.validateFlightNo(flightNo);
-			fdao.deleteFlight(flightNo);
-			logger.info("Flight Record Deleted [flightNo=" + flightNo +"]");
 			
+			fdao.deleteFlight(flightNo);
+			
+			logger.info("Flight Record Deleted [flightNo=" + flightNo +"]");
 		}
 		catch (Exception exc) {
 			logger.error("Flight Record Deletion Failed [flightNo=" + flightNo + "]\n" + exc.getMessage());
@@ -77,25 +92,38 @@ public class FlightServiceImpl implements FlightService
 	}
 
 	@Override
-	public List<Flight> getAllFlights() 
+	public List<Flight> getAllFlights() throws FlightException 
 	{
-		List<Flight> list = fdao.getAllFlights();
-		logger.info("Flight Record Fetched");
-		return list;
+		try {
+			List<Flight> list = fdao.getAllFlights();
+			
+			if (list == null || list.isEmpty()) {
+				throw new NullPointerException("Flight List Empty");
+			}
+			else {
+				logger.info("Flight Record Fetched");
+				
+				return list;
+			}
+		}
+		catch (Exception exc) {
+			logger.error("No Flight Records Found\n" + exc.getMessage());
+			throw new FlightException("No Flight Records Found");
+		}
 	}
 
 	@Override
-	public List<Flight> getFlights(Date date, String depCity, String arrCity)
+	public List<Flight> getFlights(Date date, String depCity, String arrCity) throws FlightException
 	{
-			this.validateCity(depCity);
-			this.validateCity(arrCity);
-			this.validateDate(date);
-      
-      List<Flight> list = fdao.getFlights(date, depCity, arrCity);
-      
-		  logger.info("Flight Records Fetched between " + depCity + " and " + arrCity + " on " + date );
-      
-		  return list;
+		this.validateCity(depCity);
+		this.validateCity(arrCity);
+		this.validateDate(date);
+  
+		List<Flight> list = fdao.getFlights(date, depCity, arrCity);
+
+		logger.info("Flight Records Fetched between " + depCity + " and " + arrCity + " on " + date );
+
+		return list;
 	}
 
 	@Override
@@ -163,16 +191,22 @@ public class FlightServiceImpl implements FlightService
 	}
 
 	@Override
-	public Double getOccupancy(String flightNo) {
+	public Double getOccupancy(String flightNo)
+	{
 		Double oc = fdao.getOccupancy(flightNo);
+		
 		logger.info("Fetched Occupancy [Occupancy" + oc + "]");
+		
 		return oc;
 	}
 
 	@Override
-	public Double getOccupancy(String depCity, String arrCity) {
+	public Double getOccupancy(String depCity, String arrCity)
+	{
 		Double oc = fdao.getOccupancy(depCity, arrCity);
+		
 		logger.info("Occupancy between cities [depCity=" + depCity + ", arrCity=" + arrCity + "]");
+		
 		return oc;
 	}
 

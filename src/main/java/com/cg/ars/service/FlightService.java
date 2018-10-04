@@ -8,15 +8,15 @@ import com.cg.ars.exception.FlightException;
 
 public interface FlightService 
 {
-	public void addFlight(Flight flight);
+	public void addFlight(Flight flight) throws FlightException;
 	
-	public Flight modifyFlight(Flight flight);
+	public Flight modifyFlight(Flight flight) throws FlightException;
 	
 	public void deleteFlight(String flightNo) throws FlightException;
 	
-	public List<Flight> getAllFlights();
+	public List<Flight> getAllFlights() throws FlightException;
 	
-	public List<Flight> getFlights(Date date, String depCity, String arrCity);
+	public List<Flight> getFlights(Date date, String depCity, String arrCity) throws FlightException;
 	
 	public Double getOccupancy(String flightNo);
 	

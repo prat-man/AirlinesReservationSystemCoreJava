@@ -59,8 +59,11 @@ public class Flight
 	@Column(name="BUSSSEATSFARE")
 	private Double bussSeatsFare;
 	
-	@Column(name="AIRPORT")
-	private String airport;
+	@Column(name="DEP_AIRPORT")
+	private String depAirport;
+	
+	@Column(name="ARR_AIRPORT")
+	private String arrAirport;
 	
 	@Transient
 	public static final String FIRST = "First";
@@ -174,12 +177,20 @@ public class Flight
 		this.bussSeatsFare = bussSeatsFare;
 	}
 	
-	public String getAirport() {
-		return airport;
+	public String getDepAirport() {
+		return depAirport;
 	}
 
-	public void setAirport(String airport) {
-		this.airport = airport;
+	public void setDepAirport(String depAirport) {
+		this.depAirport = depAirport;
+	}
+
+	public String getArrAirport() {
+		return arrAirport;
+	}
+
+	public void setArrAirport(String arrAirport) {
+		this.arrAirport = arrAirport;
 	}
 
 	/**
@@ -191,7 +202,8 @@ public class Flight
 		return "Flight [flightNo=" + flightNo + ", airline=" + airline + ", depCity=" + depCity + ", arrCity=" + arrCity
 				+ ", depDate=" + depDate + ", arrDate=" + arrDate + ", depTime=" + depTime + ", arrTime=" + arrTime
 				+ ", firstSeats=" + firstSeats + ", firstSeatsFare=" + firstSeatsFare + ", bussSeats=" + bussSeats
-				+ ", bussSeatsFare=" + bussSeatsFare + ", airport=" + airport + "]";
+				+ ", bussSeatsFare=" + bussSeatsFare + ", depAirport=" + depAirport + ", arrAirport=" + arrAirport
+				+ "]";
 	}
 	
 	public static String[] getClassTypes()

@@ -354,37 +354,42 @@ public class ARSClient
 
 	private static void viewFlights()
 	{
-		List<Flight> flightList = F_SER.getAllFlights();
-		
-		System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s\n",
-							"Flight No",
-							"Airline",
-							"Departure City",
-							"Arrival City",
-							"Dep Date",
-							"Dep Time",
-							"Arr Date",
-							"Arr Time",
-							"First Seats",
-							"First Fare",
-							"Business Seats",
-							"Business Fare");
-							
-		for (Flight f : flightList)
-		{
-			System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f\n",
-					f.getFlightNo(),
-					f.getAirline(),
-					f.getDepCity(),
-					f.getArrCity(),
-					DATE_FORMAT.format(f.getDepDate()),
-					TIME_FORMAT.format(f.getDepTime()),
-					DATE_FORMAT.format(f.getArrDate()),
-					TIME_FORMAT.format(f.getArrTime()),
-					f.getFirstSeats(),
-					f.getFirstSeatsFare(),
-					f.getBussSeats(),
-					f.getBussSeatsFare());
+		try {
+			List<Flight> flightList = F_SER.getAllFlights();
+			
+			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s\n",
+								"Flight No",
+								"Airline",
+								"Departure City",
+								"Arrival City",
+								"Dep Date",
+								"Dep Time",
+								"Arr Date",
+								"Arr Time",
+								"First Seats",
+								"First Fare",
+								"Business Seats",
+								"Business Fare");
+								
+			for (Flight f : flightList)
+			{
+				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f\n",
+						f.getFlightNo(),
+						f.getAirline(),
+						f.getDepCity(),
+						f.getArrCity(),
+						DATE_FORMAT.format(f.getDepDate()),
+						TIME_FORMAT.format(f.getDepTime()),
+						DATE_FORMAT.format(f.getArrDate()),
+						TIME_FORMAT.format(f.getArrTime()),
+						f.getFirstSeats(),
+						f.getFirstSeatsFare(),
+						f.getBussSeats(),
+						f.getBussSeatsFare());
+			}
+		}
+		catch (FlightException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -398,12 +403,6 @@ public class ARSClient
 			
 			System.out.print("Airline Name: ");
 			flight.setAirline(BR.readLine());
-			
-			System.out.print("Departure City: ");
-			flight.setDepCity(BR.readLine());
-			
-			System.out.print("Arrival City: ");
-			flight.setArrCity(BR.readLine());
 			
 			System.out.print("Departure Date: ");
 			Date dateDep = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
@@ -433,8 +432,11 @@ public class ARSClient
 			System.out.print("Business Seats Fare: ");
 			flight.setBussSeatsFare(Double.parseDouble(BR.readLine()));
 			
-			System.out.print("Airport Abbreviation: ");
-			flight.setAirport(BR.readLine());
+			System.out.print("Departure Airport: ");
+			flight.setDepAirport(BR.readLine());
+			
+			System.out.print("Arrival Airport: ");
+			flight.setArrAirport(BR.readLine());
 			
 			F_SER.addFlight(flight);
 		}
@@ -471,12 +473,6 @@ public class ARSClient
 			System.out.print("Airline Name: ");
 			flight.setAirline(BR.readLine());
 			
-			System.out.print("Departure City: ");
-			flight.setDepCity(BR.readLine());
-			
-			System.out.print("Arrival City: ");
-			flight.setArrCity(BR.readLine());
-			
 			System.out.print("Departure Date: ");
 			Date dateDep = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
 			flight.setDepDate(dateDep);
@@ -505,8 +501,11 @@ public class ARSClient
 			System.out.print("Business Seats Fare: ");
 			flight.setBussSeatsFare(Double.parseDouble(BR.readLine()));
 			
-			System.out.print("Airport Abbreviation: ");
-			flight.setAirport(BR.readLine());
+			System.out.print("Departure Airport: ");
+			flight.setDepAirport(BR.readLine());
+			
+			System.out.print("Arrival Airport: ");
+			flight.setArrAirport(BR.readLine());
 			
 			F_SER.modifyFlight(flight);
 		}

@@ -34,7 +34,6 @@ public class BookingServiceImpl implements BookingService
 		try {
 			Flight flight = fdao.getFlight(booking.getFlightNo());
 			
-			
 			this.validateCity(booking.getDestCity());
 			this.validateCity(booking.getSrcCity());
 			this.validateClassType(booking.getClassType());
@@ -82,7 +81,6 @@ public class BookingServiceImpl implements BookingService
 		catch (Exception exc) {
 			logger.error(exc.getMessage());
 			throw new BookingException(exc.getMessage());
-			
 		}
 	}
 
@@ -90,12 +88,13 @@ public class BookingServiceImpl implements BookingService
 	public Booking getBooking(String bookingId) throws BookingException 
 	{
 		try {
+			this.validateBookingId(bookingId);
 			
 			Booking booking = bdao.getBooking(bookingId);
 			
 			if (booking == null) {
-				logger.error("Booking Record with Booking ID [Booking ID =" + booking.getBookingId() + "] not found");
-				throw new NullPointerException("Booking Record with Booking ID [Booking ID =" + booking.getBookingId() + "] not found");
+				logger.error("Booking Record with [bookingId=" + bookingId + "] not found");
+				throw new NullPointerException("Booking Record with [bookingId=" + bookingId + "] not found");
 			}
 			else 
 			{
@@ -118,11 +117,14 @@ public class BookingServiceImpl implements BookingService
 			this.validateClassType(booking.getClassType());
 			this.validateCreditCardInfo(booking.getCreditCardInfo());
 			this.validateEmail(booking.getCustEmail());
+			
+			Flight flight = fdao.getFlight(booking.getFlightNo());
+			
 			this.validateNoOfPassengers(flight, booking.getClassType(), booking.getNoOfPassengers());
       
 			bdao.updateBooking(booking);
       
-      logger.info("Updating booking details with booking ID [Booking ID =" + booking.getBookingId() + "]");
+			logger.info("Updating booking details with booking ID [Booking ID =" + booking.getBookingId() + "]");
 		}
 		catch (Exception exc) {
 			logger.error(exc.getMessage());
@@ -154,7 +156,7 @@ public class BookingServiceImpl implements BookingService
 		return prefix + bdao.getBookingId();
 	}
 
-	/*@Override
+	@Override
 	public boolean validateBookingId(String bookingId) throws BookingException 
 	{
 		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
@@ -167,7 +169,7 @@ public class BookingServiceImpl implements BookingService
 			logger.error("Invalid Booking ID [Booking ID=" + bookingId + "]");
 			throw new BookingException("Invalid Booking ID [Booking ID=" + bookingId + "]");
 		}
-	}*/
+	}
 
 	@Override
 	public boolean validateEmail(String email) throws BookingException 
