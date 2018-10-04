@@ -42,7 +42,8 @@ public class FlightServiceTest
 	{
 		try {
 			Assert.assertNotNull(fser.getAllFlights());
-		} catch (FlightException e) {
+		}
+		catch (FlightException e) {
 			Assert.assertEquals("No Flight Records Found", e.getMessage());
 		}
 	}
