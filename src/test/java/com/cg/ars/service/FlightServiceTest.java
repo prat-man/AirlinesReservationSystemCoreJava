@@ -104,4 +104,84 @@ public class FlightServiceTest
 		Assert.assertNotNull(F_SER.getAllFlights());
 	}
 	
+private FlightService F_SER;
+	
+	public FlightServiceTest()
+	{
+		F_SER = new FlightServiceImpl();
+	}
+	
+	@Test
+	public void testvalidateFlightNo1() throws FlightException
+	{
+		Assert.assertEquals(true, F_SER.validateFlightNo("PUN1002"));
+	}
+	
+	@Test
+	public void testvalidateFlightNo2() throws FlightException
+	{
+		Assert.assertEquals(false, F_SER.validateFlightNo("pune10000678"));
+	}
+	
+	@Test
+	public void testvalidateAirline1() throws FlightException
+	{
+		Assert.assertEquals(true, F_SER.validateAirline("Pune Airlines"));
+
+	}
+	
+	@Test
+	public void testvalidateAirline2() throws FlightException
+	{
+		Assert.assertEquals(false, F_SER.validateAirline("pune1234"));
+
+	}
+	
+	@Test
+	public void testvalidateCity1() throws FlightException
+	{
+		Assert.assertEquals(true, F_SER.validateCity("Pune"));
+
+	}
+	
+	@Test
+	public void testvalidateCity2() throws FlightException
+	{
+		Assert.assertEquals(false, F_SER.validateCity("pu123"));
+
+	}
+	
+	@Test
+	public void testvalidateDate1() throws FlightException, ParseException
+	{
+		Assert.assertEquals(true, F_SER.validateDate(new Date(ARSClient.DATE_FORMAT.parse("10-10-2018").getTime())));
+
+	}
+	
+	@Test
+	public void testValidateSeats1() throws FlightException
+	{
+		Assert.assertEquals(true, F_SER.validateSeats(200));
+
+	}
+	
+	@Test
+	public void testValidateSeats2() throws FlightException
+	{
+		Assert.assertEquals(false, F_SER.validateSeats(-1));
+
+	}
+	
+	@Test
+	public void testGetFare() throws FlightException 
+	{
+		Flight flight = new Flight();
+		
+		Object object = F_SER.getFlight("PUN1234");
+		
+		Assert.assertTrue(object instanceof Flight);
+	}
+	
+	
+	
 }
