@@ -19,36 +19,58 @@ public class BookingDaoImpl implements BookingDao
 	@Override
 	public Booking getBooking(String bookingId)
 	{
+		entityManager.getTransaction().begin();
+		
 		Booking booking = entityManager.find(Booking.class, bookingId);
+		
+		entityManager.getTransaction().commit();
 		
 		return booking;
 	}
 
 	@Override
 	public void updateBooking(Booking booking)
-	{	
+	{
+		entityManager.getTransaction().begin();
+		
 		entityManager.merge(booking);
+		
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
 	public void bookTicket(Booking booking)
 	{
+		entityManager.getTransaction().begin();
+		
 		entityManager.persist(booking);
+		
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
 	public void cancelBooking(String bookingId)
 	{
+		entityManager.getTransaction().begin();
+		
 		Booking booking = this.getBooking(bookingId);
 		
 		entityManager.remove(booking);
+		
+		entityManager.getTransaction().commit();
 	}
 	
 	@Override
 	public int getBookingId() throws BookingException
 	{
+		entityManager.getTransaction().begin();
+		
 		Query query = entityManager.createNativeQuery("SELECT BOOKING_SEQUENCE.NEXTVAL FROM DUAL");
 		
-		return (int) query.getSingleResult();
+		int bookingId =  (int) query.getSingleResult();
+		
+		entityManager.getTransaction().commit();
+		
+		return bookingId;
 	}
 }

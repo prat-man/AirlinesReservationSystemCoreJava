@@ -1,57 +1,17 @@
 package com.cg.ars.service;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.cg.ars.dto.Booking;
-import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.BookingException;
-import com.cg.ars.exception.FlightException;
 
 public class BookingServiceTest
 {
 	private static BookingService bser = new BookingServiceImpl();
-	private static FlightService fser = new FlightServiceImpl();
-	
-	@BeforeClass
-	public static void init()
-	{
-		try {
-			fser.deleteFlight("ZZZ1001");
-		} catch (FlightException e) {
-			// Do nothing
-		}
-		
-		Flight flight = new Flight();
-		
-		flight.setFlightNo("ZZZ1001");
-		flight.setAirline("Zzz Airlines");
-		flight.setArrCity("Kolkata");
-		flight.setArrDate(Date.valueOf(LocalDate.now()));
-		flight.setArrTime(Time.valueOf(LocalTime.now()));
-		flight.setBussSeats(30);
-		flight.setBussSeatsFare(3200.0);
-		flight.setDepCity("Kolkata");
-		flight.setDepDate(Date.valueOf(LocalDate.now()));
-		flight.setDepTime(Time.valueOf(LocalTime.now()));
-		flight.setFirstSeats(40);
-		flight.setFirstSeatsFare(2500.0);
-		
-		try {
-			fser.addFlight(flight);
-		} catch (FlightException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	@Test
-	public void bookTicketTest1() throws BookingException, FlightException
+	public void bookTicketTest1() throws BookingException
 	{
 		Booking booking = new Booking();
 		
@@ -82,7 +42,7 @@ public class BookingServiceTest
 	}
 	
 	@Test
-	public void viewBookDetailsTest1() throws BookingException, FlightException
+	public void viewBookDetailsTest1() throws BookingException
 	{
 		Booking booking = new Booking();
 		
@@ -114,7 +74,7 @@ public class BookingServiceTest
 	
 	//updateBookingDetailsValidate Test Cases
 	@Test
-	public void updateBookingDetailsTest1() throws BookingException, FlightException
+	public void updateBookingDetailsTest1() throws BookingException
 	{
 		Booking booking = new Booking();
 		
@@ -166,7 +126,7 @@ public class BookingServiceTest
 	}
 	
 	@Test(expected=BookingException.class)
-	public void cancelBookingTest1() throws BookingException, FlightException
+	public void cancelBookingTest1() throws BookingException
 	{
 		Booking booking = new Booking();
 		
