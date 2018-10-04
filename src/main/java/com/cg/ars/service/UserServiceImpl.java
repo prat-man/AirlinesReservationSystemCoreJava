@@ -26,8 +26,6 @@ public class UserServiceImpl implements UserService
 		pman = new PasswordManagerImpl();
 		
 		logger = Logger.getLogger(this.getClass());
-		
-		PropertyConfigurator.configure("log4j.properties");
 	}
 
 	@Override
