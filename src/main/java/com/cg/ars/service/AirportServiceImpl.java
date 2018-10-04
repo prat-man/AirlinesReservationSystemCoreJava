@@ -30,8 +30,9 @@ public class AirportServiceImpl implements AirportService
 		this.validateName(airport.getAirportName());
 		this.validateLocation(airport.getLocation());
 		
-		logger.info("Airport Information Added [airportId=" + airport.getAbbreviation() + "]");
 		adao.addAirport(airport);
+		
+		logger.info("Airport Information Added [airportId=" + airport.getAbbreviation() + "]");
 	}
 	
 	/**
@@ -48,13 +49,13 @@ public class AirportServiceImpl implements AirportService
 				throw new NullPointerException("Airport Record with [airportId=" + airportId + "] not found");
 			}
 			else {
-				logger.info("Airport Information Retrieved [airportId=" + airportId + "]");
+				logger.info("Airport Record Retrieved [airportId=" + airportId + "]");
 				return airport;
 			}
 		}
 		catch (Exception exc) {
-			logger.error(exc.getMessage());
-			throw new AirportException(exc.getMessage());
+			logger.error("Airport Record Retrieval Failed [airportId=" + airportId + "]\n" + exc.getMessage());
+			throw new AirportException("Airport Record Retrieval Failed [airportId=" + airportId + "]");
 		}
 	}
 
@@ -68,12 +69,12 @@ public class AirportServiceImpl implements AirportService
 	public void deleteAirport(String airportId) throws AirportException 
 	{
 		try {
-			logger.info("Airport Information Deleted [airportId=" + airportId + "]");
 			adao.deleteAirport(airportId);
+			logger.info("Airport Record Deleted [airportId=" + airportId + "]");
 		}
 		catch (Exception exc) {
-			logger.error(exc.getMessage());
-			throw new AirportException(exc.getMessage());
+			logger.error("Airport Record Deletion Failed [airportId=" + airportId + "]\n" +exc.getMessage());
+			throw new AirportException("Airport Record Deletion Failed [airportId=" + airportId + "]");
 		}
 	}
 
@@ -104,8 +105,8 @@ public class AirportServiceImpl implements AirportService
 			return true;
 		}
 		else {
-			logger.error("Invalid Airport Abbreviation");
-			throw new AirportException("Invalid Airport Abbreviation");
+			logger.error("Invalid Airport Abbreviation [abbreviation=" + abbreviation + "]");
+			throw new AirportException("Invalid Airport Abbreviation [abbreviation=" + abbreviation + "]\nFormat: Use UPPERCASE 3 to 4 alphabets");
 		}
 	}
 
@@ -118,8 +119,8 @@ public class AirportServiceImpl implements AirportService
 			return true;
 		}
 		else {
-			logger.error("Invalid Airport Location");
-			throw new AirportException("Invalid Airport Location");
+			logger.error("Invalid Airport Location [location=" + location + "]");
+			throw new AirportException("Invalid Airport Location [location=" + location + "]\nFormat: Each word must start with UPPERCASE followed by lowercase characters ");
 		}
 	}
 }
