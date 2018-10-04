@@ -34,6 +34,12 @@ public class BookingServiceImpl implements BookingService
 		try {
 			Flight flight = fdao.getFlight(booking.getFlightNo());
 			
+			
+			this.validateCity(booking.getDestCity());
+			this.validateCity(booking.getSrcCity());
+			this.validateClassType(booking.getClassType());
+			this.validateCreditCardInfo(booking.getCreditCardInfo());
+			this.validateEmail(booking.getCustEmail());
 			this.validateNoOfPassengers(flight, booking.getClassType(), booking.getNoOfPassengers());
 			
 			Integer remainingSeats;
@@ -84,6 +90,7 @@ public class BookingServiceImpl implements BookingService
 	public Booking getBooking(String bookingId) throws BookingException 
 	{
 		try {
+			
 			Booking booking = bdao.getBooking(bookingId);
 			
 			if (booking == null) {
@@ -106,6 +113,12 @@ public class BookingServiceImpl implements BookingService
 	public void updateBooking(Booking booking) throws BookingException 
 	{
 		try {
+			this.validateCity(booking.getDestCity());
+			this.validateCity(booking.getSrcCity());
+			this.validateClassType(booking.getClassType());
+			this.validateCreditCardInfo(booking.getCreditCardInfo());
+			this.validateEmail(booking.getCustEmail());
+			this.validateNoOfPassengers(flight, booking.getClassType(), booking.getNoOfPassengers());
 			logger.info("Updating booking details");
 			bdao.updateBooking(booking);
 		}

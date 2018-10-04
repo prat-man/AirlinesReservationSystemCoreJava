@@ -43,6 +43,7 @@ public class AirportServiceImpl implements AirportService
 	public Airport getAirport(String airportId) throws AirportException 
 	{
 		try {
+			this.validateAbbreviation(airportId);
 			Airport airport = adao.getAirport(airportId);
 			
 			if (airport == null) {
@@ -69,6 +70,7 @@ public class AirportServiceImpl implements AirportService
 	public void deleteAirport(String airportId) throws AirportException 
 	{
 		try {
+			this.validateAbbreviation(airportId);
 			adao.deleteAirport(airportId);
 			logger.info("Airport Record Deleted [airportId=" + airportId + "]");
 		}
@@ -119,7 +121,7 @@ public class AirportServiceImpl implements AirportService
 			return true;
 		}
 		else {
-			logger.error("Invalid Airport Location [location=" + location + "]");
+			logger.error("Invalid Airport Location [location=" + location +  "]");
 			throw new AirportException("Invalid Airport Location [location=" + location + "]\nFormat: Each word must start with UPPERCASE followed by lowercase characters ");
 		}
 	}

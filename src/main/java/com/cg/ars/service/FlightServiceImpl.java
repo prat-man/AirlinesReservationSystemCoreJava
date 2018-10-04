@@ -28,14 +28,43 @@ public class FlightServiceImpl implements FlightService
 	@Override
 	public void addFlight(Flight flight) 
 	{
-		logger.info("Adding Flight");
-		fdao.addFlight(flight);
+		try {
+			this.validateAirline(flight.getAirline());
+			this.validateCity(flight.getArrCity());
+			this.validateCity(flight.getDepCity());
+			this.validateDate(flight.getArrDate());
+			this.validateDate(flight.getDepDate());
+			this.validateFlightNo(flight.getFlightNo());
+			this.validateSeats(flight.getFirstSeats());
+			this.validateSeats(flight.getBussSeats());
+			
+			logger.info("Adding Flight");
+			fdao.addFlight(flight);
+			
+		} catch (FlightException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
 	public Flight modifyFlight(Flight flight) 
-	{
-		logger.info("Modifying Flights");
+	{	
+		
+		try {
+			this.validateCity(flight.getArrCity());
+			this.validateAirline(flight.getAirline());
+			this.validateCity(flight.getDepCity());
+			this.validateDate(flight.getArrDate());
+			this.validateDate(flight.getDepDate());
+			this.validateFlightNo(flight.getFlightNo());
+			this.validateSeats(flight.getFirstSeats());
+			this.validateSeats(flight.getBussSeats());
+			logger.info("Modifying Flights");
+		}
+		catch (FlightException e) {
+			e.printStackTrace();
+		}
 		return fdao.modifyFlight(flight);
 	}
 
@@ -43,6 +72,7 @@ public class FlightServiceImpl implements FlightService
 	public void deleteFlight(String flightNo) throws FlightException 
 	{
 		try {
+			this.validateFlightNo(flightNo);
 			fdao.deleteFlight(flightNo);
 			logger.info("Flight Deleted");
 			
@@ -64,7 +94,16 @@ public class FlightServiceImpl implements FlightService
 	@Override
 	public List<Flight> getFlights(Date date, String depCity, String arrCity)
 	{
-		logger.info("Listing Flight");
+		try {
+			this.validateCity(depCity);
+			this.validateCity(arrCity);
+			this.validateDate(date);
+			logger.info("Listing Flight");
+		} 
+		catch (FlightException e) {
+			e.printStackTrace();
+		}
+		
 		return fdao.getFlights(date, depCity, arrCity);
 	}
 
