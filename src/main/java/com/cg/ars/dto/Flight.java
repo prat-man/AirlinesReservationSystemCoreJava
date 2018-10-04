@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="FLIGHTS")
@@ -57,6 +58,12 @@ public class Flight
 	
 	@Column(name="BUSSSEATSFARE")
 	private Double bussSeatsFare;
+	
+	@Transient
+	public static final String FIRST = "First";
+	
+	@Transient
+	public static final String BUSINESS = "Business";
 
 	/**
 	 * Default No-Argument Constructor
@@ -173,5 +180,10 @@ public class Flight
 		return "Flight [flightNo=" + flightNo + ", airline=" + airline + ", depCity=" + depCity + ", arrCity=" + arrCity
 				+ ", depTime=" + depTime + ", arrTime=" + arrTime + ", firstSeats=" + firstSeats + ", firstSeatsFare="
 				+ firstSeatsFare + ", bussSeats=" + bussSeats + ", bussSeatsFare=" + bussSeatsFare + "]";
+	}
+	
+	public static String[] getClassTypes()
+	{
+		return new String[] {FIRST, BUSINESS};
 	}
 }

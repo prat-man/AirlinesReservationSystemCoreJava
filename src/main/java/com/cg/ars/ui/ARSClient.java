@@ -190,7 +190,7 @@ public class ARSClient
 								break;
 								
 						case 3:
-								changeEmail();
+								changeEmailId();
 								break;
 								
 						case 4:
@@ -552,22 +552,18 @@ public class ARSClient
 		System.out.println("\nFlight Occupancy: " + occupancy);
 	}
 
-	private static void bookTicket() 
+	private static void bookTicket()
 	{
-		String depCity = null;
-		String arrCity = null;
-		
 		try 
 		{
 			System.out.print("Travel Date (dd-MM-yyyy): ");
 			Date date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
         
 			System.out.print("City From: ");
-			depCity = BR.readLine();
+			String depCity = BR.readLine();
         
 			System.out.print("City To: ");
-			arrCity = BR.readLine();
-		
+			String arrCity = BR.readLine();
       
 			List<Flight> flightList = F_SER.getFlights(date, depCity, arrCity);
       
@@ -590,7 +586,6 @@ public class ARSClient
 			
 			Booking booking = new Booking();
 			
-			
 			System.out.print("Flight Number:");
 			String flightNo = BR.readLine();
 			booking.setFlightNo(flightNo);
@@ -603,7 +598,7 @@ public class ARSClient
 				System.err.println("Invalid Flight Number [flightNo=" + flightNo + "]");
 			}
 			
-			System.out.print("Email Id: ");
+			System.out.print("Email ID: ");
 			booking.setCustEmail(BR.readLine());
 			
 			System.out.print("Number of Seats Required: ");
@@ -623,6 +618,14 @@ public class ARSClient
 			booking.setSrcCity(flight.getDepCity());
 		
 			booking.setDestCity(flight.getArrCity());
+			
+			B_SER.bookTicket(booking);
+			
+			System.out.println("\nBooking Successful\n");
+			
+			System.out.println("Booking ID: " + booking.getBookingId());
+			
+			System.out.println("Seat Number: " + booking.getSeatNumber());
 		}
 		catch(IOException | ParseException | FlightException | BookingException e) {
 			System.err.println(e.getMessage());
@@ -634,13 +637,14 @@ public class ARSClient
 		try {
 			System.out.print("Booking ID:");
 			
-			Booking booking = B_SER.viewBookDetails(BR.readLine());
+			Booking booking = B_SER.getBooking(BR.readLine());
 			
-			System.out.printf("%s%s%s%s%s%d%d%lf",
+			System.out.printf("%s%s%s%s%s%s%d%d%lf",
 					booking.getBookingId(),
+					booking.getFlightNo(),
+					booking.getCustEmail(),
 					booking.getSrcCity(),
 					booking.getDestCity(),
-					booking.getClass(),
 					booking.getClassType(),
 					booking.getNoOfPassengers(),
 					booking.getSeatNumber(),
@@ -651,39 +655,37 @@ public class ARSClient
 		}
 	}
 
-	private static void changeEmail() 
+	private static void changeEmailId() 
 	{
 		try 
 		{
-			System.out.println("Booking Id: ");
+			System.out.println("Booking ID: ");
 			String bookingId = BR.readLine();
 			
-			Booking booking = B_SER.viewBookDetails(bookingId);
+			Booking booking = B_SER.getBooking(bookingId);
 			
-			System.out.println("=====================Booking Details===================");
-			System.out.println(booking);
-			System.out.println();
-			
-			System.out.print("Email Id: ");
+			System.out.print("Email ID: ");
 			booking.setCustEmail(BR.readLine());
-			System.out.println(B_SER.updateBookingDetails(booking));
+			
+			B_SER.updateBooking(booking);
+			
+			System.out.println("Email ID changed successfully");
 		} 
 		catch (IOException | BookingException e) {
 			e.printStackTrace();
 		}
- 
 	}
 
 	private static void cancelBooking() 
 	{
 		try
 		{
-			System.out.print("Booking Id: ");
+			System.out.print("Booking ID: ");
 			String bookingId = BR.readLine();
 			
 			if (B_SER.validateBookingId(bookingId)) {
 				B_SER.cancelBooking(bookingId);
-				System.out.println("Booking with Id "+bookingId+" cancelled successfully");
+				System.out.println("Booking with [bookingId=" + bookingId + "] cancelled successfully");
 			}
 		} 
 		catch (IOException | BookingException e) {
