@@ -37,9 +37,9 @@ public class FlightServiceImpl implements FlightService
 	public void addFlight(Flight flight) throws FlightException 
 	{
 		try {
-			flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
-			
 			flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
+			
+			flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
 			
 			this.validateAirline(flight.getAirline());
 			this.validateCity(flight.getArrCity());
