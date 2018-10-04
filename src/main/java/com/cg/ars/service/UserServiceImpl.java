@@ -27,6 +27,9 @@ public class UserServiceImpl implements UserService
 		logger = Logger.getLogger(this.getClass());
 	}
 
+	/**
+	 * Add a User  with username, password, role, mobile number
+	 */
 	@Override
 	public void addUser(User user) throws UserException
 	{
@@ -40,6 +43,10 @@ public class UserServiceImpl implements UserService
 		udao.addUser(user);
 	}
 	
+	/**
+	 * Get Username of User
+	 * @return Username of User
+	 */
 	@Override
 	public User getUser(String username) throws UserException
 	{
@@ -47,6 +54,10 @@ public class UserServiceImpl implements UserService
 		return udao.getUser(username);
 	}
 
+	/**
+	 * Validates Password
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean changePassword(String username, String oldPass, String newPass) throws UserException
 	{
@@ -74,6 +85,10 @@ public class UserServiceImpl implements UserService
 		}
 	}
 
+	/**
+	 * Verifies User
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean verifyUser(String username, String password) throws UserException
 	{
@@ -93,6 +108,10 @@ public class UserServiceImpl implements UserService
 		}
 	}
 
+	/**
+	 * Validates Username which must start with alphabet, followed by digits and can contain .-_
+	 * @return boolean; true if valid, otherwise false 
+	 */
 	@Override
 	public boolean validateUsername(String username) throws UserException
 	{
@@ -109,6 +128,10 @@ public class UserServiceImpl implements UserService
 		}
 	}
 
+	/**
+	 * Validates Password which must contain atleast 1 lower case character, 1 upper case character, 1 digit, and 1 special character
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validatePassword(String password) throws UserException
 	{
@@ -125,6 +148,10 @@ public class UserServiceImpl implements UserService
 		}
 	}
 
+	/**
+	 * Validates Role 
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateRole(String role) throws UserException
 	{
@@ -141,6 +168,10 @@ public class UserServiceImpl implements UserService
 		}
 	}
 
+	/**
+	 * Validates Mobile Number
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateMobileNo(String mobileNo) throws UserException
 	{

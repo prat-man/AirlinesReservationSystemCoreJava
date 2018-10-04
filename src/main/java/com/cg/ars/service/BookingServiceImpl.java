@@ -28,6 +28,10 @@ public class BookingServiceImpl implements BookingService
 		logger = Logger.getLogger(this.getClass());
 	}
 
+	/**
+	 * Book Ticket
+	 * @param Booking Instance
+	 */
 	@Override
 	public void bookTicket(Booking booking) throws BookingException 
 	{
@@ -80,6 +84,10 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	/**
+	 * Get Booking Details by Id
+	 * @return Booking Instance
+	 */
 	@Override
 	public Booking getBooking(String bookingId) throws BookingException 
 	{
@@ -102,6 +110,9 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	/**
+	 * Update Booking Details
+	 */
 	@Override
 	public void updateBooking(Booking booking) throws BookingException 
 	{
@@ -115,6 +126,9 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	/**
+	 * Cancel Booking
+	 */
 	@Override
 	public void cancelBooking(String bookingId) throws BookingException 
 	{
@@ -128,6 +142,10 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 	
+	/**
+	 * Generate Booking ID
+	 * @return String; Generated Booking ID 
+	 */
 	@Override
 	public String generateBookingId(String flightNo) throws BookingException
 	{
@@ -139,6 +157,10 @@ public class BookingServiceImpl implements BookingService
 		return prefix + bdao.getBookingId();
 	}
 
+	/**
+	 * Validate Booking ID by pattern 3 to 4 UPPERCASE alphabets followed by 4 to 6 digits
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateBookingId(String bookingId) throws BookingException 
 	{
@@ -154,6 +176,10 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	/**
+	 * Validates Email Id
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateEmail(String email) throws BookingException 
 	{
@@ -169,6 +195,10 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	/**
+	 * Validates that available seats are greater than or equal to number of passengers
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateNoOfPassengers(Flight flight, String classType, Integer passengers) throws BookingException 
 	{
@@ -203,6 +233,10 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	/**
+	 * Validates Class Type which should be First or Business
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateClassType(String classType) throws BookingException 
 	{
@@ -220,6 +254,10 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	/**
+	 * Validate Credit Card Information by pattern card number should be of 16 digits
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateCreditCardInfo(String creditCardInfo) throws BookingException 
 	{
@@ -237,6 +275,10 @@ public class BookingServiceImpl implements BookingService
 		}
 	}
 
+	/**
+	 * Validate City by pattern each word must start with UPPERCASE followed by lowercase alphabets
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateCity(String city) throws BookingException 
 	{
