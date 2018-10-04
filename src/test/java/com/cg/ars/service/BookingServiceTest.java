@@ -1,53 +1,31 @@
 package com.cg.ars.service;
 
-import org.junit.AfterClass;
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.cg.ars.dto.Booking;
+import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.BookingException;
 import com.cg.ars.exception.FlightException;
 
 public class BookingServiceTest
 {
 	private static BookingService bser = new BookingServiceImpl();
-	//private static FlightService fser = new FlightServiceImpl();
+	private static FlightService fser = new FlightServiceImpl();
 	
 	@BeforeClass
 	public static void init()
 	{
-		/*try {
+		try {
 			fser.deleteFlight("ZZZ1001");
 		} catch (FlightException e) {
 			// Do nothing
-		}*/
-		
-		/*Flight flight = new Flight();
-		
-		flight.setFlightNo("ZZZ1001");
-		flight.setAirline("Zzz Airlines");
-		flight.setArrCity("Kolkata");
-		flight.setArrDate(Date.valueOf(LocalDate.now()));
-		flight.setArrTime(Time.valueOf(LocalTime.now()));
-		flight.setBussSeats(30);
-		flight.setBussSeatsFare(3200.0);
-		flight.setDepCity("Kolkata");
-		flight.setDepDate(Date.valueOf(LocalDate.now()));
-		flight.setDepTime(Time.valueOf(LocalTime.now()));
-		flight.setFirstSeats(40);
-		flight.setFirstSeatsFare(2500.0);
-		
-		fser.addFlight(flight);*/
-	}
-	
-	@AfterClass
-	public static void destroy()
-	{
-		/*try {
-			fser.deleteFlight("ZZZ1001");
-		} catch (FlightException e) {
-			//e.printStackTrace();
 		}
 		
 		Flight flight = new Flight();
@@ -66,12 +44,6 @@ public class BookingServiceTest
 		flight.setFirstSeatsFare(2500.0);
 		
 		fser.addFlight(flight);
-		
-		try {
-			fser.deleteFlight("ZZZ1001");
-		} catch (FlightException e) {
-			e.printStackTrace();
-		}*/
 	}
 	
 	@Test
@@ -142,7 +114,7 @@ public class BookingServiceTest
 	{
 		Booking booking = new Booking();
 		
-		booking.setBookingId("ZZN12345");
+		booking.setBookingId("ZZZ12345");
 		booking.setFlightNo("ZZZ1001");
 		booking.setCustEmail("sts@capgemini.com");
 		booking.setNoOfPassengers(3);
@@ -159,12 +131,12 @@ public class BookingServiceTest
 		
 		bser.updateBooking(booking);
 		
-		Booking bookingRet = bser.getBooking("ZZN12345");
+		Booking bookingRet = bser.getBooking("ZZZ12345");
 		
 		Assert.assertEquals("4242698912193456", bookingRet.getCreditCardInfo());
 		
 		try {
-			bser.cancelBooking("ZZN12345");
+			bser.cancelBooking("ZZZ12345");
 		} catch (Exception e) {
 			// Do nothing
 		}
