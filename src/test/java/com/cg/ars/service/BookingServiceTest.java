@@ -10,64 +10,16 @@ public class BookingServiceTest
 {
 	private static BookingService bser = new BookingServiceImpl();
 	
-	@Test
-	public void bookTicketTest1() throws BookingException
-	{
-		Booking booking = new Booking();
-		
-		booking.setBookingId("ZZZ12345");
-		booking.setFlightNo("ZZZ1001");
-		booking.setCustEmail("sts@capgemini.com");
-		booking.setNoOfPassengers(3);
-		booking.setClassType("First");
-		booking.setTotalFare(6464.90);
-		booking.setSeatNumber("F6");
-		booking.setCreditCardInfo("4242698912093456");
-		booking.setSrcCity("Kolkata");
-		booking.setDestCity("Delhi");
-
-		bser.bookTicket(booking);
-		
-		Booking bookingRet = bser.getBooking("ZZZ12345");
-		
-		Assert.assertNotNull(bookingRet);
-		
-		bser.cancelBooking("ZZZ12345");
-	}
-	
 	@Test(expected=BookingException.class)
-	public void bookTicketTest2() throws BookingException
+	public void bookTicketTest() throws BookingException
 	{
 		bser.bookTicket(null);
 	}
 	
-	@Test
+	@Test(expected=BookingException.class)
 	public void viewBookDetailsTest1() throws BookingException
 	{
-		try {
-		Booking booking = new Booking();
-		
-		booking.setBookingId("ZZZ12345");
-		booking.setFlightNo("ZZZ1001");
-		booking.setCustEmail("sts@capgemini.com");
-		booking.setNoOfPassengers(3);
-		booking.setClassType("First");
-		booking.setTotalFare(6464.90);
-		booking.setSeatNumber("F6");
-		booking.setCreditCardInfo("4242698912093456");
-		booking.setSrcCity("Kolkata");
-		booking.setDestCity("Delhi");
-		
-		bser.bookTicket(booking);
-		
-		Booking bookingRet = bser.getBooking("ZZZ12345");
-		
-		Assert.assertNotNull(bookingRet);
-		
-		bser.cancelBooking("ZZZ12345");
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		bser.getBooking(null);
 	}
 			
 	@Test(expected=BookingException.class)
@@ -76,38 +28,10 @@ public class BookingServiceTest
 		bser.getBooking("fsdgfs");
 	}
 	
-	//updateBookingDetailsValidate Test Cases
-	@Test
+	@Test(expected=BookingException.class)
 	public void updateBookingDetailsTest1() throws BookingException
 	{
-		Booking booking = new Booking();
-		
-		booking.setBookingId("ZZZ12345");
-		booking.setFlightNo("ZZZ1001");
-		booking.setCustEmail("sts@capgemini.com");
-		booking.setNoOfPassengers(3);
-		booking.setClassType("First");
-		booking.setTotalFare(6464.90);
-		booking.setSeatNumber("F6");
-		booking.setCreditCardInfo("4242698912093456");
-		booking.setSrcCity("Kolkata");
-		booking.setDestCity("Delhi");
-		
-		bser.bookTicket(booking);
-		
-		booking.setCreditCardInfo("4242698912193456");
-		
-		bser.updateBooking(booking);
-		
-		Booking bookingRet = bser.getBooking("ZZZ12345");
-		
-		Assert.assertEquals("4242698912193456", bookingRet.getCreditCardInfo());
-		
-		try {
-			bser.cancelBooking("ZZZ12345");
-		} catch (Exception e) {
-			// Do nothing
-		}
+		bser.updateBooking(null);
 	}
 	
 	@Test(expected=BookingException.class)
@@ -115,41 +39,19 @@ public class BookingServiceTest
 	{
 		Booking booking = new Booking();
 		
-		booking.setBookingId(null);
-		booking.setFlightNo(null);
-		booking.setCustEmail("sts@capgemini.com");
-		booking.setNoOfPassengers(3);
-		booking.setClassType("First");
-		booking.setTotalFare(6464.90);
-		booking.setSeatNumber("F6");
-		booking.setCreditCardInfo("4242698912093456");
-		booking.setSrcCity("Kolkata");
-		booking.setDestCity("Delhi");
-		
 		bser.updateBooking(booking);
 	}
 	
 	@Test(expected=BookingException.class)
 	public void cancelBookingTest1() throws BookingException
 	{
-		Booking booking = new Booking();
-		
-		booking.setBookingId("ZZZ12345");
-		booking.setFlightNo("ZZZ1001");
-		booking.setCustEmail("sts@capgemini.com");
-		booking.setNoOfPassengers(3);
-		booking.setClassType("First");
-		booking.setTotalFare(6464.90);
-		booking.setSeatNumber("F6");
-		booking.setCreditCardInfo("4242698912093456");
-		booking.setSrcCity("Kolkata");
-		booking.setDestCity("Delhi");
-		
-		bser.bookTicket(booking);
-		
-		bser.cancelBooking("ZZZ12345");
-		
-		bser.getBooking("ZZZ12345");
+		bser.cancelBooking(null);
+	}
+	
+	@Test(expected=BookingException.class)
+	public void cancelBookingTest2() throws BookingException
+	{
+		bser.cancelBooking("KOL12345");
 	}
 	
 	@Test

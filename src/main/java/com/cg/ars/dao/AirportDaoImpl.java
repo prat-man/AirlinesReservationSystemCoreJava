@@ -20,51 +20,79 @@ public class AirportDaoImpl implements AirportDao
 	@Override
 	public void addAirport(Airport airport)
 	{
-		entityManager.getTransaction().begin();
-		
-		entityManager.persist(airport);
-		
-		entityManager.getTransaction().commit();
+		try {
+			entityManager.getTransaction().begin();
+			
+			entityManager.persist(airport);
+			
+			entityManager.getTransaction().commit();
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
+		}
 	}
 	
 	@Override
 	public Airport getAirport(String airportId)
 	{
-		entityManager.getTransaction().begin();
-		
-		Airport airport = entityManager.find(Airport.class, airportId);
-		
-		entityManager.remove(airport);
-		
-		entityManager.getTransaction().commit();
-		
-		return airport;
+		try {
+			entityManager.getTransaction().begin();
+			
+			Airport airport = entityManager.find(Airport.class, airportId);
+			
+			entityManager.remove(airport);
+			
+			entityManager.getTransaction().commit();
+			
+			return airport;
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
+		}
 	}
 
 	@Override
 	public List<Airport> getAllAirports()
 	{
-		entityManager.getTransaction().begin();
-		
-		Query query = entityManager.createNamedQuery("getAllAirports");
-		
-		@SuppressWarnings("unchecked")
-		List<Airport> airports = query.getResultList();
-		
-		entityManager.getTransaction().commit();
-		
-		return airports;
+		try {
+			entityManager.getTransaction().begin();
+			
+			Query query = entityManager.createNamedQuery("getAllAirports");
+			
+			@SuppressWarnings("unchecked")
+			List<Airport> airports = query.getResultList();
+			
+			entityManager.getTransaction().commit();
+			
+			return airports;
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
+		}
 	}
 	
 	@Override
 	public void deleteAirport(String airportId)
 	{
-		entityManager.getTransaction().begin();
-		
-		Airport airport = this.getAirport(airportId);
-		
-		entityManager.remove(airport);
-		
-		entityManager.getTransaction().commit();
+		try {
+			entityManager.getTransaction().begin();
+			
+			Airport airport = this.getAirport(airportId);
+			
+			entityManager.remove(airport);
+			
+			entityManager.getTransaction().commit();
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
+		}
 	}
 }

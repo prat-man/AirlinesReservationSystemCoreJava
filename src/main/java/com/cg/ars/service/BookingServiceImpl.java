@@ -83,7 +83,6 @@ public class BookingServiceImpl implements BookingService
 			bdao.bookTicket(booking);
 		}
 		catch (Exception exc) {
-			exc.printStackTrace();
 			logger.error(exc.getMessage());
 			throw new BookingException(exc.getMessage());
 		}

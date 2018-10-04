@@ -17,32 +17,53 @@ public class UserDaoImpl implements UserDao
 	@Override
 	public void addUser(User user)
 	{
-		entityManager.getTransaction().begin();
-		
-		entityManager.persist(user);
-		
-		entityManager.getTransaction().commit();
+		try {
+			entityManager.getTransaction().begin();
+			
+			entityManager.persist(user);
+			
+			entityManager.getTransaction().commit();
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
+		}
 	}
 
 	@Override
 	public void updateUser(User user)
 	{
-		entityManager.getTransaction().begin();
-		
-		entityManager.merge(user);
-		
-		entityManager.getTransaction().commit();
+		try {
+			entityManager.getTransaction().begin();
+			
+			entityManager.merge(user);
+			
+			entityManager.getTransaction().commit();
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
+		}
 	}
 
 	@Override
 	public User getUser(String username)
 	{
-		entityManager.getTransaction().begin();
-		
-		User user = entityManager.find(User.class, username);
-		
-		entityManager.getTransaction().commit();
-		
-		return user;
+		try {
+			entityManager.getTransaction().begin();
+			
+			User user = entityManager.find(User.class, username);
+			
+			entityManager.getTransaction().commit();
+			
+			return user;
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
+		}
 	}
 }
