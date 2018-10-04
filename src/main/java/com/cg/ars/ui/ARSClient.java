@@ -40,11 +40,11 @@ public class ARSClient
 	
 	public static void main(String[] args)
 	{
-		/*FlightAnimation fa = new FlightAnimation();
+		FlightAnimation fa = new FlightAnimation();
 		fa.startAnimation();
 		
 		LogoAnimation la = new LogoAnimation();
-		la.startAnimation();*/
+		la.startAnimation();
 		
 		try
 		{
