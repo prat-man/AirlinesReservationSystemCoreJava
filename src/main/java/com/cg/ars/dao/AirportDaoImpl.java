@@ -42,8 +42,6 @@ public class AirportDaoImpl implements AirportDao
 			
 			Airport airport = entityManager.find(Airport.class, airportId);
 			
-			entityManager.remove(airport);
-			
 			entityManager.getTransaction().commit();
 			
 			return airport;
@@ -83,7 +81,7 @@ public class AirportDaoImpl implements AirportDao
 		try {
 			entityManager.getTransaction().begin();
 			
-			Airport airport = this.getAirport(airportId);
+			Airport airport = entityManager.find(Airport.class, airportId);
 			
 			entityManager.remove(airport);
 			

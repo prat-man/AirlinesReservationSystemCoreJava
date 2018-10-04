@@ -25,7 +25,13 @@ public class AirportServiceTest
 		airport.setAirportName("Zinda Hai Toh");
 		airport.setLocation("Duniya");
 		
-		aser.addAirport(airport);
+		try {
+			aser.addAirport(airport);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		aser.deleteAirport("ZZZ");
 	}
 	
 	@Test(expected=AirportException.class)
@@ -69,7 +75,7 @@ public class AirportServiceTest
 	{
 		Airport airport = new Airport();
 		
-		airport.setAbbreviation("YYY");
+		airport.setAbbreviation("ZZZ");
 		airport.setAirportName("Zinda Hai Toh");
 		airport.setLocation("Duniya");
 		
@@ -78,6 +84,8 @@ public class AirportServiceTest
 		Object object = aser.getAirport("ZZZ");
 		
 		Assert.assertTrue(object instanceof Airport);
+		
+		aser.deleteAirport("ZZZ");
 	}
 	
 	@Test(expected=AirportException.class)
