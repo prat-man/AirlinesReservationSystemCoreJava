@@ -46,226 +46,272 @@ public class ARSClient
 		LogoAnimation la = new LogoAnimation();
 		la.startAnimation();
 		
-		try
-		{
-			while (true) {
+		while (true) {
+			clearScreen();
+			
+			System.out.println("===============================================================================");
+			System.out.println("==================== Welcome to Airline Reservation System ====================");
+			System.out.println("===============================================================================");
+			System.out.println();
+			
+			System.out.println("1. Login");
+			System.out.println("2. Register");
+			System.out.println("3. Exit");
+			System.out.print("Enter Your Choice: ");
+			
+			int menu;
+			
+			try {
+				menu = Integer.parseInt(BR.readLine());
+			} catch (NumberFormatException | IOException e) {
+				e.printStackTrace();
+				holdScreen();
+				continue;
+			}
+			
+			if (menu == 2) {
 				clearScreen();
 				
 				System.out.println("===============================================================================");
 				System.out.println("==================== Welcome to Airline Reservation System ====================");
 				System.out.println("===============================================================================");
-				System.out.println();
-				
-				System.out.println("1. Login");
-				System.out.println("2. Register");
-				System.out.println("3. Exit");
-				System.out.print("Enter Your Choice: ");
-				
-				int menu = Integer.parseInt(BR.readLine());
-				
-				if (menu == 2) {
-					clearScreen();
-					
-					System.out.println("===============================================================================");
-					System.out.println("==================== Welcome to Airline Reservation System ====================");
-					System.out.println("===============================================================================");
-					System.out.println("================================== Register ===================================");
-					System.out.println("===============================================================================");
-					System.out.println();
-					
-					registerUser();
-				}
-				else if (menu != 1) {
-					System.out.println();
-					System.out.println("===============================================================================");
-					System.out.println("================================== Thank You ==================================");
-					System.out.println("===============================================================================");
-					System.out.println();
-					
-					return;
-				}
-				
-				clearScreen();
-				
-				System.out.println("===============================================================================");
-				System.out.println("==================== Welcome to Airline Reservation System ====================");
-				System.out.println("===============================================================================");
-				System.out.println("==================================== Login ====================================");
+				System.out.println("================================== Register ===================================");
 				System.out.println("===============================================================================");
 				System.out.println();
 				
-				System.out.print("Username: ");
-				String username = BR.readLine();
+				registerUser();
+			}
+			else if (menu != 1) {
+				System.out.println();
+				System.out.println("===============================================================================");
+				System.out.println("================================== Thank You ==================================");
+				System.out.println("===============================================================================");
+				System.out.println();
 				
-				System.out.print("Password: ");
-				String password = getPassword();
+				return;
+			}
+			
+			clearScreen();
+			
+			System.out.println("===============================================================================");
+			System.out.println("==================== Welcome to Airline Reservation System ====================");
+			System.out.println("===============================================================================");
+			System.out.println("==================================== Login ====================================");
+			System.out.println("===============================================================================");
+			System.out.println();
+			
+			System.out.print("Username: ");
+			String username;
+			try {
+				username = BR.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+				holdScreen();
+				continue;
+			}
+			
+			System.out.print("Password: ");
+			String password = getPassword();
+			
+			boolean isValidUser;
+			try {
+				isValidUser = U_SER.verifyUser(username, password);
+			} catch (UserException e) {
+				e.printStackTrace();
+				holdScreen();
+				continue;
+			}
+			
+			if(isValidUser) 
+			{
+				User user;
+				try {
+					user = U_SER.getUser(username);
+				} catch (UserException e) {
+					e.printStackTrace();
+					holdScreen();
+					continue;
+				}
 				
-				if(U_SER.verifyUser(username, password)) 
+				String role = user.getRole();
+				
+				if(role.equals("Admin")) 
 				{
-					User user = U_SER.getUser(username);
-					
-					String role = user.getRole();
-					
-					if(role.equals("Admin")) 
-					{
-						inner: while(true) {
-							clearScreen();
-							
-							System.out.println("===============================================================================");
-							System.out.println("==================== Welcome to Airline Reservation System ====================");
-							System.out.println("===============================================================================");
-							System.out.println("================================ Admin Console ================================");
-							System.out.println("===============================================================================");
-							System.out.println();
-							
-							System.out.println("1. Add User");
-							System.out.println("2. Add Flight");
-							System.out.println("3. Modify Flight");
-							System.out.println("4. Delete Flight");
-							System.out.println("5. View Flights");
-							System.out.println("6. View Flights by Date");
-							System.out.println("7. Add Airport");
-							System.out.println("8. View Airports");
-							System.out.println("9. View Booking Details");
-							System.out.println("10. Logout");
-							System.out.print("Enter Your Choice: ");
-							
-							int choice = Integer.parseInt(BR.readLine());
-							
-							switch (choice)
-							{
-								case 1:
-										addUser();
-										break;
-										
-								case 2:
-										addFlight();
-										break;
-									
-								case 3:
-										modifyFlight();
-										break;
-								
-								case 4:
-										deleteFlight();
-										break;
-									
-								case 5:
-										viewFlights();
-										break;
-									
-								case 6:
-										viewFlightsByDate();
-										break;
-									
-								case 7:
-										addAirport();
-										break;
-								
-								case 8:
-										viewAirports();
-										break;
-									
-								case 9:
-										viewBooking();
-										break;
-								
-								case 10:
-								default:
-										break inner;
-							}
-							
+					inner: while(true) {
+						clearScreen();
+						
+						System.out.println("===============================================================================");
+						System.out.println("==================== Welcome to Airline Reservation System ====================");
+						System.out.println("===============================================================================");
+						System.out.println("================================ Admin Console ================================");
+						System.out.println("===============================================================================");
+						System.out.println();
+						
+						System.out.println("1. Add User");
+						System.out.println("2. Add Flight");
+						System.out.println("3. Modify Flight");
+						System.out.println("4. Delete Flight");
+						System.out.println("5. View Flights");
+						System.out.println("6. View Flights by Date");
+						System.out.println("7. Add Airport");
+						System.out.println("8. View Airports");
+						System.out.println("9. View Booking Details");
+						System.out.println("10. Logout");
+						System.out.print("Enter Your Choice: ");
+						
+						int choice;
+						try {
+							choice = Integer.parseInt(BR.readLine());
+						} catch (NumberFormatException | IOException e) {
+							e.printStackTrace();
 							holdScreen();
+							continue;
 						}
+						
+						switch (choice)
+						{
+							case 1:
+									addUser();
+									break;
+									
+							case 2:
+									addFlight();
+									break;
+								
+							case 3:
+									modifyFlight();
+									break;
+							
+							case 4:
+									deleteFlight();
+									break;
+								
+							case 5:
+									viewFlights();
+									break;
+								
+							case 6:
+									viewFlightsByDate();
+									break;
+								
+							case 7:
+									addAirport();
+									break;
+							
+							case 8:
+									viewAirports();
+									break;
+								
+							case 9:
+									viewBooking();
+									break;
+							
+							case 10:
+							default:
+									break inner;
+						}
+						
+						holdScreen();
 					}
-					else if(role.equals("Executive"))
-					{
-						inner: while(true) {
-							clearScreen();
-							
-							System.out.println("===============================================================================");
-							System.out.println("==================== Welcome to Airline Reservation System ====================");
-							System.out.println("===============================================================================");
-							System.out.println("============================== Executive Console ==============================");
-							System.out.println("===============================================================================");
-							System.out.println();
-							
-							System.out.println("1. View flight occupancy by flight");
-							System.out.println("2. View flight occupancy by route");
-							System.out.println("3. Logout");
-							System.out.print("Enter Your Choice: ");
-							
-							int choice = Integer.parseInt(BR.readLine());
-							
-							switch (choice)
-							{
-								case 1:
-										viewFlightOccupancy();
-										break;
-									
-								case 2:
-										viewFlightOccupancyByRoute();
-										break;
+				}
+				else if(role.equals("Executive"))
+				{
+					inner: while(true) {
+						clearScreen();
+						
+						System.out.println("===============================================================================");
+						System.out.println("==================== Welcome to Airline Reservation System ====================");
+						System.out.println("===============================================================================");
+						System.out.println("============================== Executive Console ==============================");
+						System.out.println("===============================================================================");
+						System.out.println();
+						
+						System.out.println("1. View flight occupancy by flight");
+						System.out.println("2. View flight occupancy by route");
+						System.out.println("3. Logout");
+						System.out.print("Enter Your Choice: ");
+						
+						int choice;
+						try {
+							choice = Integer.parseInt(BR.readLine());
+						} catch (NumberFormatException | IOException e) {
+							e.printStackTrace();
+							holdScreen();
+							continue;
+						}
+						
+						switch (choice)
+						{
+							case 1:
+									viewFlightOccupancy();
+									break;
 								
-								case 3:
-								default:
-										break inner;
-							}
+							case 2:
+									viewFlightOccupancyByRoute();
+									break;
 							
-							holdScreen();
+							case 3:
+							default:
+									break inner;
 						}
+						
+						holdScreen();
 					}
-					else {
-						inner: while(true) {
-							clearScreen();
-							
-							System.out.println("===============================================================================");
-							System.out.println("==================== Welcome to Airline Reservation System ====================");
-							System.out.println("===============================================================================");
-							System.out.println("================================= User Console ================================");
-							System.out.println("===============================================================================");
-							System.out.println();
-							
-							System.out.println("1. Book a Ticket");
-							System.out.println("2. View Booking Details");
-							System.out.println("3. Change Email ID");
-							System.out.println("4. Cancel Booking");
-							System.out.println("5. Logout");
-							System.out.print("Enter Your Choice: ");
-							
-							int choice = Integer.parseInt(BR.readLine());
-							
-							switch (choice)
-							{
-								case 1:
-										bookTicket(); 
-										break;
-										
-								case 2:
-										viewBooking();
-										break;
-										
-								case 3:
-										changeEmailId();
-										break;
-										
-								case 4:
-										cancelBooking();
-										break;
-									
-								case 5:
-								default:
-										break inner;
-							}
-							
+				}
+				else {
+					inner: while(true) {
+						clearScreen();
+						
+						System.out.println("===============================================================================");
+						System.out.println("==================== Welcome to Airline Reservation System ====================");
+						System.out.println("===============================================================================");
+						System.out.println("================================= User Console ================================");
+						System.out.println("===============================================================================");
+						System.out.println();
+						
+						System.out.println("1. Book a Ticket");
+						System.out.println("2. View Booking Details");
+						System.out.println("3. Change Email ID");
+						System.out.println("4. Cancel Booking");
+						System.out.println("5. Logout");
+						System.out.print("Enter Your Choice: ");
+						
+						int choice;
+						try {
+							choice = Integer.parseInt(BR.readLine());
+						} catch (NumberFormatException | IOException e) {
+							e.printStackTrace();
 							holdScreen();
+							continue;
 						}
+						
+						switch (choice)
+						{
+							case 1:
+									bookTicket(); 
+									break;
+									
+							case 2:
+									viewBooking();
+									break;
+									
+							case 3:
+									changeEmailId();
+									break;
+									
+							case 4:
+									cancelBooking();
+									break;
+								
+							case 5:
+							default:
+									break inner;
+						}
+						
+						holdScreen();
 					}
 				}
 			}
-		}
-		catch (IOException | UserException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -680,7 +726,7 @@ public class ARSClient
 		} 
 		catch (IOException e) {
 			System.err.println("Invalid City Name");
-			System.exit(0);
+			return;
 		}
 		
 		double occupancy = F_SER.getOccupancy(depCity, arrCity);
