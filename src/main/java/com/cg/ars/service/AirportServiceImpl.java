@@ -23,6 +23,9 @@ public class AirportServiceImpl implements AirportService
 		logger = Logger.getLogger(this.getClass());
 	}
 	
+	/**
+	 * Add Airport
+	 */
 	@Override
 	public void addAirport(Airport airport) throws AirportException 
 	{
@@ -59,7 +62,11 @@ public class AirportServiceImpl implements AirportService
 			throw new AirportException("Airport Record Retrieval Failed [airportId=" + airportId + "]");
 		}
 	}
-
+	
+	/**
+	 * Get List of All Airports
+	 * @return List of All Airports
+	 */
 	@Override
 	public List<Airport> getAllAirports() 
 	{	
@@ -67,6 +74,9 @@ public class AirportServiceImpl implements AirportService
 		return adao.getAllAirports();
 	}
 	
+	/**
+	 * Delete Airport Information by airportId
+	 */
 	public void deleteAirport(String airportId) throws AirportException 
 	{
 		try {
@@ -80,6 +90,10 @@ public class AirportServiceImpl implements AirportService
 		}
 	}
 
+	/**
+	 * Validate airport name by pattern each word must start with UPPERCASE followed by lowercase alphabets
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateName(String name) throws AirportException 
 	{
@@ -90,7 +104,7 @@ public class AirportServiceImpl implements AirportService
 		}
 		else {
 			logger.error("Invalid Airport Name [name=" + name + "]");
-			throw new AirportException("Invalid Airport Name [name=" + name + "]\nFormat: Each word must start with UPPERCASE followed by lowercase characters");
+			throw new AirportException("Invalid Airport Name [name=" + name + "]\nFormat: Each word must start with UPPERCASE followed by lowercase alphabets");
 		}
 	}
 
@@ -112,6 +126,10 @@ public class AirportServiceImpl implements AirportService
 		}
 	}
 
+	/**
+	 * Validate airport location by pattern each word must start with UPPERCASE followed by lowercase alphabets
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateLocation(String location) throws AirportException 
 	{

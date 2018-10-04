@@ -31,6 +31,9 @@ public class FlightServiceImpl implements FlightService
 		logger = Logger.getLogger(this.getClass());
 	}
 
+	/**
+	 * Add Flight
+	 */
 	@Override
 	public void addFlight(Flight flight) throws FlightException 
 	{
@@ -52,6 +55,9 @@ public class FlightServiceImpl implements FlightService
 		logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
 	}
 
+	/**
+	 * Modify Flights
+	 */
 	@Override
 	public Flight modifyFlight(Flight flight) throws FlightException
 	{
@@ -75,6 +81,9 @@ public class FlightServiceImpl implements FlightService
 		return flight;
 	}
 
+	/**
+	 * Delete Flight
+	 */
 	@Override
 	public void deleteFlight(String flightNo) throws FlightException 
 	{
@@ -91,6 +100,10 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 
+	/**
+	 * Get List of All Flights
+	 * @return List of All Flights
+	 */
 	@Override
 	public List<Flight> getAllFlights() throws FlightException 
 	{
@@ -112,6 +125,10 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 
+	/**
+	 * Get List of All Flights by date, departure and arrival city
+	 * @return List of All Flights by date, departure and arrival city
+	 */
 	@Override
 	public List<Flight> getFlights(Date date, String depCity, String arrCity) throws FlightException
 	{
@@ -126,6 +143,10 @@ public class FlightServiceImpl implements FlightService
 		return list;
 	}
 
+	/**
+	 * Validate Booking ID by pattern 3 to 4 UPPERCASE alphabets followed by 4 to 6 digits
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateFlightNo(String flightNo) throws FlightException
 	{
@@ -139,6 +160,10 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 
+	/**
+	 * Validate City by pattern each word must start with UPPERCASE followed by lowercase alphabets
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateAirline(String airline) throws FlightException
 	{
@@ -151,7 +176,11 @@ public class FlightServiceImpl implements FlightService
 			throw new FlightException("Invalid Airline Name[Airline=" + airline + "]\nAirline name should start with UPPERCASE");
 		}
 	}
-	
+
+	/**
+	 * Validate City by pattern each word must start with UPPERCASE followed by lowercase alphabets
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateCity(String city) throws FlightException 
 	{
@@ -165,6 +194,10 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 	
+	/**
+	 * Validates Date 
+	 * @return boolean; true if valid, otherwise false
+	 */
 	@Override
 	public boolean validateDate(Date date) throws FlightException
 	{
@@ -179,6 +212,10 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 
+	/**
+	 * Validate that Seats must be greater than 0
+	 * @return boolean; true if valid, otherwise false 
+	 */
 	@Override
 	public boolean validateSeats(Integer seats) throws FlightException 
 	{
@@ -190,6 +227,10 @@ public class FlightServiceImpl implements FlightService
 		}
 	}
 
+	/**
+	 * Get Occupancy Details by Flight Number
+	 * @return occupancy 
+	 */
 	@Override
 	public Double getOccupancy(String flightNo)
 	{
@@ -200,6 +241,10 @@ public class FlightServiceImpl implements FlightService
 		return oc;
 	}
 
+	/**
+	 * Get Occupancy Details between cities
+	 * @return occupancy 
+	 */
 	@Override
 	public Double getOccupancy(String depCity, String arrCity)
 	{
@@ -210,6 +255,10 @@ public class FlightServiceImpl implements FlightService
 		return oc;
 	}
 
+	/**
+	 * Get Flight number 
+	 * @return Flight Instance
+	 */
 	@Override
 	public Flight getFlight(String flightNo) throws FlightException
 	{
@@ -223,6 +272,10 @@ public class FlightServiceImpl implements FlightService
 		return flight;
 	}
 
+	/**
+	 * Get Flight Fare by Flight Number and Class Type
+	 * @return Flight Fare
+	 */
 	@Override
 	public Double getFare(String flightNo, String classType) throws FlightException
 	{
