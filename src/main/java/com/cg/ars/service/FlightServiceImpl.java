@@ -164,7 +164,7 @@ public class FlightServiceImpl implements FlightService
 	{
 		Flight flight = fdao.getFlight(flightNo);
 		
-		if(flight==null) {
+		if(flight == null) {
 			logger.error("Flight not found with ID="+flightNo);
 			throw new FlightException("Flight not found with ID="+flightNo);
 		}
@@ -182,7 +182,21 @@ public class FlightServiceImpl implements FlightService
 			throw new FlightException("Flight Not Found with ID=" + flightNo);
 		}
 
-		double fare = fdao.getFare(flight, classType);
+		double fare;
+		
+		switch (classType) {
+			case Flight.FIRST:
+				fare = flight.getFirstSeatsFare();
+				break;
+			
+			case Flight.BUSINESS:
+				fare = flight.getBussSeatsFare();
+				break;
+				
+			default:
+				fare = -1;
+				break;
+		}
 		
 		if (fare < 0) {
 			logger.error("Invalid Class Type " + classType);

@@ -22,6 +22,4 @@ public interface FlightDao
 	public Double getOccupancy(String flightNo);
 	
 	public Double getOccupancy(String depCity, String arrCity);
-	
-	public Double getFare(Flight flight, String classType);
 }
