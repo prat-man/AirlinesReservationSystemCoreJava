@@ -34,11 +34,9 @@ public class BookingDaoImpl implements BookingDao
 	}
 
 	@Override
-	public Booking updateBooking(Booking booking)
+	public void updateBooking(Booking booking)
 	{	
-		Booking book = entityManager.merge(booking);
-		
-		return book;
+		entityManager.merge(booking);
 	}
 
 	@Override
@@ -59,6 +57,7 @@ public class BookingDaoImpl implements BookingDao
 	public int getBookingId() throws BookingException
 	{
 		Query query = entityManager.createNativeQuery("SELECT BOOKING_SEQUENCE.NEXTVAL FROM DUAL");
+		
 		return (int) query.getSingleResult();
 	}
 }

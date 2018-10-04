@@ -85,14 +85,14 @@ public class BookingServiceTest
 		booking.setNoOfPassengers(3);
 		booking.setClassType("First");
 		booking.setTotalFare(6464.90);
-		booking.setSeatNumber(6);
+		booking.setSeatNumber("F6");
 		booking.setCreditCardInfo("4242698912093456");
 		booking.setSrcCity("Kolkata");
 		booking.setDestCity("Delhi");
 
 		bser.bookTicket(booking);
 		
-		Booking bookingRet = bser.viewBookDetails("ZZZ12345");
+		Booking bookingRet = bser.getBooking("ZZZ12345");
 		
 		Assert.assertNotNull(bookingRet);
 		
@@ -116,14 +116,14 @@ public class BookingServiceTest
 		booking.setNoOfPassengers(3);
 		booking.setClassType("First");
 		booking.setTotalFare(6464.90);
-		booking.setSeatNumber(6);
+		booking.setSeatNumber("F6");
 		booking.setCreditCardInfo("4242698912093456");
 		booking.setSrcCity("Kolkata");
 		booking.setDestCity("Delhi");
 		
 		bser.bookTicket(booking);
 		
-		Booking bookingRet = bser.viewBookDetails("ZZZ12345");
+		Booking bookingRet = bser.getBooking("ZZZ12345");
 		
 		Assert.assertNotNull(bookingRet);
 		
@@ -133,7 +133,7 @@ public class BookingServiceTest
 	@Test(expected=BookingException.class)
 	public void viewBookDetailsTest2() throws BookingException
 	{
-		bser.viewBookDetails("fsdgfs");
+		bser.getBooking("fsdgfs");
 	}
 	
 	//updateBookingDetailsValidate Test Cases
@@ -148,7 +148,7 @@ public class BookingServiceTest
 		booking.setNoOfPassengers(3);
 		booking.setClassType("First");
 		booking.setTotalFare(6464.90);
-		booking.setSeatNumber(6);
+		booking.setSeatNumber("F6");
 		booking.setCreditCardInfo("4242698912093456");
 		booking.setSrcCity("Kolkata");
 		booking.setDestCity("Delhi");
@@ -157,7 +157,9 @@ public class BookingServiceTest
 		
 		booking.setCreditCardInfo("4242698912193456");
 		
-		Booking bookingRet = bser.updateBookingDetails(booking);
+		bser.updateBooking(booking);
+		
+		Booking bookingRet = bser.getBooking("ZZN12345");
 		
 		Assert.assertEquals("4242698912193456", bookingRet.getCreditCardInfo());
 		
@@ -179,12 +181,12 @@ public class BookingServiceTest
 		booking.setNoOfPassengers(3);
 		booking.setClassType("First");
 		booking.setTotalFare(6464.90);
-		booking.setSeatNumber(6);
+		booking.setSeatNumber("F6");
 		booking.setCreditCardInfo("4242698912093456");
 		booking.setSrcCity("Kolkata");
 		booking.setDestCity("Delhi");
 		
-		bser.updateBookingDetails(booking);
+		bser.updateBooking(booking);
 	}
 	
 	@Test(expected=BookingException.class)
@@ -198,7 +200,7 @@ public class BookingServiceTest
 		booking.setNoOfPassengers(3);
 		booking.setClassType("First");
 		booking.setTotalFare(6464.90);
-		booking.setSeatNumber(6);
+		booking.setSeatNumber("F6");
 		booking.setCreditCardInfo("4242698912093456");
 		booking.setSrcCity("Kolkata");
 		booking.setDestCity("Delhi");
@@ -207,7 +209,7 @@ public class BookingServiceTest
 		
 		bser.cancelBooking("ZZZ12345");
 		
-		bser.viewBookDetails("ZZZ12345");
+		bser.getBooking("ZZZ12345");
 	}
 	
 	@Test

@@ -36,7 +36,7 @@ public class Booking
 	private Double totalFare;
 	
 	@Column(name="SEAT_NUMBER")
-	private Integer seatNumber;
+	private String seatNumber;
 	
 	@Column(name="CREDITCARD_INFO")
 	private String creditCardInfo;
@@ -105,11 +105,11 @@ public class Booking
 		this.totalFare = totalFare;
 	}
 
-	public Integer getSeatNumber() {
+	public String getSeatNumber() {
 		return seatNumber;
 	}
 
-	public void setSeatNumber(Integer seatNumber) {
+	public void setSeatNumber(String seatNumber) {
 		this.seatNumber = seatNumber;
 	}
 

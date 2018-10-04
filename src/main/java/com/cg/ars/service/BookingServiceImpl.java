@@ -30,21 +30,41 @@ public class BookingServiceImpl implements BookingService
 			
 			this.validateNoOfPassengers(flight, booking.getClassType(), booking.getNoOfPassengers());
 			
-			bdao.bookTicket(booking);
+			Integer remainingSeats;
 			
 			switch (booking.getClassType())
 			{
-				case "First":
-					flight.setFirstSeats(flight.getFirstSeats() - booking.getNoOfPassengers());
-					break;
+				case Flight.FIRST:
+								remainingSeats = flight.getFirstSeats() - booking.getNoOfPassengers();
+								
+								if (booking.getNoOfPassengers() > 1) {
+									booking.setSeatNumber("F" + remainingSeats + " - " + "F" + flight.getFirstSeats());
+								}
+								else {
+									booking.setSeatNumber("F" + flight.getFirstSeats());
+								}
+								
+								flight.setFirstSeats(remainingSeats);
+								break;
 				
-				case "Business":
-					flight.setBussSeats(flight.getBussSeats() - booking.getNoOfPassengers());
-					break;
+				case Flight.BUSINESS:
+								remainingSeats = flight.getBussSeats() - booking.getNoOfPassengers();
+								
+								if (booking.getNoOfPassengers() > 1) {
+									booking.setSeatNumber("B" + remainingSeats + " - " + "B" + flight.getBussSeats());
+								}
+								else {
+									booking.setSeatNumber("B" + flight.getBussSeats());
+								}
+								
+								flight.setFirstSeats(remainingSeats);
+								break;
 					
 				default:
-					throw new BookingException("Invalid Class Type [classType=" + booking.getClassType() + "]");						
+								throw new BookingException("Invalid Class Type [classType=" + booking.getClassType() + "]");
 			}
+			
+			bdao.bookTicket(booking);
 		}
 		catch (Exception exc) {
 			throw new BookingException(exc.getMessage());
@@ -52,7 +72,7 @@ public class BookingServiceImpl implements BookingService
 	}
 
 	@Override
-	public Booking viewBookDetails(String bookingId) throws BookingException 
+	public Booking getBooking(String bookingId) throws BookingException 
 	{
 		try {
 			Booking booking = bdao.getBooking(bookingId);
@@ -70,10 +90,10 @@ public class BookingServiceImpl implements BookingService
 	}
 
 	@Override
-	public Booking updateBookingDetails(Booking booking) throws BookingException 
+	public void updateBooking(Booking booking) throws BookingException 
 	{
 		try {
-			return bdao.updateBooking(booking);
+			bdao.updateBooking(booking);
 		}
 		catch (Exception exc) {
 			throw new BookingException(exc.getMessage());
@@ -95,8 +115,10 @@ public class BookingServiceImpl implements BookingService
 	public String generateBookingId(String flightNo) throws BookingException
 	{
 		Flight flight = fdao.getFlight(flightNo);
-		String sub = flight.getAirline().substring(0,3);
-		return sub+bdao.getBookingId();
+		
+		String prefix = flight.getAirline().substring(0,3);
+		
+		return prefix + bdao.getBookingId();
 	}
 
 	@Override
@@ -132,11 +154,11 @@ public class BookingServiceImpl implements BookingService
 		
 		// get number of seats available by class type
 		switch (classType) {
-			case "First":
+			case Flight.FIRST:
 				availableSeats = flight.getFirstSeats();
 				break;
 			
-			case "Business":
+			case Flight.BUSINESS:
 				availableSeats = flight.getBussSeats();
 				break;
 				
@@ -158,7 +180,7 @@ public class BookingServiceImpl implements BookingService
 	@Override
 	public boolean validateClassType(String classType) throws BookingException 
 	{
-		String[] classes = {"First", "Business"};
+		String[] classes = Flight.getClassTypes();
 		
 		if (Arrays.asList(classes).contains(classType)) {
 			return true;

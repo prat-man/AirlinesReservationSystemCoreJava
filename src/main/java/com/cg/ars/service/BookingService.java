@@ -8,9 +8,9 @@ public interface BookingService
 {
 	public void bookTicket(Booking booking) throws BookingException;
 	
-	public Booking viewBookDetails(String bookingId) throws BookingException;
+	public Booking getBooking(String bookingId) throws BookingException;
 	
-	public Booking updateBookingDetails(Booking booking) throws BookingException;
+	public void updateBooking(Booking booking) throws BookingException;
 	
 	public void cancelBooking(String bookingId) throws BookingException;
 	

@@ -9,7 +9,7 @@ public interface BookingDao
 	
 	public Booking getBooking(String bookingId);
 	
-	public Booking updateBooking(Booking booking);
+	public void updateBooking(Booking booking);
 	
 	public void cancelBooking(String bookingId);
 	
