@@ -3,6 +3,9 @@ package com.cg.ars.service;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.cg.ars.dao.AirportDao;
 import com.cg.ars.dao.AirportDaoImpl;
 import com.cg.ars.dto.Airport;
@@ -12,9 +15,15 @@ public class AirportServiceImpl implements AirportService
 {
 	private AirportDao adao;
 	
+	private Logger logger;
+	
 	public AirportServiceImpl() 
 	{
 		adao = new AirportDaoImpl();
+		
+		logger = Logger.getLogger(this.getClass());
+		
+		PropertyConfigurator.configure("log4j.properties");
 	}
 
 	@Override

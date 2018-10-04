@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.cg.ars.dao.FlightDao;
 import com.cg.ars.dao.FlightDaoImpl;
 import com.cg.ars.dto.Flight;
@@ -14,9 +17,15 @@ public class FlightServiceImpl implements FlightService
 {
 	private FlightDao fdao;
 	
+	private Logger logger;
+	
 	public FlightServiceImpl() 
 	{
 		fdao = new FlightDaoImpl();
+		
+		logger = Logger.getLogger(this.getClass());
+		
+		PropertyConfigurator.configure("log4j.properties");
 	}
 
 	@Override
