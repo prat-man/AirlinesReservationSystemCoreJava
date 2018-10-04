@@ -22,8 +22,6 @@ public class AirportServiceImpl implements AirportService
 		adao = new AirportDaoImpl();
 		
 		logger = Logger.getLogger(this.getClass());
-		
-		PropertyConfigurator.configure("log4j.properties");
 	}
 
 	@Override

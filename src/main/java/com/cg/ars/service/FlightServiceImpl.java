@@ -24,8 +24,6 @@ public class FlightServiceImpl implements FlightService
 		fdao = new FlightDaoImpl();
 		
 		logger = Logger.getLogger(this.getClass());
-		
-		PropertyConfigurator.configure("log4j.properties");
 	}
 
 	@Override
