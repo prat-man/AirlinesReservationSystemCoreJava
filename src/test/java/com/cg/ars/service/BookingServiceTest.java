@@ -1,24 +1,18 @@
 package com.cg.ars.service;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.cg.ars.dto.Booking;
-import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.BookingException;
 import com.cg.ars.exception.FlightException;
 
 public class BookingServiceTest
 {
 	private static BookingService bser = new BookingServiceImpl();
-	private static FlightService fser = new FlightServiceImpl();
+	//private static FlightService fser = new FlightServiceImpl();
 	
 	@BeforeClass
 	public static void init()

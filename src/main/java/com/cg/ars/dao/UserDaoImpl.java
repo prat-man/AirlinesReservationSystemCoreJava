@@ -1,6 +1,10 @@
 package com.cg.ars.dao;
 
 import javax.persistence.EntityManager;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.cg.ars.dto.User;
 import com.cg.ars.util.JPAUtil;
 
@@ -8,9 +12,15 @@ public class UserDaoImpl implements UserDao
 {
 	private EntityManager entityManager;
 	
+	private Logger logger;
+	
 	public UserDaoImpl()
 	{
 		entityManager = JPAUtil.getEntityManager();
+		
+		logger = Logger.getLogger(this.getClass());
+		
+		PropertyConfigurator.configure("log4j.properties");
 	}
 	
 	@Override
