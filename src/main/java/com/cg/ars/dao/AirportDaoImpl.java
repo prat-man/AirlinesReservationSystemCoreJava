@@ -5,25 +5,16 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
 import com.cg.ars.dto.Airport;
 import com.cg.ars.util.JPAUtil;
 
 public class AirportDaoImpl implements AirportDao
 {
 	private EntityManager entityManager;
-	
-	private Logger logger;
 
 	public AirportDaoImpl()
 	{
 		entityManager = JPAUtil.getEntityManager();
-		
-		logger = Logger.getLogger(this.getClass());
-		
-		PropertyConfigurator.configure("log4j.properties");
 	}
 
 	@Override

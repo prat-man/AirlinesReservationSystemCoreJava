@@ -3,6 +3,9 @@ package com.cg.ars.service;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.cg.ars.dao.UserDao;
 import com.cg.ars.dao.UserDaoImpl;
 import com.cg.ars.dto.User;
@@ -15,10 +18,16 @@ public class UserServiceImpl implements UserService
 	private UserDao udao;
 	private PasswordManager pman;
 	
+	private Logger logger;
+	
 	public UserServiceImpl()
 	{
 		udao = new UserDaoImpl();
 		pman = new PasswordManagerImpl();
+		
+		logger = Logger.getLogger(this.getClass());
+		
+		PropertyConfigurator.configure("log4j.properties");
 	}
 
 	@Override

@@ -3,6 +3,9 @@ package com.cg.ars.service;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.cg.ars.dao.BookingDao;
 import com.cg.ars.dao.BookingDaoImpl;
 import com.cg.ars.dao.FlightDao;
@@ -16,10 +19,16 @@ public class BookingServiceImpl implements BookingService
 	private BookingDao bdao;
 	private FlightDao fdao;
 	
+	private Logger logger;
+	
 	public BookingServiceImpl() 
 	{
 		bdao = new BookingDaoImpl();
 		fdao = new FlightDaoImpl();
+		
+		logger = Logger.getLogger(this.getClass());
+		
+		PropertyConfigurator.configure("log4j.properties");
 	}
 
 	@Override

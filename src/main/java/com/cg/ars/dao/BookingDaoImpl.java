@@ -3,9 +3,6 @@ package com.cg.ars.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
 import com.cg.ars.dto.Booking;
 import com.cg.ars.exception.BookingException;
 import com.cg.ars.util.JPAUtil;
@@ -13,16 +10,10 @@ import com.cg.ars.util.JPAUtil;
 public class BookingDaoImpl implements BookingDao
 {
 	private EntityManager entityManager;
-	
-	private Logger logger;
 
 	public BookingDaoImpl()
 	{
 		entityManager = JPAUtil.getEntityManager();
-		
-		logger = Logger.getLogger(this.getClass());
-		
-		PropertyConfigurator.configure("log4j.properties");
 	}
 	
 	@Override
