@@ -70,13 +70,16 @@ public class BookingServiceImpl implements BookingService
 								break;
 					
 				default:
+								logger.error("Invalid Class Type [classType=" + booking.getClassType() + "]");
 								throw new BookingException("Invalid Class Type [classType=" + booking.getClassType() + "]");
 			}
 			
 			bdao.bookTicket(booking);
 		}
 		catch (Exception exc) {
+			logger.error(exc.getMessage());
 			throw new BookingException(exc.getMessage());
+			
 		}
 	}
 
@@ -87,13 +90,17 @@ public class BookingServiceImpl implements BookingService
 			Booking booking = bdao.getBooking(bookingId);
 			
 			if (booking == null) {
+				logger.error("Booking Record with Booking ID=" + bookingId + " not found");
 				throw new NullPointerException("Booking Record with Booking ID=" + bookingId + " not found");
 			}
-			else {
+			else 
+			{
+				logger.info("Booking details fetched by id="+ bookingId);
 				return booking;
 			}
 		}
 		catch (Exception exc) {
+			logger.error(exc.getMessage());
 			throw new BookingException(exc.getMessage());
 		}
 	}
@@ -102,9 +109,11 @@ public class BookingServiceImpl implements BookingService
 	public void updateBooking(Booking booking) throws BookingException 
 	{
 		try {
+			logger.info("Updating booking details");
 			bdao.updateBooking(booking);
 		}
 		catch (Exception exc) {
+			logger.error(exc.getMessage());
 			throw new BookingException(exc.getMessage());
 		}
 	}
@@ -113,9 +122,11 @@ public class BookingServiceImpl implements BookingService
 	public void cancelBooking(String bookingId) throws BookingException 
 	{
 		try {
+			logger.info("Cancelling booking");
 			bdao.cancelBooking(bookingId);
 		}
 		catch (Exception exc) {
+			logger.error(exc.getMessage());
 			throw new BookingException(exc.getMessage());
 		}
 	}
@@ -127,6 +138,7 @@ public class BookingServiceImpl implements BookingService
 		
 		String prefix = flight.getAirline().substring(0,3);
 		
+		logger.info("Booking ID generated!");
 		return prefix + bdao.getBookingId();
 	}
 
@@ -136,9 +148,11 @@ public class BookingServiceImpl implements BookingService
 		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
 		
 		if (Pattern.matches(pattern, bookingId)) {
+			logger.info("Booking ID valid!");
 			return true;
 		}
 		else {
+			logger.error("Invalid Booking ID");
 			throw new BookingException("Invalid Booking ID");
 		}
 	}
@@ -149,9 +163,11 @@ public class BookingServiceImpl implements BookingService
 		String pattern = "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)";
 		
 		if (Pattern.matches(pattern, email)) {
+			logger.info("Email ID valid!");
 			return true;
 		}
 		else {
+			logger.error("Invalid Email ID");
 			throw new BookingException("Invalid Email ID");
 		}
 	}
@@ -179,10 +195,14 @@ public class BookingServiceImpl implements BookingService
 		// if number of passengers are one or more
 		// and number of passengers are less than number of seats available
 		if (passengers > 0 && passengers <= availableSeats) {
+			logger.info("Number of passengers valid!");
 			return true;
 		}
 		else {
-			throw new BookingException("Invalid number of passengers");
+			logger.error("Invalid number of passengers!"
+							+"\n"+"Should be between 0 and "+availableSeats);
+			throw new BookingException("Invalid number of passengers!"
+										+"\n"+"Should be between 0 and "+availableSeats);
 		}
 	}
 
@@ -192,10 +212,14 @@ public class BookingServiceImpl implements BookingService
 		String[] classes = Flight.getClassTypes();
 		
 		if (Arrays.asList(classes).contains(classType)) {
+			logger.info("Class Type valid!");
 			return true;
 		}
 		else {
-			throw new BookingException("Invalid Class Type");
+			logger.error("Invalid Class Type"
+							+"\n"+"Should be 'FIRST' or 'BUSINESS'");
+			throw new BookingException("Invalid Class Type"
+										+"\n"+"Should be 'FIRST' or 'BUSINESS'");
 		}
 	}
 
@@ -205,10 +229,14 @@ public class BookingServiceImpl implements BookingService
 		String pattern = "[0-9]{16}";
 		
 		if (Pattern.matches(pattern, creditCardInfo)) {
+			logger.info("Credit card number valid!");
 			return true;
 		}
 		else {
-			throw new BookingException("Invalid Credit Card Information");
+			logger.error("Invalid Credit Card Information"
+							+"Must be 16 digits");
+			throw new BookingException("Invalid Credit Card Information"
+										+"Must be 16 digits");
 		}
 	}
 
@@ -218,9 +246,11 @@ public class BookingServiceImpl implements BookingService
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
 		
 		if (Pattern.matches(pattern, city)) {
+			logger.info("City name valid!");
 			return true;
 		}
 		else {
+			logger.error("Invalid City Name");
 			throw new BookingException("Invalid City Name");
 		}
 	}
