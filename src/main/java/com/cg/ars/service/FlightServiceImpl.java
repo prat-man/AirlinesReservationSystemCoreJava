@@ -28,15 +28,18 @@ public class FlightServiceImpl implements FlightService
 	@Override
 	public void addFlight(Flight flight) 
 	{
-		logger.info("Adding Flight");
 		fdao.addFlight(flight);
+		logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
 	}
 
 	@Override
 	public Flight modifyFlight(Flight flight) 
 	{
-		logger.info("Modifying Flights");
-		return fdao.modifyFlight(flight);
+		flight = fdao.modifyFlight(flight);
+		
+		logger.info("Flight Record Modified [flightNo=" + flight.getFlightNo() + "]");
+		
+		return flight;
 	}
 
 	@Override
@@ -44,28 +47,29 @@ public class FlightServiceImpl implements FlightService
 	{
 		try {
 			fdao.deleteFlight(flightNo);
-			logger.info("Flight Deleted");
+			logger.info("Flight Record Deleted [flightNo=" + flightNo +"]");
 			
 		}
 		catch (Exception exc) {
-			
-			logger.error(exc.getMessage());
-			throw new FlightException(exc.getMessage());
+			logger.error("Flight Record Deletion Failed [flightNo=" + flightNo + "]\n" + exc.getMessage());
+			throw new FlightException("Flight Record Deletion Failed [flightNo=" + flightNo + "]");
 		}
 	}
 
 	@Override
 	public List<Flight> getAllFlights() 
 	{
-		logger.info("Fetching Flights");
-		return fdao.getAllFlights();
+		List<Flight> list = fdao.getAllFlights();
+		logger.info("Flight Record Fetched");
+		return list;
 	}
 
 	@Override
 	public List<Flight> getFlights(Date date, String depCity, String arrCity)
 	{
-		logger.info("Listing Flight");
-		return fdao.getFlights(date, depCity, arrCity);
+		List<Flight> list = fdao.getFlights(date, depCity, arrCity);
+		logger.info("Flight Record Fetched between " + depCity + " and " + arrCity + " on " + date );
+		return list;
 	}
 
 	@Override
@@ -74,12 +78,12 @@ public class FlightServiceImpl implements FlightService
 		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
 		
 		if (Pattern.matches(pattern, flightNo)) {
-			logger.info("Valid Flight Number");
+			logger.info("Valid FlightNo Validated [flightNo=" + flightNo +"]");
 			return true;
 		}
 		else {
-			logger.error("Invalid Flight Number");
-			throw new FlightException("Invalid Flight Number");
+			logger.error("Invalid FlightNo [flightNo=" + flightNo + "]");
+			throw new FlightException("Invalid Flight Number [flightNo=" + flightNo + "]\n Flight Number Should start with UPPERCASE and ends with number");
 		}
 	}
 
@@ -89,12 +93,12 @@ public class FlightServiceImpl implements FlightService
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
 		
 		if (Pattern.matches(pattern, airline)) {
-			logger.info("Valid Airline Name");
+			logger.info("Airline Name validated [Airline=" + airline + "]");
 			return true;
 		}
 		else {
-			logger.error("Invalid Airline Name");
-			throw new FlightException("Invalid Airline Name");
+			logger.error("Invalid Airline Name [Airline=" + airline + "]\nAirline name should start with UPPERCASE");
+			throw new FlightException("Invalid Airline Name[Airline=" + airline + "]\nAirline name should start with UPPERCASE");
 		}
 	}
 	
@@ -104,12 +108,12 @@ public class FlightServiceImpl implements FlightService
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
 	
 		if (Pattern.matches(pattern, city)) {
-			logger.info("Valid City");
+			logger.info("Valid City [city=" + city + "]");
 			return true;
 		}
 		else {
-			logger.error("Invalid City");
-			throw new FlightException("Invalid City");
+			logger.error("Invalid City [city=" + city + "]");
+			throw new FlightException("Invalid City [city=" + city + "]\n");
 		}
 	}
 	
@@ -120,6 +124,7 @@ public class FlightServiceImpl implements FlightService
 		LocalDate other = date.toLocalDate();
 		
 		if (today.compareTo(other) > 0) {
+			
 			return true;
 		}
 		else {
@@ -142,14 +147,16 @@ public class FlightServiceImpl implements FlightService
 
 	@Override
 	public Double getOccupancy(String flightNo) {
-		logger.info("Fetched Occupancy");
-		return fdao.getOccupancy(flightNo);
+		Double oc = fdao.getOccupancy(flightNo);
+		logger.info("Fetched Occupancy [Occupancy" + oc + "]");
+		return oc;
 	}
 
 	@Override
 	public Double getOccupancy(String depCity, String arrCity) {
-		logger.info("Occupancy between Cities");
-		return fdao.getOccupancy(depCity, arrCity);
+		Double oc = fdao.getOccupancy(depCity, arrCity);
+		logger.info("Occupancy between Cities [Occupancies=" + oc + "]");
+		return oc;
 	}
 
 	@Override
