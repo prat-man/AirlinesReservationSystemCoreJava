@@ -43,6 +43,8 @@ public class UserServiceImpl implements UserService
 	@Override
 	public User getUser(String username) throws UserException
 	{
+    this.validateUsername(username);
+    
 		User user = udao.getUser(username);
 		
 		logger.info("User Record Retrieved [username=" + username + "]");
@@ -53,6 +55,9 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean changePassword(String username, String oldPass, String newPass) throws UserException
 	{
+		this.validateUsername(username);
+		this.validatePassword(oldPass);
+		this.validatePassword(newPass);
 		User user = udao.getUser(username);
 		
 		// Check if user exists
@@ -80,6 +85,8 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean verifyUser(String username, String password) throws UserException
 	{
+		this.validateUsername(username);
+		this.validatePassword(password);
 		User user = udao.getUser(username);
 		
 		// Check if user exists
