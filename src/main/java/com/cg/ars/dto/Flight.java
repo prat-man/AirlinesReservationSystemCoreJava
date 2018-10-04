@@ -16,7 +16,7 @@ import javax.persistence.Transient;
 
 @NamedQueries({
 	@NamedQuery(name="getFlights", query="SELECT f FROM Flight f WHERE f.depDate = :depDate AND f.depCity = :depCity AND f.arrCity = :arrCity"),
-	@NamedQuery(name="getAllFlights", query="SELECT a FROM Airport a"),
+	@NamedQuery(name="getAllFlights", query="SELECT f FROM Flight f"),
 	@NamedQuery(name="getSeatCount", query="SELECT SUM(f.firstSeats + f.bussSeats) FROM Flight f WHERE f.depCity = :depCity AND f.arrCity = :arrCity")
 })
 
@@ -58,6 +58,9 @@ public class Flight
 	
 	@Column(name="BUSSSEATSFARE")
 	private Double bussSeatsFare;
+	
+	@Column(name="AIRPORT")
+	private String airport;
 	
 	@Transient
 	public static final String FIRST = "First";
@@ -171,6 +174,14 @@ public class Flight
 		this.bussSeatsFare = bussSeatsFare;
 	}
 	
+	public String getAirport() {
+		return airport;
+	}
+
+	public void setAirport(String airport) {
+		this.airport = airport;
+	}
+
 	/**
 	 * Override toString() method
 	 * @return String representing an instance of this class
@@ -178,8 +189,9 @@ public class Flight
 	@Override
 	public String toString() {
 		return "Flight [flightNo=" + flightNo + ", airline=" + airline + ", depCity=" + depCity + ", arrCity=" + arrCity
-				+ ", depTime=" + depTime + ", arrTime=" + arrTime + ", firstSeats=" + firstSeats + ", firstSeatsFare="
-				+ firstSeatsFare + ", bussSeats=" + bussSeats + ", bussSeatsFare=" + bussSeatsFare + "]";
+				+ ", depDate=" + depDate + ", arrDate=" + arrDate + ", depTime=" + depTime + ", arrTime=" + arrTime
+				+ ", firstSeats=" + firstSeats + ", firstSeatsFare=" + firstSeatsFare + ", bussSeats=" + bussSeats
+				+ ", bussSeatsFare=" + bussSeatsFare + ", airport=" + airport + "]";
 	}
 	
 	public static String[] getClassTypes()

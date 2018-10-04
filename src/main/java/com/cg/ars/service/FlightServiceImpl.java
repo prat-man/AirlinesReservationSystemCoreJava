@@ -28,7 +28,6 @@ public class FlightServiceImpl implements FlightService
 	@Override
 	public void addFlight(Flight flight) 
 	{
-		try {
 			this.validateAirline(flight.getAirline());
 			this.validateCity(flight.getArrCity());
 			this.validateCity(flight.getDepCity());
@@ -38,20 +37,14 @@ public class FlightServiceImpl implements FlightService
 			this.validateSeats(flight.getFirstSeats());
 			this.validateSeats(flight.getBussSeats());
 			
-			logger.info("Adding Flight");
 			fdao.addFlight(flight);
-			
-		} catch (FlightException e) {
-			e.printStackTrace();
-		}
-		
+      
+      logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
 	}
 
 	@Override
 	public Flight modifyFlight(Flight flight) 
 	{	
-		
-		try {
 			this.validateCity(flight.getArrCity());
 			this.validateAirline(flight.getAirline());
 			this.validateCity(flight.getDepCity());
@@ -60,12 +53,12 @@ public class FlightServiceImpl implements FlightService
 			this.validateFlightNo(flight.getFlightNo());
 			this.validateSeats(flight.getFirstSeats());
 			this.validateSeats(flight.getBussSeats());
-			logger.info("Modifying Flights");
-		}
-		catch (FlightException e) {
-			e.printStackTrace();
-		}
-		return fdao.modifyFlight(flight);
+      
+      flight = fdao.modifyFlight(flight);
+      
+			logger.info("Flight Record Modified [flightNo=" + flight.getFlightNo() + "]");
+      
+      return flight;
 	}
 
 	@Override
@@ -74,37 +67,35 @@ public class FlightServiceImpl implements FlightService
 		try {
 			this.validateFlightNo(flightNo);
 			fdao.deleteFlight(flightNo);
-			logger.info("Flight Deleted");
+			logger.info("Flight Record Deleted [flightNo=" + flightNo +"]");
 			
 		}
 		catch (Exception exc) {
-			
-			logger.error(exc.getMessage());
-			throw new FlightException(exc.getMessage());
+			logger.error("Flight Record Deletion Failed [flightNo=" + flightNo + "]\n" + exc.getMessage());
+			throw new FlightException("Flight Record Deletion Failed [flightNo=" + flightNo + "]");
 		}
 	}
 
 	@Override
 	public List<Flight> getAllFlights() 
 	{
-		logger.info("Fetching Flights");
-		return fdao.getAllFlights();
+		List<Flight> list = fdao.getAllFlights();
+		logger.info("Flight Record Fetched");
+		return list;
 	}
 
 	@Override
 	public List<Flight> getFlights(Date date, String depCity, String arrCity)
 	{
-		try {
 			this.validateCity(depCity);
 			this.validateCity(arrCity);
 			this.validateDate(date);
-			logger.info("Listing Flight");
-		} 
-		catch (FlightException e) {
-			e.printStackTrace();
-		}
-		
-		return fdao.getFlights(date, depCity, arrCity);
+      
+      List<Flight> list = fdao.getFlights(date, depCity, arrCity);
+      
+		  logger.info("Flight Records Fetched between " + depCity + " and " + arrCity + " on " + date );
+      
+		  return list;
 	}
 
 	@Override
@@ -113,12 +104,10 @@ public class FlightServiceImpl implements FlightService
 		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
 		
 		if (Pattern.matches(pattern, flightNo)) {
-			logger.info("Valid Flight Number");
 			return true;
 		}
 		else {
-			logger.error("Invalid Flight Number");
-			throw new FlightException("Invalid Flight Number");
+			throw new FlightException("Invalid Flight Number [flightNo=" + flightNo + "]\n Flight Number Should start with UPPERCASE and ends with number");
 		}
 	}
 
@@ -128,12 +117,10 @@ public class FlightServiceImpl implements FlightService
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
 		
 		if (Pattern.matches(pattern, airline)) {
-			logger.info("Valid Airline Name");
 			return true;
 		}
 		else {
-			logger.error("Invalid Airline Name");
-			throw new FlightException("Invalid Airline Name");
+			throw new FlightException("Invalid Airline Name[Airline=" + airline + "]\nAirline name should start with UPPERCASE");
 		}
 	}
 	
@@ -143,12 +130,10 @@ public class FlightServiceImpl implements FlightService
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
 	
 		if (Pattern.matches(pattern, city)) {
-			logger.info("Valid City");
 			return true;
 		}
 		else {
-			logger.error("Invalid City");
-			throw new FlightException("Invalid City");
+			throw new FlightException("Invalid City [city=" + city + "]\n");
 		}
 	}
 	
@@ -162,7 +147,6 @@ public class FlightServiceImpl implements FlightService
 			return true;
 		}
 		else {
-			logger.error("Invalid Date. You must book at least ONE day before");
 			throw new FlightException("Invalid Date. You must book at least ONE day before");
 		}
 	}
@@ -174,21 +158,22 @@ public class FlightServiceImpl implements FlightService
 			return true;
 		}
 		else {
-			logger.error("Invalid Number of Seats. Must be greater than ZERO");
 			throw new FlightException("Invalid Number of Seats. Must be greater than ZERO");
 		}
 	}
 
 	@Override
 	public Double getOccupancy(String flightNo) {
-		logger.info("Fetched Occupancy");
-		return fdao.getOccupancy(flightNo);
+		Double oc = fdao.getOccupancy(flightNo);
+		logger.info("Fetched Occupancy [Occupancy" + oc + "]");
+		return oc;
 	}
 
 	@Override
 	public Double getOccupancy(String depCity, String arrCity) {
-		logger.info("Occupancy between Cities");
-		return fdao.getOccupancy(depCity, arrCity);
+		Double oc = fdao.getOccupancy(depCity, arrCity);
+		logger.info("Occupancy between cities [depCity=" + depCity + ", arrCity=" + arrCity + "]");
+		return oc;
 	}
 
 	@Override
@@ -196,9 +181,9 @@ public class FlightServiceImpl implements FlightService
 	{
 		Flight flight = fdao.getFlight(flightNo);
 		
-		if(flight==null) {
-			logger.error("Flight not found with ID="+flightNo);
-			throw new FlightException("Flight not found with ID="+flightNo);
+		if(flight == null) {
+			logger.error("Flight not found with [flightNo=" + flightNo + "]");
+			throw new FlightException("Flight not found with [flightNo=" + flightNo + "]");
 		}
 		
 		return flight;
@@ -210,15 +195,29 @@ public class FlightServiceImpl implements FlightService
 		Flight flight = fdao.getFlight(flightNo);
 		
 		if (flight == null) {
-			logger.error("Flight Not Found with ID=" + flightNo);
-			throw new FlightException("Flight Not Found with ID=" + flightNo);
+			logger.error("Flight Not Found with [flightNo=" + flightNo + "]");
+			throw new FlightException("Flight Not Found with [flightNo=" + flightNo + "]");
 		}
 
-		double fare = fdao.getFare(flight, classType);
+		double fare;
+		
+		switch (classType) {
+			case Flight.FIRST:
+				fare = flight.getFirstSeatsFare();
+				break;
+			
+			case Flight.BUSINESS:
+				fare = flight.getBussSeatsFare();
+				break;
+				
+			default:
+				fare = -1;
+				break;
+		}
 		
 		if (fare < 0) {
-			logger.error("Invalid Class Type " + classType);
-			throw new FlightException("Invalid Class Type " + classType);
+			logger.error("Invalid Class Type [classType=" + classType + "]");
+			throw new FlightException("Invalid Class Type [classType=" + classType + "]");
 		}
 		
 		return fare;
