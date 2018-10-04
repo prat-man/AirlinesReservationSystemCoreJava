@@ -43,7 +43,11 @@ public class BookingServiceTest
 		flight.setFirstSeats(40);
 		flight.setFirstSeatsFare(2500.0);
 		
-		fser.addFlight(flight);
+		try {
+			fser.addFlight(flight);
+		} catch (FlightException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
