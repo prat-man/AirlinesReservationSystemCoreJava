@@ -156,7 +156,7 @@ public class LogoAnimation
 	{
 		for (int i = 0; i < frameBuffer.length; i++) {
 			for (int j = 0; j < frameBuffer.length; j++) {
-				System.out.print(frameBuffer[i][j] + "  ");
+				System.out.print(frameBuffer[i][j] + "   ");
 			}
 			System.out.println();
 		}
