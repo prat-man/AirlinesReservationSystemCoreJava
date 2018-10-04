@@ -46,6 +46,7 @@ public class UserServiceImpl implements UserService
 	@Override
 	public User getUser(String username) throws UserException
 	{
+		logger.info("Username Is Returned");
 		return udao.getUser(username);
 	}
 
@@ -67,9 +68,11 @@ public class UserServiceImpl implements UserService
 			udao.updateUser(user);
 			
 			// success
+			logger.info("Successfully Changed Password");
 			return true;
 		}
 		else {
+			logger.error("Invalid Credentials Entered");
 			throw new UserException("Invalid Credentials");
 		}
 	}
@@ -81,11 +84,14 @@ public class UserServiceImpl implements UserService
 		
 		// Check if user exists
 		// Check if password is correct
+		logger.warn("Checking If User Exists");
 		if (user != null && pman.verifyPassword(user.getPassword(), password)) {
 			// success
+			logger.info("Successful Login");
 			return true;
 		}
 		else {
+			logger.error("Invalid Credentials Entered");
 			throw new UserException("Invalid Credentials");
 		}
 	}
@@ -93,12 +99,15 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validateUsername(String username) throws UserException
 	{
+		logger.warn("Checking For Valid Username");
 		String pattern = "[A-Za-z][A-Za-z0-9\\.\\-\\_]{7,39}";
 		
 		if (Pattern.matches(pattern, username)) {
+			logger.info("Username Entered is Valid");
 			return true;
 		}
 		else {
+			logger.error("Invalid Username");
 			throw new UserException("Invalid UserName");
 		}
 	}
@@ -106,12 +115,15 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validatePassword(String password) throws UserException
 	{
+		logger.warn("Checking For Valid Password");
 		String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
 		
 		if (Pattern.matches(pattern, password)) {
+			logger.info("Password Entered is Valid");
 			return true;
 		}
 		else {
+			logger.error("Invalid Password Entered");
 			throw new UserException("Invalid Password. Must contain atleast 1 lower case character, 1 upper case character, 1 digit, and 1 special character.");
 		}
 	}
@@ -119,12 +131,15 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validateRole(String role) throws UserException
 	{
+		logger.warn("Checking For Valid Role");
 		String[] roles = User.getRoles();
 		
 		if (Arrays.asList(roles).contains(role)) {
+			logger.info("Role Entered Exists");
 			return true;
 		}
 		else {
+			logger.error("Invalid Role Entered");
 			throw new UserException("Invalid Role");
 		}
 	}
@@ -132,12 +147,15 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validateMobileNo(String mobileNo) throws UserException
 	{
+		logger.warn("Checking For Valid Mobile Number");
 		String pattern = "(\\+[0-9]+([\\-\\s]?[0-9]+)*[\\-\\s]?)?(([0-9]{5}[\\-\\s]?[0-9]{5})|([0-9]{3}[\\-\\s]?[0-9]{3}[\\-\\s]?[0-9]{4}))";
 		
 		if (Pattern.matches(pattern, mobileNo)) {
+			logger.info("Valid Mobile Number Entered");
 			return true;
 		}
 		else {
+			logger.error("Invalid Mobile Number Entered");
 			throw new UserException("Invalid Mobile Number");
 		}
 	}
