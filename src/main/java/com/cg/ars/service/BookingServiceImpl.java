@@ -199,7 +199,7 @@ public class BookingServiceImpl implements BookingService
 			logger.error("Invalid number of passengers [NoOfPassengers =" + passengers + "]" +
 							"\nFormat"+"Should be between 0 and "+availableSeats);
 			throw new BookingException("Invalid number of passengers [NoOfPassengers =" + passengers + "]"
-							+ "\nFormat" + "Should be between 0 and "+availableSeats);
+						+ "\nFormat" + "Should be between 0 and "+availableSeats);
 		}
 	}
 
