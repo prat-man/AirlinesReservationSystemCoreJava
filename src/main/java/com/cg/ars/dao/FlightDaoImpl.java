@@ -6,16 +6,25 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.cg.ars.dto.Flight;
 import com.cg.ars.util.JPAUtil;
 
 public class FlightDaoImpl implements FlightDao
 {
 	private EntityManager entityManager;
+	
+	private Logger logger;
 
 	public FlightDaoImpl()
 	{
 		entityManager = JPAUtil.getEntityManager();
+		
+		logger = Logger.getLogger(this.getClass());
+		
+		PropertyConfigurator.configure("log4j.properties");
 	}
 	
 	@Override
