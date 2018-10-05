@@ -807,13 +807,21 @@ public class ARSClient
 
 	private static void viewAirports() 
 	{
-		List<Airport> Airports =  A_SER.getAllAirports();
+		List<Airport> airports =  A_SER.getAllAirports();
 		
+		if (airports == null || airports.isEmpty()) {
+			System.err.println("\nNo Airports Found");
+			return;
+		}
 		
+		System.out.printf("%-20s %-15s %-40s\n",
+				"Airport Name",
+				"Abbreviation",
+				"Location");
 		
-		for (Airport a : Airports)
+		for (Airport a : airports)
 		{
-			System.out.printf("%-20s %-10s %40s",
+			System.out.printf("%-20s %-15s %-40s\n",
 					a.getAirportName(),
 					a.getAbbreviation(),
 					a.getLocation());
