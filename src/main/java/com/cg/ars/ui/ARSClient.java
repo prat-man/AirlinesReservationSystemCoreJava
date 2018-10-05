@@ -739,7 +739,7 @@ public class ARSClient
 			return;
 		}
 		
-		System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-10s %-10s\n",
+		System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-12s %-12s\n",
 				"Flight No",
 				"Airline",
 				"Departure City",
@@ -757,7 +757,7 @@ public class ARSClient
 		
 		for (Flight f : flights)
 		{
-			System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-10s %-10s\n",
+			System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-12s %-12s\n",
 					f.getFlightNo(),
 					f.getAirline(),
 					f.getDepCity(),
