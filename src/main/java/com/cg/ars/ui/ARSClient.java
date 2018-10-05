@@ -41,11 +41,11 @@ public class ARSClient
 	
 	public static void main(String[] args)
 	{
-		FlightAnimation fa = new FlightAnimation();
+		/*FlightAnimation fa = new FlightAnimation();
 		fa.startAnimation();
 		
 		LogoAnimation la = new LogoAnimation();
-		la.startAnimation();
+		la.startAnimation();*/
 		
 		while (true) {
 			clearScreen();
@@ -81,6 +81,7 @@ public class ARSClient
 				System.out.println();
 				
 				if (!registerUser()) {
+					holdScreen();
 					continue;
 				}
 			}
@@ -159,7 +160,8 @@ public class ARSClient
 						System.out.println("7. Add Airport");
 						System.out.println("8. View Airports");
 						System.out.println("9. View Booking Details");
-						System.out.println("10. Logout");
+						System.out.println("10. Change Password");
+						System.out.println("11. Logout");
 						System.out.print("Enter Your Choice: ");
 						
 						int choice;
@@ -208,8 +210,11 @@ public class ARSClient
 							case 9:
 									viewBooking();
 									break;
-							
+									
 							case 10:
+									changePassword(username);
+							
+							case 11:
 							default:
 									break inner;
 						}
@@ -229,9 +234,14 @@ public class ARSClient
 						System.out.println("===============================================================================");
 						System.out.println();
 						
-						System.out.println("1. View flight occupancy by flight");
-						System.out.println("2. View flight occupancy by route");
-						System.out.println("3. Logout");
+						System.out.println("1. View Flights");
+						System.out.println("2. View Flights by Date");
+						System.out.println("3. View Airports");
+						System.out.println("4. View Booking Details");
+						System.out.println("5. View Flight Occupancy by Flight");
+						System.out.println("6. View Flight Occupancy by Route");
+						System.out.println("7. Change Password");
+						System.out.println("8. Logout");
 						System.out.print("Enter Your Choice: ");
 						
 						int choice;
@@ -246,14 +256,33 @@ public class ARSClient
 						switch (choice)
 						{
 							case 1:
-									viewFlightOccupancy();
+									viewFlights();
 									break;
-								
+							
 							case 2:
-									viewFlightOccupancyByRoute();
+									viewFlightsByDate();
 									break;
 							
 							case 3:
+									viewAirports();
+									break;
+							
+							case 4:
+									viewBooking();
+							
+							case 5:
+									viewFlightOccupancy();
+									break;
+								
+							case 6:
+									viewFlightOccupancyByRoute();
+									break;
+							
+							case 7:
+									changePassword(username);
+									break;
+							
+							case 8:
 							default:
 									break inner;
 						}
@@ -317,7 +346,7 @@ public class ARSClient
 			}
 		}
 	}
-
+	
 	private static boolean registerUser() 
 	{
 		User user = new User();
@@ -407,6 +436,39 @@ public class ARSClient
 			
 			System.out.println("\nAdded User Successfully");
 		} catch (UserException e) {
+			System.err.println("\n" + e.getMessage());
+		}
+	}
+	
+	private static void changePassword(String username)
+	{
+		String oldPass, newPass, confPass;
+		
+		try {
+			System.out.print("Enter old password: ");
+			oldPass = BR.readLine();
+			
+			System.out.print("Enter new password: ");
+			newPass = BR.readLine();
+			
+			System.out.print("Enter new password again: ");
+			confPass = BR.readLine();
+		}
+		catch (IOException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		if (!newPass.equals(confPass)) {
+			System.err.println("\nThe passwords do not match!");
+			return;
+		}
+		
+		try {
+			U_SER.changePassword(username, oldPass, newPass);
+		}
+		catch (UserException e) {
 			System.err.println("\n" + e.getMessage());
 		}
 	}
@@ -742,6 +804,7 @@ public class ARSClient
 	private static void viewAirports() 
 	{
 		List<Airport> Airports =  A_SER.getAllAirports();
+		
 		for (Airport a : Airports)
 		{
 			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
@@ -805,18 +868,41 @@ public class ARSClient
 			String arrCity = BR.readLine();
       
 			List<Flight> flightList = F_SER.getFlights(date, depCity, arrCity);
+			
+			if (flightList == null || flightList.isEmpty()) {
+				System.err.println("\nNo Flights Found!");
+				return;
+			}
+			
+			System.out.printf("%-20s %-40s %-10s %-40s %-10s %-40s %-12s %-12s %15s %15s %15s %15s\n",
+					"Flight No",
+					"Airline",
+					"Dep Airport",
+					"Dep City",
+					"Arr Airport",
+					"Arr City",
+					"Dep Date",
+					"Dep Time",
+					"Arr Date",
+					"Arr Time",
+					"First Seats",
+					"First Fare",
+					"Business Seats",
+					"Business Fare");
       
 			for(Flight flight : flightList) 
 			{
-				System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+				System.out.printf("%-20s %-40s %-10s %-40s %-10s %-40s %-12s %-12s %15d %15.2f %15d %15.2f\n",
 						flight.getFlightNo(),
 						flight.getAirline(),
-						flight.getArrCity(),
+						flight.getDepAirport(),
 						flight.getDepCity(),
-						TIME_FORMAT.format(flight.getArrTime()),
+						flight.getArrAirport(),
+						flight.getArrCity(),
+						DATE_FORMAT.format(flight.getDepDate()),
 						TIME_FORMAT.format(flight.getDepTime()),
 						DATE_FORMAT.format(flight.getArrDate()),
-						DATE_FORMAT.format(flight.getDepDate()),
+						TIME_FORMAT.format(flight.getArrTime()),
 						flight.getFirstSeats(),
 						flight.getFirstSeatsFare(),
 						flight.getBussSeats(),
@@ -1004,14 +1090,14 @@ public class ARSClient
 		
 		try {
 			if (os.indexOf("windows") >= 0) {
-				Runtime.getRuntime().exec("cls");
+				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 			}
 			else if (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0 || os.indexOf("aix") >= 0 ||	// unix & linux
 					 os.indexOf("mac") >= 0 ||														// mac osx
 					 os.indexOf("sunos") >= 0) {													// solaris
 				Runtime.getRuntime().exec("clear");
 			}
-		} catch (IOException e) {
+		} catch (IOException | InterruptedException e) {
 			// Could not clear screen
 			// Do nothing
 		}
