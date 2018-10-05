@@ -80,7 +80,9 @@ public class ARSClient
 				System.out.println("===============================================================================");
 				System.out.println();
 				
-				registerUser();
+				if (!registerUser()) {
+					continue;
+				}
 			}
 			else if (menu != 1) {
 				System.out.println();
@@ -316,7 +318,7 @@ public class ARSClient
 		}
 	}
 
-	private static void registerUser() 
+	private static boolean registerUser() 
 	{
 		User user = new User();
 		
@@ -334,14 +336,20 @@ public class ARSClient
 		} catch (IOException e) {
 			System.err.println("\nInvalid Input!");
 			System.err.println(e.getMessage());
+			
+			return false;
 		}
 		
 		try {
 			U_SER.addUser(user);
 			
 			System.out.println("\nRegistration Successful");
+			
+			return true;
 		} catch (UserException e) {
 			System.err.println("\n" + e.getMessage());
+			
+			return false;
 		}
 	}
 
