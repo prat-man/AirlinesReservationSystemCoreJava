@@ -305,7 +305,8 @@ public class ARSClient
 						System.out.println("2. View Booking Details");
 						System.out.println("3. Change Email ID");
 						System.out.println("4. Cancel Booking");
-						System.out.println("5. Logout");
+						System.out.println("5. Change Password");
+						System.out.println("6. Logout");
 						System.out.print("Enter Your Choice: ");
 						
 						int choice;
@@ -334,8 +335,12 @@ public class ARSClient
 							case 4:
 									cancelBooking();
 									break;
-								
+									
 							case 5:
+									changePassword(username);
+									break;
+								
+							case 6:
 							default:
 									break inner;
 						}
