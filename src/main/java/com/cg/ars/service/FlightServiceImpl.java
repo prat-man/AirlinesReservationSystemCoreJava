@@ -7,8 +7,6 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.cg.ars.dao.AirportDao;
-import com.cg.ars.dao.AirportDaoImpl;
 import com.cg.ars.dao.FlightDao;
 import com.cg.ars.dao.FlightDaoImpl;
 import com.cg.ars.dto.Flight;
@@ -17,7 +15,7 @@ import com.cg.ars.exception.FlightException;
 public class FlightServiceImpl implements FlightService 
 {
 	private FlightDao fdao;
-	private AirportDao adao;
+	private AirportService aser;
 	
 	private Logger logger;
 	
@@ -25,7 +23,7 @@ public class FlightServiceImpl implements FlightService
 	{
 		fdao = new FlightDaoImpl();
 		
-		adao = new AirportDaoImpl();
+		aser = new AirportServiceImpl();
 		
 		logger = Logger.getLogger(this.getClass());
 	}
@@ -37,9 +35,9 @@ public class FlightServiceImpl implements FlightService
 	public void addFlight(Flight flight) throws FlightException 
 	{
 		try {
-			flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
+			flight.setDepCity(aser.getAirport(flight.getDepAirport()).getLocation());
 			
-			flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
+			flight.setArrCity(aser.getAirport(flight.getArrAirport()).getLocation());
 			
 			this.validateAirline(flight.getAirline());
 			this.validateCity(flight.getArrCity());
@@ -55,6 +53,7 @@ public class FlightServiceImpl implements FlightService
 			logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
 		}
 		catch (Exception exc) {
+			exc.printStackTrace();
 			throw new FlightException(exc.getMessage());
 		}
 	}
@@ -66,9 +65,9 @@ public class FlightServiceImpl implements FlightService
 	public Flight modifyFlight(Flight flight) throws FlightException
 	{
 		try {
-			flight.setArrCity(adao.getAirport(flight.getArrAirport()).getLocation());
+			flight.setArrCity(aser.getAirport(flight.getArrAirport()).getLocation());
 			
-			flight.setDepCity(adao.getAirport(flight.getDepAirport()).getLocation());
+			flight.setDepCity(aser.getAirport(flight.getDepAirport()).getLocation());
 			
 			this.validateCity(flight.getArrCity());
 			this.validateAirline(flight.getAirline());
@@ -273,7 +272,7 @@ public class FlightServiceImpl implements FlightService
 	{
 		Flight flight = fdao.getFlight(flightNo);
 		
-		if(flight == null) {
+		if (flight == null) {
 			logger.error("Flight not found with [flightNo=" + flightNo + "]");
 			throw new FlightException("Flight not found with [flightNo=" + flightNo + "]");
 		}
