@@ -960,3 +960,15 @@
 2018-10-05 16:28:08,091 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
 2018-10-05 16:28:08,278 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
 2018-10-05 16:28:08,278 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:35:13,086 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:35:13,086 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:35:13,102 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:35:13,102 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:35:13,258 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:35:13,336 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:35:13,336 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:35:13,336 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:35:13,336 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:35:14,352 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:35:14,524 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:35:14,524 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory

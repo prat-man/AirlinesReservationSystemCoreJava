@@ -14,6 +14,8 @@ public class LogoAnimation implements Runnable
 	
 	private volatile ScheduledFuture<?> self;
 	
+	private volatile ScheduledExecutorService service;
+	
 	private final Semaphore semaphore;
 	
 	public LogoAnimation()
@@ -53,7 +55,7 @@ public class LogoAnimation implements Runnable
 	
 	public void startAnimation()
 	{
-		ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+		service = Executors.newSingleThreadScheduledExecutor();
 		
 		self = service.scheduleAtFixedRate(this, 0, 500, TimeUnit.MICROSECONDS);
 		
@@ -73,6 +75,16 @@ public class LogoAnimation implements Runnable
 		if (frameId > frameBuffer.length) {
 			// cancel scheduler, without interrupting
 			self.cancel(true);
+			
+			// shutdown service
+			service.shutdown();
+			
+			// hold the screen for 1 second
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			
 			// try to clear console
 			ARSClient.clearScreen();

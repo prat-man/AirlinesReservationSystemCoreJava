@@ -14,6 +14,8 @@ public class FlightAnimation implements Runnable
 	
 	private volatile ScheduledFuture<?> self;
 	
+	private volatile ScheduledExecutorService service;
+	
 	private final Semaphore semaphore;
 	
 	public FlightAnimation()
@@ -53,7 +55,7 @@ public class FlightAnimation implements Runnable
 	
 	public void startAnimation()
 	{
-		ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+		service = Executors.newSingleThreadScheduledExecutor();
 		
 		self = service.scheduleAtFixedRate(this, 0, 500, TimeUnit.MICROSECONDS);
 		
@@ -74,15 +76,11 @@ public class FlightAnimation implements Runnable
 			// cancel scheduler, without interrupting
 			self.cancel(true);
 			
+			// shutdown service
+			service.shutdown();
+			
 			// try to clear console
 			ARSClient.clearScreen();
-			
-			// hold the screen for 1 second
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
 			
 			// release semaphore
 			semaphore.release();
