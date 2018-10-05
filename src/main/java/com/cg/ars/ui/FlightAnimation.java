@@ -1,13 +1,25 @@
 package com.cg.ars.ui;
 
-import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
-public class FlightAnimation
+public class FlightAnimation implements Runnable
 {
+	private int frameId;
+	
 	private char[][] frameBuffer;
+	
+	private volatile ScheduledFuture<?> self;
+	
+	private final Semaphore semaphore;
 	
 	public FlightAnimation()
 	{
+		frameId = 0;
+		
 		frameBuffer = new char[][] {
 									{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
 									{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -35,24 +47,57 @@ public class FlightAnimation
 									{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', '*', '*'},
 									{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*'}
 								   };
+		
+		semaphore = new Semaphore(0);
 	}
 	
 	public void startAnimation()
 	{
-		for (int i = 0; i < frameBuffer.length; i++) {
-			// draw current frame
-			drawFrame();
-			
-			// translate frame
-			advanceFrame();
+		ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+		
+		self = service.scheduleAtFixedRate(this, 0, 500, TimeUnit.MICROSECONDS);
+		
+		// acquire semaphore
+		try {
+			semaphore.acquire();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void run()
+	{
+		frameId++;
+		
+		// if animation is complete, cancel scheduler
+		if (frameId > frameBuffer.length) {
+			// cancel scheduler, without interrupting
+			self.cancel(true);
 			
 			// try to clear console
+			ARSClient.clearScreen();
+			
+			// hold the screen for 1 second
 			try {
-				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			} catch (InterruptedException | IOException exc) {
-				exc.printStackTrace();
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
+			
+			// release semaphore
+			semaphore.release();
+			
+			return;
 		}
+		
+		// try to clear console
+		ARSClient.clearScreen();
+				
+		// draw current frame
+		drawFrame();
+		
+		// translate frame
+		advanceFrame();
 	}
 	
 	private void advanceFrame()

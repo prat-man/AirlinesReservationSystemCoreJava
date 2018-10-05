@@ -41,11 +41,11 @@ public class ARSClient
 	
 	public static void main(String[] args)
 	{
-		/*FlightAnimation fa = new FlightAnimation();
+		FlightAnimation fa = new FlightAnimation();
 		fa.startAnimation();
 		
 		LogoAnimation la = new LogoAnimation();
-		la.startAnimation();*/
+		la.startAnimation();
 		
 		while (true) {
 			clearScreen();
@@ -392,7 +392,6 @@ public class ARSClient
 		System.out.println("\nUser Type");
 		System.out.println("1. Admin");
 		System.out.println("2. Executive");
-		System.out.println("3. Back");
 		System.out.print("Enter Your Choice: ");
 		
 		int choice = 0;
@@ -417,8 +416,8 @@ public class ARSClient
 					user.setRole(User.EXECUTIVE);
 					break;
 					
-			case 3:
 			default:
+					System.out.println("\nInvalid Choice!");
 					return;
 		}
 		
@@ -524,7 +523,7 @@ public class ARSClient
 		Flight flight = new Flight();
 		
 		try {
-			System.out.print("Flight Number: ");
+			System.out.print("\nFlight Number: ");
 			flight.setFlightNo(BR.readLine());
 			
 			System.out.print("Airline Name: ");
@@ -584,7 +583,7 @@ public class ARSClient
 		String flightNo;
 		
 		try {
-			System.out.println("Flight Number: ");
+			System.out.println("\nFlight Number: ");
 			flightNo = BR.readLine();
 		} catch (IOException e) {
 			System.err.println("\nInvalid Input!");
@@ -671,7 +670,7 @@ public class ARSClient
 	private static void deleteFlight() 
 	{
 		try {
-			System.out.print("Flight Number: ");
+			System.out.print("\nFlight Number: ");
 			
 			Flight flight =  F_SER.getFlight(BR.readLine());
 			
@@ -714,7 +713,7 @@ public class ARSClient
 		String depCity, arrCity;
 		
 		try {
-			System.out.print("Travel Date (dd-MM-yyyy): ");
+			System.out.print("\nTravel Date (dd-MM-yyyy): ");
 			date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
 			
 			System.out.print("Departure City: ");
