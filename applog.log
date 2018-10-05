@@ -1,4 +1,0 @@
-2018-10-06 03:35:57,838 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
-2018-10-06 03:35:57,870 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=executive]
-2018-10-06 03:36:00,463 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Record Fetched
-2018-10-06 03:36:07,244 - com.cg.ars.service.AirportServiceImpl - INFO - Information for all Airports Retrieved.
