@@ -151,11 +151,11 @@ public class FlightDaoImpl implements FlightDao
 			
 			Flight flight = entityManager.find(Flight.class, flightNo);
 			
-			Long seatCount = Long.valueOf(flight.getFirstSeats()) + Long.valueOf(flight.getBussSeats());
-			
-			if (sumOfPassengers == null || seatCount == null) {
+			if (sumOfPassengers == null || flight == null) {
 				throw new NullPointerException("Could not fetch occupancy details for [flightNo=" + flightNo + "]");
 			}
+			
+			Long seatCount = Long.valueOf(flight.getFirstSeats()) + Long.valueOf(flight.getBussSeats());
 			
 			entityManager.getTransaction().commit();
 							

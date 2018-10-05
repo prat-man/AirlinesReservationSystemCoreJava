@@ -245,7 +245,7 @@ public class FlightServiceImpl implements FlightService
 		try {
 			Double oc = fdao.getOccupancy(flightNo);
 			
-			logger.info("Fetched ccupancy [Occupancy" + oc + "]");
+			logger.info("Fetched Occupancy for [flightNo=" + flightNo + "]");
 			
 			return oc;
 		}
