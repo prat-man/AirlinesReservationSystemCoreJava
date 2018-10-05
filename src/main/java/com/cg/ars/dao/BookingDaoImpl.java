@@ -1,5 +1,7 @@
 package com.cg.ars.dao;
 
+import java.math.BigDecimal;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -96,7 +98,7 @@ public class BookingDaoImpl implements BookingDao
 			
 			Query query = entityManager.createNativeQuery("SELECT BOOKING_SEQUENCE.NEXTVAL FROM DUAL");
 			
-			int bookingId =  (int) query.getSingleResult();
+			int bookingId =  ((BigDecimal) query.getSingleResult()).intValue();
 			
 			entityManager.getTransaction().commit();
 			

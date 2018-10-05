@@ -167,7 +167,9 @@ public class BookingServiceImpl implements BookingService
 		try {
 			Flight flight = fser.getFlight(flightNo);
 			
-			String prefix = flight.getAirline().substring(0,3);
+			String airline = flight.getAirline();
+			
+			String prefix = airline.substring(0, ((airline.length() < 4) ? airline.length() : 4)).toUpperCase();
 			
 			logger.info("Booking ID generated for [Flight No=" + flightNo + "]");
 			

@@ -60,7 +60,7 @@ public class FlightDaoImpl implements FlightDao
 		try {
 			entityManager.getTransaction().begin();
 			
-			Flight flight = this.getFlight(flightNo);
+			Flight flight = entityManager.find(Flight.class, flightNo);
 			
 			entityManager.remove(flight);
 			
