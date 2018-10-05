@@ -65,7 +65,7 @@ public class ARSClient
 			try {
 				menu = Integer.parseInt(BR.readLine());
 			} catch (NumberFormatException | IOException e) {
-				System.err.println("\nInvalid Choice!");
+				System.err.println("\nInvalid Choice");
 				holdScreen();
 				continue;
 			}
@@ -111,7 +111,7 @@ public class ARSClient
 			try {
 				username = BR.readLine();
 			} catch (IOException e) {
-				System.err.println("\nInvalid Username!");
+				System.err.println("\nInvalid Username");
 				holdScreen();
 				continue;
 			}
@@ -170,7 +170,7 @@ public class ARSClient
 						try {
 							choice = Integer.parseInt(BR.readLine());
 						} catch (NumberFormatException | IOException e) {
-							System.err.println("\nInvalid Choice!");
+							System.err.println("\nInvalid Choice");
 							holdScreen();
 							continue;
 						}
@@ -250,7 +250,7 @@ public class ARSClient
 						try {
 							choice = Integer.parseInt(BR.readLine());
 						} catch (NumberFormatException | IOException e) {
-							System.err.println("\nInvalid Choice!");
+							System.err.println("\nInvalid Choice");
 							holdScreen();
 							continue;
 						}
@@ -315,7 +315,7 @@ public class ARSClient
 						try {
 							choice = Integer.parseInt(BR.readLine());
 						} catch (NumberFormatException | IOException e) {
-							System.err.println("\nInvalid Choice!");
+							System.err.println("\nInvalid Choice");
 							holdScreen();
 							continue;
 						}
@@ -370,7 +370,7 @@ public class ARSClient
 			System.out.print("Mobile No.: ");
 			user.setMobileNo(BR.readLine());
 		} catch (IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			
 			return false;
@@ -401,7 +401,7 @@ public class ARSClient
 		try {
 			choice = Integer.parseInt(BR.readLine());
 		} catch (NumberFormatException | IOException e) {
-			System.err.println("\nInvalid Choice!");
+			System.err.println("\nInvalid Choice");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -419,7 +419,7 @@ public class ARSClient
 					break;
 					
 			default:
-					System.out.println("\nInvalid Choice!");
+					System.out.println("\nInvalid Choice");
 					return;
 		}
 		
@@ -433,7 +433,7 @@ public class ARSClient
 			System.out.print("Mobile No.: ");
 			user.setMobileNo(BR.readLine());
 		} catch (IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 		}
 		
@@ -460,7 +460,7 @@ public class ARSClient
 		confPass = getPassword();
 		
 		if (!newPass.equals(confPass)) {
-			System.err.println("\nThe passwords do not match!");
+			System.err.println("\nThe passwords do not match");
 			return;
 		}
 		
@@ -566,7 +566,7 @@ public class ARSClient
 			flight.setArrAirport(BR.readLine());
 		}
 		catch(IOException | ParseException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -585,10 +585,10 @@ public class ARSClient
 		String flightNo;
 		
 		try {
-			System.out.println("\nFlight Number: ");
+			System.out.print("\nFlight Number: ");
 			flightNo = BR.readLine();
 		} catch (IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -657,7 +657,7 @@ public class ARSClient
 			flight.setArrAirport(BR.readLine());
 		}
 		catch (IOException | ParseException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -724,7 +724,7 @@ public class ARSClient
 			System.out.print("Arrival City: ");
 			arrCity = BR.readLine();
 		} catch (ParseException | IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -790,7 +790,7 @@ public class ARSClient
 			airport.setLocation(BR.readLine());
 		}
 		catch (IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -871,7 +871,7 @@ public class ARSClient
 			List<Flight> flightList = F_SER.getFlights(date, depCity, arrCity);
 			
 			if (flightList == null || flightList.isEmpty()) {
-				System.err.println("\nNo Flights Found!");
+				System.err.println("\nNo Flights Found");
 				return;
 			}
 			
@@ -921,7 +921,7 @@ public class ARSClient
 			Flight flight = F_SER.getFlight(flightNo);
 			
 			if (flight == null) {
-				System.err.println("Invalid Flight Number [flightNo=" + flightNo + "]");
+				System.err.println("Invalid Flight Number");
 			}
 			
 			System.out.print("Email ID: ");
@@ -968,7 +968,7 @@ public class ARSClient
 			bookingId = BR.readLine();
 		}
 		catch (IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -1000,11 +1000,11 @@ public class ARSClient
 		
 		try 
 		{
-			System.out.println("\nBooking ID: ");
+			System.out.print("\nBooking ID: ");
 			bookingId = BR.readLine();
 		}
 		catch (IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -1024,7 +1024,7 @@ public class ARSClient
 			booking.setCustEmail(BR.readLine());
 		} 
 		catch (IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
@@ -1049,7 +1049,7 @@ public class ARSClient
 			bookingId = BR.readLine();
 		} 
 		catch (IOException e) {
-			System.err.println("\nInvalid Input!");
+			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
 		}
