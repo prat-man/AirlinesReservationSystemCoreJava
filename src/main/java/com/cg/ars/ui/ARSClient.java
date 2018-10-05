@@ -121,7 +121,7 @@ public class ARSClient
 			try {
 				isValidUser = U_SER.verifyUser(username, password);
 			} catch (UserException e) {
-				System.err.println(e.getMessage());
+				System.err.println("\n" + e.getMessage());
 				holdScreen();
 				continue;
 			}
@@ -389,7 +389,7 @@ public class ARSClient
 
 	private static void addUser()
 	{
-		System.out.println("\n\nUser Type");
+		System.out.println("\nUser Type");
 		System.out.println("1. Admin");
 		System.out.println("2. Executive");
 		System.out.println("3. Back");
@@ -449,7 +449,7 @@ public class ARSClient
 	{
 		String oldPass, newPass, confPass;
 		
-		System.out.print("\n\nEnter old password: ");
+		System.out.print("\nEnter old password: ");
 		oldPass = getPassword();
 		
 		System.out.print("Enter new password: ");
@@ -465,6 +465,8 @@ public class ARSClient
 		
 		try {
 			U_SER.changePassword(username, oldPass, newPass);
+			
+			System.out.println("\nPassword Changed Successfully");
 		}
 		catch (UserException e) {
 			System.err.println("\n" + e.getMessage());
@@ -1029,7 +1031,7 @@ public class ARSClient
 		try {
 			B_SER.updateBooking(booking);
 			
-			System.out.println("Email ID changed successfully");
+			System.out.println("\nEmail ID changed successfully");
 		}
 		catch (BookingException e) {
 			System.err.println("\n" + e.getMessage());
@@ -1055,7 +1057,7 @@ public class ARSClient
 			if (B_SER.validateBookingId(bookingId)) {
 				B_SER.cancelBooking(bookingId);
 				
-				System.out.println("Booking with [bookingId=" + bookingId + "] cancelled successfully");
+				System.out.println("\nBooking Cancelled Successfully");
 			}
 		} catch (BookingException e) {
 			System.err.println("\n" + e.getMessage());

@@ -71,11 +71,11 @@ public class UserServiceImpl implements UserService
 	public boolean changePassword(String username, String oldPass, String newPass) throws UserException
 	{
 		/*
-		 * Do not validate username here
+		 * Do not validate username and old password here
 		 * Bypass for 'admin/admin' and other such special credential pairs
 		 */
 		//this.validateUsername(username);
-		this.validatePassword(oldPass);
+		//this.validatePassword(oldPass);
 		this.validatePassword(newPass);
 		
 		User user = udao.getUser(username);
