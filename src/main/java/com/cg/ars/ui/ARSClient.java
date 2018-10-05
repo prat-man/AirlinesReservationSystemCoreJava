@@ -573,6 +573,8 @@ public class ARSClient
 		
 		try {
 			F_SER.addFlight(flight);
+			
+			System.out.println("Flight Added Succesfully");
 		} catch (FlightException e) {
 			System.err.println("\n" + e.getMessage());
 		}
@@ -797,6 +799,8 @@ public class ARSClient
 		
 		try {
 			A_SER.addAirport(airport);
+			
+			System.out.println("\nAirport Added Successfully");
 		} catch (AirportException e) {
 			System.err.println("\n" + e.getMessage());
 		}
@@ -806,9 +810,11 @@ public class ARSClient
 	{
 		List<Airport> Airports =  A_SER.getAllAirports();
 		
+		
+		
 		for (Airport a : Airports)
 		{
-			System.out.printf("%s%s%s%s%s%s%s%s%d%lf%d%lf",
+			System.out.printf("%-20s %-10s %40s",
 					a.getAirportName(),
 					a.getAbbreviation(),
 					a.getLocation());
