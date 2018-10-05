@@ -857,7 +857,7 @@ public class ARSClient
 		try {
 			double occupancy = F_SER.getOccupancy(flightNo) * 100;
 			
-			System.out.println("\nFlight Occupancy: " + occupancy + " %");
+			System.out.println("\nFlight Occupancy: " + String.format("%.2f", occupancy) + " %");
 		} catch (FlightException e) {
 			System.err.println("\n" + e.getMessage());
 		}
@@ -883,7 +883,7 @@ public class ARSClient
 		try {
 			double occupancy = F_SER.getOccupancy(depCity, arrCity) * 100;
 			
-			System.out.println("\nFlight Occupancy: " + occupancy + " %");
+			System.out.println("\nFlight Occupancy: " + String.format("%.2f", occupancy) + " %");
 		} catch (FlightException e) {
 			System.err.println("\n" + e.getMessage());
 		}
