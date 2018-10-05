@@ -480,7 +480,7 @@ public class ARSClient
 		try {
 			List<Flight> flightList = F_SER.getAllFlights();
 			
-			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-12s %-12s\n",
+			String header = String.format("%-20s | %-40s | %-40s | %-40s | %-12s | %-12s | %-12s | %-12s | %15s | %15s | %15s | %15s | %-12s | %-12s",
 								"Flight No",
 								"Airline",
 								"Departure City",
@@ -495,10 +495,14 @@ public class ARSClient
 								"Business Fare",
 								"Dep Airport",
 								"Arr Airport");
+			
+			System.out.println("\n\n" + header);
+			
+			System.out.println(String.format("%" + header.length() + "s", "").replace(' ', '-'));
 								
 			for (Flight f : flightList)
 			{
-				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-12s %-12s\n",
+				System.out.printf("%-20s | %-40s | %-40s | %-40s | %-12s | %-12s | %-12s | %-12s | %15d | %15.2f | %15d | %15.2f | %-12s | %-12s\n",
 						f.getFlightNo(),
 						f.getAirline(),
 						f.getDepCity(),
@@ -740,7 +744,7 @@ public class ARSClient
 			return;
 		}
 		
-		System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-12s %-12s\n",
+		String header = String.format("%-20s | %-40s | %-40s | %-40s | %-12s | %-12s | %-12s | %-12s | %15s | %15s | %15s | %15s | %-12s | %-12s",
 				"Flight No",
 				"Airline",
 				"Departure City",
@@ -756,9 +760,13 @@ public class ARSClient
 				"Dep Airport",
 				"Arr Airport");
 		
+		System.out.println("\n\n" + header);
+		
+		System.out.println(String.format("%" + header.length() + "s", "").replace(' ', '-'));
+		
 		for (Flight f : flights)
 		{
-			System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-12s %-12s\n",
+			System.out.printf("%-20s | %-40s | %-40s | %-40s | %-12s | %-12s | %-12s | %-12s | %15d | %15.2f | %15d | %15.2f | %-12s | %-12s\n",
 					f.getFlightNo(),
 					f.getAirline(),
 					f.getDepCity(),
@@ -815,14 +823,18 @@ public class ARSClient
 			return;
 		}
 		
-		System.out.printf("%-20s %-15s %-40s\n",
+		String header = String.format("%-40s | %-15s | %-40s",
 				"Airport Name",
 				"Abbreviation",
 				"Location");
 		
+		System.out.println("\n\n" + header);
+		
+		System.out.println(String.format("%" + header.length() + "s", "").replace(' ', '-'));
+		
 		for (Airport a : airports)
 		{
-			System.out.printf("%-20s %-15s %-40s\n",
+			System.out.printf("%-40s | %-15s | %-40s\n",
 					a.getAirportName(),
 					a.getAbbreviation(),
 					a.getLocation());
@@ -889,7 +901,7 @@ public class ARSClient
 				return;
 			}
 			
-			System.out.printf("\n\n%-20s %-40s %-12s %-40s %-12s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s\n",
+			String header = String.format("%-20s | %-40s | %-12s | %-40s | %-12s | %-40s | %-12s | %-12s | %-12s | %-12s | %15s | %15s | %15s | %15s",
 					"Flight No",
 					"Airline",
 					"Dep Airport",
@@ -904,10 +916,14 @@ public class ARSClient
 					"First Fare",
 					"Business Seats",
 					"Business Fare");
+			
+			System.out.println("\n\n" + header);
+			
+			System.out.println(String.format("%" + header.length() + "s", "").replace(' ', '-'));
       
 			for(Flight flight : flightList) 
 			{
-				System.out.printf("%-20s %-40s %-12s %-40s %-12s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f\n",
+				System.out.printf("%-20s | %-40s | %-12s | %-40s | %-12s | %-40s | %-12s | %-12s | %-12s | %-12s | %15d | %15.2f | %15d | %15.2f\n",
 						flight.getFlightNo(),
 						flight.getAirline(),
 						flight.getDepAirport(),
