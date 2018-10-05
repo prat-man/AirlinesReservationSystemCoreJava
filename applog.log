@@ -1032,3 +1032,82 @@
 2018-10-05 20:09:55,779 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
 2018-10-05 20:09:55,795 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
 2018-10-05 20:10:14,268 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Delhi on 2018-10-11
+2018-10-05 20:15:39,235 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 20:15:39,235 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 20:15:39,251 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 20:15:39,251 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 20:15:39,422 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 20:15:39,485 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 20:15:39,485 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 20:15:39,485 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 20:15:39,485 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 20:15:40,484 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 20:15:40,656 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 20:15:40,656 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 20:15:52,796 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-05 20:15:52,797 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=admin]
+2018-10-05 20:16:22,000 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 12899, SQLState: 72000
+2018-10-05 20:16:22,000 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-12899: value too large for column "LAB1BTRG30"."AIRPORTS"."AIRPORTNAME" (actual: 26, maximum: 20)
+
+2018-10-05 20:17:10,455 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 20:17:10,455 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 20:17:10,455 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 20:17:10,455 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 20:17:10,627 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 20:17:10,705 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 20:17:10,705 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 20:17:10,705 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 20:17:10,705 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 20:17:11,751 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 20:17:11,939 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 20:17:11,939 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 20:17:17,988 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-05 20:17:18,019 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=admin]
+2018-10-05 20:17:41,456 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 12899, SQLState: 72000
+2018-10-05 20:17:41,456 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-12899: value too large for column "LAB1BTRG30"."AIRPORTS"."AIRPORTNAME" (actual: 26, maximum: 20)
+
+2018-10-05 20:20:38,336 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 20:20:38,352 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 20:20:38,352 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 20:20:38,352 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 20:20:38,523 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 20:20:38,601 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 20:20:38,601 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 20:20:38,601 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 20:20:38,601 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 20:20:39,601 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 20:20:39,789 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 20:20:39,789 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 20:20:48,977 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-05 20:20:49,009 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=admin]
+2018-10-05 20:21:50,243 - com.cg.ars.service.UserServiceImpl - INFO - Valid [username=executive1]
+2018-10-05 20:21:50,243 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 20:21:50,243 - com.cg.ars.service.UserServiceImpl - INFO - Role Exists [role=Executive]
+2018-10-05 20:21:50,243 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-987-654-3210]
+2018-10-05 20:21:50,539 - com.cg.ars.service.UserServiceImpl - INFO - User Record Added
+2018-10-05 20:21:50,617 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 1722, SQLState: 42000
+2018-10-05 20:21:50,617 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-01722: invalid number
+
+2018-10-05 20:22:18,624 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 20:22:18,624 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 20:22:18,624 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 20:22:18,639 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 20:22:18,811 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 20:22:18,873 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 20:22:18,873 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 20:22:18,873 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 20:22:18,873 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 20:22:19,888 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 20:22:20,091 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 20:22:20,091 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 20:22:29,243 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-05 20:22:29,274 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=admin]
+2018-10-05 20:22:49,031 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Username [username=Exec1@1234]
+2018-10-05 20:23:24,847 - com.cg.ars.service.UserServiceImpl - INFO - Valid [username=executive1]
+2018-10-05 20:23:24,847 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 20:23:24,847 - com.cg.ars.service.UserServiceImpl - INFO - Role Exists [role=Executive]
+2018-10-05 20:23:24,863 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-987-654-3210]
+2018-10-05 20:23:25,175 - com.cg.ars.service.UserServiceImpl - INFO - User Record Added
+2018-10-05 20:23:25,253 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 1722, SQLState: 42000
+2018-10-05 20:23:25,253 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-01722: invalid number
+

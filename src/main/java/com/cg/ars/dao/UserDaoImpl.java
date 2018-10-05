@@ -25,6 +25,8 @@ public class UserDaoImpl implements UserDao
 			entityManager.getTransaction().commit();
 		}
 		catch (Exception exc) {
+			exc.printStackTrace();
+			
 			entityManager.getTransaction().rollback();
 			
 			throw exc;
