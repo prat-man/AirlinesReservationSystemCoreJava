@@ -53,7 +53,6 @@ public class FlightServiceImpl implements FlightService
 			logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
 		}
 		catch (Exception exc) {
-			exc.printStackTrace();
 			throw new FlightException(exc.getMessage());
 		}
 	}

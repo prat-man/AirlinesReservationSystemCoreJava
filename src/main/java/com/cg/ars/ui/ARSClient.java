@@ -576,7 +576,6 @@ public class ARSClient
 			
 			System.out.println("\nFlight Added Succesfully");
 		} catch (FlightException e) {
-			e.printStackTrace();
 			System.err.println("\n" + e.getMessage());
 		}
 	}
