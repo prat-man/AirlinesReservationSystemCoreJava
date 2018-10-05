@@ -271,6 +271,7 @@ public class ARSClient
 							
 							case 4:
 									viewBooking();
+									break;
 							
 							case 5:
 									viewFlightOccupancy();
@@ -479,7 +480,7 @@ public class ARSClient
 		try {
 			List<Flight> flightList = F_SER.getAllFlights();
 			
-			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-10s %-10s\n",
+			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-12s %-12s\n",
 								"Flight No",
 								"Airline",
 								"Departure City",
@@ -497,7 +498,7 @@ public class ARSClient
 								
 			for (Flight f : flightList)
 			{
-				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-10s %-10s\n",
+				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-12s %-12s\n",
 						f.getFlightNo(),
 						f.getAirline(),
 						f.getDepCity(),
@@ -944,7 +945,7 @@ public class ARSClient
 			int noOfPassengers = Integer.parseInt(BR.readLine());
 			booking.setNoOfPassengers(noOfPassengers);
 			
-			System.out.print("Class Type:");
+			System.out.print("Class Type: ");
 			String classType = BR.readLine();
 			booking.setClassType(classType);
 			
@@ -976,7 +977,7 @@ public class ARSClient
 		String bookingId;
 		
 		try {
-			System.out.print("\nBooking ID:");
+			System.out.print("\nBooking ID: ");
 			
 			bookingId = BR.readLine();
 		}
@@ -987,24 +988,26 @@ public class ARSClient
 		}
 			
 		Booking booking;
+		Flight flight;
 		
 		try {
 			booking = B_SER.getBooking(bookingId);
-		} catch (BookingException e) {
+			flight = F_SER.getFlight(booking.getFlightNo());
+		} catch (BookingException | FlightException e) {
 			System.err.println("\n" + e.getMessage());
 			return;
 		}
 		
-		System.out.printf("%s%s%s%s%s%s%d%d%lf",
-				booking.getBookingId(),
-				booking.getFlightNo(),
-				booking.getCustEmail(),
-				booking.getSrcCity(),
-				booking.getDestCity(),
-				booking.getClassType(),
-				booking.getNoOfPassengers(),
-				booking.getSeatNumber(),
-				booking.getTotalFare());
+		System.out.println("\nFlight No: " + booking.getFlightNo());
+		System.out.println("Source City: " + booking.getSrcCity());
+		System.out.println("Destination City: " + booking.getDestCity());
+		System.out.println("Source Airport: " + flight.getDepAirport());
+		System.out.println("Destination Airport: " + flight.getArrAirport());
+		System.out.println("Class Type: " + booking.getClassType());
+		System.out.println("No. of passengers: " + booking.getNoOfPassengers());
+		System.out.println("Seat Number: " + booking.getSeatNumber());
+		System.out.println("Total Fare: " + booking.getTotalFare());
+		System.out.println("Email: " + booking.getCustEmail());
 	}
 
 	private static void changeEmailId() 
