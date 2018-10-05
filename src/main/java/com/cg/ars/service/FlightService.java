@@ -18,9 +18,9 @@ public interface FlightService
 	
 	public List<Flight> getFlights(Date date, String depCity, String arrCity) throws FlightException;
 	
-	public Double getOccupancy(String flightNo);
+	public Double getOccupancy(String flightNo) throws FlightException;
 	
-	public Double getOccupancy(String depCity, String arrCity);
+	public Double getOccupancy(String depCity, String arrCity) throws FlightException;
 	
 	public boolean validateFlightNo(String flightNo) throws FlightException;
 	

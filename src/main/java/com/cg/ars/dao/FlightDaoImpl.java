@@ -145,17 +145,17 @@ public class FlightDaoImpl implements FlightDao
 		try {
 			entityManager.getTransaction().begin();
 			
-			Double sumOfPassengers = entityManager.createNamedQuery("Booking.getSumOfPassengersByFlightNo", Double.class)
+			Long sumOfPassengers = entityManager.createNamedQuery("getSumOfPassengersByFlightNo", Long.class)
 													.setParameter("flightNo", flightNo)
 													.getSingleResult();
 			
-			Flight flight = this.getFlight(flightNo);
+			Flight flight = entityManager.find(Flight.class, flightNo);
 			
-			Double seatCount = flight.getFirstSeatsFare() + flight.getBussSeats();
+			Long seatCount = Long.valueOf(flight.getFirstSeats()) + Long.valueOf(flight.getBussSeats());
 			
 			entityManager.getTransaction().commit();
 							
-			return sumOfPassengers / seatCount;
+			return Double.valueOf(sumOfPassengers) / Double.valueOf(seatCount);
 		}
 		catch (Exception exc) {
 			entityManager.getTransaction().rollback();
@@ -170,20 +170,20 @@ public class FlightDaoImpl implements FlightDao
 		try {
 			entityManager.getTransaction().begin();
 			
-			Double sumOfPassengers = entityManager.createNamedQuery("Booking.getSumOfPassengersByRoute", Double.class)
+			Long sumOfPassengers = entityManager.createNamedQuery("getSumOfPassengersByRoute", Long.class)
 													.setParameter("depCity", depCity)
 													.setParameter("arrCity", arrCity)
 													.getSingleResult();
 	
 	
-			Double seatCount = entityManager.createNamedQuery("Flight.getSeatCount", Double.class)
+			Long seatCount = entityManager.createNamedQuery("getSeatCount", Long.class)
 													.setParameter("depCity", depCity)
 													.setParameter("arrCity", arrCity)
 													.getSingleResult();
 			
 			entityManager.getTransaction().commit();
 													
-			return sumOfPassengers / seatCount;
+			return Double.valueOf(sumOfPassengers) / Double.valueOf(seatCount);
 		}
 		catch (Exception exc) {
 			entityManager.getTransaction().rollback();

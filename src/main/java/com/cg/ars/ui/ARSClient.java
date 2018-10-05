@@ -134,7 +134,7 @@ public class ARSClient
 				try {
 					user = U_SER.getUser(username);
 				} catch (UserException e) {
-					System.err.println(e.getMessage());
+					System.err.println("\n" + e.getMessage());
 					holdScreen();
 					continue;
 				}
@@ -854,9 +854,13 @@ public class ARSClient
 			System.err.println("Invalid Flight Number");
 		}
 		
-		double occupancy = F_SER.getOccupancy(flightNo);
-		
-		System.out.println("\nFlight Occupancy: " + occupancy);
+		try {
+			double occupancy = F_SER.getOccupancy(flightNo) * 100;
+			
+			System.out.println("\nFlight Occupancy: " + occupancy + " %");
+		} catch (FlightException e) {
+			System.err.println("\n" + e.getMessage());
+		}
 	}
 
 	private static void viewFlightOccupancyByRoute()
@@ -876,9 +880,13 @@ public class ARSClient
 			return;
 		}
 		
-		double occupancy = F_SER.getOccupancy(depCity, arrCity);
-		
-		System.out.println("\nFlight Occupancy: " + occupancy);
+		try {
+			double occupancy = F_SER.getOccupancy(depCity, arrCity) * 100;
+			
+			System.out.println("\nFlight Occupancy: " + occupancy + " %");
+		} catch (FlightException e) {
+			System.err.println("\n" + e.getMessage());
+		}
 	}
 
 	private static void bookTicket()
@@ -984,7 +992,7 @@ public class ARSClient
 			System.out.println("Seat Number: " + booking.getSeatNumber());
 		}
 		catch(IOException | ParseException | FlightException | BookingException e) {
-			System.err.println(e.getMessage());
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 
@@ -1110,7 +1118,7 @@ public class ARSClient
 			try {
 				password = BR.readLine();
 			} catch (IOException e) {
-				System.err.println(e.getMessage());
+				System.err.println("\n" + e.getMessage());
 			}
 		}
 		
