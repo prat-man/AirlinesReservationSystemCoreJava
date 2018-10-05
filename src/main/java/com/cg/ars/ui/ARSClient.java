@@ -888,7 +888,7 @@ public class ARSClient
 				return;
 			}
 			
-			System.out.printf("%-20s %-40s %-10s %-40s %-10s %-40s %-12s %-12s %15s %15s %15s %15s\n",
+			System.out.printf("\n\n%-20s %-40s %-12s %-40s %-12s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s\n",
 					"Flight No",
 					"Airline",
 					"Dep Airport",
@@ -906,7 +906,7 @@ public class ARSClient
       
 			for(Flight flight : flightList) 
 			{
-				System.out.printf("%-20s %-40s %-10s %-40s %-10s %-40s %-12s %-12s %15d %15.2f %15d %15.2f\n",
+				System.out.printf("%-20s %-40s %-12s %-40s %-12s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f\n",
 						flight.getFlightNo(),
 						flight.getAirline(),
 						flight.getDepAirport(),
@@ -925,7 +925,7 @@ public class ARSClient
 			
 			Booking booking = new Booking();
 			
-			System.out.print("Flight Number:");
+			System.out.print("\n\nFlight Number:");
 			String flightNo = BR.readLine();
 			booking.setFlightNo(flightNo);
 			
