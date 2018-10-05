@@ -84,6 +84,8 @@ public class ARSClient
 					holdScreen();
 					continue;
 				}
+				
+				holdScreen();
 			}
 			else if (menu != 1) {
 				System.out.println();
