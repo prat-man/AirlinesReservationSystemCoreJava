@@ -7,8 +7,6 @@ import org.apache.log4j.Logger;
 
 import com.cg.ars.dao.BookingDao;
 import com.cg.ars.dao.BookingDaoImpl;
-import com.cg.ars.dao.FlightDao;
-import com.cg.ars.dao.FlightDaoImpl;
 import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.BookingException;
@@ -16,14 +14,14 @@ import com.cg.ars.exception.BookingException;
 public class BookingServiceImpl implements BookingService 
 {
 	private BookingDao bdao;
-	private FlightDao fdao;
+	private FlightService fser;
 	
 	private Logger logger;
 	
 	public BookingServiceImpl() 
 	{
 		bdao = new BookingDaoImpl();
-		fdao = new FlightDaoImpl();
+		fser = new FlightServiceImpl();
 		
 		logger = Logger.getLogger(this.getClass());
 	}
@@ -36,7 +34,7 @@ public class BookingServiceImpl implements BookingService
 	public void bookTicket(Booking booking) throws BookingException 
 	{
 		try {
-			Flight flight = fdao.getFlight(booking.getFlightNo());
+			Flight flight = fser.getFlight(booking.getFlightNo());
 			
 			this.validateCity(booking.getDestCity());
 			this.validateCity(booking.getSrcCity());
@@ -129,7 +127,7 @@ public class BookingServiceImpl implements BookingService
 			this.validateCreditCardInfo(booking.getCreditCardInfo());
 			this.validateEmail(booking.getCustEmail());
 			
-			Flight flight = fdao.getFlight(booking.getFlightNo());
+			Flight flight = fser.getFlight(booking.getFlightNo());
 			
 			this.validateNoOfPassengers(flight, booking.getClassType(), booking.getNoOfPassengers());
       
@@ -166,12 +164,19 @@ public class BookingServiceImpl implements BookingService
 	@Override
 	public String generateBookingId(String flightNo) throws BookingException
 	{
-		Flight flight = fdao.getFlight(flightNo);
-		
-		String prefix = flight.getAirline().substring(0,3);
-		
-		logger.info("Booking ID generated for [Flight No=" + flightNo + "]");
-		return prefix + bdao.getBookingId();
+		try {
+			Flight flight = fser.getFlight(flightNo);
+			
+			String prefix = flight.getAirline().substring(0,3);
+			
+			logger.info("Booking ID generated for [Flight No=" + flightNo + "]");
+			
+			return prefix + bdao.getBookingId();
+		}
+		catch (Exception e) {
+			logger.error(e.getMessage());
+			throw new BookingException(e.getMessage());
+		}
 	}
 
 	/**

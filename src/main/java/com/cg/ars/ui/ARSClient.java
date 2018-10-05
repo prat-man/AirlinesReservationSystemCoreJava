@@ -574,7 +574,7 @@ public class ARSClient
 		try {
 			F_SER.addFlight(flight);
 			
-			System.out.println("Flight Added Succesfully");
+			System.out.println("\nFlight Added Succesfully");
 		} catch (FlightException e) {
 			System.err.println("\n" + e.getMessage());
 		}
