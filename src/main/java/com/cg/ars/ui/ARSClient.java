@@ -121,7 +121,7 @@ public class ARSClient
 			try {
 				isValidUser = U_SER.verifyUser(username, password);
 			} catch (UserException e) {
-				System.err.println(e.getMessage());
+				System.err.println("\n" + e.getMessage());
 				holdScreen();
 				continue;
 			}
