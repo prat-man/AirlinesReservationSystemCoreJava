@@ -28,6 +28,8 @@ public class AirportDaoImpl implements AirportDao
 			entityManager.getTransaction().commit();
 		}
 		catch (Exception exc) {
+			exc.printStackTrace();
+			
 			entityManager.getTransaction().rollback();
 			
 			throw exc;
