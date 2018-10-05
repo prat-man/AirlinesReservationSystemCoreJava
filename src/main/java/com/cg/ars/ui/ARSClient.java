@@ -465,6 +465,8 @@ public class ARSClient
 		
 		try {
 			U_SER.changePassword(username, oldPass, newPass);
+			
+			System.out.println("Password Changed Successfully");
 		}
 		catch (UserException e) {
 			System.err.println("\n" + e.getMessage());
