@@ -73,18 +73,18 @@ public class LogoAnimation implements Runnable
 		
 		// if animation is complete, cancel scheduler
 		if (frameId > frameBuffer.length) {
+			// hold the screen for 2 second
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+						
 			// cancel scheduler, without interrupting
 			self.cancel(true);
 			
 			// shutdown service
 			service.shutdown();
-			
-			// hold the screen for 1 second
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
 			
 			// try to clear console
 			ARSClient.clearScreen();
