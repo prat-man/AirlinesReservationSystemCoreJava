@@ -384,7 +384,7 @@ public class ARSClient
 
 	private static void addUser()
 	{
-		System.out.println("User Type");
+		System.out.println("\n\nUser Type");
 		System.out.println("1. Admin");
 		System.out.println("2. Executive");
 		System.out.println("3. Back");
@@ -418,7 +418,7 @@ public class ARSClient
 		}
 		
 		try {
-			System.out.print("Username: ");
+			System.out.print("\nUsername: ");
 			user.setUsername(BR.readLine());
 			
 			System.out.print("Password: ");
@@ -444,21 +444,14 @@ public class ARSClient
 	{
 		String oldPass, newPass, confPass;
 		
-		try {
-			System.out.print("Enter old password: ");
-			oldPass = BR.readLine();
-			
-			System.out.print("Enter new password: ");
-			newPass = BR.readLine();
-			
-			System.out.print("Enter new password again: ");
-			confPass = BR.readLine();
-		}
-		catch (IOException e) {
-			System.err.println("\nInvalid Input!");
-			System.err.println(e.getMessage());
-			return;
-		}
+		System.out.print("\n\nEnter old password: ");
+		oldPass = getPassword();
+		
+		System.out.print("Enter new password: ");
+		newPass = getPassword();
+		
+		System.out.print("Enter new password again: ");
+		confPass = getPassword();
 		
 		if (!newPass.equals(confPass)) {
 			System.err.println("\nThe passwords do not match!");
