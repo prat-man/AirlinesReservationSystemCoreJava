@@ -146,7 +146,7 @@ public class UserServiceImpl implements UserService
 	public boolean validatePassword(String password) throws UserException
 	{
 		
-		String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+		String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=-_*])(?=\\S+).{8,}$";
 		
 		if (Pattern.matches(pattern, password)) {
 			logger.info("Valid Password");

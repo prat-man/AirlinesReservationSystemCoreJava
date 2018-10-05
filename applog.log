@@ -1,0 +1,770 @@
+2018-10-05 13:16:16,132 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:16:16,147 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:16:16,147 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:16:16,147 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:16:16,335 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:16:16,381 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:16:16,381 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:16:16,381 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:16:16,381 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:16:17,350 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:16:17,538 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:16:17,538 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:16:17,881 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:16:17,881 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:16:17,881 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:16:17,881 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:17,881 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:17,881 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:17,881 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:16:17,912 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:16:38,273 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:16:38,273 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:16:38,273 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:16:38,273 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:16:38,444 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:16:38,507 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:16:38,507 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:16:38,507 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:16:38,507 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:16:39,493 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:16:39,681 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:16:39,681 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:16:39,995 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:16:39,995 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:16:39,995 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:16:39,996 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:39,996 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:39,996 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:39,997 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:40,000 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:16:40,000 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:16:40,000 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:16:40,002 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:16:40,003 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:16:40,004 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:16:40,005 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:16:40,005 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:16:40,007 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:16:50,448 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:16:50,448 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:16:50,448 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:16:50,448 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:16:50,619 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:16:50,682 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:16:50,682 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:16:50,682 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:16:50,682 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:16:51,744 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:16:51,947 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:16:51,947 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:16:52,274 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:17:08,597 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:17:08,613 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:17:08,613 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:17:08,613 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:17:08,785 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:17:08,831 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:17:08,831 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:17:08,831 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:17:08,831 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:17:09,823 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:17:09,995 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:17:09,995 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:17:10,336 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:17:10,352 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:17:10,352 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:17:10,352 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:17:10,352 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:17:10,352 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:17:10,352 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:17:53,595 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:17:53,595 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:17:53,595 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:17:53,595 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:17:53,766 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:17:53,829 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:17:53,829 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:17:53,829 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:17:53,829 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:17:54,774 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:17:54,961 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:17:54,977 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:17:55,309 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:18:12,316 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:18:12,316 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:18:12,316 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:18:12,316 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:18:12,488 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:18:12,550 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:18:12,550 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:18:12,550 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:18:12,550 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:18:13,576 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:18:13,763 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:18:13,763 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:18:14,087 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:18:14,088 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:18:34,589 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:18:34,589 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:18:34,589 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:18:34,589 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:18:34,761 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:18:34,823 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:18:34,823 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:18:34,823 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:18:34,823 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:18:35,808 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:18:35,995 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:18:36,011 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:18:36,338 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:19:02,978 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:19:02,993 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:19:02,993 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:19:02,993 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:19:03,166 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:19:03,213 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:19:03,213 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:19:03,213 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:19:03,213 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:19:04,199 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:19:04,370 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:19:04,370 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:19:04,698 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:19:04,713 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:19:04,713 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:19:04,713 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:19:04,713 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:19:04,713 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:19:04,713 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:19:09,990 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:19:09,995 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:19:09,996 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:19:09,997 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:19:10,198 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:19:10,246 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:19:10,246 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:19:10,246 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:19:10,246 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:19:11,262 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:19:11,434 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:19:11,434 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:19:11,763 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:19:11,763 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:11,763 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:11,763 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:19:11,778 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:19:29,683 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:19:29,683 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:19:29,683 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:19:29,683 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:19:29,870 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:19:29,904 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:19:29,904 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:19:29,904 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:19:29,904 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:19:30,889 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:19:31,073 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:19:31,073 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:19:31,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:19:31,419 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:19:31,419 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:19:40,725 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:19:40,725 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:19:40,725 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:19:40,740 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:19:40,882 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:19:40,946 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:19:40,946 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:19:40,946 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:19:40,946 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:19:42,001 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:19:42,234 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:19:42,249 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:19:42,564 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:19:42,564 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:42,564 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:19:42,564 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:42,564 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:42,564 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:42,564 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:19:42,580 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:20:32,302 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:20:32,305 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:20:32,306 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:20:32,307 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:20:32,498 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:20:32,545 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:20:32,545 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:20:32,545 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:20:32,545 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:20:33,542 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:20:33,729 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:20:33,729 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:20:34,086 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:20:34,086 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:20:34,086 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:20:34,086 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:20:34,086 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:20:34,086 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:20:34,086 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:20:34,101 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:20:34,101 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:20:34,101 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:20:34,101 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:20:34,101 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:20:34,101 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:20:34,101 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:20:34,117 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:20:34,117 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:20:51,606 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:20:51,606 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:20:51,606 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:20:51,606 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:20:51,778 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:20:51,841 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:20:51,841 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:20:51,841 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:20:51,841 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:20:52,851 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:20:53,010 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:20:53,010 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:20:53,356 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:20:53,371 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:20:53,371 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:20:53,371 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:20:53,371 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:21:25,584 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:21:25,589 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:21:25,590 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:21:25,591 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:21:25,771 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:21:25,826 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:21:25,826 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:21:25,826 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:21:25,826 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:21:26,842 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:21:27,051 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:21:27,054 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:21:27,392 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:21:27,393 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:21:27,394 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:21:27,394 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:21:27,395 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:21:27,395 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:21:27,395 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:21:27,398 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:21:27,399 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:21:27,399 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:21:27,400 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:21:27,402 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:21:27,402 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:21:27,403 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:21:27,403 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:21:27,405 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:22:07,543 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:22:07,559 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:22:07,559 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:22:07,559 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:22:07,738 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:22:07,785 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:22:07,785 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:22:07,785 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:22:07,785 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:22:08,793 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:22:08,949 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:22:08,949 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:22:09,279 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:22:09,295 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:22:09,295 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:22:09,295 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:22:22,828 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:22:22,828 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:22:22,828 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:22:22,828 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:22:23,000 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:22:23,060 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:22:23,060 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:22:23,060 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:22:23,060 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:22:24,098 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:22:24,301 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:22:24,301 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:22:24,629 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:22:24,630 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:24,634 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:24,634 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:24,635 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:24,635 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:24,636 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:24,636 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:22:24,637 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:22:24,637 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:22:24,638 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:22:24,640 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:22:24,640 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:22:24,641 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:22:24,641 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:22:24,643 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:22:30,754 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:22:30,754 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:22:30,754 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:22:30,754 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:22:30,926 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:22:30,988 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:22:30,988 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:22:30,988 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:22:30,988 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:22:32,060 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:22:32,247 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:22:32,247 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:22:32,577 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:22:32,577 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:22:32,577 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:22:32,577 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:32,577 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:32,577 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:32,577 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:22:32,592 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:22:44,272 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:22:44,272 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:22:44,272 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:22:44,287 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:22:44,459 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:22:44,506 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:22:44,506 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:22:44,506 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:22:44,506 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:22:45,578 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:22:45,765 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:22:45,765 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:22:46,091 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:22:46,091 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:22:46,091 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:22:46,091 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:46,091 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:22:46,107 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:23:11,467 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:23:11,467 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:23:11,467 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:23:11,467 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:23:11,654 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:23:11,701 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:23:11,701 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:23:11,701 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:23:11,701 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:23:12,810 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:23:13,013 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:23:13,013 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:23:13,357 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:23:13,373 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:23:13,373 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:23:13,373 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:24:02,333 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:24:02,333 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:24:02,333 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:24:02,348 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:24:02,520 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:24:02,567 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:24:02,567 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:24:02,567 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:24:02,567 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:24:03,573 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:24:03,760 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:24:03,760 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:24:04,097 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:24:04,112 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:24:04,112 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:24:04,112 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:24:04,112 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:24:10,842 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:24:10,842 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:24:10,842 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:24:10,842 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:24:11,015 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:24:11,078 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:24:11,078 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:24:11,078 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:24:11,078 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:24:12,065 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:24:12,205 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:24:12,221 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:24:12,533 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:24:12,548 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:24:48,425 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:24:48,430 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:24:48,431 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:24:48,432 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:24:48,634 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:24:48,696 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:24:48,696 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:24:48,696 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:24:48,696 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:24:49,656 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:24:49,828 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:24:49,843 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:24:50,157 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:24:50,157 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:50,157 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:24:50,172 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:25:09,346 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:25:09,346 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:25:09,362 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:25:09,362 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:25:09,533 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:25:09,580 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:25:09,580 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:25:09,580 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:25:09,580 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:25:10,642 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:25:10,784 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:25:10,800 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:25:11,127 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:25:24,651 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:25:24,651 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:25:24,651 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:25:24,651 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:25:24,823 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:25:24,885 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:25:24,885 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:25:24,885 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:25:24,885 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:25:25,906 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:25:26,027 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:25:26,030 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:25:26,377 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:25:26,393 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:25:26,393 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:25:26,393 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:25:26,393 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:25:53,300 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:25:53,300 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:25:53,300 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:25:53,300 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:25:53,487 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:25:53,534 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:25:53,534 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:25:53,534 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:25:53,534 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:25:54,487 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:25:54,674 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:25:54,674 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:25:55,002 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:25:55,018 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:25:55,018 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:25:55,018 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:25:55,018 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:25:55,018 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:26:02,581 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:26:02,581 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:26:02,596 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:26:02,596 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:26:02,768 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:26:02,815 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:26:02,815 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:26:02,815 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:26:02,815 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:26:05,753 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:26:05,987 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:26:05,987 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:26:06,316 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:26:06,332 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:26:06,332 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:26:06,332 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:26:06,332 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:26:06,332 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:26:06,332 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:26:10,098 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:26:10,113 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:26:10,113 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:26:10,113 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:26:10,285 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:26:10,322 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:26:10,322 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:26:10,322 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:26:10,322 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:26:11,280 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:26:11,451 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:26:11,451 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Password
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=8582964407]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=85829 64407]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=858 296 4407]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 8582964407]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91-521-8582964407]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 85829 64407]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - INFO - Valid Mobile Number [mobileNo=+91 254 858 296 4407]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-85-296-4407]
+2018-10-05 13:26:11,779 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Mobile Number [mobileNo=+91-254-296-4407 522]
+2018-10-05 13:26:35,766 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 13:26:35,766 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 13:26:35,766 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 13:26:35,766 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 13:26:35,938 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 13:26:36,000 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 13:26:36,000 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 13:26:36,000 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 13:26:36,000 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 13:26:37,022 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 13:26:37,192 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 13:26:37,192 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 13:26:37,519 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password

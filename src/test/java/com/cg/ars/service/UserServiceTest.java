@@ -86,20 +86,26 @@ public class UserServiceTest
 		user.validatePassword("gG%8#F!D$c&*\\/-_(g");
 	}
 	
-	@Test(expected=UserException.class)
+	@Test
 	public void testValidatePassword3() throws UserException
 	{
-		user.validatePassword("gG%5");
+		user.validatePassword("prA0 9*dT");
 	}
 	
 	@Test(expected=UserException.class)
 	public void testValidatePassword4() throws UserException
 	{
-		user.validatePassword("gG$gG$gG$");
+		user.validatePassword("gG%5");
 	}
 	
 	@Test(expected=UserException.class)
 	public void testValidatePassword5() throws UserException
+	{
+		user.validatePassword("gG$gG$gG$");
+	}
+	
+	@Test(expected=UserException.class)
+	public void testValidatePassword6() throws UserException
 	{
 		user.validatePassword("password");
 	}
