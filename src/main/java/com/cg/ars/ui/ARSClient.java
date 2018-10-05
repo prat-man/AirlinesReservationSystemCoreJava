@@ -14,6 +14,7 @@ import com.cg.ars.dto.Airport;
 import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.dto.User;
+import com.cg.ars.exception.AirportException;
 import com.cg.ars.exception.BookingException;
 import com.cg.ars.exception.FlightException;
 import com.cg.ars.exception.UserException;
@@ -64,7 +65,7 @@ public class ARSClient
 			try {
 				menu = Integer.parseInt(BR.readLine());
 			} catch (NumberFormatException | IOException e) {
-				e.printStackTrace();
+				System.err.println("\nInvalid Choice!");
 				holdScreen();
 				continue;
 			}
@@ -105,7 +106,7 @@ public class ARSClient
 			try {
 				username = BR.readLine();
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.err.println("\nInvalid Username!");
 				holdScreen();
 				continue;
 			}
@@ -117,7 +118,7 @@ public class ARSClient
 			try {
 				isValidUser = U_SER.verifyUser(username, password);
 			} catch (UserException e) {
-				e.printStackTrace();
+				System.err.println(e.getMessage());
 				holdScreen();
 				continue;
 			}
@@ -128,7 +129,7 @@ public class ARSClient
 				try {
 					user = U_SER.getUser(username);
 				} catch (UserException e) {
-					e.printStackTrace();
+					System.err.println(e.getMessage());
 					holdScreen();
 					continue;
 				}
@@ -163,7 +164,7 @@ public class ARSClient
 						try {
 							choice = Integer.parseInt(BR.readLine());
 						} catch (NumberFormatException | IOException e) {
-							e.printStackTrace();
+							System.err.println("\nInvalid Choice!");
 							holdScreen();
 							continue;
 						}
@@ -235,7 +236,7 @@ public class ARSClient
 						try {
 							choice = Integer.parseInt(BR.readLine());
 						} catch (NumberFormatException | IOException e) {
-							e.printStackTrace();
+							System.err.println("\nInvalid Choice!");
 							holdScreen();
 							continue;
 						}
@@ -280,7 +281,7 @@ public class ARSClient
 						try {
 							choice = Integer.parseInt(BR.readLine());
 						} catch (NumberFormatException | IOException e) {
-							e.printStackTrace();
+							System.err.println("\nInvalid Choice!");
 							holdScreen();
 							continue;
 						}
@@ -331,15 +332,16 @@ public class ARSClient
 			System.out.print("Mobile No.: ");
 			user.setMobileNo(BR.readLine());
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
 		}
 		
 		try {
 			U_SER.addUser(user);
 			
-			System.out.println("Registration Successful");
+			System.out.println("\nRegistration Successful");
 		} catch (UserException e) {
-			e.printStackTrace();
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 
@@ -356,7 +358,9 @@ public class ARSClient
 		try {
 			choice = Integer.parseInt(BR.readLine());
 		} catch (NumberFormatException | IOException e) {
-			e.printStackTrace();
+			System.err.println("\nInvalid Choice!");
+			System.err.println(e.getMessage());
+			return;
 		}
 		
 		User user = new User();
@@ -386,15 +390,16 @@ public class ARSClient
 			System.out.print("Mobile No.: ");
 			user.setMobileNo(BR.readLine());
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
 		}
 		
 		try {
 			U_SER.addUser(user);
 			
-			System.out.println("Added User Successfully");
+			System.out.println("\nAdded User Successfully");
 		} catch (UserException e) {
-			e.printStackTrace();
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 
@@ -440,15 +445,15 @@ public class ARSClient
 			}
 		}
 		catch (FlightException e) {
-			e.printStackTrace();
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 
 	private static void addFlight()
 	{
+		Flight flight = new Flight();
+		
 		try {
-			Flight flight = new Flight();
-			
 			System.out.print("Flight Number: ");
 			flight.setFlightNo(BR.readLine());
 			
@@ -488,21 +493,43 @@ public class ARSClient
 			
 			System.out.print("Arrival Airport: ");
 			flight.setArrAirport(BR.readLine());
-			
-			F_SER.addFlight(flight);
 		}
-		catch(Exception e) {
-			e.printStackTrace();
+		catch(IOException | ParseException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		try {
+			F_SER.addFlight(flight);
+		} catch (FlightException e) {
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 
 	private static void modifyFlight()
 	{
+		Flight flight;
+		
+		String flightNo;
+		
 		try {
 			System.out.println("Flight Number: ");
-			
-			Flight flight = F_SER.getFlight(BR.readLine());
-			
+			flightNo = BR.readLine();
+		} catch (IOException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		try {
+			flight = F_SER.getFlight(flightNo);
+		} catch (FlightException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
+		}
+		
+		try {
 			System.out.println("Flight No.: " + flight.getFlightNo());
 			System.out.println("Airline: " + flight.getAirline());
 			System.out.println("Departure City: " + flight.getDepCity());
@@ -557,11 +584,17 @@ public class ARSClient
 			
 			System.out.print("Arrival Airport: ");
 			flight.setArrAirport(BR.readLine());
-			
-			F_SER.modifyFlight(flight);
 		}
-		catch (Exception e) {
-			e.printStackTrace();
+		catch (IOException | ParseException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		try {
+			F_SER.modifyFlight(flight);
+		} catch (FlightException e) {
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 
@@ -600,72 +633,82 @@ public class ARSClient
 			}
 		}
 		catch (Exception e) {
-			System.out.println("\nCould not delete flight");
-			System.out.println(e.getMessage());
+			System.err.println("\nCould not delete flight");
+			System.err.println(e.getMessage());
 		}
 	}
 
 	private static void viewFlightsByDate() 
 	{
-		try 
-		{
+		Date date;
+		String depCity, arrCity;
+		
+		try {
 			System.out.print("Travel Date (dd-MM-yyyy): ");
-			Date date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
+			date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
 			
 			System.out.print("Departure City: ");
-			String depCity = BR.readLine();
+			depCity = BR.readLine();
 			
 			System.out.print("Arrival City: ");
-			String arrCity = BR.readLine();
-			
-			List<Flight> flights = F_SER.getFlights(date, depCity, arrCity);
-			
-			System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-10s %-10s\n",
-					"Flight No",
-					"Airline",
-					"Departure City",
-					"Arrival City",
-					"Dep Date",
-					"Dep Time",
-					"Arr Date",
-					"Arr Time",
-					"First Seats",
-					"First Fare",
-					"Business Seats",
-					"Business Fare",
-					"Dep Airport",
-					"Arr Airport");
-			
-			for (Flight f : flights)
-			{
-				System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-10s %-10s\n",
-						f.getFlightNo(),
-						f.getAirline(),
-						f.getDepCity(),
-						f.getArrCity(),
-						DATE_FORMAT.format(f.getDepDate()),
-						TIME_FORMAT.format(f.getDepTime()),
-						DATE_FORMAT.format(f.getArrDate()),
-						TIME_FORMAT.format(f.getArrTime()),
-						f.getFirstSeats(),
-						f.getFirstSeatsFare(),
-						f.getBussSeats(),
-						f.getBussSeatsFare(),
-						f.getDepAirport(),
-						f.getArrAirport());
-			}
+			arrCity = BR.readLine();
+		} catch (ParseException | IOException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
 		}
-		catch (Exception e) {
-			e.printStackTrace();
+		
+		List<Flight> flights;
+		
+		try {
+			flights = F_SER.getFlights(date, depCity, arrCity);
+		} catch (FlightException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
+		}
+		
+		System.out.printf("\n\n%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15s %15s %15s %15s %-10s %-10s\n",
+				"Flight No",
+				"Airline",
+				"Departure City",
+				"Arrival City",
+				"Dep Date",
+				"Dep Time",
+				"Arr Date",
+				"Arr Time",
+				"First Seats",
+				"First Fare",
+				"Business Seats",
+				"Business Fare",
+				"Dep Airport",
+				"Arr Airport");
+		
+		for (Flight f : flights)
+		{
+			System.out.printf("%-20s %-40s %-40s %-40s %-12s %-12s %-12s %-12s %15d %15.2f %15d %15.2f %-10s %-10s\n",
+					f.getFlightNo(),
+					f.getAirline(),
+					f.getDepCity(),
+					f.getArrCity(),
+					DATE_FORMAT.format(f.getDepDate()),
+					TIME_FORMAT.format(f.getDepTime()),
+					DATE_FORMAT.format(f.getArrDate()),
+					TIME_FORMAT.format(f.getArrTime()),
+					f.getFirstSeats(),
+					f.getFirstSeatsFare(),
+					f.getBussSeats(),
+					f.getBussSeatsFare(),
+					f.getDepAirport(),
+					f.getArrAirport());
 		}
 	}
 
 	private static void addAirport() 
 	{
+		Airport airport = new Airport();
+		
 		try 
 		{
-			Airport airport = new Airport();
-			
 			System.out.print("Airport Name: ");
 			airport.setAirportName(BR.readLine());
 			
@@ -674,11 +717,17 @@ public class ARSClient
 			
 			System.out.print("Location: ");
 			airport.setLocation(BR.readLine());
-			
-			A_SER.addAirport(airport);
 		}
-		catch (Exception e) {
-			e.printStackTrace();
+		catch (IOException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		try {
+			A_SER.addAirport(airport);
+		} catch (AirportException e) {
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 
@@ -816,62 +865,108 @@ public class ARSClient
 
 	private static void viewBooking() 
 	{
+		String bookingId;
+		
 		try {
 			System.out.print("Booking ID:");
 			
-			Booking booking = B_SER.getBooking(BR.readLine());
+			bookingId = BR.readLine();
+		}
+		catch (IOException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
 			
-			System.out.printf("%s%s%s%s%s%s%d%d%lf",
-					booking.getBookingId(),
-					booking.getFlightNo(),
-					booking.getCustEmail(),
-					booking.getSrcCity(),
-					booking.getDestCity(),
-					booking.getClassType(),
-					booking.getNoOfPassengers(),
-					booking.getSeatNumber(),
-					booking.getTotalFare());
+		Booking booking;
+		
+		try {
+			booking = B_SER.getBooking(bookingId);
+		} catch (BookingException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
 		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+		
+		System.out.printf("%s%s%s%s%s%s%d%d%lf",
+				booking.getBookingId(),
+				booking.getFlightNo(),
+				booking.getCustEmail(),
+				booking.getSrcCity(),
+				booking.getDestCity(),
+				booking.getClassType(),
+				booking.getNoOfPassengers(),
+				booking.getSeatNumber(),
+				booking.getTotalFare());
 	}
 
 	private static void changeEmailId() 
 	{
+		String bookingId;
+		
 		try 
 		{
 			System.out.println("Booking ID: ");
-			String bookingId = BR.readLine();
-			
-			Booking booking = B_SER.getBooking(bookingId);
-			
+			bookingId = BR.readLine();
+		}
+		catch (IOException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		Booking booking;
+		
+		try {
+			booking = B_SER.getBooking(bookingId);
+		}
+		catch (BookingException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
+		}
+		
+		try {
 			System.out.print("Email ID: ");
 			booking.setCustEmail(BR.readLine());
-			
+		} 
+		catch (IOException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		try {
 			B_SER.updateBooking(booking);
 			
 			System.out.println("Email ID changed successfully");
-		} 
-		catch (IOException | BookingException e) {
-			e.printStackTrace();
+		}
+		catch (BookingException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
 		}
 	}
 
 	private static void cancelBooking() 
 	{
-		try
-		{
+		String bookingId;
+		
+		try {
 			System.out.print("Booking ID: ");
-			String bookingId = BR.readLine();
-			
+			bookingId = BR.readLine();
+		} 
+		catch (IOException e) {
+			System.err.println("\nInvalid Input!");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		try {
 			if (B_SER.validateBookingId(bookingId)) {
 				B_SER.cancelBooking(bookingId);
+				
 				System.out.println("Booking with [bookingId=" + bookingId + "] cancelled successfully");
 			}
-		} 
-		catch (IOException | BookingException e) {
-			e.printStackTrace();
+		} catch (BookingException e) {
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 	
@@ -897,11 +992,20 @@ public class ARSClient
 	
 	public static void clearScreen()
 	{
-		// try to clear console
+		String os = System.getProperty("os.name").toLowerCase();
+		
 		try {
-			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-		} catch (InterruptedException | IOException exc) {
-			exc.printStackTrace();
+			if (os.indexOf("windows") >= 0) {
+				Runtime.getRuntime().exec("cls");
+			}
+			else if (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0 || os.indexOf("aix") >= 0 ||	// unix & linux
+					 os.indexOf("mac") >= 0 ||														// mac osx
+					 os.indexOf("sunos") >= 0) {													// solaris
+				Runtime.getRuntime().exec("clear");
+			}
+		} catch (IOException e) {
+			// Could not clear screen
+			// Do nothing
 		}
 	}
 	
@@ -911,8 +1015,9 @@ public class ARSClient
 		
 		try {
 			BR.readLine();
-		} catch (IOException exc) {
-			exc.printStackTrace();
+		} catch (IOException e) {
+			// Some invalid input was entered by the user
+			// Do nothing
 		}
 	}
 }
