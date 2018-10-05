@@ -780,7 +780,7 @@ public class ARSClient
 		
 		try 
 		{
-			System.out.print("Airport Name: ");
+			System.out.print("\nAirport Name: ");
 			airport.setAirportName(BR.readLine());
 			
 			System.out.print("Abbreviation: ");
@@ -817,7 +817,7 @@ public class ARSClient
   
 	private static void viewFlightOccupancy() 
 	{
-		System.out.print("Flight number: ");
+		System.out.print("\nFlight number: ");
 		
 		String flightNo = null;
 		
@@ -839,7 +839,7 @@ public class ARSClient
 		String arrCity = null;
 	      
 		try {
-			System.out.print("Departure City: ");
+			System.out.print("\nDeparture City: ");
 			depCity = BR.readLine();
 			
 			System.out.print("Arrival City: ");
@@ -859,7 +859,7 @@ public class ARSClient
 	{
 		try 
 		{
-			System.out.print("Travel Date (dd-MM-yyyy): ");
+			System.out.print("\nTravel Date (dd-MM-yyyy): ");
 			Date date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
         
 			System.out.print("City From: ");
@@ -963,7 +963,7 @@ public class ARSClient
 		String bookingId;
 		
 		try {
-			System.out.print("Booking ID:");
+			System.out.print("\nBooking ID:");
 			
 			bookingId = BR.readLine();
 		}
@@ -1000,7 +1000,7 @@ public class ARSClient
 		
 		try 
 		{
-			System.out.println("Booking ID: ");
+			System.out.println("\nBooking ID: ");
 			bookingId = BR.readLine();
 		}
 		catch (IOException e) {
@@ -1045,7 +1045,7 @@ public class ARSClient
 		String bookingId;
 		
 		try {
-			System.out.print("Booking ID: ");
+			System.out.print("\nBooking ID: ");
 			bookingId = BR.readLine();
 		} 
 		catch (IOException e) {
