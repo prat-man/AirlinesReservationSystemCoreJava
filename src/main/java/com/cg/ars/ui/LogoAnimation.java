@@ -57,7 +57,7 @@ public class LogoAnimation implements Runnable
 	{
 		service = Executors.newSingleThreadScheduledExecutor();
 		
-		self = service.scheduleAtFixedRate(this, 0, 500, TimeUnit.MICROSECONDS);
+		self = service.scheduleAtFixedRate(this, 0,50, TimeUnit.MILLISECONDS);
 		
 		// acquire semaphore
 		try {
@@ -67,15 +67,16 @@ public class LogoAnimation implements Runnable
 		}
 	}
 	
+	@Override
 	public void run()
 	{
 		frameId++;
 		
 		// if animation is complete, cancel scheduler
 		if (frameId > frameBuffer.length) {
-			// hold the screen for 2 second
+			// hold the screen for 1.5 second
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(1500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
