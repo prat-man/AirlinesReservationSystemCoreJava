@@ -245,7 +245,7 @@ public class FlightServiceImpl implements FlightService
 		try {
 			Double oc = fdao.getOccupancy(flightNo);
 			
-			logger.info("Fetched Occupancy [Occupancy" + oc + "]");
+			logger.info("Fetched ccupancy [Occupancy" + oc + "]");
 			
 			return oc;
 		}
@@ -265,7 +265,7 @@ public class FlightServiceImpl implements FlightService
 		try {
 			Double oc = fdao.getOccupancy(depCity, arrCity);
 			
-			logger.info("Occupancy between cities [depCity=" + depCity + ", arrCity=" + arrCity + "]");
+			logger.info("Fetched Occupancy between cities [depCity=" + depCity + ", arrCity=" + arrCity + "]");
 			
 			return oc;
 		}
@@ -275,7 +275,7 @@ public class FlightServiceImpl implements FlightService
 	}
 
 	/**
-	 * Get Flight number 
+	 * Get Flight Instance by Flight Number 
 	 * @return Flight Instance
 	 */
 	@Override

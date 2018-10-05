@@ -153,6 +153,10 @@ public class FlightDaoImpl implements FlightDao
 			
 			Long seatCount = Long.valueOf(flight.getFirstSeats()) + Long.valueOf(flight.getBussSeats());
 			
+			if (sumOfPassengers == null || seatCount == null) {
+				throw new NullPointerException("Could not fetch occupancy details for [flightNo=" + flightNo + "]");
+			}
+			
 			entityManager.getTransaction().commit();
 							
 			return Double.valueOf(sumOfPassengers) / Double.valueOf(seatCount);
@@ -180,6 +184,10 @@ public class FlightDaoImpl implements FlightDao
 													.setParameter("depCity", depCity)
 													.setParameter("arrCity", arrCity)
 													.getSingleResult();
+			
+			if (sumOfPassengers == null || seatCount == null) {
+				throw new NullPointerException("Could not fetch occupancy details for [depCity=" + depCity + ", arrCity=" + arrCity + "]");
+			}
 			
 			entityManager.getTransaction().commit();
 													
