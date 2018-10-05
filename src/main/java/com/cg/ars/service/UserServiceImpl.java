@@ -50,7 +50,11 @@ public class UserServiceImpl implements UserService
 	@Override
 	public User getUser(String username) throws UserException
 	{
-    this.validateUsername(username);
+		/*
+		 * Do not validate username here
+		 * Bypass for 'admin/admin' and other such special credential pairs
+		 */
+		//this.validateUsername(username);
     
 		User user = udao.getUser(username);
 		
@@ -66,9 +70,14 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean changePassword(String username, String oldPass, String newPass) throws UserException
 	{
-		this.validateUsername(username);
+		/*
+		 * Do not validate username here
+		 * Bypass for 'admin/admin' and other such special credential pairs
+		 */
+		//this.validateUsername(username);
 		this.validatePassword(oldPass);
 		this.validatePassword(newPass);
+		
 		User user = udao.getUser(username);
 		
 		// Check if user exists
@@ -100,8 +109,13 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean verifyUser(String username, String password) throws UserException
 	{
-		this.validateUsername(username);
-		this.validatePassword(password);
+		/*
+		 * Do not validate username and password here
+		 * Bypass for 'admin/admin' and other such special credential pairs
+		 */
+		//this.validateUsername(username);
+		//this.validatePassword(password);
+		
 		User user = udao.getUser(username);
 		
 		// Check if user exists
