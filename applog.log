@@ -768,3 +768,195 @@
 2018-10-05 13:26:37,192 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
 2018-10-05 13:26:37,192 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
 2018-10-05 13:26:37,519 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Password
+2018-10-05 16:01:54,092 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:01:54,123 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:01:54,123 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:01:54,123 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:01:54,294 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:01:54,357 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:01:54,357 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:01:54,357 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:01:54,357 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:01:55,413 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:01:55,585 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:01:55,585 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:02:24,307 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:02:24,322 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:02:24,322 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:02:24,322 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:02:24,495 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:02:24,573 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:02:24,573 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:02:24,573 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:02:24,573 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:02:25,561 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:02:25,764 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:02:25,764 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:02:41,640 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:02:41,640 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:02:41,640 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:02:41,656 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:02:41,829 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:02:41,893 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:02:41,893 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:02:41,893 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:02:41,893 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:02:42,893 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:02:43,081 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:02:43,081 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:03:02,553 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:03:02,553 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:03:02,553 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:03:02,553 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:03:02,725 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:03:02,803 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:03:02,803 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:03:02,803 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:03:02,803 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:03:03,810 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:03:03,997 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:03:03,997 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:03:44,702 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:03:44,702 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:03:44,702 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:03:44,702 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:03:44,872 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:03:44,950 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:03:44,950 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:03:44,950 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:03:44,950 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:03:45,971 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:03:46,158 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:03:46,158 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:04:35,006 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:04:35,006 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:04:35,006 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:04:35,006 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:04:35,178 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:04:35,256 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:04:35,256 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:04:35,256 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:04:35,256 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:04:36,273 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:04:36,480 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:04:36,480 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:09:02,141 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:09:02,141 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:09:02,141 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:09:02,141 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:09:02,313 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:09:02,376 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:09:02,376 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:09:02,376 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:09:02,376 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:09:03,373 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:09:03,562 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:09:03,562 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:09:37,941 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:09:37,941 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:09:37,941 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:09:37,941 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:09:38,112 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:09:38,175 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:09:38,175 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:09:38,175 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:09:38,175 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:09:39,206 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:09:39,411 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:09:39,411 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:09:58,987 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:09:58,987 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:09:58,987 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:09:58,987 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:09:59,158 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:09:59,221 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:09:59,221 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:09:59,221 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:09:59,221 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:10:00,315 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:10:00,504 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:10:00,504 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:10:15,139 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:10:15,139 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:10:15,139 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:10:15,139 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:10:15,311 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:10:15,374 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:10:15,374 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:10:15,374 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:10:15,374 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:10:16,413 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:10:16,616 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:10:16,616 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:10:27,611 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:10:27,611 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:10:27,611 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:10:27,611 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:10:27,783 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:10:27,845 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:10:27,845 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:10:27,845 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:10:27,845 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:10:28,866 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:10:29,070 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:10:29,070 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:23:20,698 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:23:20,698 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:23:20,698 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:23:20,698 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:23:20,885 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:23:20,947 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:23:20,947 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:23:20,947 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:23:20,947 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:23:21,904 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:23:22,060 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:23:22,060 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:24:15,963 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:24:15,978 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:24:15,978 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:24:15,978 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:24:16,150 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:24:16,212 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:24:16,212 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:24:16,212 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:24:16,212 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:24:17,150 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:24:17,338 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:24:17,338 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:26:50,046 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:26:50,046 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:26:50,046 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:26:50,046 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:26:50,234 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:26:50,296 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:26:50,296 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:26:50,296 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:26:50,296 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:26:51,253 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:26:51,426 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:26:51,428 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:27:07,816 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:27:07,832 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:27:07,832 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:27:07,832 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:27:08,004 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:27:08,066 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:27:08,066 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:27:08,066 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:27:08,066 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:27:09,072 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:27:09,322 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:27:09,322 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
+2018-10-05 16:28:06,808 - org.hibernate.annotations.common.Version - INFO - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2018-10-05 16:28:06,808 - org.hibernate.Version - INFO - HHH000412: Hibernate Core {4.2.8.Final}
+2018-10-05 16:28:06,808 - org.hibernate.cfg.Environment - INFO - HHH000206: hibernate.properties not found
+2018-10-05 16:28:06,808 - org.hibernate.cfg.Environment - INFO - HHH000021: Bytecode provider name : javassist
+2018-10-05 16:28:06,996 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-10-05 16:28:07,089 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000115: Hibernate connection pool size: 20
+2018-10-05 16:28:07,089 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000006: Autocommit mode: true
+2018-10-05 16:28:07,089 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000401: using driver [oracle.jdbc.driver.OracleDriver] at URL [jdbc:oracle:thin:@10.51.103.201:1521:ORCL11G]
+2018-10-05 16:28:07,089 - org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl - INFO - HHH000046: Connection properties: {user=lab1btrg30, password=****, autocommit=true, release_mode=auto}
+2018-10-05 16:28:08,091 - org.hibernate.dialect.Dialect - INFO - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-10-05 16:28:08,278 - org.hibernate.engine.transaction.internal.TransactionFactoryInitiator - INFO - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2018-10-05 16:28:08,278 - org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - INFO - HHH000397: Using ASTQueryTranslatorFactory
