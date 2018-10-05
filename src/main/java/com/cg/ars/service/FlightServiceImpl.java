@@ -237,29 +237,41 @@ public class FlightServiceImpl implements FlightService
 	/**
 	 * Get Occupancy Details by Flight Number
 	 * @return occupancy 
+	 * @throws FlightException 
 	 */
 	@Override
-	public Double getOccupancy(String flightNo)
+	public Double getOccupancy(String flightNo) throws FlightException
 	{
-		Double oc = fdao.getOccupancy(flightNo);
-		
-		logger.info("Fetched Occupancy [Occupancy" + oc + "]");
-		
-		return oc;
+		try {
+			Double oc = fdao.getOccupancy(flightNo);
+			
+			logger.info("Fetched Occupancy [Occupancy" + oc + "]");
+			
+			return oc;
+		}
+		catch (Exception e) {
+			throw new FlightException(e.getMessage());
+		}
 	}
 
 	/**
 	 * Get Occupancy Details between cities
 	 * @return occupancy 
+	 * @throws FlightException 
 	 */
 	@Override
-	public Double getOccupancy(String depCity, String arrCity)
+	public Double getOccupancy(String depCity, String arrCity) throws FlightException
 	{
-		Double oc = fdao.getOccupancy(depCity, arrCity);
-		
-		logger.info("Occupancy between cities [depCity=" + depCity + ", arrCity=" + arrCity + "]");
-		
-		return oc;
+		try {
+			Double oc = fdao.getOccupancy(depCity, arrCity);
+			
+			logger.info("Occupancy between cities [depCity=" + depCity + ", arrCity=" + arrCity + "]");
+			
+			return oc;
+		}
+		catch (Exception e) {
+			throw new FlightException(e.getMessage());
+		}
 	}
 
 	/**
