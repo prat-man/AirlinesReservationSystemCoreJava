@@ -603,7 +603,7 @@ public class ARSClient
 		}
 		
 		try {
-			System.out.println("Flight No.: " + flight.getFlightNo());
+			System.out.println("\nFlight No.: " + flight.getFlightNo());
 			System.out.println("Airline: " + flight.getAirline());
 			System.out.println("Departure City: " + flight.getDepCity());
 			System.out.println("Arrival City: " + flight.getArrCity());
@@ -617,11 +617,8 @@ public class ARSClient
 			System.out.println("Business Fare: " + flight.getBussSeatsFare());
 			System.out.println("Departure Airport: " + flight.getDepAirport());
 			System.out.println("Arrival Airport: " + flight.getArrAirport());
-		
-			System.out.print("Flight Number: ");
-			flight.setFlightNo(BR.readLine());
 			
-			System.out.print("Airline Name: ");
+			System.out.print("\n\nAirline Name: ");
 			flight.setAirline(BR.readLine());
 			
 			System.out.print("Departure Date: ");
@@ -666,6 +663,8 @@ public class ARSClient
 		
 		try {
 			F_SER.modifyFlight(flight);
+			
+			System.out.println("\nFlight Modified Successfully");
 		} catch (FlightException e) {
 			System.err.println("\n" + e.getMessage());
 		}
@@ -808,13 +807,21 @@ public class ARSClient
 
 	private static void viewAirports() 
 	{
-		List<Airport> Airports =  A_SER.getAllAirports();
+		List<Airport> airports =  A_SER.getAllAirports();
 		
+		if (airports == null || airports.isEmpty()) {
+			System.err.println("\nNo Airports Found");
+			return;
+		}
 		
+		System.out.printf("%-20s %-15s %-40s\n",
+				"Airport Name",
+				"Abbreviation",
+				"Location");
 		
-		for (Airport a : Airports)
+		for (Airport a : airports)
 		{
-			System.out.printf("%-20s %-10s %40s",
+			System.out.printf("%-20s %-15s %-40s\n",
 					a.getAirportName(),
 					a.getAbbreviation(),
 					a.getLocation());
