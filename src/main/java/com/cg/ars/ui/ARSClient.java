@@ -950,7 +950,7 @@ public class ARSClient
 			
 			Booking booking = new Booking();
 			
-			System.out.print("\n\nFlight Number:");
+			System.out.print("\n\nFlight Number: ");
 			String flightNo = BR.readLine();
 			booking.setFlightNo(flightNo);
 			
