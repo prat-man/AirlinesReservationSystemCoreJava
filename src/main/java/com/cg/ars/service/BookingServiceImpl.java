@@ -133,7 +133,7 @@ public class BookingServiceImpl implements BookingService
       
 			bdao.updateBooking(booking);
       
-			logger.info("Updating booking details with [bookingId =" + booking.getBookingId() + "]");
+			logger.info("Updating booking details with [bookingId=" + booking.getBookingId() + "]");
 		}
 		catch (Exception exc) {
 			logger.error(exc.getMessage());
@@ -191,12 +191,12 @@ public class BookingServiceImpl implements BookingService
 		String pattern = "[A-Z]{3,4}[0-9]{4,6}";
 		
 		if (Pattern.matches(pattern, bookingId)) {
-			logger.info("Booking ID valid![Booking ID=" + bookingId + "]");
+			logger.info("Booking ID valid [booking ID=" + bookingId + "]");
 			return true;
 		}
 		else {
-			logger.error("Invalid Booking ID [Booking ID=" + bookingId + "]");
-			throw new BookingException("Invalid Booking ID [Booking ID=" + bookingId + "]");
+			logger.error("Invalid Booking ID [bookingId=" + bookingId + "]");
+			throw new BookingException("Invalid Booking ID [bookingId=" + bookingId + "]");
 		}
 	}
 
@@ -210,12 +210,12 @@ public class BookingServiceImpl implements BookingService
 		String pattern = "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)";
 		
 		if (Pattern.matches(pattern, email)) {
-			logger.info("Email ID valid! [Email =" + email + "]");
+			logger.info("Email ID valid [email=" + email + "]");
 			return true;
 		}
 		else {
-			logger.error("Invalid Email ID [Email =" + email + "]");
-			throw new BookingException("Invalid Email ID [Email =" + email + "]");
+			logger.error("Invalid Email ID [email=" + email + "]");
+			throw new BookingException("Invalid Email ID [email=" + email + "]");
 		}
 	}
 
@@ -246,14 +246,18 @@ public class BookingServiceImpl implements BookingService
 		// if number of passengers are one or more
 		// and number of passengers are less than number of seats available
 		if (passengers > 0 && passengers <= availableSeats) {
-			logger.info("Number of passengers valid! [NoOfPassengers =" + passengers + "]");
+			logger.info("Number of passengers valid! [noOfPassengers=" + passengers + "]");
 			return true;
 		}
 		else {
-			logger.error("Invalid number of passengers [NoOfPassengers =" + passengers + "]" +
-							"\nFormat"+"Should be between 0 and "+availableSeats);
-			throw new BookingException("Invalid number of passengers [NoOfPassengers =" + passengers + "]"
-						+ "\nFormat" + "Should be between 0 and "+availableSeats);
+			if (availableSeats > 0) {
+				logger.error("Invalid number of passengers [noOfPassengers=" + passengers + "]\nShould be between 1 and " + availableSeats);
+				throw new BookingException("Invalid number of passengers [noOfPassengers=" + passengers + "]\nShould be between 1 and " + availableSeats);
+			}
+			else {
+				logger.error("Invalid number of passengers [noOfPassengers=" + passengers + "]\nAll seats have been booked");
+				throw new BookingException("Invalid number of passengers [noOfPassengers=" + passengers + "]\nAll seats have been booked");
+			}
 		}
 	}
 
@@ -267,14 +271,12 @@ public class BookingServiceImpl implements BookingService
 		String[] classes = Flight.getClassTypes();
 		
 		if (Arrays.asList(classes).contains(classType)) {
-			logger.info("Class Type valid! [Class Type=" + classType + "]");
+			logger.info("Class Type valid! [classType=" + classType + "]");
 			return true;
 		}
 		else {
-			logger.error("Invalid Class Type [Class Type=" + classType + "]" +
-							"\nFormat:"+"Should be " + Flight.FIRST + " or "+ Flight.BUSINESS);
-			throw new BookingException("Invalid Class Type [Class Type=" + classType + "]" +
-							"\nFormat:"+"Should be " + Flight.FIRST + " or "+ Flight.BUSINESS);
+			logger.error("Invalid Class Type [classType=" + classType + "]\nShould be " + Flight.FIRST + " or "+ Flight.BUSINESS);
+			throw new BookingException("Invalid Class Type [classType=" + classType + "]\nShould be " + Flight.FIRST + " or "+ Flight.BUSINESS);
 		}
 	}
 
@@ -292,10 +294,8 @@ public class BookingServiceImpl implements BookingService
 			return true;
 		}
 		else {
-			logger.error("Invalid Credit Card Information [Info Entered =" + creditCardInfo + "]"
-							+"\nFormat: Must be 16 digits");
-			throw new BookingException("Invalid Credit Card Information [Info Entered =" + creditCardInfo + "]"
-							+"\nFormat: Must be 16 digits");
+			logger.error("Invalid Credit Card Information [creditCardInfo=" + creditCardInfo + "]\nMust be 16 digits");
+			throw new BookingException("Invalid Credit Card Information [creditCardInfo=" + creditCardInfo + "]\nMust be 16 digits");
 		}
 	}
 
@@ -309,12 +309,12 @@ public class BookingServiceImpl implements BookingService
 		String pattern = "([A-Z][a-z]+ )*[A-Z][a-z]+";
 		
 		if (Pattern.matches(pattern, city)) {
-			logger.info("City name valid![City =" + city + "]");
+			logger.info("City name valid! [city=" + city + "]");
 			return true;
 		}
 		else {
-			logger.error("Invalid City Name [City =" + city +"]\nFormat: Should start with UPPERCASE followed by lowercase");
-			throw new BookingException("Invalid City Name [City =" + city +"]\nFormat: Should start with UPPERCASE followed by lowercase");
+			logger.error("Invalid City Name [city=" + city +"]\nShould start with UPPERCASE followed by lowercase");
+			throw new BookingException("Invalid City Name [city=" + city +"]\nShould start with UPPERCASE followed by lowercase");
 		}
 	}
 }
