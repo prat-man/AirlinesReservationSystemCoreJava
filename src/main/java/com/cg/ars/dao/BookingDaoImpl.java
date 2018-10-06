@@ -114,7 +114,7 @@ public class BookingDaoImpl implements BookingDao
 		try {
 			entityManager.getTransaction().begin();
 			
-			Booking booking = this.getBooking(bookingId);
+			Booking booking = entityManager.find(Booking.class, bookingId);
 			
 			entityManager.remove(booking);
 			

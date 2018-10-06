@@ -69,3 +69,26 @@ Format: Must be 16 digits
 2018-10-06 14:46:24,346 - com.cg.ars.service.BookingServiceImpl - INFO - Credit card number valid!
 2018-10-06 14:46:24,346 - com.cg.ars.service.BookingServiceImpl - INFO - Email ID valid! [Email =pratanu.mandal@gmail.com]
 2018-10-06 14:46:24,346 - com.cg.ars.service.BookingServiceImpl - INFO - Number of passengers valid! [NoOfPassengers =5]
+2018-10-06 23:46:45,246 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-06 23:46:45,278 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-06 23:46:59,121 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID valid [booking ID=INDI1006]
+2018-10-06 23:46:59,190 - com.cg.ars.service.BookingServiceImpl - INFO - Booking details fetched for [bookingId=INDI1006]
+2018-10-06 23:46:59,190 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID valid [booking ID=INDI1006]
+2018-10-06 23:46:59,190 - com.cg.ars.service.BookingServiceImpl - INFO - Cancelling booking with [bookingId=INDI1006]
+2018-10-06 23:46:59,221 - com.cg.ars.service.BookingServiceImpl - ERROR - Transaction not active
+2018-10-06 23:48:15,366 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-06 23:48:15,399 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-06 23:48:22,888 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID valid [booking ID=INDI1006]
+2018-10-06 23:48:22,955 - com.cg.ars.service.BookingServiceImpl - INFO - Booking details fetched for [bookingId=INDI1006]
+2018-10-06 23:48:22,955 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID valid [booking ID=INDI1006]
+2018-10-06 23:48:22,955 - com.cg.ars.service.BookingServiceImpl - INFO - Cancelling booking with [bookingId=INDI1006]
+2018-10-06 23:48:22,988 - com.cg.ars.service.BookingServiceImpl - ERROR - Transaction not active
+2018-10-06 23:50:36,900 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-06 23:50:36,931 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-06 23:50:45,714 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID valid [booking ID=INDI1006]
+2018-10-06 23:50:45,780 - com.cg.ars.service.BookingServiceImpl - INFO - Booking details fetched for [bookingId=INDI1006]
+2018-10-06 23:50:45,780 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID valid [booking ID=INDI1006]
+2018-10-06 23:50:45,780 - com.cg.ars.service.BookingServiceImpl - INFO - Cancelling booking with [bookingId=INDI1006]
+2018-10-06 23:51:04,525 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID valid [booking ID=INDI1006]
+2018-10-06 23:51:04,610 - com.cg.ars.service.BookingServiceImpl - ERROR - Booking Record with [bookingId=INDI1006] not found
+2018-10-06 23:51:04,610 - com.cg.ars.service.BookingServiceImpl - ERROR - Booking Record with [bookingId=INDI1006] not found

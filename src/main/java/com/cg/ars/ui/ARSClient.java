@@ -336,7 +336,7 @@ public class ARSClient
 									break;
 									
 							case 4:
-									cancelBooking();
+									cancelBooking(username);
 									break;
 									
 							case 5:
@@ -1105,7 +1105,7 @@ public class ARSClient
 		}
 	}
 
-	private static void cancelBooking() 
+	private static void cancelBooking(String username) 
 	{
 		String bookingId;
 		
@@ -1119,6 +1119,20 @@ public class ARSClient
 			return;
 		}
 		
+		Booking booking;
+		
+		try {
+			booking = B_SER.getBooking(bookingId);
+		} catch (BookingException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
+		}
+		
+		if (!booking.getUsername().equals(username)) {
+			System.err.println("\nAccess Denied");
+			return;
+		}
+		
 		try {
 			if (B_SER.validateBookingId(bookingId)) {
 				B_SER.cancelBooking(bookingId);
@@ -1126,6 +1140,7 @@ public class ARSClient
 				System.out.println("\nBooking Cancelled Successfully");
 			}
 		} catch (BookingException e) {
+			e.printStackTrace();
 			System.err.println("\n" + e.getMessage());
 		}
 	}
