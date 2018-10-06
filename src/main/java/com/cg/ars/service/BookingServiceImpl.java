@@ -70,7 +70,7 @@ public class BookingServiceImpl implements BookingService
 									booking.setSeatNumber("B" + flight.getBussSeats());
 								}
 								
-								flight.setFirstSeats(remainingSeats);
+								flight.setBussSeats(remainingSeats);
 								break;
 					
 				default:
@@ -104,7 +104,7 @@ public class BookingServiceImpl implements BookingService
 			}
 			else 
 			{
-				logger.info("Booking details fetched by booking ID [Booking ID =" + booking.getBookingId() + "]");
+				logger.info("Booking details fetched for [bookingId=" + booking.getBookingId() + "]");
 				return booking;
 			}
 		}
@@ -133,7 +133,7 @@ public class BookingServiceImpl implements BookingService
       
 			bdao.updateBooking(booking);
       
-			logger.info("Updating booking details with booking ID [Booking ID =" + booking.getBookingId() + "]");
+			logger.info("Updating booking details with [bookingId =" + booking.getBookingId() + "]");
 		}
 		catch (Exception exc) {
 			logger.error(exc.getMessage());
@@ -148,7 +148,7 @@ public class BookingServiceImpl implements BookingService
 	public void cancelBooking(String bookingId) throws BookingException 
 	{
 		try {
-			logger.info("Cancelling booking with [Booking ID=" + bookingId + "]");
+			logger.info("Cancelling booking with [bookingId=" + bookingId + "]");
 			bdao.cancelBooking(bookingId);
 		}
 		catch (Exception exc) {
@@ -171,7 +171,7 @@ public class BookingServiceImpl implements BookingService
 			
 			String prefix = airline.substring(0, ((airline.length() < 4) ? airline.length() : 4)).toUpperCase();
 			
-			logger.info("Booking ID generated for [Flight No=" + flightNo + "]");
+			logger.info("Booking ID generated for [flightNo=" + flightNo + "]");
 			
 			return prefix + bdao.getBookingId();
 		}
