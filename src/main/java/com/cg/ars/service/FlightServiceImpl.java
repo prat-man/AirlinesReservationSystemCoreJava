@@ -147,12 +147,23 @@ public class FlightServiceImpl implements FlightService
 		this.validateCity(depCity);
 		this.validateCity(arrCity);
 		this.validateDate(date);
-  
-		List<Flight> list = fdao.getFlights(date, depCity, arrCity);
-
-		logger.info("Flight Records Fetched between " + depCity + " and " + arrCity + " on " + date );
-
-		return list;
+		
+		try {
+			List<Flight> list = fdao.getFlights(date, depCity, arrCity);
+			
+			if (list == null || list.isEmpty()) {
+				throw new NullPointerException("Flight List Empty");
+			}
+			else {
+				logger.info("Flight Records Fetched for [depCity=" + depCity + ", arrCity=" + arrCity + ", date=" + date + "]");
+				
+				return list;
+			}
+		}
+		catch (Exception exc) {
+			logger.error("No Flight Records Found\n" + exc.getMessage());
+			throw new FlightException("No Flight Records Found");
+		}
 	}
 
 	/**

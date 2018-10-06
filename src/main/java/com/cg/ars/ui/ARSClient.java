@@ -891,109 +891,141 @@ public class ARSClient
 
 	private static void bookTicket()
 	{
+		Date date;
+		String depCity, arrCity;
+		
 		try 
 		{
 			System.out.print("\nTravel Date (dd-MM-yyyy): ");
-			Date date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
+			date = new Date(DATE_FORMAT.parse(BR.readLine()).getTime());
         
 			System.out.print("City From: ");
-			String depCity = BR.readLine();
+			depCity = BR.readLine();
         
 			System.out.print("City To: ");
-			String arrCity = BR.readLine();
+			arrCity = BR.readLine();
+		}
+		catch (IOException | ParseException e) {
+			System.err.println("\nInvalid Input");
+			System.err.println(e.getMessage());
+			return;
+		}
       
-			List<Flight> flightList = F_SER.getFlights(date, depCity, arrCity);
-			
-			if (flightList == null || flightList.isEmpty()) {
-				System.err.println("\nNo Flights Found");
-				return;
-			}
-			
-			String header = String.format("%-20s | %-40s | %-12s | %-40s | %-12s | %-40s | %-12s | %-12s | %-12s | %-12s | %15s | %15s | %15s | %15s",
-					"Flight No",
-					"Airline",
-					"Dep Airport",
-					"Dep City",
-					"Arr Airport",
-					"Arr City",
-					"Dep Date",
-					"Dep Time",
-					"Arr Date",
-					"Arr Time",
-					"First Seats",
-					"First Fare",
-					"Business Seats",
-					"Business Fare");
-			
-			System.out.println("\n\n" + header);
-			
-			System.out.println(String.format("%" + header.length() + "s", "").replace(' ', '-'));
-      
-			for(Flight flight : flightList) 
-			{
-				System.out.printf("%-20s | %-40s | %-12s | %-40s | %-12s | %-40s | %-12s | %-12s | %-12s | %-12s | %15d | %15.2f | %15d | %15.2f\n",
-						flight.getFlightNo(),
-						flight.getAirline(),
-						flight.getDepAirport(),
-						flight.getDepCity(),
-						flight.getArrAirport(),
-						flight.getArrCity(),
-						DATE_FORMAT.format(flight.getDepDate()),
-						TIME_FORMAT.format(flight.getDepTime()),
-						DATE_FORMAT.format(flight.getArrDate()),
-						TIME_FORMAT.format(flight.getArrTime()),
-						flight.getFirstSeats(),
-						flight.getFirstSeatsFare(),
-						flight.getBussSeats(),
-						flight.getBussSeatsFare());
-			}
-			
-			Booking booking = new Booking();
-			
+		List<Flight> flightList;
+		
+		try {
+			flightList = F_SER.getFlights(date, depCity, arrCity);
+		} catch (FlightException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
+		}
+		
+		String header = String.format("%-20s | %-40s | %-12s | %-40s | %-12s | %-40s | %-12s | %-12s | %-12s | %-12s | %15s | %15s | %15s | %15s",
+				"Flight No",
+				"Airline",
+				"Dep Airport",
+				"Dep City",
+				"Arr Airport",
+				"Arr City",
+				"Dep Date",
+				"Dep Time",
+				"Arr Date",
+				"Arr Time",
+				"First Seats",
+				"First Fare",
+				"Business Seats",
+				"Business Fare");
+		
+		System.out.println("\n\n" + header);
+		
+		System.out.println(String.format("%" + header.length() + "s", "").replace(' ', '-'));
+  
+		for(Flight flight : flightList) 
+		{
+			System.out.printf("%-20s | %-40s | %-12s | %-40s | %-12s | %-40s | %-12s | %-12s | %-12s | %-12s | %15d | %15.2f | %15d | %15.2f\n",
+					flight.getFlightNo(),
+					flight.getAirline(),
+					flight.getDepAirport(),
+					flight.getDepCity(),
+					flight.getArrAirport(),
+					flight.getArrCity(),
+					DATE_FORMAT.format(flight.getDepDate()),
+					TIME_FORMAT.format(flight.getDepTime()),
+					DATE_FORMAT.format(flight.getArrDate()),
+					TIME_FORMAT.format(flight.getArrTime()),
+					flight.getFirstSeats(),
+					flight.getFirstSeatsFare(),
+					flight.getBussSeats(),
+					flight.getBussSeatsFare());
+		}
+		
+		Booking booking = new Booking();
+		
+		try {
 			System.out.print("\n\nFlight Number: ");
 			String flightNo = BR.readLine();
 			booking.setFlightNo(flightNo);
-			
-			booking.setBookingId(B_SER.generateBookingId(flightNo));
-			
-			Flight flight = F_SER.getFlight(flightNo);
-			
-			if (flight == null) {
-				System.err.println("Invalid Flight Number");
-			}
-			
+		}
+		catch (IOException e) {
+			System.err.println("\nInvalid Input");
+			System.err.println(e.getMessage());
+			return;
+		}
+		
+		Flight flight;
+		
+		try {
+			flight = F_SER.getFlight(booking.getFlightNo());
+		} catch (FlightException e) {
+			System.out.println("\n" + e.getMessage());
+			return;
+		}
+		
+		try {
 			System.out.print("Email ID: ");
 			booking.setCustEmail(BR.readLine());
 			
 			System.out.print("Number of Seats Required: ");
-			int noOfPassengers = Integer.parseInt(BR.readLine());
-			booking.setNoOfPassengers(noOfPassengers);
+			booking.setNoOfPassengers(Integer.parseInt(BR.readLine()));
 			
 			System.out.print("Class Type: ");
-			String classType = BR.readLine();
-			booking.setClassType(classType);
-			
-			double totalFare = noOfPassengers * F_SER.getFare(flightNo, classType);
-			booking.setTotalFare(totalFare);
+			booking.setClassType(BR.readLine());
 			
 			System.out.print("Credit Card Number: ");
 			booking.setCreditCardInfo(BR.readLine());
-			
-			booking.setSrcCity(flight.getDepCity());
+		}
+		catch (IOException e) {
+			System.err.println("\nInvalid Input");
+			System.err.println(e.getMessage());
+			return;
+		}
 		
-			booking.setDestCity(flight.getArrCity());
-			
-			B_SER.bookTicket(booking);
-			
-			System.out.println("\nBooking Successful\n");
-			
-			System.out.println("Booking ID: " + booking.getBookingId());
-			
-			System.out.println("Seat Number: " + booking.getSeatNumber());
-		}
-		catch(IOException | ParseException | FlightException | BookingException e) {
+		double totalFare;
+		
+		try {
+			totalFare = booking.getNoOfPassengers() * F_SER.getFare(booking.getFlightNo(), booking.getClassType());
+			booking.setTotalFare(totalFare);
+		} catch (FlightException e) {
 			System.err.println("\n" + e.getMessage());
+			return;
 		}
+		
+		booking.setSrcCity(flight.getDepCity());
+		
+		booking.setDestCity(flight.getArrCity());
+		
+		try {
+			B_SER.bookTicket(booking);
+		} catch (BookingException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
+		}
+		
+		System.out.println("\nBooking Successful\n");
+		
+		System.out.println("Booking ID: " + booking.getBookingId());
+		
+		System.out.println("Seat Number: " + booking.getSeatNumber());
 	}
 
 	private static void viewBooking() 
