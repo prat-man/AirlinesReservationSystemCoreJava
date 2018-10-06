@@ -53,6 +53,11 @@ public class FlightServiceImpl implements FlightService
 			logger.info("Flight Record Added [flightNo=" + flight.getFlightNo() + "]");
 		}
 		catch (Exception exc) {
+			// Dirty hack to reuse method for validating while adding flight
+			if (exc.getMessage().equals("Invalid Date. You must book at least ONE day before")) {
+				throw new FlightException("Invalid Date. You must add flights at least ONE day before");
+			}
+			
 			throw new FlightException(exc.getMessage());
 		}
 	}
