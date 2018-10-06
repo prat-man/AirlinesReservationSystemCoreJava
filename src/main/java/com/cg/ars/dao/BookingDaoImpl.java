@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.cg.ars.dto.Booking;
+import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.BookingException;
 import com.cg.ars.util.JPAUtil;
 
@@ -59,6 +60,42 @@ public class BookingDaoImpl implements BookingDao
 	{
 		try {
 			entityManager.getTransaction().begin();
+			
+			Flight flight = entityManager.find(Flight.class, booking.getFlightNo());
+			
+			Integer remainingSeats;
+			
+			switch (booking.getClassType())
+			{
+				case Flight.FIRST:
+								remainingSeats = flight.getFirstSeats() - booking.getNoOfPassengers();
+								
+								if (booking.getNoOfPassengers() > 1) {
+									booking.setSeatNumber("F" + (remainingSeats + 1) + " - " + "F" + flight.getFirstSeats());
+								}
+								else {
+									booking.setSeatNumber("F" + flight.getFirstSeats());
+								}
+								
+								flight.setFirstSeats(remainingSeats);
+								break;
+				
+				case Flight.BUSINESS:
+								remainingSeats = flight.getBussSeats() - booking.getNoOfPassengers();
+								
+								if (booking.getNoOfPassengers() > 1) {
+									booking.setSeatNumber("B" + (remainingSeats + 1) + " - " + "B" + flight.getBussSeats());
+								}
+								else {
+									booking.setSeatNumber("B" + flight.getBussSeats());
+								}
+								
+								flight.setBussSeats(remainingSeats);
+								break;
+					
+				default:
+								throw new RuntimeException("Invalid Class Type [classType=" + booking.getClassType() + "]");
+			}
 			
 			entityManager.persist(booking);
 			

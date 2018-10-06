@@ -42,41 +42,6 @@ public class BookingServiceImpl implements BookingService
 			this.validateCreditCardInfo(booking.getCreditCardInfo());
 			this.validateNoOfPassengers(flight, booking.getClassType(), booking.getNoOfPassengers());
 			
-			Integer remainingSeats;
-			
-			switch (booking.getClassType())
-			{
-				case Flight.FIRST:
-								remainingSeats = flight.getFirstSeats() - booking.getNoOfPassengers();
-								
-								if (booking.getNoOfPassengers() > 1) {
-									booking.setSeatNumber("F" + (remainingSeats + 1) + " - " + "F" + flight.getFirstSeats());
-								}
-								else {
-									booking.setSeatNumber("F" + flight.getFirstSeats());
-								}
-								
-								flight.setFirstSeats(remainingSeats);
-								break;
-				
-				case Flight.BUSINESS:
-								remainingSeats = flight.getBussSeats() - booking.getNoOfPassengers();
-								
-								if (booking.getNoOfPassengers() > 1) {
-									booking.setSeatNumber("B" + (remainingSeats + 1) + " - " + "B" + flight.getBussSeats());
-								}
-								else {
-									booking.setSeatNumber("B" + flight.getBussSeats());
-								}
-								
-								flight.setBussSeats(remainingSeats);
-								break;
-					
-				default:
-								logger.error("Invalid Class Type [classType=" + booking.getClassType() + "]");
-								throw new BookingException("Invalid Class Type [classType=" + booking.getClassType() + "]");
-			}
-			
 			bdao.bookTicket(booking);
 		}
 		catch (Exception exc) {
