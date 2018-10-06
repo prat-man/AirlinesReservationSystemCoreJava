@@ -210,7 +210,7 @@ public class ARSClient
 									break;
 								
 							case 9:
-									viewBooking();
+									viewBooking(username);
 									break;
 									
 							case 10:
@@ -270,7 +270,7 @@ public class ARSClient
 									break;
 							
 							case 4:
-									viewBooking();
+									viewBooking(username);
 									break;
 							
 							case 5:
@@ -324,15 +324,15 @@ public class ARSClient
 						switch (choice)
 						{
 							case 1:
-									bookTicket(); 
+									bookTicket(username); 
 									break;
 									
 							case 2:
-									viewBooking();
+									viewBooking(username);
 									break;
 									
 							case 3:
-									changeEmailId();
+									changeEmailId(username);
 									break;
 									
 							case 4:
@@ -367,6 +367,9 @@ public class ARSClient
 			
 			System.out.print("Password: ");
 			user.setPassword(getPassword());
+			
+			System.out.print("Email ID: ");
+			user.setEmail(BR.readLine());
 			
 			System.out.print("Mobile No.: ");
 			user.setMobileNo(BR.readLine());
@@ -430,6 +433,9 @@ public class ARSClient
 			
 			System.out.print("Password: ");
 			user.setPassword(getPassword());
+			
+			System.out.print("Email ID: ");
+			user.setEmail(BR.readLine());
 			
 			System.out.print("Mobile No.: ");
 			user.setMobileNo(BR.readLine());
@@ -890,7 +896,7 @@ public class ARSClient
 		}
 	}
 
-	private static void bookTicket()
+	private static void bookTicket(String username)
 	{
 		Date date;
 		String depCity, arrCity;
@@ -962,6 +968,8 @@ public class ARSClient
 		
 		Booking booking = new Booking();
 		
+		booking.setUsername(username);
+		
 		try {
 			System.out.print("\n\nFlight Number: ");
 			String flightNo = BR.readLine();
@@ -983,9 +991,6 @@ public class ARSClient
 		}
 		
 		try {
-			System.out.print("Email ID: ");
-			booking.setCustEmail(BR.readLine());
-			
 			System.out.print("Number of Seats Required: ");
 			booking.setNoOfPassengers(Integer.parseInt(BR.readLine()));
 			
@@ -1031,7 +1036,7 @@ public class ARSClient
 		System.out.println("Seat Number: " + booking.getSeatNumber());
 	}
 
-	private static void viewBooking() 
+	private static void viewBooking(String username) 
 	{
 		String bookingId;
 		
@@ -1057,6 +1062,11 @@ public class ARSClient
 			return;
 		}
 		
+		if (!booking.getUsername().equals(username)) {
+			System.err.println("\nAccess Denied");
+			return;
+		}
+		
 		System.out.println("\nFlight No: " + booking.getFlightNo());
 		System.out.println("Source City: " + booking.getSrcCity());
 		System.out.println("Destination City: " + booking.getDestCity());
@@ -1066,52 +1076,32 @@ public class ARSClient
 		System.out.println("No. of passengers: " + booking.getNoOfPassengers());
 		System.out.println("Seat Number: " + booking.getSeatNumber());
 		System.out.println("Total Fare: " + booking.getTotalFare());
-		System.out.println("Email: " + booking.getCustEmail());
 	}
 
-	private static void changeEmailId() 
+	private static void changeEmailId(String username) 
 	{
-		String bookingId;
-		
-		try 
-		{
-			System.out.print("\nBooking ID: ");
-			bookingId = BR.readLine();
-		}
-		catch (IOException e) {
-			System.err.println("\nInvalid Input");
-			System.err.println(e.getMessage());
-			return;
-		}
-		
-		Booking booking;
+		String password, email;
 		
 		try {
-			booking = B_SER.getBooking(bookingId);
-		}
-		catch (BookingException e) {
-			System.err.println("\n" + e.getMessage());
-			return;
-		}
-		
-		try {
-			System.out.print("Email ID: ");
-			booking.setCustEmail(BR.readLine());
-		} 
-		catch (IOException e) {
-			System.err.println("\nInvalid Input");
-			System.err.println(e.getMessage());
-			return;
-		}
-		
-		try {
-			B_SER.updateBooking(booking);
+			System.out.print("\nEnter password: ");
+			password = getPassword();
 			
-			System.out.println("\nEmail ID changed successfully");
+			System.out.print("Enter new Email ID: ");
+			email = BR.readLine();
 		}
-		catch (BookingException e) {
-			System.err.println("\n" + e.getMessage());
+		catch (IOException e) {
+			System.out.println("\nInvalid Input");
+			System.out.println(e.getMessage());
 			return;
+		}
+		
+		try {
+			U_SER.changeEmail(username, password, email);
+			
+			System.out.println("\nEmail ID Changed Successfully");
+		}
+		catch (UserException e) {
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 

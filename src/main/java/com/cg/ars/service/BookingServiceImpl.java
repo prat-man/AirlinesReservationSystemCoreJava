@@ -40,7 +40,6 @@ public class BookingServiceImpl implements BookingService
 			this.validateCity(booking.getSrcCity());
 			this.validateClassType(booking.getClassType());
 			this.validateCreditCardInfo(booking.getCreditCardInfo());
-			this.validateEmail(booking.getCustEmail());
 			this.validateNoOfPassengers(flight, booking.getClassType(), booking.getNoOfPassengers());
 			
 			Integer remainingSeats;
@@ -125,7 +124,6 @@ public class BookingServiceImpl implements BookingService
 			this.validateCity(booking.getSrcCity());
 			this.validateClassType(booking.getClassType());
 			this.validateCreditCardInfo(booking.getCreditCardInfo());
-			this.validateEmail(booking.getCustEmail());
 			
 			Flight flight = fser.getFlight(booking.getFlightNo());
 			
@@ -197,25 +195,6 @@ public class BookingServiceImpl implements BookingService
 		else {
 			logger.error("Invalid Booking ID [bookingId=" + bookingId + "]");
 			throw new BookingException("Invalid Booking ID [bookingId=" + bookingId + "]");
-		}
-	}
-
-	/**
-	 * Validates Email Id
-	 * @return boolean; true if valid, otherwise false
-	 */
-	@Override
-	public boolean validateEmail(String email) throws BookingException 
-	{
-		String pattern = "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)";
-		
-		if (Pattern.matches(pattern, email)) {
-			logger.info("Email ID valid [email=" + email + "]");
-			return true;
-		}
-		else {
-			logger.error("Invalid Email ID [email=" + email + "]");
-			throw new BookingException("Invalid Email ID [email=" + email + "]");
 		}
 	}
 

@@ -23,8 +23,8 @@ public class Booking
 	@Column(name="FLIGHT_NO")
 	private String flightNo;
 	
-	@Column(name="CUST_EMAIL")
-	private String custEmail;
+	@Column(name="USERNAME")
+	private String username;
 	
 	@Column(name="NO_OF_PASSENGERS")
 	private Integer noOfPassengers;
@@ -72,13 +72,13 @@ public class Booking
 	public void setFlightNo(String flightNo) {
 		this.flightNo = flightNo;
 	}
-
-	public String getCustEmail() {
-		return custEmail;
+	
+	public String getUsername() {
+		return username;
 	}
 
-	public void setCustEmail(String custEmail) {
-		this.custEmail = custEmail;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public Integer getNoOfPassengers() {
@@ -143,8 +143,9 @@ public class Booking
 	 */
 	@Override
 	public String toString() {
-		return "Booking [bookingId=" + bookingId + ", custEmail=" + custEmail + ", noOfPassengers=" + noOfPassengers
-				+ ", classType=" + classType + ", totalFare=" + totalFare + ", seatNumber=" + seatNumber
-				+ ", creditCardInfo=" + creditCardInfo + ", srcCity=" + srcCity + ", destCity=" + destCity + "]";
+		return "Booking [bookingId=" + bookingId + ", flightNo=" + flightNo + ", username=" + username
+				+ ", noOfPassengers=" + noOfPassengers + ", classType=" + classType + ", totalFare=" + totalFare
+				+ ", seatNumber=" + seatNumber + ", creditCardInfo=" + creditCardInfo + ", srcCity=" + srcCity
+				+ ", destCity=" + destCity + "]";
 	}
 }

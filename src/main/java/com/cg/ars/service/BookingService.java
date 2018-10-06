@@ -18,8 +18,6 @@ public interface BookingService
 	
 	public boolean validateBookingId(String bookingId) throws BookingException;
 	
-	public boolean validateEmail(String email) throws BookingException;
-	
 	public boolean validateNoOfPassengers(Flight flight, String classType, Integer passengers) throws BookingException;
 	
 	public boolean validateClassType(String classType) throws BookingException;

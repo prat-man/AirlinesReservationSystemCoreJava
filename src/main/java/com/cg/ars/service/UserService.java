@@ -11,6 +11,8 @@ public interface UserService
 	
 	public boolean changePassword(String username, String oldPass, String newPass) throws UserException;
 	
+	public boolean changeEmail(String username, String password, String email) throws UserException;
+	
 	public boolean verifyUser(String username, String password) throws UserException;
 	
 	public boolean validateUsername(String username) throws UserException;
@@ -20,4 +22,6 @@ public interface UserService
 	public boolean validateRole(String role) throws UserException;
 	
 	public boolean validateMobileNo(String mobileNo) throws UserException;
+
+	boolean validateEmail(String email) throws UserException;
 }
