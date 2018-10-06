@@ -115,6 +115,7 @@ public class BookingServiceImpl implements BookingService
 			bdao.cancelBooking(bookingId);
 		}
 		catch (Exception exc) {
+			exc.printStackTrace();
 			logger.error(exc.getMessage());
 			throw new BookingException(exc.getMessage());
 		}
