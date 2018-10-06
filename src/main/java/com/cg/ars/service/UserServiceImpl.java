@@ -35,12 +35,20 @@ public class UserServiceImpl implements UserService
 	{
 		this.validateUsername(user.getUsername());
 		this.validatePassword(user.getPassword());
+		this.validateEmail(user.getEmail());
 		this.validateRole(user.getRole());
 		this.validateMobileNo(user.getMobileNo());
 		
-		user.setPassword(pman.hashPassword(user.getPassword()));
-		logger.info("User Record Added");
-		udao.addUser(user);
+		try {
+			user.setPassword(pman.hashPassword(user.getPassword()));
+			
+			udao.addUser(user);
+			
+			logger.info("User Record Added [username=" + user.getUsername() + "]");
+		}
+		catch (Exception e) {
+			throw new UserException(e.getMessage());
+		}
 	}
 	
 	/**
@@ -55,16 +63,25 @@ public class UserServiceImpl implements UserService
 		 * Bypass for 'admin/admin' and other such special credential pairs
 		 */
 		//this.validateUsername(username);
-    
-		User user = udao.getUser(username);
 		
-		logger.info("User Record Retrieved [username=" + username + "]");
-		
-		return user;
+		try {
+			User user = udao.getUser(username);
+			
+			if (user == null) {
+				throw new NullPointerException("User not found with [username=" + username + "]");
+			}
+			
+			logger.info("User Record Retrieved [username=" + username + "]");
+			
+			return user;
+		}
+		catch (Exception e) {
+			throw new UserException(e.getMessage());
+		}
 	}
 
 	/**
-	 * Validates Password
+	 * Change Password
 	 * @return boolean; true if valid, otherwise false
 	 */
 	@Override
@@ -76,29 +93,76 @@ public class UserServiceImpl implements UserService
 		 */
 		//this.validateUsername(username);
 		//this.validatePassword(oldPass);
-		this.validatePassword(newPass);
 		
-		User user = udao.getUser(username);
-		
-		// Check if user exists
-		// Check if old password is correct
-		if (user != null && pman.verifyPassword(user.getPassword(), oldPass)) {
-			// try to validate new password
-			this.validatePassword(newPass);
+		try {
+			User user = udao.getUser(username);
 			
-			// hash new password and set it in user object
-			user.setPassword(pman.hashPassword(newPass));
-			
-			// update database using DAO
-			udao.updateUser(user);
-			
-			// success
-			logger.info("Successfully Changed Password");
-			return true;
+			// Check if user exists
+			// Check if old password is correct
+			if (user != null && pman.verifyPassword(user.getPassword(), oldPass)) {
+				// try to validate new password
+				this.validatePassword(newPass);
+				
+				// hash new password and set it in user object
+				user.setPassword(pman.hashPassword(newPass));
+				
+				// update database using DAO
+				udao.updateUser(user);
+				
+				// success
+				logger.info("Successfully Changed Password");
+				return true;
+			}
+			else {
+				logger.warn("Invalid Credentials [username=" + username + "]");
+				throw new UserException("Invalid Credentials");
+			}
 		}
-		else {
-			logger.warn("Invalid Credentials [username=" + username + "]");
-			throw new UserException("Invalid Credentials");
+		catch (Exception e) {
+			throw new UserException(e.getMessage());
+		}
+	}
+	
+	/**
+	 * Change Email
+	 * @return boolean; true if valid, otherwise false
+	 */
+	@Override
+	public boolean changeEmail(String username, String password, String email) throws UserException
+	{
+		/*
+		 * Do not validate username and old password here
+		 * Bypass for 'admin/admin' and other such special credential pairs
+		 */
+		//this.validateUsername(username);
+		//this.validatePassword(password);
+		
+		try {
+			User user = udao.getUser(username);
+			
+			// Check if user exists
+			// Check if old password is correct
+			if (user != null && pman.verifyPassword(user.getPassword(), password)) {
+				// try to validate new email
+				this.validateEmail(email);
+				
+				// set new email in user object
+				user.setEmail(email);
+				
+				// update database using DAO
+				udao.updateUser(user);
+				
+				// success
+				logger.info("Successfully Changed Email ID");
+				return true;
+			}
+			else {
+				logger.warn("Invalid Credentials [username=" + username + "]");
+				throw new UserException("Invalid Credentials");
+			}
+		}
+		catch (Exception e) {
+			throw new UserException(e.getMessage());
 		}
 	}
 
@@ -116,19 +180,24 @@ public class UserServiceImpl implements UserService
 		//this.validateUsername(username);
 		//this.validatePassword(password);
 		
-		User user = udao.getUser(username);
-		
-		// Check if user exists
-		// Check if password is correct
-		
-		if (user != null && pman.verifyPassword(user.getPassword(), password)) {
-			// success
-			logger.info("Successful Login");
-			return true;
+		try {
+			User user = udao.getUser(username);
+			
+			// Check if user exists
+			// Check if password is correct
+			
+			if (user != null && pman.verifyPassword(user.getPassword(), password)) {
+				// success
+				logger.info("Successful Login");
+				return true;
+			}
+			else {
+				logger.warn("Invalid Credentials [username=" + username + "]");
+				throw new UserException("Invalid Credentials");
+			}
 		}
-		else {
-			logger.warn("Invalid Credentials [username=" + username + "]");
-			throw new UserException("Invalid Credentials");
+		catch (Exception e) {
+			throw new UserException(e.getMessage());
 		}
 	}
 
@@ -139,7 +208,6 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validateUsername(String username) throws UserException
 	{
-		
 		String pattern = "[A-Za-z][A-Za-z0-9\\.\\-\\_]{7,39}";
 		
 		if (Pattern.matches(pattern, username)) {
@@ -159,7 +227,6 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validatePassword(String password) throws UserException
 	{
-		
 		String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=-_*])(?=\\S+).{8,}$";
 		
 		if (Pattern.matches(pattern, password)) {
@@ -179,7 +246,6 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validateRole(String role) throws UserException
 	{
-		
 		String[] roles = User.getRoles();
 		
 		if (Arrays.asList(roles).contains(role)) {
@@ -199,7 +265,6 @@ public class UserServiceImpl implements UserService
 	@Override
 	public boolean validateMobileNo(String mobileNo) throws UserException
 	{
-		
 		String pattern = "(\\+[0-9]+([\\-\\s]?[0-9]+)*[\\-\\s]?)?(([0-9]{5}[\\-\\s]?[0-9]{5})|([0-9]{3}[\\-\\s]?[0-9]{3}[\\-\\s]?[0-9]{4}))";
 		
 		if (Pattern.matches(pattern, mobileNo)) {
@@ -210,6 +275,25 @@ public class UserServiceImpl implements UserService
 			logger.warn("Invalid Mobile Number [mobileNo=" + mobileNo + "]");
 			throw new UserException("Invalid Mobile Number");
 			
+		}
+	}
+	
+	/**
+	 * Validates Email Id
+	 * @return boolean; true if valid, otherwise false
+	 */
+	@Override
+	public boolean validateEmail(String email) throws UserException 
+	{
+		String pattern = "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)";
+		
+		if (Pattern.matches(pattern, email)) {
+			logger.info("Email ID valid [email=" + email + "]");
+			return true;
+		}
+		else {
+			logger.error("Invalid Email ID [email=" + email + "]");
+			throw new UserException("Invalid Email ID [email=" + email + "]");
 		}
 	}
 }

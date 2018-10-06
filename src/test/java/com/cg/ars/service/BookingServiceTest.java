@@ -67,19 +67,6 @@ public class BookingServiceTest
 	}
     
 	@Test
-	public void validateEmailTest1() throws BookingException
-	{
-		Assert.assertEquals(true, bser.validateEmail("ars@capgemini.com"));
-	}
-	
-	@Test(expected=BookingException.class)
-	public void validateEmailTest2() throws BookingException
-	{
-		Assert.assertEquals(false, bser.validateEmail("ars.@@gmail..com"));
-	}
-
-	
-	@Test
 	public void validateCreditCardInfoTest1() throws BookingException
 	{
 		Assert.assertEquals(true, bser.validateCreditCardInfo("5678946756372345"));

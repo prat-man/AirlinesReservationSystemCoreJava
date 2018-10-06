@@ -109,4 +109,16 @@ public class UserServiceTest
 	{
 		user.validatePassword("password");
 	}
+	
+	@Test
+	public void validateEmailTest1() throws UserException
+	{
+		Assert.assertEquals(true, user.validateEmail("ars@capgemini.com"));
+	}
+	
+	@Test(expected=UserException.class)
+	public void validateEmailTest2() throws UserException
+	{
+		Assert.assertEquals(false, user.validateEmail("ars.@@gmail..com"));
+	}
 }
