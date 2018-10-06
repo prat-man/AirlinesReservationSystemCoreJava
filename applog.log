@@ -1,0 +1,71 @@
+2018-10-06 14:20:24,310 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-06 14:20:24,341 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-06 14:20:41,210 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Pune on 2018-10-12
+2018-10-06 14:20:55,231 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Delhi on 2018-10-11
+2018-10-06 14:21:11,507 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Delhi on 2018-10-12
+2018-10-06 14:21:18,037 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID generated for [Flight No=INDI9009]
+2018-10-06 14:21:45,581 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Delhi]
+2018-10-06 14:21:45,581 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Chandigarh]
+2018-10-06 14:21:45,581 - com.cg.ars.service.BookingServiceImpl - INFO - Class Type valid! [Class Type=First]
+2018-10-06 14:21:45,582 - com.cg.ars.service.BookingServiceImpl - INFO - Credit card number valid!
+2018-10-06 14:21:45,582 - com.cg.ars.service.BookingServiceImpl - INFO - Email ID valid! [Email =pratanu.mandal@gmail.com]
+2018-10-06 14:21:45,582 - com.cg.ars.service.BookingServiceImpl - INFO - Number of passengers valid! [NoOfPassengers =3]
+2018-10-06 14:25:59,637 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Delhi on 2018-10-12
+2018-10-06 14:26:03,937 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID generated for [Flight No=INDI9009]
+2018-10-06 14:26:24,650 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Delhi]
+2018-10-06 14:26:24,650 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Chandigarh]
+2018-10-06 14:26:24,651 - com.cg.ars.service.BookingServiceImpl - INFO - Class Type valid! [Class Type=Business]
+2018-10-06 14:26:24,651 - com.cg.ars.service.BookingServiceImpl - INFO - Credit card number valid!
+2018-10-06 14:26:24,651 - com.cg.ars.service.BookingServiceImpl - INFO - Email ID valid! [Email =pratanu.mandal@gmail.com]
+2018-10-06 14:26:24,651 - com.cg.ars.service.BookingServiceImpl - INFO - Number of passengers valid! [NoOfPassengers =5]
+2018-10-06 14:26:24,719 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 1438, SQLState: 22003
+2018-10-06 14:26:24,719 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-01438: value larger than specified precision allowed for this column
+
+2018-10-06 14:26:24,754 - com.cg.ars.service.BookingServiceImpl - ERROR - Transaction not active
+2018-10-06 14:29:03,861 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-06 14:29:03,894 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-06 14:29:24,734 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Delhi on 2018-10-12
+2018-10-06 14:29:29,048 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID generated for [Flight No=INDI9009]
+2018-10-06 14:29:56,225 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Delhi]
+2018-10-06 14:29:56,225 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Chandigarh]
+2018-10-06 14:29:56,226 - com.cg.ars.service.BookingServiceImpl - INFO - Class Type valid! [Class Type=Business]
+2018-10-06 14:29:56,226 - com.cg.ars.service.BookingServiceImpl - INFO - Credit card number valid!
+2018-10-06 14:29:56,226 - com.cg.ars.service.BookingServiceImpl - INFO - Email ID valid! [Email =pratanu.mandal@gmail.com]
+2018-10-06 14:29:56,227 - com.cg.ars.service.BookingServiceImpl - INFO - Number of passengers valid! [NoOfPassengers =5]
+2018-10-06 14:29:56,313 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 1438, SQLState: 22003
+2018-10-06 14:29:56,314 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-01438: value larger than specified precision allowed for this column
+
+2018-10-06 14:29:56,346 - com.cg.ars.service.BookingServiceImpl - ERROR - Transaction not active
+2018-10-06 14:31:21,738 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-06 14:31:21,770 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-06 14:31:39,050 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Delhi on 2018-10-12
+2018-10-06 14:31:44,693 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID generated for [Flight No=INDI9009]
+2018-10-06 14:32:06,398 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Delhi]
+2018-10-06 14:32:06,399 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Chandigarh]
+2018-10-06 14:32:06,399 - com.cg.ars.service.BookingServiceImpl - INFO - Class Type valid! [Class Type=Business]
+2018-10-06 14:32:06,399 - com.cg.ars.service.BookingServiceImpl - ERROR - Invalid Credit Card Information [Info Entered =852136974023]
+Format: Must be 16 digits
+2018-10-06 14:32:06,400 - com.cg.ars.service.BookingServiceImpl - ERROR - Invalid Credit Card Information [Info Entered =852136974023]
+Format: Must be 16 digits
+2018-10-06 14:32:37,891 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Delhi on 2018-10-12
+2018-10-06 14:32:42,328 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID generated for [Flight No=INDI9009]
+2018-10-06 14:33:00,057 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Delhi]
+2018-10-06 14:33:00,057 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Chandigarh]
+2018-10-06 14:33:00,057 - com.cg.ars.service.BookingServiceImpl - INFO - Class Type valid! [Class Type=Business]
+2018-10-06 14:33:00,058 - com.cg.ars.service.BookingServiceImpl - INFO - Credit card number valid!
+2018-10-06 14:33:00,058 - com.cg.ars.service.BookingServiceImpl - INFO - Email ID valid! [Email =pratanu.mandal@gmail.com]
+2018-10-06 14:33:00,059 - com.cg.ars.service.BookingServiceImpl - INFO - Number of passengers valid! [NoOfPassengers =5]
+2018-10-06 14:33:00,156 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 1438, SQLState: 22003
+2018-10-06 14:33:00,156 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-01438: value larger than specified precision allowed for this column
+
+2018-10-06 14:33:00,193 - com.cg.ars.service.BookingServiceImpl - ERROR - Transaction not active
+2018-10-06 14:45:31,052 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-06 14:45:31,084 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-06 14:45:53,755 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched between Chandigarh and Delhi on 2018-10-12
+2018-10-06 14:46:00,482 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID generated for [Flight No=INDI9009]
+2018-10-06 14:46:24,345 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Delhi]
+2018-10-06 14:46:24,345 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid![City =Chandigarh]
+2018-10-06 14:46:24,346 - com.cg.ars.service.BookingServiceImpl - INFO - Class Type valid! [Class Type=Business]
+2018-10-06 14:46:24,346 - com.cg.ars.service.BookingServiceImpl - INFO - Credit card number valid!
+2018-10-06 14:46:24,346 - com.cg.ars.service.BookingServiceImpl - INFO - Email ID valid! [Email =pratanu.mandal@gmail.com]
+2018-10-06 14:46:24,346 - com.cg.ars.service.BookingServiceImpl - INFO - Number of passengers valid! [NoOfPassengers =5]

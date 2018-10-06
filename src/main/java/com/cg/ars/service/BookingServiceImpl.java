@@ -51,7 +51,7 @@ public class BookingServiceImpl implements BookingService
 								remainingSeats = flight.getFirstSeats() - booking.getNoOfPassengers();
 								
 								if (booking.getNoOfPassengers() > 1) {
-									booking.setSeatNumber("F" + remainingSeats + " - " + "F" + flight.getFirstSeats());
+									booking.setSeatNumber("F" + (remainingSeats + 1) + " - " + "F" + flight.getFirstSeats());
 								}
 								else {
 									booking.setSeatNumber("F" + flight.getFirstSeats());
@@ -64,7 +64,7 @@ public class BookingServiceImpl implements BookingService
 								remainingSeats = flight.getBussSeats() - booking.getNoOfPassengers();
 								
 								if (booking.getNoOfPassengers() > 1) {
-									booking.setSeatNumber("B" + remainingSeats + " - " + "B" + flight.getBussSeats());
+									booking.setSeatNumber("B" + (remainingSeats + 1) + " - " + "B" + flight.getBussSeats());
 								}
 								else {
 									booking.setSeatNumber("B" + flight.getBussSeats());
