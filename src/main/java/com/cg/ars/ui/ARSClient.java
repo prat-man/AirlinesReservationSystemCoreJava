@@ -884,7 +884,8 @@ public class ARSClient
 			double occupancy = F_SER.getOccupancy(depCity, arrCity) * 100;
 			
 			System.out.println("\nFlight Occupancy: " + String.format("%.2f", occupancy) + " %");
-		} catch (FlightException e) {
+		} catch (FlightException
+				e) {
 			System.err.println("\n" + e.getMessage());
 		}
 	}
@@ -1015,6 +1016,8 @@ public class ARSClient
 		booking.setDestCity(flight.getArrCity());
 		
 		try {
+			booking.setBookingId(B_SER.generateBookingId(flight.getFlightNo()));
+			
 			B_SER.bookTicket(booking);
 		} catch (BookingException e) {
 			System.err.println("\n" + e.getMessage());
