@@ -1094,8 +1094,10 @@ public class ARSClient
 			return;
 		}
 		
+		System.out.println("Email ID: " + booking.getCustEmail());
+		
 		try {
-			System.out.print("Email ID: ");
+			System.out.print("\nEnter New Email ID: ");
 			booking.setCustEmail(BR.readLine());
 		} 
 		catch (IOException e) {
