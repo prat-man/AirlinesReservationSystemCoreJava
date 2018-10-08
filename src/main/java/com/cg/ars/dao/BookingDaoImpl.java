@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.LockModeType;
-import javax.persistence.OptimisticLockException;
 import javax.persistence.Query;
 
 import com.cg.ars.dto.Booking;
@@ -83,64 +81,53 @@ public class BookingDaoImpl implements BookingDao
 	@Override
 	public void bookTicket(Booking booking)
 	{
-		for (int i = 0; i < 3; i++) {
-			try {
-				entityManager.getTransaction().begin();
+		try {
+			entityManager.getTransaction().begin();
+			
+			Flight flight = entityManager.find(Flight.class, booking.getFlightNo());
+			
+			Integer remainingSeats;
+			
+			switch (booking.getClassType())
+			{
+				case Flight.FIRST:
+								remainingSeats = flight.getFirstSeats() - booking.getNoOfPassengers();
+								
+								if (booking.getNoOfPassengers() > 1) {
+									booking.setSeatNumber("F" + (remainingSeats + 1) + " - " + "F" + flight.getFirstSeats());
+								}
+								else {
+									booking.setSeatNumber("F" + flight.getFirstSeats());
+								}
+								
+								flight.setFirstSeats(remainingSeats);
+								break;
 				
-				Flight flight = entityManager.find(Flight.class, booking.getFlightNo(), LockModeType.PESSIMISTIC_WRITE);
-				
-				Integer remainingSeats;
-				
-				switch (booking.getClassType())
-				{
-					case Flight.FIRST:
-									remainingSeats = flight.getFirstSeats() - booking.getNoOfPassengers();
-									
-									if (booking.getNoOfPassengers() > 1) {
-										booking.setSeatNumber("F" + (remainingSeats + 1) + " - " + "F" + flight.getFirstSeats());
-									}
-									else {
-										booking.setSeatNumber("F" + flight.getFirstSeats());
-									}
-									
-									flight.setFirstSeats(remainingSeats);
-									break;
+				case Flight.BUSINESS:
+								remainingSeats = flight.getBussSeats() - booking.getNoOfPassengers();
+								
+								if (booking.getNoOfPassengers() > 1) {
+									booking.setSeatNumber("B" + (remainingSeats + 1) + " - " + "B" + flight.getBussSeats());
+								}
+								else {
+									booking.setSeatNumber("B" + flight.getBussSeats());
+								}
+								
+								flight.setBussSeats(remainingSeats);
+								break;
 					
-					case Flight.BUSINESS:
-									remainingSeats = flight.getBussSeats() - booking.getNoOfPassengers();
-									
-									if (booking.getNoOfPassengers() > 1) {
-										booking.setSeatNumber("B" + (remainingSeats + 1) + " - " + "B" + flight.getBussSeats());
-									}
-									else {
-										booking.setSeatNumber("B" + flight.getBussSeats());
-									}
-									
-									flight.setBussSeats(remainingSeats);
-									break;
-						
-					default:
-									throw new RuntimeException("Invalid Class Type [classType=" + booking.getClassType() + "]");
-				}
-				
-				entityManager.persist(booking);
-				
-				entityManager.getTransaction().commit();
-				
-				break;
+				default:
+								throw new RuntimeException("Invalid Class Type [classType=" + booking.getClassType() + "]");
 			}
-			catch (OptimisticLockException exc) {
-				entityManager.getTransaction().rollback();
-				
-				if (i == 2) {
-					throw new RuntimeException("Experiencing High Load\nPlease Try Again Later");
-				}
-			}
-			catch (Exception exc) {
-				entityManager.getTransaction().rollback();
-				
-				throw new RuntimeException(exc.getMessage());
-			}
+			
+			entityManager.persist(booking);
+			
+			entityManager.getTransaction().commit();
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
 		}
 	}
 
