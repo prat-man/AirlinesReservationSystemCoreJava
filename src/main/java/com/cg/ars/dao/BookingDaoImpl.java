@@ -1,6 +1,7 @@
 package com.cg.ars.dao;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -30,6 +31,29 @@ public class BookingDaoImpl implements BookingDao
 			entityManager.getTransaction().commit();
 			
 			return booking;
+		}
+		catch (Exception exc) {
+			entityManager.getTransaction().rollback();
+			
+			throw exc;
+		}
+	}
+	
+	@Override
+	public List<Booking> getBookingsForUser(String username)
+	{
+		try {
+			entityManager.getTransaction().begin();
+			
+			Query query = entityManager.createNamedQuery("getBookingsForUser")
+							.setParameter("username", username);
+			
+			@SuppressWarnings("unchecked")
+			List<Booking> bookings = query.getResultList();
+			
+			entityManager.getTransaction().commit();
+			
+			return bookings;
 		}
 		catch (Exception exc) {
 			entityManager.getTransaction().rollback();

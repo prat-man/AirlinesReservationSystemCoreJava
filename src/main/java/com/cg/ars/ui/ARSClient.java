@@ -305,11 +305,12 @@ public class ARSClient
 						System.out.println();
 						
 						System.out.println("1. Book a Ticket");
-						System.out.println("2. View Booking Details");
-						System.out.println("3. Change Email ID");
-						System.out.println("4. Cancel Booking");
-						System.out.println("5. Change Password");
-						System.out.println("6. Logout");
+						System.out.println("2. View All Bookings");
+						System.out.println("3. View Booking Details");
+						System.out.println("4. Change Email ID");
+						System.out.println("5. Cancel Booking");
+						System.out.println("6. Change Password");
+						System.out.println("7. Logout");
 						System.out.print("Enter Your Choice: ");
 						
 						int choice;
@@ -328,22 +329,26 @@ public class ARSClient
 									break;
 									
 							case 2:
-									viewBooking(username);
+									viewAllBookings(username);
 									break;
 									
 							case 3:
-									changeEmailId(username);
+									viewBooking(username);
 									break;
 									
 							case 4:
-									cancelBooking(username);
+									changeEmailId(username);
 									break;
 									
 							case 5:
+									cancelBooking(username);
+									break;
+									
+							case 6:
 									changePassword(username);
 									break;
 								
-							case 6:
+							case 7:
 							default:
 									break inner;
 						}
@@ -1076,6 +1081,45 @@ public class ARSClient
 		System.out.println("No. of passengers: " + booking.getNoOfPassengers());
 		System.out.println("Seat Number: " + booking.getSeatNumber());
 		System.out.println("Total Fare: " + booking.getTotalFare());
+	}
+	
+	private static void viewAllBookings(String username) 
+	{
+		List<Booking> bookings;
+		
+		try {
+			bookings = B_SER.getBookingsForUser(username);
+		} catch (BookingException e) {
+			System.err.println("\n" + e.getMessage());
+			return;
+		}
+		
+		String header = String.format("%-20s | %-20s | %-12s | %-12s | %-16s | %-20s | %-40s | %-40s",
+				"Booking Id",
+				"Flight No",
+				"No of Psngrs",
+				"Class Type",
+				"Total Fare",
+				"Seat Number",
+				"Src City",
+				"Dest City");
+		
+		System.out.println("\n\n" + header);
+		
+		System.out.println(String.format("%" + header.length() + "s", "").replace(' ', '-'));
+  
+		for(Booking booking : bookings) 
+		{
+			System.out.printf("%-20s | %-20s | %-12s | %-12s | %-16.2f | %-20s | %-40s | %-40s",
+					booking.getBookingId(),
+					booking.getFlightNo(),
+					booking.getNoOfPassengers(),
+					booking.getClassType(),
+					booking.getTotalFare(),
+					booking.getSeatNumber(),
+					booking.getSrcCity(),
+					booking.getDestCity());
+		}
 	}
 
 	private static void changeEmailId(String username) 
