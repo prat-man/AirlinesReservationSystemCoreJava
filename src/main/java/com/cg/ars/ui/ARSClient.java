@@ -827,10 +827,13 @@ public class ARSClient
 
 	private static void viewAirports() 
 	{
-		List<Airport> airports =  A_SER.getAllAirports();
+		List<Airport> airports;
 		
-		if (airports == null || airports.isEmpty()) {
-			System.err.println("\nNo Airports Found");
+		try {
+			airports = A_SER.getAllAirports();
+		}
+		catch (AirportException e) {
+			System.err.println("\n" + e.getMessage());
 			return;
 		}
 		

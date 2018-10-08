@@ -1,7 +1,5 @@
 package com.cg.ars.service;
 
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -99,14 +97,10 @@ public class AirportServiceTest
 	@Test
 	public void getAllAirportsTest()
 	{
-		Object obj = aser.getAllAirports();
-		
-		if (obj == null) {
-			Assert.assertNull(obj);
+		try {
+			Assert.assertNotNull(aser.getAllAirports());
 		}
-		else {
-			Assert.assertTrue(obj instanceof List);
-		}
+		catch (AirportException e) {}
 	}
 	
 	@Test
