@@ -136,9 +136,6 @@ public class BookingDaoImpl implements BookingDao
 				if (i == 2) {
 					throw new BookingException("Experiencing High Load\nPlease Try Again Later");
 				}
-				else {
-					System.err.println("Booking Failed; Trying Again");
-				}
 			}
 			catch (Exception exc) {
 				exc.printStackTrace();
