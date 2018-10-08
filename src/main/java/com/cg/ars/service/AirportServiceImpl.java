@@ -29,13 +29,23 @@ public class AirportServiceImpl implements AirportService
 	@Override
 	public void addAirport(Airport airport) throws AirportException 
 	{
-		this.validateAbbreviation(airport.getAbbreviation());
-		this.validateName(airport.getAirportName());
-		this.validateLocation(airport.getLocation());
-		
-		adao.addAirport(airport);
-		
-		logger.info("Airport Information Added [airportId=" + airport.getAbbreviation() + "]");
+		try {
+			this.validateAbbreviation(airport.getAbbreviation());
+			this.validateName(airport.getAirportName());
+			this.validateLocation(airport.getLocation());
+			
+			if (adao.getAirport(airport.getAbbreviation()) != null) {
+				throw new AirportException("Airport with [airportId=" + airport.getAbbreviation() + "] already present");
+			}
+			
+			adao.addAirport(airport);
+			
+			logger.info("Airport Information Added [airportId=" + airport.getAbbreviation() + "]");
+		}
+		catch (Exception e) {
+			logger.error("Airport Addition Failed\n" + e.getMessage());
+			throw new AirportException("Airport Addition Failed\n" + e.getMessage());
+		}
 	}
 	
 	/**
