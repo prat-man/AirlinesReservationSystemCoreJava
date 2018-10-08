@@ -216,7 +216,7 @@ public class UserServiceImpl implements UserService
 		}
 		else {
 			logger.warn("Invalid Username [username=" + username + "]");
-			throw new UserException("Invalid Username");
+			throw new UserException("Invalid Username\nMust be atleast 8 characters long\nMust start with an alphabet\nCan contain UPPERCASE, lowercase, digits, ., -, and _");
 		}
 	}
 
@@ -235,7 +235,7 @@ public class UserServiceImpl implements UserService
 		}
 		else {
 			logger.warn("Invalid Password");
-			throw new UserException("Invalid Password. Must contain atleast 1 lower case character, 1 upper case character, 1 digit, and 1 special character.");
+			throw new UserException("Invalid Password\nMust be atleast 8 characters long\nMust contain atleast 1 lower case character, 1 upper case character, 1 digit, and 1 special character");
 		}
 	}
 
