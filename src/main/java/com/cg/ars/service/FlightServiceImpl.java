@@ -111,6 +111,23 @@ public class FlightServiceImpl implements FlightService
 			throw new FlightException("Flight Record Deletion Failed [flightNo=" + flightNo + "]");
 		}
 	}
+	
+	/**
+	 * Get Flight Instance by Flight Number 
+	 * @return Flight Instance
+	 */
+	@Override
+	public Flight getFlight(String flightNo) throws FlightException
+	{
+		Flight flight = fdao.getFlight(flightNo);
+		
+		if (flight == null) {
+			logger.error("Flight not found with [flightNo=" + flightNo + "]");
+			throw new FlightException("Flight not found with [flightNo=" + flightNo + "]");
+		}
+		
+		return flight;
+	}
 
 	/**
 	 * Get List of All Flights
@@ -163,6 +180,84 @@ public class FlightServiceImpl implements FlightService
 		catch (Exception exc) {
 			logger.error("No Flight Records Found\n" + exc.getMessage());
 			throw new FlightException("No Flight Records Found");
+		}
+	}
+	
+	/**
+	 * Get Flight Fare by Flight Number and Class Type
+	 * @return Flight Fare
+	 */
+	@Override
+	public Double getFare(String flightNo, String classType) throws FlightException
+	{
+		Flight flight = fdao.getFlight(flightNo);
+		
+		if (flight == null) {
+			logger.error("Flight Not Found with [flightNo=" + flightNo + "]");
+			throw new FlightException("Flight Not Found with [flightNo=" + flightNo + "]");
+		}
+
+		double fare;
+		
+		switch (classType) {
+			case Flight.FIRST:
+				fare = flight.getFirstSeatsFare();
+				break;
+			
+			case Flight.BUSINESS:
+				fare = flight.getBussSeatsFare();
+				break;
+				
+			default:
+				fare = -1;
+				break;
+		}
+		
+		if (fare < 0) {
+			logger.error("Invalid Class Type [classType=" + classType + "]");
+			throw new FlightException("Invalid Class Type [classType=" + classType + "]");
+		}
+		
+		return fare;
+	}
+	
+	/**
+	 * Get Occupancy Details by Flight Number
+	 * @return occupancy 
+	 * @throws FlightException 
+	 */
+	@Override
+	public Double getOccupancy(String flightNo) throws FlightException
+	{
+		try {
+			Double oc = fdao.getOccupancy(flightNo);
+			
+			logger.info("Fetched Occupancy for [flightNo=" + flightNo + "]");
+			
+			return oc;
+		}
+		catch (Exception e) {
+			throw new FlightException(e.getMessage());
+		}
+	}
+
+	/**
+	 * Get Occupancy Details between cities
+	 * @return occupancy 
+	 * @throws FlightException 
+	 */
+	@Override
+	public Double getOccupancy(String depCity, String arrCity) throws FlightException
+	{
+		try {
+			Double oc = fdao.getOccupancy(depCity, arrCity);
+			
+			logger.info("Fetched Occupancy between cities [depCity=" + depCity + ", arrCity=" + arrCity + "]");
+			
+			return oc;
+		}
+		catch (Exception e) {
+			throw new FlightException(e.getMessage());
 		}
 	}
 
@@ -248,100 +343,5 @@ public class FlightServiceImpl implements FlightService
 		else {
 			throw new FlightException("Invalid Number of Seats. Must be greater than ZERO");
 		}
-	}
-
-	/**
-	 * Get Occupancy Details by Flight Number
-	 * @return occupancy 
-	 * @throws FlightException 
-	 */
-	@Override
-	public Double getOccupancy(String flightNo) throws FlightException
-	{
-		try {
-			Double oc = fdao.getOccupancy(flightNo);
-			
-			logger.info("Fetched Occupancy for [flightNo=" + flightNo + "]");
-			
-			return oc;
-		}
-		catch (Exception e) {
-			throw new FlightException(e.getMessage());
-		}
-	}
-
-	/**
-	 * Get Occupancy Details between cities
-	 * @return occupancy 
-	 * @throws FlightException 
-	 */
-	@Override
-	public Double getOccupancy(String depCity, String arrCity) throws FlightException
-	{
-		try {
-			Double oc = fdao.getOccupancy(depCity, arrCity);
-			
-			logger.info("Fetched Occupancy between cities [depCity=" + depCity + ", arrCity=" + arrCity + "]");
-			
-			return oc;
-		}
-		catch (Exception e) {
-			throw new FlightException(e.getMessage());
-		}
-	}
-
-	/**
-	 * Get Flight Instance by Flight Number 
-	 * @return Flight Instance
-	 */
-	@Override
-	public Flight getFlight(String flightNo) throws FlightException
-	{
-		Flight flight = fdao.getFlight(flightNo);
-		
-		if (flight == null) {
-			logger.error("Flight not found with [flightNo=" + flightNo + "]");
-			throw new FlightException("Flight not found with [flightNo=" + flightNo + "]");
-		}
-		
-		return flight;
-	}
-
-	/**
-	 * Get Flight Fare by Flight Number and Class Type
-	 * @return Flight Fare
-	 */
-	@Override
-	public Double getFare(String flightNo, String classType) throws FlightException
-	{
-		Flight flight = fdao.getFlight(flightNo);
-		
-		if (flight == null) {
-			logger.error("Flight Not Found with [flightNo=" + flightNo + "]");
-			throw new FlightException("Flight Not Found with [flightNo=" + flightNo + "]");
-		}
-
-		double fare;
-		
-		switch (classType) {
-			case Flight.FIRST:
-				fare = flight.getFirstSeatsFare();
-				break;
-			
-			case Flight.BUSINESS:
-				fare = flight.getBussSeatsFare();
-				break;
-				
-			default:
-				fare = -1;
-				break;
-		}
-		
-		if (fare < 0) {
-			logger.error("Invalid Class Type [classType=" + classType + "]");
-			throw new FlightException("Invalid Class Type [classType=" + classType + "]");
-		}
-		
-		return fare;
 	}
 }

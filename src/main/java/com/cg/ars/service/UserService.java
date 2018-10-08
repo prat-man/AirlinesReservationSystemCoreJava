@@ -23,5 +23,5 @@ public interface UserService
 	
 	public boolean validateMobileNo(String mobileNo) throws UserException;
 
-	boolean validateEmail(String email) throws UserException;
+	public boolean validateEmail(String email) throws UserException;
 }

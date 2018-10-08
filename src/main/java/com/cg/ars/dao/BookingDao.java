@@ -3,11 +3,10 @@ package com.cg.ars.dao;
 import java.util.List;
 
 import com.cg.ars.dto.Booking;
-import com.cg.ars.exception.BookingException;
 
 public interface BookingDao
 {
-	public void bookTicket(Booking booking) throws BookingException;
+	public void bookTicket(Booking booking);
 	
 	public Booking getBooking(String bookingId);
 	
@@ -17,5 +16,5 @@ public interface BookingDao
 	
 	public void cancelBooking(String bookingId);
 	
-	public int getBookingId() throws BookingException;
+	public int getBookingId();
 }

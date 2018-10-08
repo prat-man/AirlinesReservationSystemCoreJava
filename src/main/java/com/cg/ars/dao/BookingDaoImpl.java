@@ -10,7 +10,6 @@ import javax.persistence.Query;
 
 import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
-import com.cg.ars.exception.BookingException;
 import com.cg.ars.util.JPAUtil;
 
 public class BookingDaoImpl implements BookingDao
@@ -82,7 +81,7 @@ public class BookingDaoImpl implements BookingDao
 	}
 
 	@Override
-	public void bookTicket(Booking booking) throws BookingException
+	public void bookTicket(Booking booking)
 	{
 		for (int i = 0; i < 3; i++) {
 			try {
@@ -134,14 +133,14 @@ public class BookingDaoImpl implements BookingDao
 				entityManager.getTransaction().rollback();
 				
 				if (i == 2) {
-					throw new BookingException("Experiencing High Load\nPlease Try Again Later");
+					throw new RuntimeException("Experiencing High Load\nPlease Try Again Later");
 				}
 			}
 			catch (Exception exc) {
 				exc.printStackTrace();
 				entityManager.getTransaction().rollback();
 				
-				throw new BookingException(exc.getMessage());
+				throw new RuntimeException(exc.getMessage());
 			}
 		}
 	}
@@ -166,7 +165,7 @@ public class BookingDaoImpl implements BookingDao
 	}
 	
 	@Override
-	public int getBookingId() throws BookingException
+	public int getBookingId()
 	{
 		try {
 			entityManager.getTransaction().begin();
