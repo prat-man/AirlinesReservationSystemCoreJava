@@ -39,12 +39,12 @@ public class FlightServiceImpl implements FlightService
 			
 			flight.setArrCity(aser.getAirport(flight.getArrAirport()).getLocation());
 			
+			this.validateFlightNo(flight.getFlightNo());
 			this.validateAirline(flight.getAirline());
 			this.validateCity(flight.getArrCity());
 			this.validateCity(flight.getDepCity());
 			this.validateDate(flight.getArrDate());
 			this.validateDate(flight.getDepDate());
-			this.validateFlightNo(flight.getFlightNo());
 			this.validateSeats(flight.getFirstSeats());
 			this.validateSeats(flight.getBussSeats());
 			
@@ -307,7 +307,7 @@ public class FlightServiceImpl implements FlightService
 			return true;
 		}
 		else {
-			throw new FlightException("Invalid Airline Name[Airline=" + airline + "]\nMust start with UPPERCASE followed by lowercase alphabets");
+			throw new FlightException("Invalid Airline Name [airline=" + airline + "]\nMust start with UPPERCASE followed by lowercase alphabets");
 		}
 	}
 
