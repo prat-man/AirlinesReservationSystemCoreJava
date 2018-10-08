@@ -137,7 +137,6 @@ public class BookingDaoImpl implements BookingDao
 				}
 			}
 			catch (Exception exc) {
-				exc.printStackTrace();
 				entityManager.getTransaction().rollback();
 				
 				throw new RuntimeException(exc.getMessage());
