@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import javax.persistence.Query;
 
 import com.cg.ars.dto.Booking;
@@ -85,7 +86,7 @@ public class BookingDaoImpl implements BookingDao
 		try {
 			entityManager.getTransaction().begin();
 			
-			Flight flight = entityManager.find(Flight.class, booking.getFlightNo());
+			Flight flight = entityManager.find(Flight.class, booking.getFlightNo(), LockModeType.PESSIMISTIC_READ);
 			
 			Integer remainingSeats;
 			
