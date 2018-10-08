@@ -1097,7 +1097,7 @@ public class ARSClient
 		String header = String.format("%-20s | %-20s | %-12s | %-12s | %-16s | %-20s | %-40s | %-40s",
 				"Booking Id",
 				"Flight No",
-				"No of Psngrs",
+				"Passengers",
 				"Class Type",
 				"Total Fare",
 				"Seat Number",
@@ -1110,7 +1110,7 @@ public class ARSClient
   
 		for(Booking booking : bookings) 
 		{
-			System.out.printf("%-20s | %-20s | %-12s | %-12s | %-16.2f | %-20s | %-40s | %-40s",
+			System.out.printf("%-20s | %-20s | %-12s | %-12s | %-16.2f | %-20s | %-40s | %-40s\n",
 					booking.getBookingId(),
 					booking.getFlightNo(),
 					booking.getNoOfPassengers(),
