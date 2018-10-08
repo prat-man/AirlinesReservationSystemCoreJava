@@ -14,16 +14,18 @@ import com.cg.ars.util.JPAUtil;
 
 public class BookingDaoImpl implements BookingDao
 {
-	private EntityManager entityManager;
+	/*private EntityManager entityManager;
 
 	public BookingDaoImpl()
 	{
 		entityManager = JPAUtil.getEntityManager();
-	}
+	}*/
 	
 	@Override
 	public Booking getBooking(String bookingId)
 	{
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
 		try {
 			entityManager.getTransaction().begin();
 			
@@ -43,6 +45,8 @@ public class BookingDaoImpl implements BookingDao
 	@Override
 	public List<Booking> getBookingsForUser(String username)
 	{
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
 		try {
 			entityManager.getTransaction().begin();
 			
@@ -66,6 +70,8 @@ public class BookingDaoImpl implements BookingDao
 	@Override
 	public void updateBooking(Booking booking)
 	{
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
 		try {
 			entityManager.getTransaction().begin();
 			
@@ -83,6 +89,8 @@ public class BookingDaoImpl implements BookingDao
 	@Override
 	public void bookTicket(Booking booking)
 	{
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
 		try {
 			entityManager.getTransaction().begin();
 			
@@ -138,6 +146,8 @@ public class BookingDaoImpl implements BookingDao
 	@Override
 	public void cancelBooking(String bookingId)
 	{
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
 		try {
 			entityManager.getTransaction().begin();
 			
@@ -157,6 +167,8 @@ public class BookingDaoImpl implements BookingDao
 	@Override
 	public int getBookingId() throws BookingException
 	{
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
 		try {
 			entityManager.getTransaction().begin();
 			
