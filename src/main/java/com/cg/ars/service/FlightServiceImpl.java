@@ -55,8 +55,12 @@ public class FlightServiceImpl implements FlightService
 		catch (Exception exc) {
 			// Dirty hack to reuse method for validating while adding flight
 			if (exc.getMessage() != null && exc.getMessage().equals("Invalid Date. You must book at least ONE day before")) {
+				logger.error("Invalid Date. You must add flights at least ONE day before");
+				
 				throw new FlightException("Invalid Date. You must add flights at least ONE day before");
 			}
+			
+			logger.error(exc.getMessage());
 			
 			throw new FlightException(exc.getMessage());
 		}
@@ -89,6 +93,8 @@ public class FlightServiceImpl implements FlightService
 			return flight;
 		}
 		catch (Exception exc) {
+			logger.error(exc.getMessage());
+			
 			throw new FlightException(exc.getMessage());
 		}
 	}
@@ -108,6 +114,7 @@ public class FlightServiceImpl implements FlightService
 		}
 		catch (Exception exc) {
 			logger.error("Flight Record Deletion Failed [flightNo=" + flightNo + "]\n" + exc.getMessage());
+			
 			throw new FlightException("Flight Record Deletion Failed [flightNo=" + flightNo + "]");
 		}
 	}
@@ -123,6 +130,7 @@ public class FlightServiceImpl implements FlightService
 		
 		if (flight == null) {
 			logger.error("Flight not found with [flightNo=" + flightNo + "]");
+			
 			throw new FlightException("Flight not found with [flightNo=" + flightNo + "]");
 		}
 		
@@ -150,6 +158,7 @@ public class FlightServiceImpl implements FlightService
 		}
 		catch (Exception exc) {
 			logger.error("No Flight Records Found\n" + exc.getMessage());
+			
 			throw new FlightException("No Flight Records Found");
 		}
 	}
@@ -179,6 +188,7 @@ public class FlightServiceImpl implements FlightService
 		}
 		catch (Exception exc) {
 			logger.error("No Flight Records Found\n" + exc.getMessage());
+			
 			throw new FlightException("No Flight Records Found");
 		}
 	}
@@ -194,6 +204,7 @@ public class FlightServiceImpl implements FlightService
 		
 		if (flight == null) {
 			logger.error("Flight Not Found with [flightNo=" + flightNo + "]");
+			
 			throw new FlightException("Flight Not Found with [flightNo=" + flightNo + "]");
 		}
 
@@ -215,6 +226,7 @@ public class FlightServiceImpl implements FlightService
 		
 		if (fare < 0) {
 			logger.error("Invalid Class Type [classType=" + classType + "]");
+			
 			throw new FlightException("Invalid Class Type [classType=" + classType + "]");
 		}
 		
@@ -237,6 +249,8 @@ public class FlightServiceImpl implements FlightService
 			return oc;
 		}
 		catch (Exception e) {
+			logger.error(e.getMessage());
+			
 			throw new FlightException(e.getMessage());
 		}
 	}
@@ -257,6 +271,8 @@ public class FlightServiceImpl implements FlightService
 			return oc;
 		}
 		catch (Exception e) {
+			logger.error(e.getMessage());
+			
 			throw new FlightException(e.getMessage());
 		}
 	}
@@ -274,7 +290,7 @@ public class FlightServiceImpl implements FlightService
 			return true;
 		}
 		else {
-			throw new FlightException("Invalid Flight Number [flightNo=" + flightNo + "]\n Flight Number Should start with UPPERCASE and ends with number");
+			throw new FlightException("Invalid Flight Number [flightNo=" + flightNo + "]\nMust be 3 to 4 UPPERCASE alphabets followed by 4 to 6 digits");
 		}
 	}
 
@@ -291,7 +307,7 @@ public class FlightServiceImpl implements FlightService
 			return true;
 		}
 		else {
-			throw new FlightException("Invalid Airline Name[Airline=" + airline + "]\nAirline name should start with UPPERCASE");
+			throw new FlightException("Invalid Airline Name[Airline=" + airline + "]\nMust start with UPPERCASE followed by lowercase alphabets");
 		}
 	}
 
@@ -308,7 +324,7 @@ public class FlightServiceImpl implements FlightService
 			return true;
 		}
 		else {
-			throw new FlightException("Invalid City [city=" + city + "]\n");
+			throw new FlightException("Invalid City [city=" + city + "]\nMust start with UPPERCASE followed by lowercase alphabets");
 		}
 	}
 	
