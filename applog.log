@@ -1,0 +1,20 @@
+2018-10-08 17:00:38,013 - com.cg.ars.service.UserServiceImpl - WARN - Invalid Credentials [username=pratanu.mandal]
+2018-10-08 17:00:44,665 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-08 17:00:44,696 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=admin]
+2018-10-08 17:01:49,799 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-08 17:01:49,830 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=admin]
+2018-10-08 17:02:39,279 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Record Retrieved [airportId=IXC]
+2018-10-08 17:02:39,341 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Record Retrieved [airportId=DEL]
+2018-10-08 17:02:39,571 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 1, SQLState: 23000
+2018-10-08 17:02:39,571 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-00001: unique constraint (LAB1BTRG30.SYS_C001307670) violated
+
+2018-10-08 17:02:39,618 - com.cg.ars.service.FlightServiceImpl - ERROR - Transaction not active
+2018-10-08 17:03:13,729 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - WARN - SQL Error: 1, SQLState: 23000
+2018-10-08 17:03:13,730 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR - ORA-00001: unique constraint (LAB1BTRG30.SYS_C001307670) violated
+
+2018-10-08 17:03:13,766 - com.cg.ars.service.FlightServiceImpl - ERROR - No Flight Records Found
+org.hibernate.exception.ConstraintViolationException: could not execute statement
+2018-10-08 17:03:42,241 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Record Deleted [flightNo=INDI9009]
+2018-10-08 17:04:33,324 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Record Retrieved [airportId=IXC]
+2018-10-08 17:04:33,384 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Record Retrieved [airportId=DEL]
+2018-10-08 17:04:33,457 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Record Added [flightNo=INDI9009]
