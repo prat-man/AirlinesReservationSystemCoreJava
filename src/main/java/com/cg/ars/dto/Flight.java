@@ -10,6 +10,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 
 @Entity
 @Table(name="FLIGHTS")
@@ -64,6 +65,9 @@ public class Flight
 	
 	@Column(name="ARR_AIRPORT")
 	private String arrAirport;
+	
+	@Version
+	private Integer version;
 	
 	@Transient
 	public static final String FIRST = "First";
@@ -191,6 +195,14 @@ public class Flight
 
 	public void setArrAirport(String arrAirport) {
 		this.arrAirport = arrAirport;
+	}
+	
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
 
 	/**
