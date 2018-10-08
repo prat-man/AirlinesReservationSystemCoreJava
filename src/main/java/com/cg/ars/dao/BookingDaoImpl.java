@@ -86,7 +86,7 @@ public class BookingDaoImpl implements BookingDao
 		try {
 			entityManager.getTransaction().begin();
 			
-			Flight flight = entityManager.find(Flight.class, booking.getFlightNo(), LockModeType.PESSIMISTIC_WRITE);
+			Flight flight = entityManager.find(Flight.class, booking.getFlightNo(), LockModeType.OPTIMISTIC);
 			
 			Integer remainingSeats;
 			
@@ -124,11 +124,11 @@ public class BookingDaoImpl implements BookingDao
 			
 			entityManager.persist(booking);
 			
-			entityManager.refresh(flight, LockModeType.PESSIMISTIC_WRITE);
-			
 			entityManager.getTransaction().commit();
 		}
 		catch (Exception exc) {
+			exc.printStackTrace();
+			
 			entityManager.getTransaction().rollback();
 			
 			throw exc;
