@@ -14,9 +14,13 @@ public interface FlightService
 	
 	public void deleteFlight(String flightNo) throws FlightException;
 	
+	public Flight getFlight(String flightNo) throws FlightException;
+	
 	public List<Flight> getAllFlights() throws FlightException;
 	
 	public List<Flight> getFlights(Date date, String depCity, String arrCity) throws FlightException;
+	
+	public Double getFare(String flightNo, String classType) throws FlightException;
 	
 	public Double getOccupancy(String flightNo) throws FlightException;
 	
@@ -31,8 +35,4 @@ public interface FlightService
 	public boolean validateDate(Date date) throws FlightException;
 		
 	public boolean validateSeats(Integer seats) throws FlightException;
-	
-	public Flight getFlight(String flightNo) throws FlightException;
-	
-	public Double getFare(String flightNo, String classType) throws FlightException;
 }

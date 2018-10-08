@@ -29,5 +29,4 @@ public interface BookingService
 	public boolean validateCreditCardInfo(String creditCardInfo) throws BookingException;
 	
 	public boolean validateCity(String city) throws BookingException;
-	
 }
