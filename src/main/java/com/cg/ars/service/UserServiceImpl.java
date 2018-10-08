@@ -235,7 +235,7 @@ public class UserServiceImpl implements UserService
 		}
 		else {
 			logger.warn("Invalid Password");
-			throw new UserException("Invalid Password\nMust be atleast 8 characters long\nMust contain atleast 1 lower case character, 1 upper case character, 1 digit, and 1 special character");
+			throw new UserException("Invalid Password\nMust be atleast 8 characters long\nMust contain atleast 1 UPPER CASE, 1 lower case, 1 digit, and 1 special character");
 		}
 	}
 
