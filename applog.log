@@ -1,0 +1,24 @@
+2018-10-08 16:54:30,839 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-08 16:54:30,885 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-08 16:54:41,388 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched for [depCity=Chandigarh, arrCity=Delhi, date=2018-10-12]
+2018-10-08 16:55:10,161 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID generated for [flightNo=INDI9009]
+2018-10-08 16:55:10,286 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid! [city=Delhi]
+2018-10-08 16:55:10,286 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid! [city=Chandigarh]
+2018-10-08 16:55:10,286 - com.cg.ars.service.BookingServiceImpl - INFO - Class Type valid! [classType=First]
+2018-10-08 16:55:10,286 - com.cg.ars.service.BookingServiceImpl - INFO - Credit card number valid!
+2018-10-08 16:55:10,286 - com.cg.ars.service.BookingServiceImpl - INFO - Number of passengers valid! [noOfPassengers=5]
+2018-10-08 16:55:10,395 - com.cg.ars.service.BookingServiceImpl - ERROR - Transaction not active
+2018-10-08 16:58:49,068 - com.cg.ars.service.FlightServiceImpl - ERROR - No Flight Records Found
+Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect): [com.cg.ars.dto.Flight#INDI9009]
+2018-10-08 17:04:14,369 - com.cg.ars.service.UserServiceImpl - INFO - Successful Login
+2018-10-08 17:04:14,400 - com.cg.ars.service.UserServiceImpl - INFO - User Record Retrieved [username=pratanu.mandal]
+2018-10-08 17:04:27,221 - com.cg.ars.service.FlightServiceImpl - INFO - Flight Records Fetched for [depCity=Chandigarh, arrCity=Delhi, date=2018-10-12]
+2018-10-08 17:05:21,676 - com.cg.ars.service.BookingServiceImpl - INFO - Booking ID generated for [flightNo=INDI9009]
+2018-10-08 17:05:21,803 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid! [city=Delhi]
+2018-10-08 17:05:21,819 - com.cg.ars.service.BookingServiceImpl - INFO - City name valid! [city=Chandigarh]
+2018-10-08 17:05:21,819 - com.cg.ars.service.BookingServiceImpl - INFO - Class Type valid! [classType=First]
+2018-10-08 17:05:21,819 - com.cg.ars.service.BookingServiceImpl - INFO - Credit card number valid!
+2018-10-08 17:05:21,819 - com.cg.ars.service.BookingServiceImpl - INFO - Number of passengers valid! [noOfPassengers=3]
+2018-10-08 17:05:21,944 - com.cg.ars.service.BookingServiceImpl - ERROR - Transaction not active
+2018-10-08 17:05:55,692 - com.cg.ars.service.FlightServiceImpl - ERROR - No Flight Records Found
+Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect): [com.cg.ars.dto.Flight#INDI9009]
