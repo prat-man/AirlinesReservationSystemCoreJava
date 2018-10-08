@@ -68,10 +68,24 @@ public class AirportServiceImpl implements AirportService
 	 * @return List of All Airports
 	 */
 	@Override
-	public List<Airport> getAllAirports() 
-	{	
-		logger.info("Information for all Airports Retrieved.");
-		return adao.getAllAirports();
+	public List<Airport> getAllAirports() throws AirportException
+	{
+		try {
+			List<Airport> list = adao.getAllAirports();
+			
+			if (list == null || list.isEmpty()) {
+				throw new NullPointerException("Airport List Empty");
+			}
+			else {
+				logger.info("Information for all Airports Retrieved.");
+				
+				return list;
+			}
+		}
+		catch (Exception exc) {
+			logger.error("No Airport Records Found\n" + exc.getMessage());
+			throw new AirportException("No Airport Records Found");
+		}
 	}
 	
 	/**

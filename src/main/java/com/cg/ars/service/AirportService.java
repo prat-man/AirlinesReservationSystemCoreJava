@@ -11,7 +11,7 @@ public interface AirportService
 	
 	public Airport getAirport(String airportId) throws AirportException;
 	
-	public List<Airport> getAllAirports();
+	public List<Airport> getAllAirports() throws AirportException;
 	
 	public void deleteAirport(String airportId) throws AirportException;
 	

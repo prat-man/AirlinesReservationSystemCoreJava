@@ -1,0 +1,14 @@
+2018-10-08 18:29:23,921 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Information Added [airportId=ZZZ]
+2018-10-08 18:29:23,998 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Record Deleted [airportId=ZZZ]
+2018-10-08 18:29:24,001 - com.cg.ars.service.AirportServiceImpl - ERROR - Invalid Airport Abbreviation [abbreviation=zZZ]
+2018-10-08 18:29:24,002 - com.cg.ars.service.AirportServiceImpl - ERROR - Invalid Airport Name [name=Zinda hai Toh]
+2018-10-08 18:29:24,003 - com.cg.ars.service.AirportServiceImpl - ERROR - Invalid Airport Location [location=duniya]
+2018-10-08 18:29:24,004 - com.cg.ars.service.AirportServiceImpl - ERROR - Invalid Airport Location [location=pune]
+2018-10-08 18:29:24,006 - com.cg.ars.service.AirportServiceImpl - ERROR - Invalid Airport Name [name=pune]
+2018-10-08 18:29:24,007 - com.cg.ars.service.AirportServiceImpl - ERROR - Invalid Airport Abbreviation [abbreviation=kolkata]
+2018-10-08 18:29:24,105 - com.cg.ars.service.AirportServiceImpl - INFO - Information for all Airports Retrieved.
+2018-10-08 18:29:24,171 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Information Added [airportId=ZZZ]
+2018-10-08 18:29:24,208 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Record Retrieved [airportId=ZZZ]
+2018-10-08 18:29:24,273 - com.cg.ars.service.AirportServiceImpl - INFO - Airport Record Deleted [airportId=ZZZ]
+2018-10-08 18:29:24,337 - com.cg.ars.service.AirportServiceImpl - ERROR - Airport Record Retrieval Failed [airportId=ZZZ]
+Airport Record with [airportId=ZZZ] not found
