@@ -1,5 +1,7 @@
 package com.cg.ars.service;
 
+import java.util.List;
+
 import com.cg.ars.dto.Booking;
 import com.cg.ars.dto.Flight;
 import com.cg.ars.exception.BookingException;
@@ -9,6 +11,8 @@ public interface BookingService
 	public void bookTicket(Booking booking) throws BookingException;
 	
 	public Booking getBooking(String bookingId) throws BookingException;
+	
+	public List<Booking> getBookingsForUser(String username) throws BookingException;
 	
 	public void updateBooking(Booking booking) throws BookingException;
 	

@@ -1,6 +1,7 @@
 package com.cg.ars.service;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
@@ -15,6 +16,7 @@ public class BookingServiceImpl implements BookingService
 {
 	private BookingDao bdao;
 	private FlightService fser;
+	private UserService user;
 	
 	private Logger logger;
 	
@@ -22,6 +24,7 @@ public class BookingServiceImpl implements BookingService
 	{
 		bdao = new BookingDaoImpl();
 		fser = new FlightServiceImpl();
+		user = new UserServiceImpl();
 		
 		logger = Logger.getLogger(this.getClass());
 	}
@@ -49,13 +52,13 @@ public class BookingServiceImpl implements BookingService
 			throw new BookingException(exc.getMessage());
 		}
 	}
-
+	
 	/**
 	 * Get Booking Details by Id
 	 * @return Booking Instance
 	 */
 	@Override
-	public Booking getBooking(String bookingId) throws BookingException 
+	public Booking getBooking(String bookingId) throws BookingException
 	{
 		try {
 			this.validateBookingId(bookingId);
@@ -66,10 +69,36 @@ public class BookingServiceImpl implements BookingService
 				logger.error("Booking Record with [bookingId=" + bookingId + "] not found");
 				throw new NullPointerException("Booking Record with [bookingId=" + bookingId + "] not found");
 			}
-			else 
-			{
+			else {
 				logger.info("Booking details fetched for [bookingId=" + booking.getBookingId() + "]");
 				return booking;
+			}
+		}
+		catch (Exception exc) {
+			logger.error(exc.getMessage());
+			throw new BookingException(exc.getMessage());
+		}
+	}
+	
+	/**
+	 * Get Booking Details by Username
+	 * @return List of Booking Instances
+	 */
+	@Override
+	public List<Booking> getBookingsForUser(String username) throws BookingException
+	{
+		try {
+			user.validateUsername(username);
+			
+			List<Booking> bookings = bdao.getBookingsForUser(username);
+			
+			if (bookings == null || bookings.isEmpty()) {
+				logger.error("No Booking Records found for [username=" + username + "]");
+				throw new NullPointerException("No Booking Records found for [username=" + username + "]");
+			}
+			else {
+				logger.info("Booking details fetched for [username=" + username + "]");
+				return bookings;
 			}
 		}
 		catch (Exception exc) {
