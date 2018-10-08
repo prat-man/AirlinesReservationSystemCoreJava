@@ -118,7 +118,7 @@ public class AirportServiceImpl implements AirportService
 		}
 		else {
 			logger.error("Invalid Airport Name [name=" + name + "]");
-			throw new AirportException("Invalid Airport Name [name=" + name + "]\nFormat: Each word must start with UPPERCASE followed by lowercase alphabets");
+			throw new AirportException("Invalid Airport Name [name=" + name + "]\nEach word must start with UPPERCASE followed by lowercase alphabets");
 		}
 	}
 
@@ -136,7 +136,7 @@ public class AirportServiceImpl implements AirportService
 		}
 		else {
 			logger.error("Invalid Airport Abbreviation [abbreviation=" + abbreviation + "]");
-			throw new AirportException("Invalid Airport Abbreviation [abbreviation=" + abbreviation + "]\nFormat: Use UPPERCASE 3 to 4 alphabets");
+			throw new AirportException("Invalid Airport Abbreviation [abbreviation=" + abbreviation + "]\nMust be 3 to 4 UPPERCASE alphabets");
 		}
 	}
 
@@ -154,7 +154,7 @@ public class AirportServiceImpl implements AirportService
 		}
 		else {
 			logger.error("Invalid Airport Location [location=" + location +  "]");
-			throw new AirportException("Invalid Airport Location [location=" + location + "]\nFormat: Each word must start with UPPERCASE followed by lowercase characters ");
+			throw new AirportException("Invalid Airport Location [location=" + location + "]\nEach word must start with UPPERCASE followed by lowercase characters ");
 		}
 	}
 }
