@@ -7,7 +7,7 @@ import com.cg.ars.exception.BookingException;
 
 public interface BookingDao
 {
-	public void bookTicket(Booking booking);
+	public void bookTicket(Booking booking) throws BookingException;
 	
 	public Booking getBooking(String bookingId);
 	
