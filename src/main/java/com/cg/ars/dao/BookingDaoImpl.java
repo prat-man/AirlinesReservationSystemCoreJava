@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
-import javax.persistence.PessimisticLockException;
+import javax.persistence.OptimisticLockException;
 import javax.persistence.Query;
 
 import com.cg.ars.dto.Booking;
@@ -130,7 +130,7 @@ public class BookingDaoImpl implements BookingDao
 				
 				break;
 			}
-			catch (PessimisticLockException exc) {
+			catch (OptimisticLockException exc) {
 				entityManager.getTransaction().rollback();
 				
 				if (i == 2) {
@@ -141,6 +141,7 @@ public class BookingDaoImpl implements BookingDao
 				}
 			}
 			catch (Exception exc) {
+				exc.printStackTrace();
 				entityManager.getTransaction().rollback();
 				
 				throw new BookingException(exc.getMessage());
