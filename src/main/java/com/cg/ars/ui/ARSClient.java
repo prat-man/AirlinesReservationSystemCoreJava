@@ -1008,7 +1008,7 @@ public class ARSClient
 			System.out.print("Credit Card Number: ");
 			booking.setCreditCardInfo(BR.readLine());
 		}
-		catch (Exception e) {
+		catch (NumberFormatException | IOException e) {
 			System.err.println("\nInvalid Input");
 			System.err.println(e.getMessage());
 			return;
