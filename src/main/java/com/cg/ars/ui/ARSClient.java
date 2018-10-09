@@ -1041,7 +1041,15 @@ public class ARSClient
 		
 		System.out.println("Booking ID: " + booking.getBookingId());
 		
+		System.out.println("Flight ID: " + booking.getFlightNo());
+		
 		System.out.println("Seat Number: " + booking.getSeatNumber());
+		
+		System.out.println("From: " + booking.getSrcCity());
+		
+		System.out.println("To: " + booking.getDestCity());
+		
+		System.out.println("Total Fare: " + booking.getTotalFare());
 	}
 
 	private static void viewBooking(String username) 
