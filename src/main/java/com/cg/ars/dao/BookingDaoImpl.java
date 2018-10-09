@@ -120,6 +120,8 @@ public class BookingDaoImpl implements BookingDao
 								throw new RuntimeException("Invalid Class Type [classType=" + booking.getClassType() + "]");
 			}
 			
+			entityManager.merge(flight);
+			
 			entityManager.persist(booking);
 			
 			entityManager.getTransaction().commit();
@@ -138,6 +140,28 @@ public class BookingDaoImpl implements BookingDao
 			entityManager.getTransaction().begin();
 			
 			Booking booking = entityManager.find(Booking.class, bookingId);
+			
+			Flight flight = entityManager.find(Flight.class, booking.getFlightNo());
+			
+			Integer remainingSeats;
+			
+			switch (booking.getClassType())
+			{
+				case Flight.FIRST:
+								remainingSeats = flight.getFirstSeats() + booking.getNoOfPassengers();
+								flight.setFirstSeats(remainingSeats);
+								break;
+				
+				case Flight.BUSINESS:
+								remainingSeats = flight.getBussSeats() + booking.getNoOfPassengers();
+								flight.setBussSeats(remainingSeats);
+								break;
+					
+				default:
+								throw new RuntimeException("Invalid Class Type [classType=" + booking.getClassType() + "]");
+			}
+			
+			entityManager.merge(flight);
 			
 			entityManager.remove(booking);
 			
