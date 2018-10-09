@@ -1187,7 +1187,6 @@ public class ARSClient
 				System.out.println("\nBooking Cancelled Successfully");
 			}
 		} catch (BookingException e) {
-			e.printStackTrace();
 			System.err.println("\n" + e.getMessage());
 		}
 	}
