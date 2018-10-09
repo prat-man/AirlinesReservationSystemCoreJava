@@ -1061,16 +1061,18 @@ public class ARSClient
 			
 		Booking booking;
 		Flight flight;
+		User user;
 		
 		try {
 			booking = B_SER.getBooking(bookingId);
 			flight = F_SER.getFlight(booking.getFlightNo());
-		} catch (BookingException | FlightException e) {
+			user = U_SER.getUser(username);
+		} catch (BookingException | FlightException | UserException e) {
 			System.err.println("\n" + e.getMessage());
 			return;
 		}
 		
-		if (!booking.getUsername().equals(username)) {
+		if (!booking.getUsername().equals(username) && user.getRole().equals(User.USER)) {
 			System.err.println("\nAccess Denied");
 			return;
 		}
